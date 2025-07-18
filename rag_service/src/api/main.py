@@ -29,11 +29,11 @@ from token_management.token_manager import init_token_manager, call_openai_chat
 load_dotenv(find_dotenv())
 
 # Database configuration
-db_user = os.getenv("DB_USER", "postgres")
-db_password = os.getenv("DB_PASSWORD", "password")
-db_host = os.getenv("DB_HOST", "127.0.0.1")
-db_port = os.getenv("DB_PORT", "5432")
-db_name = os.getenv("DB_NAME", "portfolio_db")
+db_user = os.getenv("POSTGRES_USER", "postgres")
+db_password = os.getenv("POSTGRES_PASSWORD", "password")
+db_host = os.getenv("DATABASE_HOST", "db")
+db_port = os.getenv("DATABASE_PORT", "5432")
+db_name = os.getenv("POSTGRES_DB", "restuarants_db")
 
 CONNECTION_STRING = (
     f"postgresql+psycopg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"

@@ -28,9 +28,9 @@ def setup_paths(project_dir: Path):
     logs_dir = project_dir / "logs"
     output_dir = project_dir / "output"
 
-    state_dir.mkdir(exist_ok=True)
-    logs_dir.mkdir(exist_ok=True)
-    output_dir.mkdir(exist_ok=True)
+    state_dir.mkdir(parents=True, exist_ok=True)
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     return {
         "TOKEN_STATE_FILE": state_dir / "token_usage.json",
