@@ -5,11 +5,8 @@ services:
   db:
     image: pgvector/pgvector:pg15
     container_name: portfolio_db
-    env_file: .env
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file: 
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
@@ -22,7 +19,8 @@ services:
   redis:
     image: redis:7-alpine
     container_name: portfolio_redis
-    env_file: .env
+    env_file:
+      - .env
     ports:
       - "6379:6379"
     volumes:
@@ -39,19 +37,8 @@ services:
     depends_on:
       - db
       - redis
-    env_file: .env
-    environment:
-      - DEBUG=True
-      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
-      - DB_HOST=db
-      - DB_NAME=${POSTGRES_DB}
-      - DB_USER=${POSTGRES_USER}
-      - DB_PASSWORD=${POSTGRES_PASSWORD}
-      - REDIS_URL=redis://${REDIS_HOST}:${REDIS_PORT}/0 #redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://${REDIS_HOST}:${REDIS_PORT}/0 #redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://${REDIS_HOST}:${REDIS_PORT}/0 #redis://redis:6379/0
-      - RAG_SERVICE_URL=http://rag:8001
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file:
+      - .env
     volumes:
       - ./django_app/src:/app
       - ./shared:/shared
@@ -96,17 +83,8 @@ services:
     depends_on:
       - db
       - redis
-    environment:
-      - DEBUG=True
-      - DJANGO_SECRET_KEY=your-secret-key-here
-      - DB_HOST=db
-      - DB_NAME=portfolio_db
-      - DB_USER=postgres
-      - DB_PASSWORD=password
-      - REDIS_URL=redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file: 
+      - .env
     volumes:
       - ./django_app/src:/app
       - ./shared:/shared
@@ -125,17 +103,8 @@ services:
     depends_on:
       - db
       - redis
-    environment:
-      - DEBUG=True
-      - DJANGO_SECRET_KEY=your-secret-key-here
-      - DB_HOST=db
-      - DB_NAME=portfolio_db
-      - DB_USER=postgres
-      - DB_PASSWORD=password
-      - REDIS_URL=redis://redis:6379/0
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file: 
+      - .env
     volumes:
       - ./django_app/src:/app
       - ./shared:/shared
@@ -152,9 +121,8 @@ services:
     container_name: portfolio_flower
     depends_on:
       - redis
-    environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    env_file: 
+      - .env
     ports:
       - "5555:5555"
     networks:
