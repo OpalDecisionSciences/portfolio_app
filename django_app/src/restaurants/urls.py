@@ -9,6 +9,7 @@ app_name = 'restaurants'
 urlpatterns = [
     # Main restaurant views
     path('', views.RestaurantListView.as_view(), name='restaurant_list'),
+    path('gallery/', views.gallery_view, name='gallery'),
     path('<slug:slug>/', views.RestaurantDetailView.as_view(), name='restaurant_detail'),
     path('<slug:slug>/review/', views.add_review, name='add_review'),
     

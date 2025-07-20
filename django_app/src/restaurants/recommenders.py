@@ -6,6 +6,7 @@ for restaurants based on various features like cuisine, location, price, and rat
 """
 
 import math
+import unicodedata
 from typing import List, Dict, Tuple, Optional
 from django.db.models import Q, Count, Avg, F
 from django.core.cache import cache
@@ -21,6 +22,15 @@ class RestaurantRecommender:
     
     def __init__(self):
         self.cache_timeout = 3600  # 1 hour cache
+    
+    def _normalize_text(self, text: str) -> str:
+        """Normalize text by removing accents and converting to lowercase."""
+        if not text:
+            return ""
+        # Remove accents and normalize unicode
+        normalized = unicodedata.normalize('NFD', text)
+        ascii_text = normalized.encode('ascii', 'ignore').decode('ascii')
+        return ascii_text.lower().strip()
     
     def get_recommendations(self, 
                           user: Optional[User] = None,
@@ -93,15 +103,41 @@ class RestaurantRecommender:
         # Build search queryset
         restaurants = Restaurant.objects.filter(is_active=True)
         
-        # Text search with weighted relevance
+        # Text search with accent-insensitive matching
         if query:
-            restaurants = restaurants.filter(
-                Q(name__icontains=query) |
-                Q(city__icontains=query) |
-                Q(country__icontains=query) |
-                Q(cuisine_type__icontains=query) |
-                Q(description__icontains=query)
-            )
+            # For better accent-insensitive search, we'll do Python-level filtering
+            # on a reasonable subset of restaurants, then apply proper scoring
+            normalized_query = self._normalize_text(query)
+            
+            # Get all restaurants and filter in Python for accent-insensitive search
+            all_restaurants = list(restaurants.all())
+            matching_restaurants = []
+            
+            for restaurant in all_restaurants:
+                # Check if query matches any field (with accent normalization)
+                name_match = (query.lower() in restaurant.name.lower() or 
+                             normalized_query in self._normalize_text(restaurant.name))
+                city_match = (query.lower() in restaurant.city.lower() or 
+                             normalized_query in self._normalize_text(restaurant.city))
+                country_match = (query.lower() in restaurant.country.lower() or 
+                                normalized_query in self._normalize_text(restaurant.country))
+                cuisine_match = (restaurant.cuisine_type and 
+                               (query.lower() in restaurant.cuisine_type.lower() or 
+                                normalized_query in self._normalize_text(restaurant.cuisine_type)))
+                description_match = (restaurant.description and 
+                                   (query.lower() in restaurant.description.lower() or 
+                                    normalized_query in self._normalize_text(restaurant.description)))
+                
+                if name_match or city_match or country_match or cuisine_match or description_match:
+                    matching_restaurants.append(restaurant)
+            
+            # Convert back to queryset using IDs
+            if matching_restaurants:
+                matching_ids = [r.id for r in matching_restaurants]
+                restaurants = restaurants.filter(id__in=matching_ids)
+            else:
+                # No matches found, return empty queryset
+                restaurants = restaurants.none()
         
         # Apply filters
         if location:
@@ -290,24 +326,39 @@ class RestaurantRecommender:
         query_lower = query.lower() if query else ""
         location_lower = location.lower() if location else ""
         
-        # Exact name match gets highest score
-        if query and restaurant.name.lower() == query_lower:
-            score += 1.0
-        elif query and query_lower in restaurant.name.lower():
-            score += 0.8
+        # Normalize for accent-insensitive comparison
+        query_normalized = self._normalize_text(query) if query else ""
+        restaurant_name_normalized = self._normalize_text(restaurant.name)
         
-        # Location relevance
+        # Exact name match gets highest score (check both original and normalized)
+        if query:
+            if restaurant.name.lower() == query_lower:
+                score += 1.0  # Perfect exact match
+            elif restaurant_name_normalized == query_normalized:
+                score += 0.98  # Accent-insensitive exact match (e.g., "epicure" = "Épicure") - raised priority
+            elif query_lower in restaurant.name.lower():
+                score += 0.8  # Substring match with original case
+            elif query_normalized in restaurant_name_normalized:
+                score += 0.75  # Accent-insensitive substring match
+        
+        # Location relevance (with accent normalization)
         if location:
-            if restaurant.city.lower() == location_lower:
+            location_normalized = self._normalize_text(location)
+            city_normalized = self._normalize_text(restaurant.city)
+            country_normalized = self._normalize_text(restaurant.country)
+            
+            if restaurant.city.lower() == location_lower or city_normalized == location_normalized:
                 score += 0.6
-            elif location_lower in restaurant.city.lower():
+            elif location_lower in restaurant.city.lower() or location_normalized in city_normalized:
                 score += 0.4
-            elif restaurant.country.lower() == location_lower:
+            elif restaurant.country.lower() == location_lower or country_normalized == location_normalized:
                 score += 0.3
         
-        # Cuisine relevance
-        if query and restaurant.cuisine_type and query_lower in restaurant.cuisine_type.lower():
-            score += 0.5
+        # Cuisine relevance (with accent normalization)
+        if query and restaurant.cuisine_type:
+            cuisine_normalized = self._normalize_text(restaurant.cuisine_type)
+            if query_lower in restaurant.cuisine_type.lower() or query_normalized in cuisine_normalized:
+                score += 0.5
         
         # Quality boosters
         if restaurant.michelin_stars:

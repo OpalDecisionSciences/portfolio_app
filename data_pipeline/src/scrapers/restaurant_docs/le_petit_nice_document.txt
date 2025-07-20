@@ -1,0 +1,22 @@
+# Le Petit Nice
+
+## Cuisine
+Gastronomic
+
+## Ambiance & Atmosphere
+Luxurious and tranquil setting by the sea, with a minimalist and raw materials decor designed by architect Rudy Ricciotti.
+
+## Location
+Marseille, Provence, France
+
+## Location & Time Zone
+
+Country: France
+City: Marseille
+Timezone: Europe/Paris
+Current local time: 2025-07-20 15:39:56 CEST
+
+## Document Information
+
+Generated: 2025-07-20 13:39:56 UTC
+Source: https://www.passedat.fr

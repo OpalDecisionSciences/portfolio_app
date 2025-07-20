@@ -13,6 +13,9 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Restaurant, Chef, MenuSection, MenuItem, RestaurantReview, ScrapingJob, RestaurantImage
+import json
+import os
+from pathlib import Path
 from .forms import RestaurantReviewForm, RestaurantSearchForm
 from .recommenders import RestaurantRecommender
 
@@ -140,7 +143,85 @@ class RestaurantDetailView(DetailView):
         )
         context['similar_restaurants'] = similar_restaurants
         
+        # Add document.txt content (restaurant about information)
+        document_content = self._get_restaurant_document_content(restaurant)
+        if document_content:
+            context['document_content'] = document_content
+        
+        # Add timezone information if available
+        timezone_info = self._get_restaurant_timezone_info(restaurant)
+        if timezone_info:
+            context['timezone_info'] = timezone_info
+        
         return context
+    
+    def _get_restaurant_document_content(self, restaurant):
+        """Get document.txt content for restaurant about section."""
+        try:
+            # Look for document.txt files in restaurant_docs directory
+            docs_dir = Path(__file__).resolve().parent.parent.parent / "data_pipeline" / "src" / "scrapers" / "restaurant_docs"
+            
+            # Create clean filename from restaurant name
+            clean_name = "".join(c if c.isalnum() or c in "-_" else "_" for c in restaurant.name.lower())[:50].strip("_")
+            potential_files = [
+                docs_dir / f"{clean_name}_document.txt",
+                docs_dir / f"{clean_name}.txt",
+            ]
+            
+            # Try to find and read document file
+            for doc_file in potential_files:
+                if doc_file.exists():
+                    with open(doc_file, 'r', encoding='utf-8') as f:
+                        content = f.read().strip()
+                        if content:
+                            return content
+            
+            # Fallback: generate document content from scraped data if available
+            if restaurant.scraped_content:
+                return self._generate_about_from_scraped_content(restaurant)
+                
+        except Exception as e:
+            pass  # Silently fail, document content is optional
+        
+        return None
+    
+    def _generate_about_from_scraped_content(self, restaurant):
+        """Generate about section from existing restaurant data."""
+        about_parts = []
+        
+        if restaurant.name:
+            about_parts.append(f"# {restaurant.name}")
+        
+        if restaurant.cuisine_type:
+            about_parts.append(f"\n## Cuisine\n{restaurant.cuisine_type}")
+        
+        if restaurant.atmosphere:
+            about_parts.append(f"\n## Atmosphere\n{restaurant.atmosphere}")
+        
+        if restaurant.city and restaurant.country:
+            about_parts.append(f"\n## Location\n{restaurant.city}, {restaurant.country}")
+        
+        if restaurant.description:
+            about_parts.append(f"\n## About\n{restaurant.description}")
+        
+        if about_parts:
+            return '\n'.join(about_parts)
+        
+        return None
+    
+    def _get_restaurant_timezone_info(self, restaurant):
+        """Get timezone information for the restaurant."""
+        try:
+            # Check if restaurant has timezone_info field with JSON data
+            if hasattr(restaurant, 'timezone_info') and restaurant.timezone_info:
+                try:
+                    return json.loads(restaurant.timezone_info)
+                except (json.JSONDecodeError, AttributeError):
+                    pass
+        except Exception:
+            pass
+        
+        return None
 
 
 @login_required
@@ -420,3 +501,66 @@ def scraping_job_detail(request, job_id):
     }
     
     return render(request, 'restaurants/scraping_job_detail.html', context)
+
+
+def gallery_view(request):
+    """Gallery view showing all restaurant images with filtering."""
+    
+    # Get all images with their restaurants
+    images = RestaurantImage.objects.select_related('restaurant').filter(
+        restaurant__is_active=True
+    )
+    
+    # Filtering
+    category = request.GET.get('category', '')
+    if category:
+        images = images.filter(ai_category=category)
+    
+    country = request.GET.get('country', '')
+    if country:
+        images = images.filter(restaurant__country=country)
+    
+    cuisine = request.GET.get('cuisine', '')
+    if cuisine:
+        images = images.filter(restaurant__cuisine_type=cuisine)
+    
+    # Search
+    search_query = request.GET.get('search', '')
+    if search_query:
+        images = images.filter(
+            Q(restaurant__name__icontains=search_query) |
+            Q(restaurant__city__icontains=search_query) |
+            Q(caption__icontains=search_query) |
+            Q(ai_category__icontains=search_query)
+        )
+    
+    # Order by newest first
+    images = images.order_by('-created_at')
+    
+    # Pagination
+    paginator = Paginator(images, 24)  # 24 images per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    # Get filter options
+    categories = RestaurantImage.objects.values_list('ai_category', flat=True).distinct().exclude(ai_category='')
+    countries = Restaurant.objects.filter(is_active=True, images__isnull=False).values_list('country', flat=True).distinct()
+    cuisines = Restaurant.objects.filter(is_active=True, images__isnull=False).values_list('cuisine_type', flat=True).distinct().exclude(cuisine_type='')
+    
+    context = {
+        'images': page_obj,
+        'categories': sorted(categories),
+        'countries': sorted(countries),
+        'cuisines': sorted(cuisines),
+        'current_filters': {
+            'category': category,
+            'country': country,
+            'cuisine': cuisine,
+            'search': search_query,
+        },
+        'total_images': images.count(),
+        'is_paginated': page_obj.has_other_pages(),
+        'page_obj': page_obj,
+    }
+    
+    return render(request, 'restaurants/gallery.html', context)

@@ -1,1 +1,2 @@
 ERROR:michelin_csv_processor:Error in process_csv_file: connection failed: could not receive data from server: Connection refused
+ERROR:michelin_csv_processor:Error in process_csv_file: connection failed: :1), port 5432 failed: FATAL:  role "postgres" does not exist

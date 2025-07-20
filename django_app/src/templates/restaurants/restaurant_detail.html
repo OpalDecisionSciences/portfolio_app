@@ -211,6 +211,123 @@
 		.close:hover {
 			color: #bbb;
 		}
+		
+		/* Restaurant About Section Styles */
+		.restaurant-about-content {
+			line-height: 1.8;
+			color: #444;
+		}
+		
+		.restaurant-about-content h2 {
+			color: #2c3e50;
+			margin-top: 25px;
+			margin-bottom: 15px;
+			font-size: 20px;
+		}
+		
+		.restaurant-about-content h3 {
+			color: #34495e;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			font-size: 16px;
+		}
+		
+		/* Menu Section Styles */
+		.menu-section {
+			margin-bottom: 40px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 30px;
+		}
+		
+		.menu-section:last-child {
+			border-bottom: none;
+		}
+		
+		.menu-section-title {
+			color: #2c3e50;
+			font-size: 24px;
+			margin-bottom: 10px;
+			border-bottom: 2px solid #3498db;
+			padding-bottom: 5px;
+		}
+		
+		.menu-section-description {
+			color: #666;
+			font-style: italic;
+			margin-bottom: 20px;
+		}
+		
+		.menu-items {
+			display: grid;
+			gap: 15px;
+		}
+		
+		.menu-item {
+			padding: 15px;
+			background: #f8f9fa;
+			border-radius: 8px;
+			border-left: 4px solid #3498db;
+		}
+		
+		.menu-item-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 8px;
+		}
+		
+		.menu-item-name {
+			color: #2c3e50;
+			font-size: 18px;
+			font-weight: 600;
+			margin: 0;
+			flex: 1;
+		}
+		
+		.menu-item-price {
+			color: #27ae60;
+			font-weight: 700;
+			font-size: 16px;
+			white-space: nowrap;
+			margin-left: 15px;
+		}
+		
+		.menu-item-description {
+			color: #666;
+			margin: 0;
+			line-height: 1.6;
+		}
+		
+		/* Timezone and metadata styles */
+		.restaurant-metadata {
+			background: #f8f9fa;
+			padding: 15px;
+			border-radius: 8px;
+			margin-top: 20px;
+			font-size: 14px;
+			color: #666;
+		}
+		
+		.restaurant-metadata h4 {
+			color: #2c3e50;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		
+		.timezone-info {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 10px;
+		}
+		
+		.timezone-item {
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.timezone-label {
+			font-weight: 600;
+		}
 	</style>
 </head>
 
@@ -229,6 +346,15 @@
 										<img src="{% static 'logo/foodOnlineLogo.png' %}" alt="FoodOnline" width="250">
 									</a>
 								</figure>
+							</div>
+							<div class="main-nav">
+								<nav id="site-navigation" class="main-navigation">
+									<ul>
+										<li><a href="{% url 'home' %}">Home</a></li>
+										<li><a href="{% url 'restaurants:restaurant_list' %}">Restaurants</a></li>
+										<li><a href="{% url 'restaurants:gallery' %}">Gallery</a></li>
+									</ul>
+								</nav>
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -322,6 +448,46 @@
 								{% endif %}
 							</div>
 							
+							<!-- Restaurant About Section (document.txt functionality) -->
+							{% if document_content %}
+							<div class="restaurant-info-card">
+								<h2><i class="icon-info"></i> About {{ restaurant.name }}</h2>
+								<div class="restaurant-about-content">
+									{{ document_content|linebreaks }}
+								</div>
+							</div>
+							{% endif %}
+							
+							<!-- Menu Sections -->
+							{% if menu_sections %}
+							<div class="restaurant-info-card">
+								<h2><i class="icon-cutlery"></i> Menu</h2>
+								{% for section in menu_sections %}
+								<div class="menu-section">
+									<h3 class="menu-section-title">{{ section.name }}</h3>
+									{% if section.description %}
+									<p class="menu-section-description">{{ section.description }}</p>
+									{% endif %}
+									<div class="menu-items">
+										{% for item in section.items.all %}
+										<div class="menu-item">
+											<div class="menu-item-header">
+												<h4 class="menu-item-name">{{ item.name }}</h4>
+												{% if item.price %}
+												<span class="menu-item-price">{{ item.price }}</span>
+												{% endif %}
+											</div>
+											{% if item.description %}
+											<p class="menu-item-description">{{ item.description }}</p>
+											{% endif %}
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							{% endif %}
+							
 							<!-- Image Gallery -->
 							{% if images %}
 							<div class="image-gallery">
@@ -379,6 +545,43 @@
 						</div>
 						
 						<div class="col-lg-4">
+							<!-- Restaurant Metadata -->
+							{% if restaurant.timezone_info or restaurant.scraped_at %}
+							<div class="restaurant-info-card">
+								<h3><i class="icon-globe"></i> Restaurant Information</h3>
+								
+								{% if restaurant.timezone_info %}
+								<div class="restaurant-metadata">
+									<h4>Location & Time</h4>
+									<div class="timezone-info">
+										<div class="timezone-item">
+											<span class="timezone-label">Local Time:</span>
+											<span id="local-time">Loading...</span>
+										</div>
+										<div class="timezone-item">
+											<span class="timezone-label">Timezone:</span>
+											<span>{{ restaurant.get_timezone_display }}</span>
+										</div>
+									</div>
+								</div>
+								{% endif %}
+								
+								{% if restaurant.website %}
+								<div class="restaurant-metadata">
+									<h4>Website</h4>
+									<a href="{{ restaurant.website }}" target="_blank" rel="noopener">Visit Website</a>
+								</div>
+								{% endif %}
+								
+								{% if restaurant.scraped_at %}
+								<div class="restaurant-metadata">
+									<h4>Data Updated</h4>
+									<small>{{ restaurant.scraped_at|date:"M d, Y" }}</small>
+								</div>
+								{% endif %}
+							</div>
+							{% endif %}
+							
 							<!-- Similar Restaurants -->
 							{% if similar_restaurants %}
 							<div class="recommendations-section">
@@ -508,6 +711,32 @@
 				document.getElementById('imageModal').style.display = 'none';
 			}
 		});
+		
+		// Timezone functionality
+		{% if timezone_info %}
+		function updateLocalTime() {
+			try {
+				const timezone = '{{ timezone_info.local_timezone|escapejs }}';
+				const now = new Date();
+				const localTime = now.toLocaleString('en-US', {
+					timeZone: timezone,
+					year: 'numeric',
+					month: 'short',
+					day: 'numeric',
+					hour: '2-digit',
+					minute: '2-digit',
+					second: '2-digit'
+				});
+				document.getElementById('local-time').textContent = localTime;
+			} catch (error) {
+				document.getElementById('local-time').textContent = 'Time unavailable';
+			}
+		}
+		
+		// Update time immediately and then every minute
+		updateLocalTime();
+		setInterval(updateLocalTime, 60000);
+		{% endif %}
 	</script>
 </body>
 </html>

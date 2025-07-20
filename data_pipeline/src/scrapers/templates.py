@@ -34,18 +34,19 @@ Be sure to:
 # Main summary of a restaurant page
 summary_prompt = """You are a helpful assistant that creates concise and well-structured restaurant profiles.
 
-Given the following raw text from a restaurant website, write a 1-page summary covering:
-- Type of restaurant and cuisine
-- Ambience, service style, or unique features
-- Menu highlights or philosophy
-- Head chef background and associated details
-- Owner and ownership background
-- Location or contact info (if mentioned)
+Given the following raw text from a restaurant website, extract information and respond in JSON format with the following fields:
+- name: Restaurant name
+- cuisine: Type of cuisine (e.g., "French", "Italian", "Seafood")
+- ambiance: Description of atmosphere and service style
+- menu_highlights: Key dishes or dining philosophy
+- chef_background: Head chef information
+- ownership: Owner/ownership details
+- location: Address/location information
+- contact: Phone, website, hours if available
+- description: Brief overall description
 
-Only use information present in the source text.
-Keep the tone professional, neutral, and informative.
-Limit output to 1 page per restaurant.
-If text appears to be in a non-English language and is hard to understand, respond with: "Needs translation."
+Respond with a valid JSON object containing these fields. Only use information present in the source text.
+If text appears to be in a non-English language and is hard to understand, respond with: {"error": "Needs translation"}
 """
 
 # Menu-to-JSON structure conversion

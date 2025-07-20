@@ -1,0 +1,1072 @@
+API key looks good.
+📊 Loaded 18113 restaurants from CSV
+🍽️  STARTING COMPREHENSIVE MICHELIN SCRAPING
+============================================================
+📅 Started: 2025-07-20 13:20:40
+🎯 Target: Row 1 to 101
+============================================================
+\n🔄 [1] Scraping: Hiša Franko
+   🌐 URL: https://www.hisafranko.com/
+[INFO] Skipping language switching for https://www.hisafranko.com/
+[INFO] Skipping language switching for https://www.hisafranko.com/eng
+[INFO] Skipping language switching for https://www.hisafranko.com/eng/about
+[INFO] Skipping language switching for https://www.hisafranko.com/eng/ambience
+[INFO] Skipping language switching for https://www.hisafranko.com/eng/wine-menu
+[INFO] Skipping language switching for https://www.hisafranko.com/eng/menu
+[INFO] Skipping language switching for https://www.hisafranko.com/eng/private-dining
+Warning: CSV file not found at ingestion/michelin_my_maps.csv
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [2] Scraping: Trèsind Studio
+   🌐 URL: https://tresindstudio.com/
+[INFO] Trying to switch language to English for https://tresindstudio.com/
+[INFO] Clicking language switch button: skip to content skip to content / https://tresindstudio.com/#content
+[INFO] Clicking language switch button:  / https://www.theworlds50best.com/mena/en/the-list/1-10/tresind-studio.html
+[INFO] Clicking language switch button:  / https://guide.michelin.com/ae-du/en/dubai-emirate/dubai/restaurant/tresind-studio
+[DEBUG] Final URL after language switch: https://tresindstudio.com/
+[INFO] Trying to switch language to English for https://tresindstudio.com/
+[INFO] Clicking language switch button: skip to content skip to content / https://tresindstudio.com/#content
+[INFO] Clicking language switch button: michelin guide dubai 2023 / https://guide.michelin.com/ae-du/en/dubai-emirate/dubai/restaurant/tresind-studio
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://tresindstudio.com/menu/
+[INFO] Clicking language switch button: skip to content skip to content / https://tresindstudio.com/menu/#content
+[INFO] Clicking language switch button: food menu / https://tresindstudio.com/wp-content/uploads/2025/03/Tresind-Studio-Food-menu.pdf
+[DEBUG] Final URL after language switch: https://tresindstudio.com/wp-content/uploads/2025/03/Tresind-Studio-Food-menu.pdf
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [3] Scraping: FZN by Björn Frantzén
+   🌐 URL: https://www.restaurantfzn.com/
+[INFO] Skipping language switching for https://www.restaurantfzn.com/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [4] Scraping: Boury
+   🌐 URL: https://www.restaurantboury.be/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 381
+[INFO] Trying to switch language to English for https://www.restaurantboury.be/about-1
+[INFO] Trying to switch language to English for https://www.restaurantboury.be/menu
+[INFO] Trying to switch language to English for https://www.restaurantboury.be/privatedining
+[INFO] Clicking language switch button: volgende / 
+[INFO] Clicking language switch button: volgende / 
+[INFO] Clicking language switch button: volgende / 
+[DEBUG] Final URL after language switch: https://www.restaurantboury.be/privatedining
+[DEBUG] Final URL after language switch: https://www.restaurantboury.be/privatedining
+[DEBUG] Final URL after language switch: https://www.restaurantboury.be/privatedining
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [5] Scraping: Zilte
+   🌐 URL: https://www.zilte.be/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1709
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1709
+Model: gpt-4o | Tokens used: 1682
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [6] Scraping: Le Louis XV - Alain Ducasse à l'Hôtel de Paris
+   🌐 URL: https://www.ducasse-paris.com/
+[INFO] Trying to switch language to English for https://www.ducasse-paris.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.ducasse-paris.com/
+[INFO] Closing popup/modal with element text: ''
+[INFO] Trying to switch language to English for https://www.ducasse-paris.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.ducasse-paris.com/
+[INFO] Closing popup/modal with element text: ''
+Model: gpt-4o | Tokens used: 1863
+[INFO] Trying to switch language to English for https://www.ducasse-paris.com/notre-histoire/
+[INFO] Trying to switch language to English for https://www.ducasse-paris.com/alain-ducasse/
+[INFO] Trying to switch language to English for https://www.ducasse-paris.com/nos-expertises/restaurants/
+[INFO] Trying to switch language to English for https://www.ducasse-paris.com/nos-adresses/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.ducasse-paris.com/nos-adresses/
+[DEBUG] Final URL after language switch: https://www.ducasse-paris.com/nos-adresses/
+[DEBUG] Final URL after language switch: https://www.ducasse-paris.com/nos-adresses/
+[DEBUG] Final URL after language switch: https://www.ducasse-paris.com/nos-adresses/
+[INFO] Closing popup/modal with element text: ''
+[INFO] Closing popup/modal with element text: ''
+[INFO] Closing popup/modal with element text: ''
+[INFO] Closing popup/modal with element text: ''
+Model: gpt-4o | Tokens used: 2314
+Model: gpt-4o | Tokens used: 2307
+Model: gpt-4o | Tokens used: 2296
+Model: gpt-4o | Tokens used: 2328
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [7] Scraping: L'Ambroisie
+   🌐 URL: https://www.ambroisie-paris.com/
+[INFO] Trying to switch language to English for https://www.ambroisie-paris.com/
+[INFO] Clicking language switch button: en savoir plus. / https://www.ambroisie-paris.com/mentions-legales/
+[DEBUG] Final URL after language switch: https://www.ambroisie-paris.com/mentions-legales/
+[INFO] Trying to switch language to English for https://www.ambroisie-paris.com/
+[INFO] Clicking language switch button: en savoir plus. / https://www.ambroisie-paris.com/mentions-legales/
+[DEBUG] Final URL after language switch: https://www.ambroisie-paris.com/mentions-legales/
+Model: gpt-4o | Tokens used: 1965
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [8] Scraping: Flocons de Sel
+   🌐 URL: https://www.floconsdesel.com
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1221
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+   🌐 Language: fr → English
+\n🔄 [9] Scraping: Épicure
+   🌐 URL: https://www.oetkercollection.com/fr/hotels/le-bristol-paris/restaurants-et-bar/epicure/
+[INFO] Trying to switch language to English for https://www.oetkercollection.com/fr/hotels/le-bristol-paris/restaurants-et-bar/epicure/
+[INFO] Clicking language switch button: en savoir plus / 
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/fr/hotels/le-bristol-paris/restaurants-et-bar/epicure/
+[INFO] Trying to switch language to English for https://www.oetkercollection.com/hotels/le-bristol-paris/
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/the-hotel/100-ans/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/114-faubourg/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-bar-du-bristol/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/epicure/
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/epicure/
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/epicure/
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/epicure/
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/epicure/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/cafe-antonia/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-jardin-francais/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/cafe-antonia/tea-time/
+[INFO] Trying to switch language to English for https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-bristol-paris-x-krug/
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: en / 
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[INFO] Clicking language switch button: properties properties (external link, opens in a new window) / http://oetkerhotels.com/hotels
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-bristol-paris-x-krug/
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-bristol-paris-x-krug/
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-bristol-paris-x-krug/
+[DEBUG] Final URL after language switch: https://www.oetkerhotels.com/hotels/le-bristol-paris/restaurants-bar/le-bristol-paris-x-krug/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 8
+   📄 Document: Yes
+\n🔄 [10] Scraping: Arpège
+   🌐 URL: https://www.alain-passard.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1787
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2011
+Model: gpt-4o | Tokens used: 2031
+Model: gpt-4o | Tokens used: 1990
+Model: gpt-4o | Tokens used: 1987
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 2
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 10
+   Successful: 10
+   Failed: 0
+   Success Rate: 100.0%
+   Rate: 1.1 restaurants/minute
+   Elapsed: 0:08:57.474472
+\n🔄 [11] Scraping: Le Pré Catelan
+   🌐 URL: https://www.leprecatelan.com/
+[INFO] Trying to switch language to English for https://www.leprecatelan.com/
+[INFO] Clicking language switch button: aller au contenu principal / https://leprecatelan.paris/#main-content
+[INFO] Clicking language switch button: votre événement - demande de devis / https://leprecatelan.paris/contact
+[INFO] Clicking language switch button: en / https://leprecatelan.paris/en
+[INFO] Clicking language switch button: groupe lenôtre / https://leprecatelan.paris/node/38
+[INFO] Clicking language switch button: politique de confidentialité / https://leprecatelan.paris/node/36
+[INFO] Clicking language switch button: nos engagements / https://leprecatelan.paris/engagements-rse
+[INFO] Clicking language switch button: lenôtre / https://www.lenotre.com/
+[INFO] Clicking language switch button: groupe lenôtre / https://leprecatelan.paris/node/38
+[INFO] Clicking language switch button: politique de confidentialité / https://leprecatelan.paris/node/36
+[INFO] Clicking language switch button: en / https://leprecatelan.paris/en
+[INFO] Clicking language switch button: nos engagements / https://leprecatelan.paris/engagements-rse
+[INFO] Clicking language switch button: lenôtre / https://www.lenotre.com/
+[INFO] Clicking language switch button: mentions légales / https://leprecatelan.paris/mentions-legales
+[INFO] Clicking language switch button: confidentialité / https://leprecatelan.paris/politique-de-confidentialite
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1740
+Model: gpt-4o-mini | Tokens used: 112
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+   🌐 Language: fr → English
+\n🔄 [12] Scraping: Le Cinq
+   🌐 URL: https://www.fourseasons.com
+[INFO] Trying to switch language to English for https://www.fourseasons.com
+[INFO] Clicking language switch button: reopen / https://www.fourseasons.com/#
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [13] Scraping: Le Petit Nice
+   🌐 URL: https://www.passedat.fr
+[INFO] Trying to switch language to English for https://www.passedat.fr
+[INFO] Clicking language switch button: hotel / https://www.passedat.fr/en/le-petit-nice/hotel
+[INFO] Clicking language switch button: restaurant / https://www.passedat.fr/en/le-petit-nice/restaurant
+[INFO] Clicking language switch button: read more / https://www.passedat.fr/en/le-petit-nice
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/luxury-hotel-marseille
+[INFO] Trying to switch language to English for https://www.passedat.fr
+[INFO] Clicking language switch button: hotel / https://www.passedat.fr/en/le-petit-nice/hotel
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/luxury-hotel-marseille
+[INFO] Closing popup/modal with element text: 'ACCEPT AND CLOSE'
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/le-petit-nice
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/gerald-passedat
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/restaurant-gastronomique
+[INFO] Clicking language switch button: book / https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[INFO] Clicking language switch button: book / https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[INFO] Clicking language switch button: book / https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[INFO] Clicking language switch button: book / https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/gastronomic-michelin-star-restaurants-marseille#booking-restaurant
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/le-petit-nice/luxury-hotel-marseille#mainmenu
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/le-petit-nice/the-19-17-seaview-restaurant-marseille
+[INFO] Trying to switch language to English for https://www.passedat.fr/en/le-1917
+[INFO] Clicking language switch button:  / https://www.passedat.fr/en/img/slideshow_xlarge/854_petitnice22-1406s032ohanbrandt.jpeg
+[INFO] Clicking language switch button:  / https://www.passedat.fr/en/img/slideshow_xlarge/854_petitnice22-1406s032ohanbrandt.jpeg
+[INFO] Clicking language switch button:  / https://www.passedat.fr/en/img/slideshow_xlarge/854_petitnice22-1406s032ohanbrandt.jpeg
+[INFO] Clicking language switch button:  / https://www.passedat.fr/en/img/slideshow_xlarge/853_passedat-4-16-894-a4.jpeg
+[INFO] Clicking language switch button:  / https://www.passedat.fr/en/img/slideshow_xlarge/853_passedat-4-16-894-a4.jpeg
+[INFO] Clicking language switch button:  / https://www.passedat.fr/en/img/slideshow_xlarge/853_passedat-4-16-894-a4.jpeg
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/the-19-17-seaview-restaurant-marseille#galery-intro-1
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/the-19-17-seaview-restaurant-marseille#galery-intro-1
+[DEBUG] Final URL after language switch: https://www.passedat.fr/en/le-petit-nice/the-19-17-seaview-restaurant-marseille#galery-intro-1
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [14] Scraping: Kei
+   🌐 URL: https://www.restaurant-kei.fr/
+[INFO] Trying to switch language to English for https://www.restaurant-kei.fr/
+[INFO] Clicking language switch button: passer au contenu / https://restaurant-kei.fr/#MainContent
+[INFO] Clicking language switch button: notre politique de confidentialité. / https://restaurant-kei.fr/pages/politique-de-confidentialite
+[DEBUG] Final URL after language switch: https://restaurant-kei.fr/pages/politique-de-confidentialite
+[INFO] Trying to switch language to English for https://www.restaurant-kei.fr/
+[INFO] Clicking language switch button: passer au contenu / https://restaurant-kei.fr/#MainContent
+[INFO] Clicking language switch button: notre politique de confidentialité. / https://restaurant-kei.fr/pages/politique-de-confidentialite
+[DEBUG] Final URL after language switch: https://restaurant-kei.fr/pages/politique-de-confidentialite
+Model: gpt-4o | Tokens used: 2094
+[INFO] Trying to switch language to English for https://restaurant-kei.fr/pages/univers
+[INFO] Trying to switch language to English for https://restaurant-kei.fr/pages/degustations-et-menus
+[INFO] Trying to switch language to English for https://restaurant-kei.fr/pages/experience
+[INFO] Trying to switch language to English for https://restaurant-kei.fr/pages/nos-restaurants
+[INFO] Clicking language switch button: passer au contenu / https://restaurant-kei.fr/pages/nos-restaurants#MainContent
+[INFO] Clicking language switch button: passer au contenu / https://restaurant-kei.fr/pages/nos-restaurants#MainContent
+[INFO] Clicking language switch button: passer au contenu / https://restaurant-kei.fr/pages/nos-restaurants#MainContent
+[INFO] Clicking language switch button: passer au contenu / https://restaurant-kei.fr/pages/nos-restaurants#MainContent
+[INFO] Clicking language switch button: notre politique de confidentialité. / https://restaurant-kei.fr/pages/politique-de-confidentialite
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://restaurant-kei.fr/pages/politique-de-confidentialite
+Model: gpt-4o | Tokens used: 2107
+Model: gpt-4o | Tokens used: 2119
+Model: gpt-4o | Tokens used: 2091
+Model: gpt-4o | Tokens used: 2114
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 7
+   📄 Document: Yes
+\n🔄 [15] Scraping: L'Oustau de Baumanière
+   🌐 URL: http://www.baumaniere.com
+[INFO] Trying to switch language to English for http://www.baumaniere.com
+[INFO] Clicking language switch button: menu / javascript:;
+[DEBUG] Final URL after language switch: https://www.baumaniere.com/
+[INFO] Closing popup/modal with element text: ''
+[INFO] Trying to switch language to English for http://www.baumaniere.com
+[INFO] Clicking language switch button: menu / javascript:;
+[DEBUG] Final URL after language switch: https://www.baumaniere.com/
+[INFO] Closing popup/modal with element text: ''
+Model: gpt-4o | Tokens used: 2797
+[INFO] Trying to switch language to English for https://www.baumaniere.com/gastronomie/cave-et-degustation/
+[INFO] Clicking language switch button: menu / javascript:;
+[DEBUG] Final URL after language switch: https://www.baumaniere.com/gastronomie/cave-et-degustation/
+[INFO] Closing popup/modal with element text: ''
+Model: gpt-4o | Tokens used: 3011
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [16] Scraping: Plénitude - Cheval Blanc Paris
+   🌐 URL: https://www.chevalblanc.com/fr/maison/paris/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2328
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2140
+Model: gpt-4o | Tokens used: 2298
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2311
+Model: gpt-4o | Tokens used: 2329
+Model: gpt-4o | Tokens used: 2377
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 5
+   📄 Document: Yes
+\n🔄 [17] Scraping: AM par Alexandre Mazzia
+   🌐 URL: https://www.alexandre-mazzia.com/
+[INFO] Trying to switch language to English for https://www.alexandre-mazzia.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.alexandre-mazzia.com/
+[INFO] Trying to switch language to English for https://www.alexandre-mazzia.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.alexandre-mazzia.com/
+Model: gpt-4o | Tokens used: 846
+[INFO] Trying to switch language to English for https://www.alexandre-mazzia.com/
+[INFO] Trying to switch language to English for https://www.alexandre-mazzia.com/am/
+[INFO] Trying to switch language to English for https://www.alexandre-mazzia.com/reservation-2/
+[INFO] Trying to switch language to English for https://www.alexandre-mazzia.com/voyages/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.alexandre-mazzia.com/voyages/
+[DEBUG] Final URL after language switch: https://www.alexandre-mazzia.com/voyages/
+[DEBUG] Final URL after language switch: https://www.alexandre-mazzia.com/voyages/
+[DEBUG] Final URL after language switch: https://www.alexandre-mazzia.com/voyages/
+Model: gpt-4o | Tokens used: 925
+Model: gpt-4o | Tokens used: 917
+Model: gpt-4o | Tokens used: 916
+Model: gpt-4o | Tokens used: 913
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [18] Scraping: Pic
+   🌐 URL: http://www.anne-sophie-pic.com
+[INFO] Trying to switch language to English for http://www.anne-sophie-pic.com
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: politique de confidentialité / https://anne-sophie-pic.com/politique-de-confidentialite/
+[INFO] Clicking language switch button: menu button menu button / 
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/
+[INFO] Trying to switch language to English for http://www.anne-sophie-pic.com
+[INFO] Clicking language switch button: voir les préférences / 
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/
+Model: gpt-4o | Tokens used: 1861
+[INFO] Trying to switch language to English for https://anne-sophie-pic.com/la-cheffe-anne-sophie-pic/
+[INFO] Trying to switch language to English for https://anne-sophie-pic.com/les-experiences/
+[INFO] Trying to switch language to English for https://anne-sophie-pic.com/restaurant-anne-sophie-pic/
+[INFO] Trying to switch language to English for https://anne-sophie-pic.com/restaurant-dame-de-pic-paris/
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: enregistrer les préférences / 
+[INFO] Clicking language switch button: enregistrer les préférences / 
+[INFO] Clicking language switch button: enregistrer les préférences / 
+[INFO] Clicking language switch button: menu button menu button / 
+[INFO] Clicking language switch button: menu button menu button / 
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/paris/#damedepic
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/paris/#damedepic
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/paris/#damedepic
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/paris/#damedepic
+Model: gpt-4o | Tokens used: 1845
+Model: gpt-4o | Tokens used: 1832
+Model: gpt-4o | Tokens used: 1851
+Model: gpt-4o | Tokens used: 1871
+[INFO] Trying to switch language to English for https://anne-sophie-pic.com/reservation/
+[INFO] Clicking language switch button: menu button menu button / 
+[DEBUG] Final URL after language switch: https://anne-sophie-pic.com/reservation/
+Model: gpt-4o | Tokens used: 1727
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [19] Scraping: Maison Lameloise
+   🌐 URL: https://www.lameloise.fr/
+[INFO] Trying to switch language to English for https://www.lameloise.fr/
+[INFO] Clicking language switch button: menu / https://www.lameloise.fr/#
+[DEBUG] Final URL after language switch: https://www.lameloise.fr/
+[INFO] Trying to switch language to English for https://www.lameloise.fr/
+[INFO] Clicking language switch button: menu / https://www.lameloise.fr/#
+[DEBUG] Final URL after language switch: https://www.lameloise.fr/
+Model: gpt-4o | Tokens used: 1838
+[INFO] Trying to switch language to English for https://www.lameloise.fr/restaurant-lameloise/
+[INFO] Trying to switch language to English for https://www.lameloise.fr/eric-pras/
+[INFO] Trying to switch language to English for https://www.lameloise.fr/restaurant-lameloise/
+[INFO] Clicking language switch button: menu / https://www.lameloise.fr/restaurant-lameloise/#
+[INFO] Clicking language switch button: menu / https://www.lameloise.fr/restaurant-lameloise/#
+[INFO] Clicking language switch button: menu / https://www.lameloise.fr/restaurant-lameloise/#
+[DEBUG] Final URL after language switch: https://www.lameloise.fr/restaurant-lameloise/
+[DEBUG] Final URL after language switch: https://www.lameloise.fr/restaurant-lameloise/
+[DEBUG] Final URL after language switch: https://www.lameloise.fr/restaurant-lameloise/
+Model: gpt-4o | Tokens used: 1505
+Model: gpt-4o | Tokens used: 1472
+Model: gpt-4o | Tokens used: 1491
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 4
+   📄 Document: Yes
+\n🔄 [20] Scraping: Le Coquillage
+   🌐 URL: https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] Trying to switch language to English for https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+[INFO] Clicking language switch button: en / https://www.maisons-de-bricourt.com/fr/switch-locale/en
+[INFO] Clicking language switch button: ferme du vent / https://www.maisons-de-bricourt.com/fr/page/ferme-du-vent
+[INFO] Clicking language switch button: vent de vanille / https://www.maisons-de-bricourt.com/fr/page/vent-de-vanille
+[INFO] Clicking language switch button: voir le menu / 
+[DEBUG] Final URL after language switch: https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+Model: gpt-4o | Tokens used: 2139
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] Trying to switch language to English for https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+[INFO] Clicking language switch button: en / https://www.maisons-de-bricourt.com/fr/switch-locale/en
+[INFO] Clicking language switch button: ferme du vent / https://www.maisons-de-bricourt.com/fr/page/ferme-du-vent
+[INFO] Clicking language switch button: vent de vanille / https://www.maisons-de-bricourt.com/fr/page/vent-de-vanille
+[INFO] Clicking language switch button: voir le menu / 
+[DEBUG] Final URL after language switch: https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+Model: gpt-4o | Tokens used: 2110
+Model: gpt-4o | Tokens used: 2119
+Model: gpt-4o | Tokens used: 2138
+[INFO] Trying to switch language to English for https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+[INFO] Clicking language switch button: en / https://www.maisons-de-bricourt.com/fr/switch-locale/en
+[INFO] Clicking language switch button: ferme du vent / https://www.maisons-de-bricourt.com/fr/page/ferme-du-vent
+[INFO] Clicking language switch button: vent de vanille / https://www.maisons-de-bricourt.com/fr/page/vent-de-vanille
+[INFO] Clicking language switch button: voir le menu / 
+[DEBUG] Final URL after language switch: https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+Model: gpt-4o | Tokens used: 2129
+Model: gpt-4o | Tokens used: 2143
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 1
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 20
+   Successful: 20
+   Failed: 0
+   Success Rate: 100.0%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 0:30:08.152414
+\n🔄 [21] Scraping: Plesnik
+   🌐 URL: https://www.plesnik.si/en
+[INFO] Trying to switch language to English for https://www.plesnik.si/en
+[INFO] Clicking language switch button:  / https://www.plesnik.si/en
+[DEBUG] Final URL after language switch: https://www.plesnik.si/en
+[INFO] Trying to switch language to English for https://www.plesnik.si/en
+[INFO] Clicking language switch button:  / https://www.plesnik.si/en
+[DEBUG] Final URL after language switch: https://www.plesnik.si/en
+[INFO] Trying to switch language to English for https://www.plesnik.si/en/about-us
+[INFO] Trying to switch language to English for https://www.plesnik.si/en/gastronomy
+[INFO] Clicking language switch button:  / https://www.plesnik.si/en
+[INFO] Clicking language switch button:  / https://www.plesnik.si/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.plesnik.si/en
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 5
+   📄 Document: Yes
+\n🔄 [22] Scraping: Rizibizi
+   🌐 URL: https://www.rizibizi.si
+[INFO] Trying to switch language to English for https://www.rizibizi.si
+[INFO] Clicking language switch button: en / https://www.rizibizi.si/en
+[DEBUG] Final URL after language switch: https://www.rizibizi.si/index.php
+[INFO] Trying to switch language to English for https://www.rizibizi.si
+[INFO] Clicking language switch button: en / https://www.rizibizi.si/en
+[DEBUG] Final URL after language switch: https://www.rizibizi.si/index.php
+[INFO] Trying to switch language to English for https://www.rizibizi.si/about_us
+[INFO] Trying to switch language to English for https://www.rizibizi.si/our_offers
+[INFO] Trying to switch language to English for https://www.rizibizi.si/food_specialties
+[INFO] Clicking language switch button: en / https://www.rizibizi.si/en
+[INFO] Clicking language switch button: en / https://www.rizibizi.si/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.rizibizi.si/index.php
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 9
+   📄 Document: Yes
+\n🔄 [23] Scraping: Sophia
+   🌐 URL: https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[INFO] Trying to switch language to English for https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[INFO] Trying to switch language to English for https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[INFO] Trying to switch language to English for https://www.kempinski.com/en/about-us
+[INFO] Trying to switch language to English for https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+[DEBUG] Final URL after language switch: https://www.kempinski.com/en/palace-portoroz/restaurants-bars/restaurant-sophia
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [24] Scraping: Hiša Raduha
+   🌐 URL: https://raduha.com/en/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [25] Scraping: Restaurant Marcon
+   🌐 URL: https://www.lesmaisonsmarcon.fr/
+[INFO] Trying to switch language to English for https://www.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: > recrutement / https://www.recrutement.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: mentions légales / https://www.lesmaisonsmarcon.fr/mentions-legales/
+[INFO] Clicking language switch button: conditions generales de vente / https://boutique.lesmaisonsmarcon.fr/content/3-conditions-utilisation
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: > recrutement / https://www.recrutement.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: mentions légales / https://www.lesmaisonsmarcon.fr/mentions-legales/
+[INFO] Clicking language switch button: conditions generales de vente / https://boutique.lesmaisonsmarcon.fr/content/3-conditions-utilisation
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1938
+[INFO] Trying to switch language to English for https://www.lesmaisonsmarcon.fr/lieux-gourmands/
+[INFO] Trying to switch language to English for https://www.lesmaisonsmarcon.fr/boulangerie/
+[INFO] Trying to switch language to English for https://www.lesmaisonsmarcon.fr/bar-de-pais/
+[INFO] Clicking language switch button: > recrutement / https://www.recrutement.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: > recrutement / https://www.recrutement.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: > recrutement / https://www.recrutement.lesmaisonsmarcon.fr/
+[INFO] Clicking language switch button: mentions légales / https://www.lesmaisonsmarcon.fr/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.lesmaisonsmarcon.fr/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.lesmaisonsmarcon.fr/mentions-legales/
+[INFO] Clicking language switch button: conditions generales de vente / https://boutique.lesmaisonsmarcon.fr/content/3-conditions-utilisation
+[INFO] Clicking language switch button: conditions generales de vente / https://boutique.lesmaisonsmarcon.fr/content/3-conditions-utilisation
+[INFO] Clicking language switch button: conditions generales de vente / https://boutique.lesmaisonsmarcon.fr/content/3-conditions-utilisation
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1737
+Model: gpt-4o | Tokens used: 1761
+Model: gpt-4o | Tokens used: 1756
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [26] Scraping: Pierre Gagnaire
+   🌐 URL: http://pierregagnaire-lerestaurant.com
+[INFO] Trying to switch language to English for http://pierregagnaire-lerestaurant.com
+[INFO] Clicking language switch button: passer au contenu / https://pierregagnaire-lerestaurant.com/#MainContent
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for http://pierregagnaire-lerestaurant.com
+[INFO] Clicking language switch button: passer au contenu / https://pierregagnaire-lerestaurant.com/#MainContent
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2143
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 3
+   📄 Document: Yes
+\n🔄 [27] Scraping: La Vague d'Or - Cheval Blanc St-Tropez
+   🌐 URL: https://www.chevalblanc.com/fr/maison/st-tropez/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2377
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2197
+Model: gpt-4o | Tokens used: 2391
+Model: gpt-4o | Tokens used: 2398
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 6
+   📄 Document: Yes
+\n🔄 [28] Scraping: Christopher Coutanceau
+   🌐 URL: http://www.christophercoutanceau.com/fr/
+[INFO] Trying to switch language to English for http://www.christophercoutanceau.com/fr/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: blottie dans une rue calme adjacente au vieux port de la rochelle / https://christophercoutanceau.com/fr/acces.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: recrutement / https://christophercoutanceau.com/fr/recrutement.html
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/
+[INFO] Clicking language switch button: mentions légales / https://christophercoutanceau.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://christophercoutanceau.com/fr/confidentialite.html
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for http://www.christophercoutanceau.com/fr/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: blottie dans une rue calme adjacente au vieux port de la rochelle / https://christophercoutanceau.com/fr/acces.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: recrutement / https://christophercoutanceau.com/fr/recrutement.html
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/
+[INFO] Clicking language switch button: mentions légales / https://christophercoutanceau.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://christophercoutanceau.com/fr/confidentialite.html
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2501
+[INFO] Trying to switch language to English for https://christophercoutanceau.com/fr/restaurant-coutanceau.html
+[INFO] Trying to switch language to English for https://christophercoutanceau.com/en/
+[INFO] Trying to switch language to English for https://christophercoutanceau.com/fr/signature.html
+[INFO] Trying to switch language to English for https://christophercoutanceau.com/fr/la-yole-de-chris.html
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: recrutement / https://christophercoutanceau.com/fr/recrutement.html
+[INFO] Clicking language switch button: recrutement / https://christophercoutanceau.com/fr/recrutement.html
+[INFO] Clicking language switch button: recrutement / https://christophercoutanceau.com/fr/recrutement.html
+[INFO] Clicking language switch button: recrutement / https://christophercoutanceau.com/fr/recrutement.html
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: mentions légales / https://christophercoutanceau.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://christophercoutanceau.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://christophercoutanceau.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://christophercoutanceau.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://christophercoutanceau.com/fr/confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://christophercoutanceau.com/fr/confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://christophercoutanceau.com/fr/confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://christophercoutanceau.com/fr/confidentialite.html
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/la-yole-de-chris.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2446
+[INFO] Trying to switch language to English for https://christophercoutanceau.com/en/
+[INFO] Clicking language switch button: menu / 
+Model: gpt-4o | Tokens used: 2591
+Model: gpt-4o | Tokens used: 2408
+Model: gpt-4o | Tokens used: 2469
+[INFO] Trying to switch language to English for https://christophercoutanceau.com/es/
+[INFO] Clicking language switch button: menú / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Clicking language switch button: política de confidencialidad / 
+[INFO] Clicking language switch button: resena de prensa / https://christophercoutanceau.com/es/resena-de-prensa.html
+[INFO] Clicking language switch button: reservar en el bistró / https://bookings.zenchef.com/results?rid=354839&pid=1001&lang=es
+[INFO] Clicking language switch button: english en / https://christophercoutanceau.com/en/
+[INFO] Clicking language switch button: menciones legales / https://christophercoutanceau.com/es/menciones-legales.html
+[INFO] Clicking language switch button: confidencialidad / https://christophercoutanceau.com/es/confidencialidad.html
+[INFO] Clicking language switch button: remonter en haut de page / 
+[INFO] Clicking language switch button: en en / https://christophercoutanceau.com/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 3078
+Model: gpt-4o | Tokens used: 2695
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [29] Scraping: Troisgros - Le Bois sans Feuilles
+   🌐 URL: https://www.troisgros.fr/
+[INFO] Trying to switch language to English for https://www.troisgros.fr/
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.troisgros.fr/
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1914
+[INFO] Trying to switch language to English for https://www.troisgros.fr/la-famille-troisgros
+[INFO] Trying to switch language to English for https://www.troisgros.fr/le-bois-sans-feuilles
+[INFO] Trying to switch language to English for https://www.troisgros.fr/le-central
+[INFO] Trying to switch language to English for https://www.troisgros.fr/cesar-troisgros
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1930
+Model: gpt-4o | Tokens used: 1955
+Model: gpt-4o | Tokens used: 1938
+Model: gpt-4o | Tokens used: 1927
+[INFO] Trying to switch language to English for https://www.troisgros.fr/le-bois-dormant
+[INFO] Trying to switch language to English for https://www.troisgros.fr/le-pre-cheval
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: voir la politique de confidentialité des données. / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.troisgros.fr/mentions-legales/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] Clicking language switch button: politique de confidentialité / https://www.troisgros.fr/politique-de-confidentialite/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1890
+Model: gpt-4o | Tokens used: 1892
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [30] Scraping: La Marine
+   🌐 URL: https://www.alexandrecouillon.com/fr/
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/fr/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: en en / https://www.alexandrecouillon.com/en/
+[INFO] Clicking language switch button: descendez pour embarquer avec nous... / 
+[INFO] Clicking language switch button: rencontrer le chef / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: mentions légales / https://www.alexandrecouillon.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://www.alexandrecouillon.com/fr/confidentialite.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: rencontrer / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: venir / https://www.alexandrecouillon.com/fr/venir.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/fr/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: en en / https://www.alexandrecouillon.com/en/
+[INFO] Clicking language switch button: descendez pour embarquer avec nous... / 
+[INFO] Clicking language switch button: rencontrer le chef / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: mentions légales / https://www.alexandrecouillon.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://www.alexandrecouillon.com/fr/confidentialite.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: rencontrer / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: venir / https://www.alexandrecouillon.com/fr/venir.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1954
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/en/
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/fr/savourer.html
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/fr/venir.html
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: en voiture / https://www.alexandrecouillon.com/fr/venir.html#en-voiture
+[INFO] Clicking language switch button: en voiture / https://www.alexandrecouillon.com/fr/venir.html#en-voiture
+[INFO] Clicking language switch button: en voiture / https://www.alexandrecouillon.com/fr/venir.html#en-voiture
+[INFO] Clicking language switch button: en voiture / https://www.alexandrecouillon.com/fr/venir.html#en-voiture
+[INFO] Clicking language switch button: mentions légales / https://www.alexandrecouillon.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://www.alexandrecouillon.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://www.alexandrecouillon.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://www.alexandrecouillon.com/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://www.alexandrecouillon.com/fr/confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://www.alexandrecouillon.com/fr/confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://www.alexandrecouillon.com/fr/confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://www.alexandrecouillon.com/fr/confidentialite.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: rencontrer / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: rencontrer / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: rencontrer / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: rencontrer / https://www.alexandrecouillon.com/fr/rencontrer.html
+[INFO] Clicking language switch button: venir / https://www.alexandrecouillon.com/fr/venir.html
+[INFO] Clicking language switch button: venir / https://www.alexandrecouillon.com/fr/venir.html
+[INFO] Clicking language switch button: venir / https://www.alexandrecouillon.com/fr/venir.html
+[INFO] Clicking language switch button: venir / https://www.alexandrecouillon.com/fr/venir.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2268
+[INFO] Trying to switch language to English for https://www.alexandrecouillon.com/en/
+[INFO] Clicking language switch button: menu / 
+Model: gpt-4o | Tokens used: 2226
+Model: gpt-4o | Tokens used: 2291
+Model: gpt-4o | Tokens used: 2255
+[INFO] Clicking language switch button:  / https://www.alexandrecouillon.com/en/
+[INFO] Clicking language switch button: meet the chef / https://www.alexandrecouillon.com/en/meet.html
+[INFO] Clicking language switch button: savour / https://www.alexandrecouillon.com/en/savour.html
+[INFO] Clicking language switch button: disclaimer / https://www.alexandrecouillon.com/en/disclaimer.html
+[INFO] Clicking language switch button: presse / https://www.alexandrecouillon.com/en/formulaire-de-presse.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 1
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 30
+   Successful: 30
+   Failed: 0
+   Success Rate: 100.0%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 0:44:08.658069
+\n🔄 [31] Scraping: Le Clos des Sens
+   🌐 URL: https://www.closdessens.com/
+[INFO] Trying to switch language to English for https://www.closdessens.com/
+[INFO] Clicking language switch button: plongez immédiatement ! / https://closdessens.com/contact/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.closdessens.com/
+[INFO] Clicking language switch button: plongez immédiatement ! / https://closdessens.com/contact/
+[INFO] No English language switch button clicked.
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/PIL/Image.py:975: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1484
+[INFO] Trying to switch language to English for https://www.closdessens.com/
+[INFO] Trying to switch language to English for https://www.closdessens.com/la-table
+[INFO] Trying to switch language to English for https://www.closdessens.com/les-ames
+[INFO] Trying to switch language to English for https://www.closdessens.com/le-jardin
+[INFO] Clicking language switch button: recrutement / https://closdessens.com/recruitment
+[INFO] Clicking language switch button: recrutement / https://closdessens.com/recruitment
+[INFO] Clicking language switch button: recrutement / https://closdessens.com/recruitment
+[INFO] Clicking language switch button: recrutement / https://closdessens.com/recruitment
+[INFO] Clicking language switch button: plongez immédiatement ! / https://closdessens.com/contact/
+[INFO] Clicking language switch button: plongez immédiatement ! / https://closdessens.com/contact/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://closdessens.com/contact/
+Model: gpt-4o | Tokens used: 1787
+Model: gpt-4o | Tokens used: 1796
+Model: gpt-4o | Tokens used: 1838
+Model: gpt-4o | Tokens used: 1798
+[INFO] Trying to switch language to English for https://www.closdessens.com/le-cortil
+[INFO] Trying to switch language to English for https://www.closdessens.com/episodes
+[INFO] Clicking language switch button: plongez immédiatement ! / https://closdessens.com/contact/
+[INFO] Clicking language switch button: plongez immédiatement ! / https://closdessens.com/contact/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://closdessens.com/contact/
+Model: gpt-4o | Tokens used: 1809
+Model: gpt-4o | Tokens used: 1808
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 9
+   📄 Document: Yes
+\n🔄 [32] Scraping: La Villa Madie
+   🌐 URL: http://www.lavillamadie.com
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2681
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1453
+Model: gpt-4o | Tokens used: 1457
+Model: gpt-4o | Tokens used: 1462
+Model: gpt-4o | Tokens used: 1451
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1479
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [33] Scraping: Assiette Champenoise
+   🌐 URL: https://www.assiettechampenoise.com/
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/
+[INFO] Clicking language switch button: voir les préférences / 
+[DEBUG] Final URL after language switch: https://www.assiettechampenoise.com/
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/
+[INFO] Clicking language switch button: voir les préférences / 
+[DEBUG] Final URL after language switch: https://www.assiettechampenoise.com/
+Model: gpt-4o | Tokens used: 1705
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/histoire/
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/restaurant/#carte
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/restaurant/#menu
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/chef-arnaud-lallement/
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: voir les préférences / 
+[INFO] Clicking language switch button: enregistrer les préférences / 
+[INFO] Clicking language switch button: enregistrer les préférences / 
+[INFO] Clicking language switch button: enregistrer les préférences / 
+[INFO] Clicking language switch button:  / https://www.assiettechampenoise.com/en/home/
+[INFO] Clicking language switch button:  / https://www.assiettechampenoise.com/en/home/
+[DEBUG] Final URL after language switch: https://www.assiettechampenoise.com/en/chef-arnaud-lallement-en/
+[DEBUG] Final URL after language switch: https://www.assiettechampenoise.com/en/chef-arnaud-lallement-en/
+[INFO] Clicking language switch button:  / https://www.assiettechampenoise.com/en/home/
+[INFO] Clicking language switch button:  / https://www.assiettechampenoise.com/en/home/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/bar-et-terrasse/#terrasse
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/restaurant/#experience
+[INFO] Clicking language switch button: recrutement / https://www.assiettechampenoise.com/recrutement/
+[INFO] Clicking language switch button: recrutement / https://www.assiettechampenoise.com/recrutement/
+[INFO] Clicking language switch button: mentions légales / https://www.assiettechampenoise.com/mentions-legales/
+[INFO] Clicking language switch button: mentions légales / https://www.assiettechampenoise.com/mentions-legales/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1671
+[INFO] Trying to switch language to English for https://www.assiettechampenoise.com/restaurant/#producteurs-locaux
+Model: gpt-4o | Tokens used: 1660
+[INFO] Clicking language switch button: recrutement / https://www.assiettechampenoise.com/recrutement/
+[INFO] Clicking language switch button: mentions légales / https://www.assiettechampenoise.com/mentions-legales/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1667
+Model: gpt-4o | Tokens used: 1678
+Model: gpt-4o | Tokens used: 1655
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [34] Scraping: Mirazur
+   🌐 URL: https://www.mirazur.fr/
+[INFO] Trying to switch language to English for https://www.mirazur.fr/
+[INFO] Clicking language switch button: the gardens / https://www.mirazur.fr/les-jardins.php
+[INFO] Clicking language switch button: the kitchen / https://www.mirazur.fr/le-restaurant.php#cuisine
+[INFO] Clicking language switch button: custom-designed exterior events / https://www.mirazur.fr/mauro-colagreco.php#consulting

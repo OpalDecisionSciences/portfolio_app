@@ -248,8 +248,10 @@ class EnhancedRestaurantScraper:
             # Respect rate limits for Selenium requests too
             self.respect_rate_limit(domain, min_delay=2.0, max_delay=5.0)
             
-            # Initialize Chrome driver
-            driver = webdriver.Chrome(options=self.chrome_options)
+            # Initialize Chrome driver with ARM64-compatible binary
+            chromedriver_path = "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"
+            service = Service(chromedriver_path)
+            driver = webdriver.Chrome(service=service, options=self.chrome_options)
             
             # Set a random user agent
             user_agent = random.choice(self.user_agents)

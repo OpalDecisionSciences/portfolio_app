@@ -1,0 +1,80 @@
+{
+  "restaurant_name": "Hiša Franko",
+  "url": "https://www.hisafranko.com/",
+  "scraped_at": "2025-07-20T00:32:32.787847",
+  "scraping_success": true,
+  "method_used": "requests",
+  "content_length": 26509,
+  "quality_score": 1.0,
+  "word_count": 427,
+  "structured_data": {
+    "open_graph": {
+      "type": "website",
+      "title": "Hiša Franko",
+      "image": "https://www.hisafranko.com/foto/hisa-franko-2.webp",
+      "url": "https://www.hisafranko.com/"
+    },
+    "page_title": "Hiša Franko",
+    "meta_description": "Zgodba in filozofija Hiše Franko sta tesno povezani s tradicijami in okoljem Posočja. Okolje, ki je včasih trdo in težko, a osupljivo lepo. Restavracija, umeščena ob vznožje očakov in visokogorskih pašnikov ter le streljaj od smaragdne Soče, svojo kuhinjo gradi na najboljšem, kar ponuja narava v danih letnih časih."
+  },
+  "content": "REZERVIRAJZgodba in filozofija Hiše Franko sta tesno povezani s tradicijami in okoljem Posočja. Okolje, ki je včasih trdo\n                                        in težko, a osupljivo lepo. Restavracija, umeščena ob vznožje očakov in visokogorskih pašnikov ter le streljaj\n                                        od smaragdne Soče, svojo kuhinjo gradi na najboljšem, kar ponuja narava v danih letnih časih.Prehrana v Posočju je vedno močno temeljila na mlečnih in mesnih izdelkih, zato pričakujte na našem meniju\n                                        veliko sira in vseh stranskih produktov njegove proizvodnje. Pri tem sodelujemo s kmeti, pastrji in sirarji z\n                                        visokogorskih kmetij nad Kobaridom in Tolminom, kjer še vedno pasejo živino ter delajo sir in skuto, kot so to\n                                        počeli njihovi predniki. To so kraji, kjer se je čas ustavil.Restavracija je tesno povezana s skupnostmi nabiralcev, gobarjev, pastirjev, sirarjev, lovcev in ribičev.Umeščeni smo v območje, ki je bogato s postrvmi, divjačino, gozdnim sadjem in divjimi rastlinami, ki jih\n                                        vsakodnevno vključujemo v naše krožnike.Hiša Franko se je na lestvici 50 najboljših restavracij (The World’s 50 Best Restaurants) prvič uvrstila leta\n                                        2017, a njena zapuščina je stara že več kot pol stoletja, ko je Franko Kramar v gostilni še stregel svoj\n                                        znameniti Frankov rostbif in friko. Junija 2020, ko je izšla prva izdaja Michelinovega vodnika restavracij v\n                                        Sloveniji, je Hiša Franko prejela dve Michelinovi zvezdici in zeleno zvezdico. Od septembra 2023 pa se\n                                        ponašamo s tremi Michelinovimi zvezdicami in zeleno zvezdico.Zgodba in filozofija Hiše Franko sta povezani z okoljem Posočja. Trdo, a hkrati osupljivo lepo okolje.\n                                        Restavracija, umeščena ob vznožje očakov, visokogorskih pašnikov in Soči svojo kuhinjo gradi na najboljšem,\n                                        kar ponuja narava.Prehrana v Posočju vedno temelji na mlečnih in mesnih izdelkih, zato pričakujte na\n                                        našem meniju veliko sira in vseh stranskih produktov njegove proizvodnje.Restavracija je povezana s skupnostmi nabiralcev, pastirjev, sirarjev, lovcev in ribičev. Umeščeni smo v\n                                        območje, ki je bogato s postrvmi, divjačino, gozdnim sadjemin\n                                        rastlinami, ki jih vsakodnevno vključujemo v naše krožnike.Hiša Franko je na seznamu 50 najboljših restavracij sveta od leta 2017. Od septembra 2023 se ponašamo s tremi\n                                        Michelinovimi zvezdicami in zeleno zvezdico. (Njena zapuščina je stara že več kot pol stoletja.)Delovni čas – Restavracija:Ponedeljek in torek: zaprtoSreda–nedelja: 12.00–16.00 (zadnja rezervacija ob 13. uri), 19.00–23.00 (zadnja rezervacija ob 20. uri)Predhodna rezervacija za restavracijo in/ali sobe je potrebna!Delovni čas prodajalna:Ponedeljek in torek: zaprtoSreda–nedelja: 11.00–23.00Anina kuhinjaKo ješ v Hiši Franko, lahko zapreš oči in popolnoma razumeš okolje, katerega\n                                        del je naša restavracija.VEČ O ANINI KUHINJILokalno intradicionalnoLokalno intradicionalnoGre za povezavo z okoljem, z naravo. Da si ponosen na kraj, od koder\n                                                prihajaš, in ga uporabljaš kot navdih za svoje delo.VEČ O LOKALNEM IN\n                                                    TRADICIONALNEMMenuRock & rollIn nismo sami.Tu so lokalni pridelovalci.Kmetje.Tradicije.ODKRIJ NAŠ MENI TUKAJMeniKoruzni beignet",
+  "headings": [
+    "Anina kuhinja",
+    "Lokalno in tradicionalno",
+    "Lokalno in tradicionalno",
+    "Menu",
+    "Meni",
+    "Hiša Franko med najboljšimi – 99 točk v vodniku Falstaff 2025",
+    "julij 2025"
+  ],
+  "contact_info": {
+    "phone": ""
+  },
+  "menu_items": [],
+  "opening_hours": "",
+  "comprehensive_ai_analysis": {
+    "detected_language": "sl"
+  },
+  "image_scraping": {
+    "total_images": 4,
+    "successful_images": 4,
+    "images": [
+      {
+        "source_url": "https://www.hisafranko.com/foto/thumbnails/resize/hisa-franko-2_480x360.webp",
+        "local_path": "comprehensive_scraped_images/hiša_franko/hiša_franko_001.jpg",
+        "filename": "hiša_franko_001.jpg",
+        "ai_category": "uncategorized",
+        "ai_labels": [],
+        "ai_description": "AI categorization failed",
+        "status": "completed"
+      },
+      {
+        "source_url": "https://www.hisafranko.com/foto/thumbnails/resize/corn-beignet-fermented-cottage-cheese-smoked-trout-roe-wild-chives_480x480.jpg",
+        "local_path": "comprehensive_scraped_images/hiša_franko/hiša_franko_002.jpg",
+        "filename": "hiša_franko_002.jpg",
+        "ai_category": "uncategorized",
+        "ai_labels": [],
+        "ai_description": "AI categorization failed",
+        "status": "completed"
+      },
+      {
+        "source_url": "https://www.hisafranko.com/foto/thumbnails/resize/falstaff_660x470.webp",
+        "local_path": "comprehensive_scraped_images/hiša_franko/hiša_franko_003.jpg",
+        "filename": "hiša_franko_003.jpg",
+        "ai_category": "uncategorized",
+        "ai_labels": [],
+        "ai_description": "AI categorization failed",
+        "status": "completed"
+      },
+      {
+        "source_url": "https://www.hisafranko.com/foto/thumbnails/resize/anas-kitchen-hp-2_480x360.jpg",
+        "local_path": "comprehensive_scraped_images/hiša_franko/hiša_franko_004.jpg",
+        "filename": "hiša_franko_004.jpg",
+        "ai_category": "uncategorized",
+        "ai_labels": [],
+        "ai_description": "AI categorization failed",
+        "status": "completed"
+      }
+    ]
+  }
+}

@@ -1530,3 +1530,167 @@ Not Found: /api/
 "GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
 "GET /restaurants/?search=&country=Hong+Kong+SAR+China&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 767176
 "GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/?search=&country=Italy&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 766074
+"GET /static/css/iconmoon.css HTTP/1.1" 304 0
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /static/css/cs-foodbakery-plugin.css HTTP/1.1" 304 0
+"GET /static/css/bootstrap-slider.css HTTP/1.1" 304 0
+"GET /static/js/functions.js HTTP/1.1" 304 0
+"GET /static/js/modernizr.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.js HTTP/1.1" 304 0
+"GET /static/js/scripts.js HTTP/1.1" 304 0
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/fonts/icomoon.ttf?wzp9o1 HTTP/1.1" 304 0
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Bad Request: /restaurants/
+Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Bad Request: /restaurants/8-12-otto-e-mezzo-bombana-hong-kong/
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 24965
+"GET /restaurants/ HTTP/1.1" 200 767643
+"GET /restaurants/hisa-franko-kobarid/ HTTP/1.1" 200 19972
+"GET /restaurants/api/search/?q=hiÅ¡a&max_results=5 HTTP/1.1" 200 3416
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 200 1706
+"GET /restaurants/?country=France&cuisine=French HTTP/1.1" 200 753425
+"GET / HTTP/1.1" 200 24965
+"GET /restaurants/ HTTP/1.1" 200 767539
+"GET /restaurants/hisa-franko-kobarid/ HTTP/1.1" 200 19972
+"GET /restaurants/api/search/?q=french&max_results=3 HTTP/1.1" 200 1884
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 200 1706
+"GET /restaurants/api/stats/ HTTP/1.1" 200 122
+"GET /restaurants/?country=France HTTP/1.1" 200 767108
+"GET /restaurants/?cuisine=French HTTP/1.1" 200 766879
+"GET /restaurants/?stars=3 HTTP/1.1" 200 769276
+"GET /restaurants/?search=paris HTTP/1.1" 200 767172
+"GET /restaurants/hisa-franko-kobarid/ HTTP/1.1" 200 19972
+"GET /restaurants/api/search/?q=Ã©picure&max_results=1 HTTP/1.1" 200 89
+"GET / HTTP/1.1" 200 24965
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /static/css/iconmoon.css HTTP/1.1" 304 0
+"GET /static/css/bootstrap-slider.css HTTP/1.1" 304 0
+"GET /static/css/cs-foodbakery-plugin.css HTTP/1.1" 304 0
+"GET /static/js/bootstrap.js HTTP/1.1" 304 0
+"GET /static/js/modernizr.js HTTP/1.1" 304 0
+"GET /static/js/functions.js HTTP/1.1" 304 0
+"GET /static/js/scripts.js HTTP/1.1" 304 0
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /static/fonts/icomoon.ttf?wzp9o1 HTTP/1.1" 304 0
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3340
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /restaurants/?search=&location=france&foodbakery_radius=10 HTTP/1.1" 200 767403
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/seasgair-by-michel-roux-jr-fort-william/ HTTP/1.1" 200 15917
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/sketch-the-lecture-room-and-library-london/ HTTP/1.1" 200 16174
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3340
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /restaurants/api/search/?q=%C3%89picure%20Restaurant&location=&max_results=5 HTTP/1.1" 200 100
+"GET /restaurants/?search=%C3%89picure+Restaurant&location=&foodbakery_radius=10 HTTP/1.1" 200 751868
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/api/search/?q=epicure&max_results=3 HTTP/1.1" 200 1776
+"GET /restaurants/api/search/?q=Ã©picure&max_results=3 HTTP/1.1" 200 89
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /restaurants/gallery/ HTTP/1.1" 200 34146
+"GET /restaurants/api/search/?q=Ã©picure&max_results=3 HTTP/1.1" 200 1773
+"GET /restaurants/api/search/?q=epicure%20paris&max_results=5 HTTP/1.1" 200 90
+"GET /restaurants/api/search/?q=Ãpicure&max_results=5 HTTP/1.1" 200 3230
+"GET / HTTP/1.1" 200 24539
+"GET /restaurants/ HTTP/1.1" 200 768010
+"GET /restaurants/gallery/ HTTP/1.1" 200 33909
+"GET /restaurants/epicure-paris/ HTTP/1.1" 200 23637
+"GET /restaurants/api/search/?q=%C3%89picure&max_results=3 HTTP/1.1" 200 2106
+"GET /restaurants/api/search/?q=epicure&max_results=3 HTTP/1.1" 200 1776
+"GET /restaurants/api/search/?q=%C3%89PICURE&max_results=3 HTTP/1.1" 200 2106
+"GET /restaurants/api/search/?q=paris&max_results=3 HTTP/1.1" 200 2436
+"GET /restaurants/api/search/?q=french&max_results=3 HTTP/1.1" 200 1899
+"GET /restaurants/gallery/ HTTP/1.1" 200 33909
+"GET /restaurants/gallery/?category=menu_item HTTP/1.1" 200 25891
+"GET /restaurants/gallery/?category=scenery_ambiance HTTP/1.1" 200 34684
+"GET /restaurants/gallery/?country=France HTTP/1.1" 200 35285
+"GET /restaurants/gallery/?search=paris HTTP/1.1" 200 35379
+"GET /restaurants/arpege-paris/ HTTP/1.1" 200 20479
+"GET /restaurants/boury-roeselare/ HTTP/1.1" 200 20662
+"GET /restaurants/hisa-franko-kobarid/ HTTP/1.1" 200 20281
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /restaurants/api/search/?q=epicure&max_results=5 HTTP/1.1" 200 2885
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /restaurants/?search=%C3%89picure+Restaurant&location=&foodbakery_radius=10 HTTP/1.1" 200 753153
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /restaurants/api/search/?q=epi&location=&max_results=5 HTTP/1.1" 200 3389
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /restaurants/api/search/?q=epicu&location=&max_results=5 HTTP/1.1" 200 3199
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /restaurants/epicure-paris/ HTTP/1.1" 200 23931
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929

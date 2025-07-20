@@ -1,0 +1,22 @@
+# Pic
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Gastronomic atmosphere with an emphasis on high-quality service
+
+## Location
+Maison Pic, Valence, France
+
+## Location & Time Zone
+
+Country: France
+City: Valence
+Timezone: Europe/Paris
+Current local time: 2025-07-20 15:47:41 CEST
+
+## Document Information
+
+Generated: 2025-07-20 13:47:41 UTC
+Source: http://www.anne-sophie-pic.com

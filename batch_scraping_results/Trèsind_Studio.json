@@ -1,0 +1,64 @@
+{
+  "restaurant_name": "Tr\u00e8sind Studio",
+  "url": "https://tresindstudio.com/",
+  "michelin_stars": "3 Stars",
+  "cuisine_type": "Indian",
+  "scraping_success": true,
+  "scraped_at": "2025-07-20T00:03:33.254535",
+  "scraping_method": "requests",
+  "quality_score": 1.0,
+  "word_count": 466,
+  "ai_analysis": {
+    "analysis_error": "OpenAI API key not configured"
+  },
+  "raw_content": "Tr\u00e8sind StudioFacebookInstagramYoutubeTr\u00e8sindStudioFacebookInstagramYoutubeTr\u00e8sind StudioImmersiveDegustation MenuTr\u00e8sind Studio offers a uniquely captivating dining experience, challenging common perceptions of Indian cuisine by showcasing flavours both new and familiar through a creative lens. The ethos of Studio places an emphasis on the transformation and amplification of humble ingredients, sourced locally from organic and sustainable farmers in the UAE.The dining room philosophy is based on the popular Indian phrase \u201cAtithi Devo Bhava\u201d, which literally means \u2018Guest Is God\u2019. Their emphasis on the guest experience is renown in the region, having recently been named the winner of \u2018The Art of Hospitality\u2019 award at the inaugural Middle East and North Africa\u2019s 50 Best Restaurants 2022 awards by The World\u2019s 50 Best Restaurants. Tresind Studio received its third star at the MICHELIN Guide ceremony 2025 and is currently ranked no.11 on the world\u2019s 50 Best Restaurants 2024.MenuAED 1350Seat",
+  "headings": [
+    "Tr\u00e8sind Studio",
+    "Tr\u00e8sind Studio",
+    "ImmersiveDegustation Menu",
+    "AED 1350",
+    "Seating",
+    "6:00 PM | 9:15 PM",
+    "ChefHimanshu Saini",
+    "\"...a masterpiece of\noriginality and precision\"",
+    "MICHELIN Guide Dubai 2023",
+    "Get In Touch",
+    "+971 4 242 1666",
+    "+971 58895 1272",
+    "tresindstudio@passionfandb.com",
+    "6:00 PM | 11:00 PMMonday - Saturday",
+    "Location Map",
+    "Designed & Powered By Web-Pixel",
+    "Sustainable Fishing Policy",
+    "Reservation Policy",
+    "Reservation Policy",
+    "Sustainable Fishing Policy",
+    "Designed & Powered By Web-Pixel",
+    "A unit of Passion F&B | Copyright 2023",
+    "Sustainable Fishing Policy"
+  ],
+  "contact_info": {
+    "phone": "",
+    "email": "tresindstudio@passionfandb.com"
+  },
+  "menu_items": [],
+  "structured_data": {
+    "open_graph": {
+      "locale": "en_US",
+      "type": "website",
+      "title": "Tresind Studio | Three MICHELIN Star Fine Dining Restaurant",
+      "description": "Uniquely captivating fine dining experience, challenging common perceptions of Indian cuisine. Only Indian Three MICHELIN Star restaurant in UAE.",
+      "url": "https://tresindstudio.com/",
+      "site_name": "Tresind Studio",
+      "updated_time": "2025-07-02T09:28:55+00:00",
+      "image": "https://tresindstudio.com/wp-content/uploads/2022/03/DSC_9446-1024x684.jpg",
+      "image:secure_url": "https://tresindstudio.com/wp-content/uploads/2022/03/DSC_9446-1024x684.jpg",
+      "image:width": "1024",
+      "image:height": "684",
+      "image:alt": "fine dining",
+      "image:type": "image/jpeg"
+    },
+    "page_title": "Tresind Studio | Three MICHELIN Star Fine Dining Restaurant",
+    "meta_description": "Uniquely captivating fine dining experience, challenging common perceptions of Indian cuisine. Only Indian Three MICHELIN Star restaurant in UAE."
+  }
+}

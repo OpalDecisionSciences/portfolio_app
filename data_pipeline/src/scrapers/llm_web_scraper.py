@@ -66,7 +66,9 @@ class NewWebsite:
                 "Chrome/117.0.0.0 Safari/537.36"
             )
 
-            service = Service(ChromeDriverManager().install())
+            # Use ARM64-compatible ChromeDriver binary directly
+            chromedriver_path = "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"
+            service = Service(chromedriver_path)
             cls.shared_driver = webdriver.Chrome(service=service, options=options)
         return cls.shared_driver
 

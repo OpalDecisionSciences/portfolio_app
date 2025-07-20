@@ -1,0 +1,548 @@
+ERROR:comprehensive_restaurant_scraper:Direct OpenAI call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:comprehensive_restaurant_scraper:Direct OpenAI call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:comprehensive_restaurant_scraper:Error categorizing image comprehensive_scraped_images/hiša_franko/hiša_franko_001.jpg: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:comprehensive_restaurant_scraper:Error categorizing image comprehensive_scraped_images/hiša_franko/hiša_franko_002.jpg: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:comprehensive_restaurant_scraper:Error categorizing image comprehensive_scraped_images/hiša_franko/hiša_franko_003.jpg: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:comprehensive_restaurant_scraper:Error categorizing image comprehensive_scraped_images/hiša_franko/hiša_franko_004.jpg: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:comprehensive_restaurant_scraper:Direct OpenAI call failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Menu parsing failed: 'list' object has no attribute 'get'
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:django.security.DisallowedHost:Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING:django.request:Bad Request: /restaurants/
+ERROR:django.security.DisallowedHost:Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+WARNING:django.request:Bad Request: /restaurants/8-12-otto-e-mezzo-bombana-hong-kong/
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Menu parsing failed: 'list' object has no attribute 'get'
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:root:Failed to scrape https://www.floconsdesel.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x000000010509b55c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000105093454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x0000000104be23f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x0000000104be80b0 cxxbridge1$string$len + 114400
+4   chromedriver                        0x0000000104bea3f4 cxxbridge1$string$len + 123428
+5   chromedriver                        0x0000000104bea49c cxxbridge1$string$len + 123596
+6   chromedriver                        0x0000000104c246ac cxxbridge1$string$len + 361692
+7   chromedriver                        0x0000000104c1efbc cxxbridge1$string$len + 339436
+8   chromedriver                        0x0000000104c6ab1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x0000000104c1da0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x000000010505e5e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x0000000105061848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x000000010503f234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x0000000105062104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x00000001050302e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000105081ff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000105082184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000105093090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:JSON parsing failed for menu: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 400 - {'error': {'message': "'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.", 'type': 'invalid_request_error', 'param': 'messages', 'code': None}}
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 400 - {'error': {'message': "'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.", 'type': 'invalid_request_error', 'param': 'messages', 'code': None}}
+ERROR:unified_restaurant_scraper:JSON parsing failed for summary: Expecting value: line 1 column 1 (char 0)
+ERROR:unified_restaurant_scraper:Raw response: **Le Bernardin Restaurant Profile**
+
+**Type of Restaurant and Cuisine:**  
+Le Bernardin is a renowned seafood restaurant located in New York City and specializes in French cuisine with a focus on fresh fish and seafood. 
+
+**Ambience and Unique Features:**  
+The restaurant offers a sophisticated and elegant dining atmosphere, catering to an elite clientele including the city's movers and shakers. Le Bernardin has consistently maintained its reputation, earning three Michelin stars for exceptional cuisine, indicative of its high culinary standards.
+
+**Menu Highlights and Philosophy:**  
+The menu at Le Bernardin showcases the chef's passion for seafood, featuring exquisite dishes such as seared langoustine in a truffled broth and golden-brown fluke enriched with bouillabaisse and sea urchin. In addition to seafood, the restaurant presents a compelling vegetarian tasting menu, highlighting creative offerings like Himalayan morel with spring pea and fava bean casserole and warm artichoke panaché with vegetable risotto and black truffle vinaigrette. Desserts are equally impressive, with items like the purple sweet potato baba au whisky topped with caramelized pecan whipped cream.
+
+**Head Chef Background:**  
+Le Bernardin is helmed by Chef Eric Ripert, who is noted for his expertise in seafood and has garnered acclaim for his innovative cooking techniques and presentation. His approach combines traditional French cooking with contemporary influences, ensuring each dish maintains an exquisite balance of flavor and artistry.
+
+**Owner and Ownership Background:**  
+Le Bernardin was co-founded by Maguy Le Coze and Eric Ripert, with its operations reflecting their shared vision for exceptional seafood dining. With nearly 30 years in the industry, the restaurant continues to thrive under their leadership, maintaining a prominent status in New York City's culinary scene.
+
+**Location and Contact Info:**  
+Le Bernardin is situated at 155 W. 51st St., New York, NY 10019, USA. For reservations or inquiries, guests can reach the restaurant at 1-212-554-1515. The restaurant is open for lunch and dinner, with hours varying by day, and is closed on Sundays. 
+
+This profile encapsulates the essence of Le Bernardin, highlighting its critical acclaim, culinary offerings, and commitment to excellence in the art of seafood cuisine.
+ERROR:unified_restaurant_scraper:Error saving restaurant: cannot access local variable 'Restaurant' where it is not associated with a value
+ERROR:root:Failed to scrape www.frantzengroup.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 104, in _scrape_content
+    self.driver.get(self.url)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=138.0.7204.158)
+Stacktrace:
+0   chromedriver                        0x0000000102b5f55c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000102b57454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x00000001026a626c cxxbridge1$string$len + 90268
+3   chromedriver                        0x00000001026909f4 cxxbridge1$string$len + 2084
+4   chromedriver                        0x000000010268ed04 chromedriver + 191748
+5   chromedriver                        0x000000010268f788 chromedriver + 194440
+6   chromedriver                        0x00000001026a945c cxxbridge1$string$len + 103052
+7   chromedriver                        0x000000010272f590 cxxbridge1$string$len + 652224
+8   chromedriver                        0x000000010272eb1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x00000001026e1a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x0000000102b225e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x0000000102b25848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x0000000102b03234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x0000000102b26104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x0000000102af42e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000102b45ff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000102b46184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000102b57090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:Requests scraping failed: HTTPSConnectionPool(host='www.restaurantfzn.com', port=443): Read timed out. (read timeout=30)
+ERROR:unified_restaurant_scraper:Timezone extraction failed: 'NoneType' object has no attribute 'strip'
+ERROR:root:Failed to scrape https://www.floconsdesel.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x0000000102b5f55c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000102b57454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x00000001026a63f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x00000001026ac0b0 cxxbridge1$string$len + 114400
+4   chromedriver                        0x00000001026ae3f4 cxxbridge1$string$len + 123428
+5   chromedriver                        0x00000001026ae49c cxxbridge1$string$len + 123596
+6   chromedriver                        0x00000001026e86ac cxxbridge1$string$len + 361692
+7   chromedriver                        0x00000001026e2fbc cxxbridge1$string$len + 339436
+8   chromedriver                        0x000000010272eb1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x00000001026e1a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x0000000102b225e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x0000000102b25848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x0000000102b03234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x0000000102b26104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x0000000102af42e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000102b45ff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000102b46184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000102b57090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:root:Failed to scrape www.frantzengroup.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 104, in _scrape_content
+    self.driver.get(self.url)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=138.0.7204.158)
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e26c cxxbridge1$string$len + 90268
+3   chromedriver                        0x00000001045689f4 cxxbridge1$string$len + 2084
+4   chromedriver                        0x0000000104566d04 chromedriver + 191748
+5   chromedriver                        0x0000000104567788 chromedriver + 194440
+6   chromedriver                        0x000000010458145c cxxbridge1$string$len + 103052
+7   chromedriver                        0x0000000104607590 cxxbridge1$string$len + 652224
+8   chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:Requests scraping failed: HTTPSConnectionPool(host='www.restaurantfzn.com', port=443): Read timed out. (read timeout=30)
+ERROR:root:Failed to scrape https://www.floconsdesel.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e3f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x00000001045840b0 cxxbridge1$string$len + 114400
+4   chromedriver                        0x00000001045863f4 cxxbridge1$string$len + 123428
+5   chromedriver                        0x000000010458649c cxxbridge1$string$len + 123596
+6   chromedriver                        0x00000001045c06ac cxxbridge1$string$len + 361692
+7   chromedriver                        0x00000001045bafbc cxxbridge1$string$len + 339436
+8   chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:processors.image_integrator:Error creating RestaurantImage: value too long for type character varying(200)
+ERROR:processors.image_integrator:Error creating RestaurantImage: value too long for type character varying(200)
+ERROR:root:Failed to scrape [English Version](#)
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 104, in _scrape_content
+    self.driver.get(self.url)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=138.0.7204.158)
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e26c cxxbridge1$string$len + 90268
+3   chromedriver                        0x00000001045689f4 cxxbridge1$string$len + 2084
+4   chromedriver                        0x0000000104566d04 chromedriver + 191748
+5   chromedriver                        0x0000000104567788 chromedriver + 194440
+6   chromedriver                        0x000000010458145c cxxbridge1$string$len + 103052
+7   chromedriver                        0x0000000104607590 cxxbridge1$string$len + 652224
+8   chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o-mini in organization org-oJOXhLuSgXBp6fKR9nevj8Vb on tokens per min (TPM): Limit 200000, Used 200000, Requested 1066. Please try again in 319ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o-mini in organization org-oJOXhLuSgXBp6fKR9nevj8Vb on tokens per min (TPM): Limit 200000, Used 200000, Requested 103. Please try again in 30ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+ERROR:unified_restaurant_scraper:Timezone extraction failed: Expecting value: line 1 column 1 (char 0)
+ERROR:root:Failed to scrape "NO ENGLISH VERSION"
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 104, in _scrape_content
+    self.driver.get(self.url)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=138.0.7204.158)
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e26c cxxbridge1$string$len + 90268
+3   chromedriver                        0x00000001045689f4 cxxbridge1$string$len + 2084
+4   chromedriver                        0x0000000104566d04 chromedriver + 191748
+5   chromedriver                        0x0000000104567788 chromedriver + 194440
+6   chromedriver                        0x000000010458145c cxxbridge1$string$len + 103052
+7   chromedriver                        0x0000000104607590 cxxbridge1$string$len + 652224
+8   chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:Requests scraping failed: HTTPSConnectionPool(host='www.fourseasons.com', port=443): Read timed out. (read timeout=30)
+ERROR:root:Failed to scrape https://www.baumaniere.com/gastronomie/la-cabro-dor/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 104, in _scrape_content
+    self.driver.get(self.url)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: timeout: Timed out receiving message from renderer: 19.174
+  (Session info: chrome=138.0.7204.158)
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e3f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x00000001045691fc cxxbridge1$string$len + 4140
+4   chromedriver                        0x0000000104568f74 cxxbridge1$string$len + 3492
+5   chromedriver                        0x0000000104566d2c chromedriver + 191788
+6   chromedriver                        0x00000001045678bc chromedriver + 194748
+7   chromedriver                        0x0000000104574afc cxxbridge1$string$len + 51500
+8   chromedriver                        0x000000010458aa18 cxxbridge1$string$len + 141384
+9   chromedriver                        0x0000000104567f18 chromedriver + 196376
+10  chromedriver                        0x000000010458a820 cxxbridge1$string$len + 140880
+11  chromedriver                        0x0000000104606dbc cxxbridge1$string$len + 650220
+12  chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+13  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+14  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+15  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+16  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+17  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+18  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+19  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+20  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+21  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+22  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:root:Failed to scrape https://www.baumaniere.com/un-cadre-d-exception/une-histoire/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 123, in _scrape_content
+    (btn.get_attribute("aria-label") or "").lower().strip(),
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 177, in get_attribute
+    attribute_value = self.parent.execute_script(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 407, in execute_script
+    return self.execute(command, {"script": script, "args": converted_args})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e3f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x000000010458ee30 cxxbridge1$string$len + 158816
+4   chromedriver                        0x000000010458df0c cxxbridge1$string$len + 154940
+5   chromedriver                        0x00000001045849c0 cxxbridge1$string$len + 116720
+6   chromedriver                        0x0000000104584acc cxxbridge1$string$len + 116988
+7   chromedriver                        0x0000000104583168 cxxbridge1$string$len + 110488
+8   chromedriver                        0x000000010458667c cxxbridge1$string$len + 124076
+9   chromedriver                        0x000000010460781c cxxbridge1$string$len + 652876
+10  chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+11  chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+12  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+13  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+14  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+15  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+16  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+17  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+18  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+19  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+20  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+21  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:root:Failed to scrape https://www.baumaniere.com/un-cadre-d-exception/une-philosophie/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e3f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x000000010458ee30 cxxbridge1$string$len + 158816
+4   chromedriver                        0x000000010458df0c cxxbridge1$string$len + 154940
+5   chromedriver                        0x00000001045849c0 cxxbridge1$string$len + 116720
+6   chromedriver                        0x0000000104583168 cxxbridge1$string$len + 110488
+7   chromedriver                        0x00000001045863f4 cxxbridge1$string$len + 123428
+8   chromedriver                        0x000000010458649c cxxbridge1$string$len + 123596
+9   chromedriver                        0x00000001045c06ac cxxbridge1$string$len + 361692
+10  chromedriver                        0x00000001045bafbc cxxbridge1$string$len + 339436
+11  chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+12  chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+13  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+14  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+15  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+16  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+17  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+18  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+19  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+20  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+21  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+22  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:root:Failed to scrape https://www.baumaniere.com/gastronomie/loustau-de-baumaniere/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x0000000104a3755c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104a2f454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x000000010457e3f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x000000010458ee30 cxxbridge1$string$len + 158816
+4   chromedriver                        0x000000010458df0c cxxbridge1$string$len + 154940
+5   chromedriver                        0x00000001045849c0 cxxbridge1$string$len + 116720
+6   chromedriver                        0x0000000104583168 cxxbridge1$string$len + 110488
+7   chromedriver                        0x00000001045863f4 cxxbridge1$string$len + 123428
+8   chromedriver                        0x000000010458649c cxxbridge1$string$len + 123596
+9   chromedriver                        0x00000001045c06ac cxxbridge1$string$len + 361692
+10  chromedriver                        0x00000001045bafbc cxxbridge1$string$len + 339436
+11  chromedriver                        0x0000000104606b1c cxxbridge1$string$len + 649548
+12  chromedriver                        0x00000001045b9a0c cxxbridge1$string$len + 333884
+13  chromedriver                        0x00000001049fa5e0 cxxbridge1$str$ptr + 2481340
+14  chromedriver                        0x00000001049fd848 cxxbridge1$str$ptr + 2494244
+15  chromedriver                        0x00000001049db234 cxxbridge1$str$ptr + 2353424
+16  chromedriver                        0x00000001049fe104 cxxbridge1$str$ptr + 2496480
+17  chromedriver                        0x00000001049cc2e4 cxxbridge1$str$ptr + 2292160
+18  chromedriver                        0x0000000104a1dff8 cxxbridge1$str$ptr + 2627284
+19  chromedriver                        0x0000000104a1e184 cxxbridge1$str$ptr + 2627680
+20  chromedriver                        0x0000000104a2f090 cxxbridge1$str$ptr + 2697068
+21  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+22  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o-mini in organization org-oJOXhLuSgXBp6fKR9nevj8Vb on tokens per min (TPM): Limit 200000, Used 199352, Requested 1066. Please try again in 125ms. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}

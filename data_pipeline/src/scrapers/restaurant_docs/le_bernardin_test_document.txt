@@ -1,0 +1,22 @@
+# Le Bernardin Test
+
+## Cuisine
+Seafood
+
+## Ambiance & Atmosphere
+Elegant and refined, catering to the city's elite.
+
+## Location
+155 W. 51st St., New York, 10019, USA
+
+## Location & Time Zone
+
+Country: USA
+City: New York
+Timezone: America/New_York
+Current local time: 2025-07-20 09:08:42 EDT
+
+## Document Information
+
+Generated: 2025-07-20 13:08:42 UTC
+Source: https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/le-bernardin

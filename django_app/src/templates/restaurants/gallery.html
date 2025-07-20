@@ -1,0 +1,359 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Restaurant Gallery - FoodOnline</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 20px;
+			margin-top: 30px;
+		}
+		
+		.gallery-item {
+			background: white;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			cursor: pointer;
+		}
+		
+		.gallery-item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+		}
+		
+		.gallery-image {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+		}
+		
+		.gallery-info {
+			padding: 15px;
+		}
+		
+		.restaurant-name {
+			font-size: 16px;
+			font-weight: 600;
+			margin: 0 0 5px 0;
+			color: #333;
+		}
+		
+		.restaurant-location {
+			font-size: 14px;
+			color: #666;
+			margin: 0 0 8px 0;
+		}
+		
+		.image-category {
+			display: inline-block;
+			background: #e74c3c;
+			color: white;
+			padding: 3px 8px;
+			border-radius: 12px;
+			font-size: 11px;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+		
+		.image-category.menu_item {
+			background: #e74c3c;
+		}
+		
+		.image-category.scenery_ambiance {
+			background: #27ae60;
+		}
+		
+		.image-category.exterior {
+			background: #3498db;
+		}
+		
+		.image-category.chef {
+			background: #f39c12;
+		}
+		
+		.filter-sidebar {
+			background: white;
+			padding: 20px;
+			border-radius: 10px;
+			margin-bottom: 30px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		}
+		
+		.filter-sidebar h4 {
+			margin-bottom: 15px;
+			color: #2c3e50;
+		}
+		
+		.filter-sidebar .form-control {
+			margin-bottom: 15px;
+			border-radius: 5px;
+		}
+		
+		.gallery-header {
+			padding: 20px 0;
+			border-bottom: 1px solid #eee;
+			margin-bottom: 30px;
+		}
+		
+		.gallery-header h2 {
+			color: #2c3e50;
+			margin-bottom: 10px;
+		}
+		
+		.gallery-stats {
+			color: #7f8c8d;
+		}
+		
+		.no-images {
+			text-align: center;
+			padding: 60px 20px;
+			color: #7f8c8d;
+		}
+		
+		.no-images i {
+			font-size: 64px;
+			margin-bottom: 20px;
+			color: #ecf0f1;
+		}
+	</style>
+</head>
+
+<body>
+	<!--Main Wrapper-->
+	<div class="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<div class="main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div class="logo">
+								<figure>
+									<a href="{% url 'home' %}" class="light-logo">
+										<img src="{% static 'logo/foodOnlineLogo.png' %}" alt="FoodOnline" width="250">
+									</a>
+								</figure>
+							</div>
+							<div class="main-nav">
+								<nav id="site-navigation" class="main-navigation">
+									<ul>
+										<li><a href="{% url 'home' %}">Home</a></li>
+										<li><a href="{% url 'restaurants:restaurant_list' %}">Restaurants</a></li>
+										<li><a href="{% url 'restaurants:gallery' %}" class="cs-color">Gallery</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="login-option">
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="#">Login / Register</a>
+								<a class="get-start-btn" href="#">Register Restaurant</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header End -->
+		
+		<!-- Main Section Start -->
+		<div class="main-section">
+			<div class="page-section">
+				<div class="container">
+					<div class="row">
+						<!-- Filter Sidebar -->
+						<div class="col-lg-3 col-md-4">
+							<div class="filter-sidebar">
+								<h4><i class="icon-funnel"></i> Filter Gallery</h4>
+								<form method="GET">
+									<input type="text" name="search" class="form-control" 
+										   placeholder="Search restaurants, locations..." 
+										   value="{{ current_filters.search }}">
+									
+									<select name="category" class="form-control">
+										<option value="">All Categories</option>
+										{% for category in categories %}
+										<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
+											{{ category|title }}
+										</option>
+										{% endfor %}
+									</select>
+									
+									<select name="country" class="form-control">
+										<option value="">All Countries</option>
+										{% for country in countries %}
+										<option value="{{ country }}" {% if current_filters.country == country %}selected{% endif %}>
+											{{ country }}
+										</option>
+										{% endfor %}
+									</select>
+									
+									<select name="cuisine" class="form-control">
+										<option value="">All Cuisines</option>
+										{% for cuisine in cuisines %}
+										<option value="{{ cuisine }}" {% if current_filters.cuisine == cuisine %}selected{% endif %}>
+											{{ cuisine }}
+										</option>
+										{% endfor %}
+									</select>
+									
+									<button type="submit" class="bgcolor" style="color: white; border: none; padding: 10px 20px; border-radius: 5px; width: 100%; margin-bottom: 10px;">Apply Filters</button>
+									<a href="{% url 'restaurants:gallery' %}" class="btn btn-light" style="width: 100%; text-align: center; display: block; padding: 10px;">Clear Filters</a>
+								</form>
+							</div>
+						</div>
+						
+						<!-- Gallery Content -->
+						<div class="col-lg-9 col-md-8">
+							<div class="gallery-header">
+								<h2>Restaurant Gallery</h2>
+								<div class="gallery-stats">
+									{% if current_filters.search %}
+										Showing results for "{{ current_filters.search }}" • 
+									{% endif %}
+									{{ total_images }} image{{ total_images|pluralize }} found
+									{% if current_filters.category %}
+										• Category: {{ current_filters.category|title }}
+									{% endif %}
+								</div>
+							</div>
+							
+							{% if images %}
+								<div class="gallery-grid">
+									{% for image in images %}
+									<div class="gallery-item" onclick="window.location.href='{% url 'restaurants:restaurant_detail' image.restaurant.slug %}'">
+										<img src="{{ image.source_url }}" 
+											 alt="{{ image.caption|default:image.restaurant.name }}" 
+											 class="gallery-image"
+											 onerror="this.parentElement.style.display='none'">
+										<div class="gallery-info">
+											<h4 class="restaurant-name">{{ image.restaurant.name }}</h4>
+											<p class="restaurant-location">{{ image.restaurant.city }}, {{ image.restaurant.country }}</p>
+											<span class="image-category {{ image.ai_category }}">{{ image.ai_category|default:"restaurant" }}</span>
+											{% if image.restaurant.michelin_stars %}
+												<span style="margin-left: 10px; color: #e74c3c;">
+													{% for i in "123" %}
+														{% if forloop.counter <= image.restaurant.michelin_stars %}⭐{% endif %}
+													{% endfor %}
+												</span>
+											{% endif %}
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+								
+								<!-- Pagination -->
+								{% if is_paginated %}
+								<div class="pagination" style="text-align: center; margin-top: 40px;">
+									{% if page_obj.has_previous %}
+										<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page=1" class="btn">&laquo; First</a>
+										<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.previous_page_number }}" class="btn">&lsaquo; Previous</a>
+									{% endif %}
+									
+									<span style="margin: 0 15px;">
+										Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+									</span>
+									
+									{% if page_obj.has_next %}
+										<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.next_page_number }}" class="btn">Next &rsaquo;</a>
+										<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.paginator.num_pages }}" class="btn">Last &raquo;</a>
+									{% endif %}
+								</div>
+								{% endif %}
+								
+							{% else %}
+								<div class="no-images">
+									<i class="icon-image"></i>
+									<h3>No images found</h3>
+									<p>Try adjusting your search criteria or <a href="{% url 'restaurants:gallery' %}">browse all images</a>.</p>
+									<p style="margin-top: 20px; font-size: 14px; color: #95a5a6;">
+										New images are being added as restaurants are scraped. Check back soon for more content!
+									</p>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
+		
+		<!-- Footer Start -->
+		<footer id="footer" class="footer-style-2">
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="widget widget-newsletter">
+								<div class="widget-title">
+									<h5>Subscribe to our Newsletter</h5>
+								</div>
+								<div class="fieldset">
+									<form action="#">
+										<div class="field-holder">
+											<label>
+												<i class="icon-envelope3"></i>
+												<input type="text" class="field-input" placeholder="Enter Your Email Address...">
+											</label>
+										</div>
+										<div class="field-holder btn-holder">
+											<input class="subscribe-btn bgcolor" type="submit" value="Sign Up">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-sec">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="copyright-inner">
+								<div class="copy-right">
+									<p>© 2020 Foodbakery. All Rights Reserved. Developed By <a href="#">Rathan Kumar</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer End -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+</body>
+</html>

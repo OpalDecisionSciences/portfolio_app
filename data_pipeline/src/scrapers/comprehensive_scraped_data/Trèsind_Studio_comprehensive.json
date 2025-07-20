@@ -1,0 +1,46 @@
+{
+  "restaurant_name": "Trèsind Studio",
+  "url": "https://www.tresind.com/dubai-tresind-studio/",
+  "scraped_at": "2025-07-20T01:02:14.969500",
+  "scraping_success": true,
+  "method_used": "requests",
+  "content_length": 121264,
+  "quality_score": 0.03,
+  "word_count": 3,
+  "structured_data": {
+    "open_graph": {
+      "locale": "en_US",
+      "type": "website",
+      "title": "Trèsind - Modern Indian Fine Dining | MICHELIN Guide Dubai 2022",
+      "description": "Considered one of the best Indian fine dining restaurants in Dubai and Mumbai | Tresind is the birthplace of modern Indian cuisine",
+      "url": "https://tresind.com/",
+      "site_name": "Trèsind",
+      "image": "https://tresind.com/wp-content/uploads/2022/12/DSC_6576-scaled.jpg",
+      "image:width": "2560",
+      "image:height": "1706",
+      "image:type": "image/jpeg"
+    },
+    "page_title": "Trèsind - Modern Indian Fine Dining | MICHELIN Guide Dubai 2022",
+    "meta_description": "Considered one of the best Indian fine dining restaurants in Dubai and Mumbai | Tresind is the birthplace of modern Indian cuisine"
+  },
+  "content": "Modernist Indian CuisineDubaiMumbai",
+  "headings": [
+    "Modernist Indian Cuisine",
+    "A Unit Of Passion F&B",
+    "Privacy Policy | © 2022 All Rights Reserved",
+    "Powered By Web-Pixel"
+  ],
+  "contact_info": {
+    "phone": ""
+  },
+  "menu_items": [],
+  "opening_hours": "",
+  "comprehensive_ai_analysis": {
+    "ai_analysis_error": "Insufficient content for AI analysis"
+  },
+  "image_scraping": {
+    "total_images": 0,
+    "successful_images": 0,
+    "images": []
+  }
+}

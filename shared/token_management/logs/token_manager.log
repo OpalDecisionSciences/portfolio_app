@@ -1,0 +1,62 @@
+2025-07-19 23:50:10,640 | INFO | Token manager initialized with directory: /Users/iamai/projects/portfolio_app/shared/token_management
+2025-07-19 23:50:10,640 | INFO | Enhanced restaurant scraper initialized with ethical configurations
+2025-07-19 23:50:10,640 | INFO | Starting enhanced scraping for: https://www.example.com
+2025-07-19 23:50:11,499 | INFO | Successfully scraped https://www.example.com using requests
+2025-07-19 23:50:11,504 | INFO | Completed scraping https://www.example.com - Quality: 0.28
+2025-07-19 23:50:59,367 | INFO | Token manager initialized with directory: /Users/iamai/projects/portfolio_app/shared/token_management
+2025-07-19 23:50:59,367 | INFO | Enhanced restaurant scraper initialized with ethical configurations
+2025-07-19 23:50:59,368 | INFO | Processing 1/5: Le Coquillage
+2025-07-19 23:50:59,368 | INFO | Starting enhanced scraping for: https://www.maisons-de-bricourt.com/fr/page/le-coquillage
+2025-07-19 23:51:01,017 | INFO | Successfully scraped https://www.maisons-de-bricourt.com/fr/page/le-coquillage using requests
+2025-07-19 23:51:01,052 | WARNING | AI enhancement failed: call_openai_chat() got an unexpected keyword argument 'messages'
+2025-07-19 23:51:01,052 | INFO | Completed scraping https://www.maisons-de-bricourt.com/fr/page/le-coquillage - Quality: 1.00
+2025-07-19 23:51:01,052 | INFO | ✅ Successfully scraped Le Coquillage
+2025-07-19 23:51:01,052 | INFO | Processing 2/5: Rebel
+2025-07-19 23:51:01,052 | INFO | Starting enhanced scraping for: https://www.restaurantrebel.co.uk
+2025-07-19 23:51:01,810 | INFO | Successfully scraped https://www.restaurantrebel.co.uk using requests
+2025-07-19 23:51:01,843 | INFO | Completed scraping https://www.restaurantrebel.co.uk - Quality: 0.16
+2025-07-19 23:51:01,843 | WARNING | ❌ Still failed: Rebel
+2025-07-19 23:51:01,843 | INFO | Processing 3/5: Saneh Jaan
+2025-07-19 23:51:01,843 | INFO | Starting enhanced scraping for: https://www.sanehjaan.com
+2025-07-19 23:51:02,907 | WARNING | Could not read robots.txt for https://www.sanehjaan.com: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.sanehjaan.com'. (_ssl.c:1006)>
+2025-07-19 23:51:03,522 | WARNING | Request failed for https://www.sanehjaan.com: HTTPSConnectionPool(host='www.sanehjaan.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.sanehjaan.com'. (_ssl.c:1006)")))
+2025-07-19 23:51:03,522 | INFO | Retry attempt 1 for https://www.sanehjaan.com after 5.0s delay
+2025-07-19 23:51:09,158 | WARNING | Request failed for https://www.sanehjaan.com: HTTPSConnectionPool(host='www.sanehjaan.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.sanehjaan.com'. (_ssl.c:1006)")))
+2025-07-19 23:51:09,158 | INFO | Retry attempt 2 for https://www.sanehjaan.com after 6.0s delay
+2025-07-19 23:51:15,809 | WARNING | Request failed for https://www.sanehjaan.com: HTTPSConnectionPool(host='www.sanehjaan.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.sanehjaan.com'. (_ssl.c:1006)")))
+2025-07-19 23:51:15,810 | INFO | Retry attempt 3 for https://www.sanehjaan.com after 6.4s delay
+2025-07-19 23:51:22,854 | WARNING | Request failed for https://www.sanehjaan.com: HTTPSConnectionPool(host='www.sanehjaan.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.sanehjaan.com'. (_ssl.c:1006)")))
+2025-07-19 23:51:35,757 | INFO | Successfully loaded https://www.sanehjaan.com with Selenium (69028 chars)
+2025-07-19 23:51:35,856 | INFO | Successfully scraped https://www.sanehjaan.com using Selenium
+2025-07-19 23:51:35,896 | WARNING | AI enhancement failed: call_openai_chat() got an unexpected keyword argument 'messages'
+2025-07-19 23:51:35,896 | INFO | Completed scraping https://www.sanehjaan.com - Quality: 1.00
+2025-07-19 23:51:35,896 | INFO | ✅ Successfully scraped Saneh Jaan
+2025-07-19 23:51:35,896 | INFO | Processing 4/5: TROIS VISAGES
+2025-07-19 23:51:35,896 | INFO | Starting enhanced scraping for: https://troisvisages.jp/
+2025-07-19 23:51:37,986 | INFO | Successfully scraped https://troisvisages.jp/ using requests
+2025-07-19 23:51:38,022 | WARNING | AI enhancement failed: call_openai_chat() got an unexpected keyword argument 'messages'
+2025-07-19 23:51:38,022 | INFO | Completed scraping https://troisvisages.jp/ - Quality: 0.40
+2025-07-19 23:51:38,022 | INFO | ✅ Successfully scraped TROIS VISAGES
+2025-07-19 23:51:38,022 | INFO | Processing 5/5: La Table d'Élise
+2025-07-19 23:51:38,022 | INFO | Starting enhanced scraping for: http://www.latabledelise.mc
+2025-07-19 23:51:40,933 | INFO | Successfully scraped http://www.latabledelise.mc using requests
+2025-07-19 23:51:40,994 | INFO | Completed scraping http://www.latabledelise.mc - Quality: 0.04
+2025-07-19 23:51:40,994 | WARNING | ❌ Still failed: La Table d'Élise
+2025-07-19 23:51:40,994 | INFO | Batch scraping completed: 3/5 successful (60.0%)
+2025-07-20 00:03:25,560 | INFO | Token manager initialized with directory: /Users/iamai/projects/portfolio_app/shared/token_management
+2025-07-20 00:03:25,560 | INFO | Enhanced restaurant scraper initialized with ethical configurations
+2025-07-20 00:03:25,560 | INFO | Starting enhanced scraping for: https://www.hisafranko.com/
+2025-07-20 00:03:27,793 | INFO | Successfully scraped https://www.hisafranko.com/ using requests
+2025-07-20 00:03:27,816 | WARNING | AI enhancement failed: call_openai_chat() got an unexpected keyword argument 'messages'
+2025-07-20 00:03:27,816 | INFO | Completed scraping https://www.hisafranko.com/ - Quality: 1.00
+2025-07-20 00:03:30,872 | INFO | Starting enhanced scraping for: https://tresindstudio.com/
+2025-07-20 00:03:33,178 | INFO | Successfully scraped https://tresindstudio.com/ using requests
+2025-07-20 00:03:33,246 | WARNING | AI enhancement failed: call_openai_chat() got an unexpected keyword argument 'messages'
+2025-07-20 00:03:33,246 | INFO | Completed scraping https://tresindstudio.com/ - Quality: 1.00
+2025-07-20 00:03:36,260 | INFO | Starting enhanced scraping for: https://www.restaurantfzn.com/
+2025-07-20 00:04:07,049 | WARNING | Request failed for https://www.restaurantfzn.com/: HTTPSConnectionPool(host='www.restaurantfzn.com', port=443): Read timed out. (read timeout=30)
+2025-07-20 00:04:07,050 | INFO | Retry attempt 1 for https://www.restaurantfzn.com/ after 3.8s delay
+2025-07-20 00:04:40,969 | WARNING | Request failed for https://www.restaurantfzn.com/: HTTPSConnectionPool(host='www.restaurantfzn.com', port=443): Read timed out. (read timeout=30)
+2025-07-20 00:04:40,969 | INFO | Retry attempt 2 for https://www.restaurantfzn.com/ after 5.6s delay
+2025-07-20 00:05:16,762 | WARNING | Request failed for https://www.restaurantfzn.com/: HTTPSConnectionPool(host='www.restaurantfzn.com', port=443): Read timed out. (read timeout=30)
+2025-07-20 00:05:16,763 | INFO | Retry attempt 3 for https://www.restaurantfzn.com/ after 6.2s delay

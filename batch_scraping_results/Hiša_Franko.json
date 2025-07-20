@@ -1,0 +1,38 @@
+{
+  "restaurant_name": "Hi\u0161a Franko",
+  "url": "https://www.hisafranko.com/",
+  "michelin_stars": "3 Stars",
+  "cuisine_type": "Creative, Regional Cuisine",
+  "scraping_success": true,
+  "scraped_at": "2025-07-20T00:03:27.868099",
+  "scraping_method": "requests",
+  "quality_score": 1.0,
+  "word_count": 427,
+  "ai_analysis": {
+    "analysis_error": "OpenAI API key not configured"
+  },
+  "raw_content": "REZERVIRAJZgodba in filozofija Hi\u0161e Franko sta tesno povezani s tradicijami in okoljem Poso\u010dja. Okolje, ki je v\u010dasih trdo\n                                        in te\u017eko, a osupljivo lepo. Restavracija, ume\u0161\u010dena ob vzno\u017eje o\u010dakov in visokogorskih pa\u0161nikov ter le streljaj\n                                        od smaragdne So\u010de, svojo kuhinjo gradi na najbolj\u0161em, kar ponuja narava v danih letnih \u010dasih.Prehrana v Poso\u010dju je vedno mo\u010dno temeljila na mle\u010dnih in mesnih izdelkih, zato pri\u010dakujte na na\u0161em meniju\n                                        veliko sira in vseh stranskih produktov njegove proizvodnje. Pri tem sodelujemo s kmeti, pastrji in sirarji z\n                                        visokogorskih kmetij nad Kobaridom in Tolminom, kjer \u0161e vedno pasejo \u017eivino ter delajo sir in skuto, kot so to\n                                        po\u010deli njihovi predniki. To so kraji, kjer se je \u010das ustavil.Restavracija je tesno povezana s skupnostmi nabiralcev, gobarjev, pastirjev, sirarjev",
+  "headings": [
+    "Anina kuhinja",
+    "Lokalno in tradicionalno",
+    "Lokalno in tradicionalno",
+    "Menu",
+    "Meni",
+    "Hi\u0161a Franko med najbolj\u0161imi \u2013 99 to\u010dk v vodniku Falstaff 2025",
+    "julij 2025"
+  ],
+  "contact_info": {
+    "phone": ""
+  },
+  "menu_items": [],
+  "structured_data": {
+    "open_graph": {
+      "type": "website",
+      "title": "Hi\u0161a Franko",
+      "image": "https://www.hisafranko.com/foto/hisa-franko-2.webp",
+      "url": "https://www.hisafranko.com/"
+    },
+    "page_title": "Hi\u0161a Franko",
+    "meta_description": "Zgodba in filozofija Hi\u0161e Franko sta tesno povezani s tradicijami in okoljem Poso\u010dja. Okolje, ki je v\u010dasih trdo in te\u017eko, a osupljivo lepo. Restavracija, ume\u0161\u010dena ob vzno\u017eje o\u010dakov in visokogorskih pa\u0161nikov ter le streljaj od smaragdne So\u010de, svojo kuhinjo gradi na najbolj\u0161em, kar ponuja narava v danih letnih \u010dasih."
+  }
+}

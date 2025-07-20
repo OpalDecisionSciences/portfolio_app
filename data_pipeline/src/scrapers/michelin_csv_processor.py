@@ -17,10 +17,10 @@ setup_portfolio_paths()
 
 # Handle both relative and absolute imports
 try:
-    from .enhanced_restaurant_scraper import EnhancedRestaurantScraper
+    from .unified_restaurant_scraper import UnifiedRestaurantScraper
     from .scrape_utils import clean_filename
 except ImportError:
-    from enhanced_restaurant_scraper import EnhancedRestaurantScraper
+    from unified_restaurant_scraper import UnifiedRestaurantScraper
     from scrape_utils import clean_filename
 
 from token_management.token_manager import init_token_manager, get_token_usage_summary
@@ -60,7 +60,7 @@ class MichelinCSVProcessor:
         init_token_manager(token_dir)
         
         # Initialize components
-        self.restaurant_scraper = EnhancedRestaurantScraper(token_dir)
+        self.restaurant_scraper = UnifiedRestaurantScraper(token_dir)
         self.data_processor = DataProcessor()
         
         logger.info("Michelin CSV processor initialized")
@@ -122,24 +122,41 @@ class MichelinCSVProcessor:
                         results['successful_imports'] += 1
                         logger.info(f"Successfully imported: {basic_restaurant.name}")
                         
-                        # Step 2: Scrape additional data from website if URL exists
+                        # Step 2: Comprehensive scrape with LLM analysis from website if URL exists
                         website_url = restaurant_data.get('WebsiteUrl', '').strip()
                         if website_url and website_url != '':
-                            scraped_data = self.restaurant_scraper.scrape_restaurant(website_url, use_selenium=True)
-                            if scraped_data and scraped_data.get('quality_score', 0) > 0.2:
-                                # Update restaurant with scraped data
-                                updated_restaurant = self._update_restaurant_with_scraped_data(
+                            # Use unified scraper for complete analysis
+                            scraped_data = self.restaurant_scraper.scrape_restaurant_complete(
+                                website_url, basic_restaurant.name, 
+                                max_images=10, save_to_db=False  # Don't auto-save, we'll integrate manually
+                            )
+                            
+                            if scraped_data and scraped_data.get('scraping_success', False):
+                                # Update restaurant with comprehensive scraped data
+                                updated_restaurant = self._update_restaurant_with_comprehensive_data(
                                     basic_restaurant, scraped_data
                                 )
                                 if updated_restaurant:
                                     results['successful_scrapes'] += 1
-                                    logger.info(f"Successfully scraped additional data for: {basic_restaurant.name}")
+                                    logger.info(f"Successfully scraped comprehensive data for: {basic_restaurant.name}")
+                                    
+                                    # Log what was extracted
+                                    llm_data = scraped_data.get('llm_analysis', {})
+                                    if llm_data.get('restaurant_summary'):
+                                        logger.info(f"  - Restaurant summary extracted")
+                                    if llm_data.get('structured_menu'):
+                                        menu_sections = len(llm_data['structured_menu'])
+                                        logger.info(f"  - Menu parsed: {menu_sections} sections")
+                                    if scraped_data.get('image_scraping', {}).get('successful_images', 0) > 0:
+                                        img_count = scraped_data['image_scraping']['successful_images']
+                                        logger.info(f"  - Images scraped: {img_count}")
                                 else:
                                     results['failed_scrapes'] += 1
-                                    logger.warning(f"Failed to update restaurant with scraped data: {basic_restaurant.name}")
+                                    logger.warning(f"Failed to update restaurant with comprehensive data: {basic_restaurant.name}")
                             else:
                                 results['failed_scrapes'] += 1
-                                logger.warning(f"Failed to scrape website: {website_url}")
+                                error_msg = scraped_data.get('error', 'Unknown error') if scraped_data else 'No response'
+                                logger.warning(f"Failed to scrape website: {website_url} - {error_msg}")
                         else:
                             logger.info(f"No website URL found for: {basic_restaurant.name}")
                     else:
@@ -272,67 +289,117 @@ class MichelinCSVProcessor:
             logger.error(f"Error importing restaurant from CSV: {str(e)}")
             return None
     
-    def _update_restaurant_with_scraped_data(self, restaurant: Restaurant, scraped_data: Dict[str, Any]) -> Optional[Restaurant]:
+    def _update_restaurant_with_comprehensive_data(self, restaurant: Restaurant, scraped_data: Dict[str, Any]) -> Optional[Restaurant]:
         """
-        Update existing restaurant with additional scraped data.
+        Update existing restaurant with comprehensive scraped data including LLM analysis.
         
         Args:
             restaurant: Existing restaurant instance
-            scraped_data: Scraped data dictionary
+            scraped_data: Comprehensive scraped data dictionary
             
         Returns:
             Updated restaurant instance
         """
         try:
-            # Update fields with scraped data if they're empty or more detailed
+            from restaurants.models import MenuSection, MenuItem, RestaurantImage
+            from processors.image_integrator import ImageIntegrator
+            
+            # Update basic scraped content
             content = scraped_data.get('content', '')
-            if content and len(content) > len(restaurant.description or ''):
-                restaurant.description = content[:500]  # Limit description length
+            if content:
+                restaurant.scraped_content = content
+                restaurant.scraped_at = datetime.now()
             
-            if scraped_data.get('opening_hours'):
-                restaurant.opening_hours = scraped_data['opening_hours']
+            # Process LLM analysis data
+            llm_analysis = scraped_data.get('llm_analysis', {})
             
-            # Handle AI enhanced data
-            if scraped_data.get('ai_enhanced'):
-                ai_data = scraped_data['ai_enhanced']
+            # Update restaurant fields with LLM summary
+            if llm_analysis.get('restaurant_summary'):
+                summary = llm_analysis['restaurant_summary']
                 
-                if ai_data.get('description') and len(ai_data['description']) > len(restaurant.description or ''):
-                    restaurant.description = ai_data['description']
+                # Update atmosphere from ambiance analysis
+                if summary.get('ambiance') and len(summary['ambiance']) > len(restaurant.atmosphere or ''):
+                    restaurant.atmosphere = summary['ambiance'][:100]
                 
-                if ai_data.get('atmosphere'):
-                    restaurant.atmosphere = ai_data['atmosphere']
+                # Update cuisine type
+                if summary.get('cuisine') and not restaurant.cuisine_type:
+                    restaurant.cuisine_type = summary['cuisine'][:100]
                 
-                if ai_data.get('cuisine_type') and not restaurant.cuisine_type:
-                    restaurant.cuisine_type = ai_data['cuisine_type']
+                # Update description with philosophy/highlights
+                if summary.get('philosophy'):
+                    philosophy = summary['philosophy'][:300]
+                    if len(philosophy) > len(restaurant.description or ''):
+                        restaurant.description = philosophy
                 
-                if ai_data.get('price_range') and not restaurant.price_range:
-                    restaurant.price_range = ai_data['price_range']
+                # Parse location if available
+                if summary.get('location') and not restaurant.city:
+                    location = summary['location']
+                    if ',' in location:
+                        parts = location.split(',')
+                        restaurant.city = parts[0].strip()[:100]
+                        if len(parts) > 1:
+                            restaurant.country = parts[-1].strip()[:100]
             
-            # Handle contact info
-            if scraped_data.get('contact_info'):
-                contact = scraped_data['contact_info']
-                if contact.get('phone') and not restaurant.phone:
-                    restaurant.phone = contact['phone']
-            
-            # Update scraped content and metadata
-            restaurant.scraped_content = content
-            restaurant.scraped_at = datetime.now()
-            
+            # Save restaurant updates
             restaurant.save()
             
-            # Process menu items if available
-            if scraped_data.get('menu_items'):
-                # Enhanced scraper returns menu_items instead of menu_sections
-                menu_content = '\n'.join(scraped_data['menu_items'][:10])  # Limit menu items
-                if menu_content and not restaurant.scraped_content.endswith(menu_content):
-                    restaurant.scraped_content = f"{restaurant.scraped_content}\n\nMenu items:\n{menu_content}"
-                    restaurant.save()
+            # Process menu data into MenuSection and MenuItem models
+            menu_sections_created = 0
+            menu_items_created = 0
             
-            logger.info(f"Successfully updated restaurant with enhanced scraped data: {restaurant.name}")
+            if llm_analysis.get('structured_menu'):
+                # Clear existing menu data for this restaurant
+                MenuSection.objects.filter(restaurant=restaurant).delete()
+                
+                for order, section_data in enumerate(llm_analysis['structured_menu']):
+                    section_name = section_data.get('section', 'Unknown Section')
+                    
+                    # Create menu section
+                    menu_section = MenuSection.objects.create(
+                        restaurant=restaurant,
+                        name=section_name[:100],
+                        description='',
+                        order=order
+                    )
+                    menu_sections_created += 1
+                    
+                    # Create menu items
+                    items = section_data.get('items', [])
+                    for item_data in items:
+                        MenuItem.objects.create(
+                            section=menu_section,
+                            name=item_data.get('name', 'Unknown Item')[:200],
+                            description=item_data.get('description', '')[:500],
+                            price=item_data.get('price', '')[:20],
+                            is_available=True
+                        )
+                        menu_items_created += 1
+                
+                logger.info(f"Created {menu_sections_created} menu sections and {menu_items_created} menu items")
+            
+            # Process images
+            images_integrated = 0
+            if scraped_data.get('image_scraping', {}).get('images'):
+                try:
+                    integrator = ImageIntegrator()
+                    images_integrated = integrator.integrate_restaurant_images(
+                        restaurant, 
+                        scraped_data['image_scraping']['images']
+                    )
+                except Exception as e:
+                    logger.error(f"Error integrating images: {e}")
+            
+            logger.info(f"Successfully updated restaurant {restaurant.name} with comprehensive data:")
+            logger.info(f"  - Menu sections: {menu_sections_created}")
+            logger.info(f"  - Menu items: {menu_items_created}")
+            logger.info(f"  - Images integrated: {images_integrated}")
+            logger.info(f"  - Atmosphere: {'Yes' if restaurant.atmosphere else 'No'}")
+            logger.info(f"  - Cuisine type: {'Yes' if restaurant.cuisine_type else 'No'}")
+            
             return restaurant
             
         except Exception as e:
-            logger.error(f"Error updating restaurant with scraped data: {str(e)}")
+            logger.error(f"Error updating restaurant with comprehensive data: {str(e)}")
             return None
     
     def _parse_location(self, location: str) -> tuple[str, str]:

@@ -74,6 +74,7 @@ class Restaurant(models.Model):
     original_url = models.URLField(blank=True)
     scraped_at = models.DateTimeField(null=True, blank=True)
     scraped_content = models.TextField(blank=True)
+    timezone_info = models.JSONField(null=True, blank=True, help_text="JSON containing timezone and location details")
     
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
@@ -96,6 +97,26 @@ class Restaurant(models.Model):
         if not self.slug:
             self.slug = slugify(f"{self.name}-{self.city}")
         super().save(*args, **kwargs)
+    
+    def get_timezone_display(self):
+        """Get display-friendly timezone information."""
+        if self.timezone_info and isinstance(self.timezone_info, dict):
+            timezone_name = self.timezone_info.get('local_timezone', '')
+            if timezone_name:
+                # Format timezone name for display
+                return timezone_name.replace('_', ' ').replace('/', ' / ')
+        return 'Unknown'
+    
+    def get_local_time_info(self):
+        """Get current local time information for the restaurant."""
+        if self.timezone_info and isinstance(self.timezone_info, dict):
+            return {
+                'timezone': self.timezone_info.get('local_timezone'),
+                'country': self.timezone_info.get('country'),
+                'city': self.timezone_info.get('city'),
+                'utc_offset': self.timezone_info.get('utc_offset')
+            }
+        return None
     
     def get_absolute_url(self):
         return reverse('restaurants:restaurant_detail', kwargs={'slug': self.slug})
