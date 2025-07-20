@@ -1,0 +1,386 @@
+{% load static %}
+{% load restaurant_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Restaurants - FoodOnline</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		.listing.fancy .list-post {
+			margin-bottom: 30px;
+		}
+		
+		.list-post .img-holder figure img {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+		}
+		
+		.restaurant-image-fallback {
+			width: 100%;
+			height: 250px;
+			background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #6c757d;
+			font-size: 48px;
+		}
+		
+		.michelin-stars {
+			color: #e74c3c;
+			font-size: 16px;
+			margin-left: 10px;
+		}
+		
+		.image-count-badge {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: rgba(0,0,0,0.7);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 12px;
+			font-size: 12px;
+		}
+		
+		.filter-sidebar {
+			background: white;
+			padding: 20px;
+			border-radius: 10px;
+			margin-bottom: 30px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		}
+		
+		.filter-sidebar h4 {
+			margin-bottom: 15px;
+			color: #2c3e50;
+		}
+		
+		.filter-sidebar .form-control {
+			margin-bottom: 15px;
+			border-radius: 5px;
+		}
+		
+		.search-results-header {
+			padding: 20px 0;
+			border-bottom: 1px solid #eee;
+			margin-bottom: 30px;
+		}
+		
+		.search-results-header h2 {
+			color: #2c3e50;
+			margin-bottom: 10px;
+		}
+		
+		.search-results-info {
+			color: #7f8c8d;
+		}
+	</style>
+</head>
+
+<body>
+	<!--Main Wrapper-->
+	<div class="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<div class="main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div class="logo">
+								<figure>
+									<a href="{% url 'home' %}" class="light-logo">
+										<img src="{% static 'logo/foodOnlineLogo.png' %}" alt="FoodOnline" width="250">
+									</a>
+								</figure>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="login-option">
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="#">Login / Register</a>
+								<a class="get-start-btn" href="#">Register Restaurant</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header End -->
+		
+		<!-- Main Section Start -->
+		<div class="main-section">
+			<div class="page-section">
+				<div class="container">
+					<div class="row">
+						<!-- Filter Sidebar -->
+						<div class="col-lg-3 col-md-4">
+							<div class="filter-sidebar">
+								<h4><i class="icon-funnel"></i> Filter Restaurants</h4>
+								<form method="GET">
+									<input type="text" name="search" class="form-control" 
+										   placeholder="Restaurant name, cuisine..." 
+										   value="{{ current_filters.search }}">
+									
+									<select name="country" class="form-control">
+										<option value="">All Countries</option>
+										{% for country in countries %}
+										<option value="{{ country }}" {% if current_filters.country == country %}selected{% endif %}>
+											{{ country }}
+										</option>
+										{% endfor %}
+									</select>
+									
+									<select name="city" class="form-control">
+										<option value="">All Cities</option>
+										{% for city in cities %}
+										<option value="{{ city }}" {% if current_filters.city == city %}selected{% endif %}>
+											{{ city }}
+										</option>
+										{% endfor %}
+									</select>
+									
+									<select name="cuisine" class="form-control">
+										<option value="">All Cuisines</option>
+										{% for cuisine in cuisines %}
+										<option value="{{ cuisine }}" {% if current_filters.cuisine == cuisine %}selected{% endif %}>
+											{{ cuisine }}
+										</option>
+										{% endfor %}
+									</select>
+									
+									<select name="stars" class="form-control">
+										<option value="">Any Stars</option>
+										<option value="1" {% if current_filters.stars == "1" %}selected{% endif %}>1 Star</option>
+										<option value="2" {% if current_filters.stars == "2" %}selected{% endif %}>2 Stars</option>
+										<option value="3" {% if current_filters.stars == "3" %}selected{% endif %}>3 Stars</option>
+									</select>
+									
+									<select name="price_range" class="form-control">
+										<option value="">Any Price</option>
+										<option value="$" {% if current_filters.price_range == "$" %}selected{% endif %}>$ - Budget</option>
+										<option value="$$" {% if current_filters.price_range == "$$" %}selected{% endif %}>$$ - Moderate</option>
+										<option value="$$$" {% if current_filters.price_range == "$$$" %}selected{% endif %}>$$$ - Expensive</option>
+										<option value="$$$$" {% if current_filters.price_range == "$$$$" %}selected{% endif %}>$$$$ - Very Expensive</option>
+									</select>
+									
+									<select name="sort" class="form-control">
+										<option value="name" {% if current_filters.sort == "name" %}selected{% endif %}>Name</option>
+										<option value="rating" {% if current_filters.sort == "rating" %}selected{% endif %}>Rating</option>
+										<option value="stars" {% if current_filters.sort == "stars" %}selected{% endif %}>Michelin Stars</option>
+										<option value="city" {% if current_filters.sort == "city" %}selected{% endif %}>City</option>
+									</select>
+									
+									<button type="submit" class="bgcolor" style="color: white; border: none; padding: 10px 20px; border-radius: 5px; width: 100%; margin-bottom: 10px;">Apply Filters</button>
+									<a href="{% url 'restaurants:restaurant_list' %}" class="btn btn-light" style="width: 100%; text-align: center; display: block; padding: 10px;">Clear Filters</a>
+								</form>
+							</div>
+						</div>
+						
+						<!-- Restaurant List -->
+						<div class="col-lg-9 col-md-8">
+							<div class="search-results-header">
+								<h2>Restaurants</h2>
+								<div class="search-results-info">
+									{% if current_filters.search %}
+										Showing results for "{{ current_filters.search }}" • 
+									{% endif %}
+									{{ page_obj.paginator.count }} restaurant{{ page_obj.paginator.count|pluralize }} found
+								</div>
+							</div>
+							
+							{% if restaurants %}
+							<div class="listing fancy">
+								<ul class="row">
+									{% for restaurant in restaurants %}
+									<li class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class="list-post featured">
+											<div class="img-holder" style="position: relative;">
+												{% with restaurant.images.first as featured_image %}
+													{% if featured_image %}
+														{% if featured_image.source_url %}
+															<figure>
+																<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}">
+																	<img src="{{ featured_image.source_url }}" 
+																		 alt="{{ restaurant.name }}" 
+																		 class="img-thumb wp-post-image"
+																		 onerror="this.parentElement.parentElement.innerHTML='<div class=\'restaurant-image-fallback\'><i class=\'icon-knife-fork\'></i></div>'">
+																</a>
+															</figure>
+														{% elif featured_image.image %}
+															<figure>
+																<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}">
+																	<img src="{{ featured_image.image.url }}" 
+																		 alt="{{ restaurant.name }}" 
+																		 class="img-thumb wp-post-image"
+																		 onerror="this.parentElement.parentElement.innerHTML='<div class=\'restaurant-image-fallback\'><i class=\'icon-knife-fork\'></i></div>'">
+																</a>
+															</figure>
+														{% else %}
+															<div class="restaurant-image-fallback">
+																<i class="icon-knife-fork"></i>
+															</div>
+														{% endif %}
+														{% if restaurant.images.count > 1 %}
+															<div class="image-count-badge">
+																+{{ restaurant.images.count|add:"-1" }} more
+															</div>
+														{% endif %}
+													{% else %}
+														<div class="restaurant-image-fallback">
+															<i class="icon-knife-fork"></i>
+														</div>
+													{% endif %}
+												{% endwith %}
+											</div>
+											<div class="text-holder">
+												<div class="list-rating">
+													{% if restaurant.rating %}
+													<div class="rating-star">
+														<span class="rating-box" style="width: {{ restaurant.rating|rating_width }}%;"></span>
+													</div>
+													<span class="reviews">({{ restaurant.rating }})</span>
+													{% endif %}
+													{% if restaurant.michelin_stars %}
+													<span class="michelin-stars">
+														{% for i in "123" %}
+															{% if forloop.counter <= restaurant.michelin_stars %}⭐{% endif %}
+														{% endfor %}
+													</span>
+													{% endif %}
+												</div>
+												<div class="post-title">
+													<h5>
+														<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}">{{ restaurant.name }}</a>
+														{% if restaurant.is_featured %}
+														<span class="sponsored text-color">Featured</span>
+														{% endif %}
+													</h5>
+												</div>
+												<address>
+													<span>Location: </span>{{ restaurant.city }}, {{ restaurant.country }}
+													{% if restaurant.cuisine_type %}
+													<br><span>Cuisine: </span>{{ restaurant.cuisine_type }}
+													{% endif %}
+													{% if restaurant.price_range %}
+													<br><span>Price: </span>{{ restaurant.price_range }}
+													{% endif %}
+												</address>
+												{% if restaurant.description %}
+												<p style="margin-top: 10px; color: #666; font-size: 13px;">
+													{{ restaurant.description|truncatewords:15 }}
+												</p>
+												{% endif %}
+											</div>
+										</div>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+							
+							<!-- Pagination -->
+							{% if is_paginated %}
+							<div class="pagination" style="text-align: center; margin-top: 30px;">
+								{% if page_obj.has_previous %}
+									<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page=1" class="btn">&laquo; First</a>
+									<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.previous_page_number }}" class="btn">&lsaquo; Previous</a>
+								{% endif %}
+								
+								<span style="margin: 0 15px;">
+									Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+								</span>
+								
+								{% if page_obj.has_next %}
+									<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.next_page_number }}" class="btn">Next &rsaquo;</a>
+									<a href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.paginator.num_pages }}" class="btn">Last &raquo;</a>
+								{% endif %}
+							</div>
+							{% endif %}
+							
+							{% else %}
+							<div class="text-center" style="margin-top: 50px;">
+								<h3>No restaurants found</h3>
+								<p>Try adjusting your search criteria or <a href="{% url 'restaurants:restaurant_list' %}">browse all restaurants</a>.</p>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
+		
+		<!-- Footer Start -->
+		<footer id="footer" class="footer-style-2">
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="widget widget-newsletter">
+								<div class="widget-title">
+									<h5>Subscribe to our Newsletter</h5>
+								</div>
+								<div class="fieldset">
+									<form action="#">
+										<div class="field-holder">
+											<label>
+												<i class="icon-envelope3"></i>
+												<input type="text" class="field-input" placeholder="Enter Your Email Address...">
+											</label>
+										</div>
+										<div class="field-holder btn-holder">
+											<input class="subscribe-btn bgcolor" type="submit" value="Sign Up">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-sec">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="copyright-inner">
+								<div class="copy-right">
+									<p>© 2020 Foodbakery. All Rights Reserved. Developed By <a href="#">Rathan Kumar</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer End -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+</body>
+</html>

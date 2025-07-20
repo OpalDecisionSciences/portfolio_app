@@ -12,8 +12,9 @@ from django.views.generic import ListView, DetailView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Restaurant, Chef, MenuSection, MenuItem, RestaurantReview, ScrapingJob
+from .models import Restaurant, Chef, MenuSection, MenuItem, RestaurantReview, ScrapingJob, RestaurantImage
 from .forms import RestaurantReviewForm, RestaurantSearchForm
+from .recommenders import RestaurantRecommender
 
 
 class RestaurantListView(ListView):
@@ -116,6 +117,11 @@ class RestaurantDetailView(DetailView):
         context['images'] = restaurant.images.all().order_by('order')
         context['reviews'] = restaurant.reviews.filter(is_approved=True).order_by('-created_at')[:5]
         
+        # Add categorized images
+        context['menu_images'] = restaurant.images.filter(ai_category='menu_item').order_by('-category_confidence')[:6]
+        context['ambiance_images'] = restaurant.images.filter(ai_category='scenery_ambiance').order_by('-category_confidence')[:6]
+        context['featured_image'] = restaurant.images.filter(is_featured=True).first() or restaurant.images.first()
+        
         # Add review form
         if self.request.user.is_authenticated:
             context['review_form'] = RestaurantReviewForm()
@@ -123,6 +129,16 @@ class RestaurantDetailView(DetailView):
         # Add statistics
         context['avg_rating'] = restaurant.reviews.filter(is_approved=True).aggregate(Avg('rating'))['rating__avg']
         context['review_count'] = restaurant.reviews.filter(is_approved=True).count()
+        
+        # Add similar restaurants using recommender
+        recommender = RestaurantRecommender()
+        user = self.request.user if self.request.user.is_authenticated else None
+        similar_restaurants = recommender.get_recommendations(
+            user=user,
+            restaurant_id=str(restaurant.id),
+            max_results=6
+        )
+        context['similar_restaurants'] = similar_restaurants
         
         return context
 
@@ -185,32 +201,72 @@ def michelin_starred_restaurants(request):
 
 
 def restaurant_search_api(request):
-    """API endpoint for restaurant search autocomplete."""
+    """Enhanced API endpoint for restaurant search with recommendations and images."""
     query = request.GET.get('q', '')
+    location = request.GET.get('location', '')
+    cuisine = request.GET.get('cuisine', '')
+    price_range = request.GET.get('price_range', '')
+    min_stars = request.GET.get('min_stars', '')
+    max_results = int(request.GET.get('max_results', 10))
     
-    if len(query) < 2:
-        return JsonResponse({'results': []})
+    recommender = RestaurantRecommender()
     
-    restaurants = Restaurant.objects.filter(
-        Q(name__icontains=query) | 
-        Q(city__icontains=query) | 
-        Q(cuisine_type__icontains=query),
-        is_active=True
-    )[:10]
+    # Build filters
+    filters = {}
+    if cuisine:
+        filters['cuisine'] = cuisine
+    if price_range:
+        filters['price_range'] = price_range
+    if min_stars:
+        filters['min_stars'] = int(min_stars)
     
+    # Get search results with recommendations
+    if query or location or filters:
+        search_results = recommender.search_restaurants(
+            query=query,
+            location=location,
+            filters=filters,
+            max_results=max_results
+        )
+    else:
+        # Return popular restaurants for empty search
+        search_results = recommender._get_popular_restaurants(max_results)
+    
+    # Format results for API response
     results = []
-    for restaurant in restaurants:
-        results.append({
+    for result in search_results:
+        restaurant = result['restaurant']
+        featured_image = result.get('featured_image')
+        
+        restaurant_data = {
             'id': str(restaurant.id),
             'name': restaurant.name,
             'city': restaurant.city,
             'country': restaurant.country,
             'cuisine_type': restaurant.cuisine_type,
             'michelin_stars': restaurant.michelin_stars,
-            'url': restaurant.get_absolute_url()
-        })
+            'rating': float(restaurant.rating) if restaurant.rating else None,
+            'price_range': restaurant.price_range,
+            'url': restaurant.get_absolute_url(),
+            'description': restaurant.description[:200] + '...' if len(restaurant.description) > 200 else restaurant.description,
+            'image_count': result.get('image_count', 0),
+            'match_reasons': result.get('match_reasons', []),
+            'relevance_score': result.get('relevance_score', result.get('popularity_score', 0))
+        }
+        
+        # Add featured image data
+        if featured_image:
+            restaurant_data['featured_image'] = featured_image
+        
+        results.append(restaurant_data)
     
-    return JsonResponse({'results': results})
+    return JsonResponse({
+        'results': results,
+        'total_count': len(results),
+        'query': query,
+        'location': location,
+        'filters': filters
+    })
 
 
 def restaurant_stats_api(request):
@@ -225,6 +281,115 @@ def restaurant_stats_api(request):
     }
     
     return JsonResponse(stats)
+
+
+@csrf_exempt
+def restaurant_recommendations_api(request):
+    """API endpoint for personalized restaurant recommendations."""
+    user = request.user if request.user.is_authenticated else None
+    restaurant_id = request.GET.get('restaurant_id', '')
+    location = request.GET.get('location', '')
+    cuisine = request.GET.get('cuisine', '')
+    price_range = request.GET.get('price_range', '')
+    max_results = int(request.GET.get('max_results', 6))
+    
+    recommender = RestaurantRecommender()
+    
+    # Get recommendations
+    recommendations = recommender.get_recommendations(
+        user=user,
+        restaurant_id=restaurant_id if restaurant_id else None,
+        location=location if location else None,
+        cuisine_preference=cuisine if cuisine else None,
+        price_range=price_range if price_range else None,
+        max_results=max_results
+    )
+    
+    # Format results for API response
+    results = []
+    for rec in recommendations:
+        restaurant = rec['restaurant']
+        featured_image = rec.get('featured_image')
+        
+        recommendation_data = {
+            'id': str(restaurant.id),
+            'name': restaurant.name,
+            'city': restaurant.city,
+            'country': restaurant.country,
+            'cuisine_type': restaurant.cuisine_type,
+            'michelin_stars': restaurant.michelin_stars,
+            'rating': float(restaurant.rating) if restaurant.rating else None,
+            'price_range': restaurant.price_range,
+            'url': restaurant.get_absolute_url(),
+            'description': restaurant.description[:150] + '...' if len(restaurant.description) > 150 else restaurant.description,
+            'image_count': rec.get('image_count', 0),
+            'recommendation_score': rec.get('similarity_score', rec.get('preference_score', rec.get('popularity_score', 0))),
+            'reasons': rec.get('similar_features', rec.get('recommendation_reasons', rec.get('recommendation_reasons', [])))
+        }
+        
+        # Add featured image data
+        if featured_image:
+            recommendation_data['featured_image'] = featured_image
+        
+        results.append(recommendation_data)
+    
+    return JsonResponse({
+        'recommendations': results,
+        'total_count': len(results),
+        'recommendation_type': 'similar' if restaurant_id else ('personalized' if user else 'popular'),
+        'user_authenticated': bool(user)
+    })
+
+
+def restaurant_images_api(request, restaurant_id):
+    """API endpoint for restaurant images by category."""
+    try:
+        restaurant = Restaurant.objects.get(id=restaurant_id, is_active=True)
+    except Restaurant.DoesNotExist:
+        return JsonResponse({'error': 'Restaurant not found'}, status=404)
+    
+    category = request.GET.get('category', 'all')  # 'all', 'menu_item', 'scenery_ambiance'
+    limit = int(request.GET.get('limit', 20))
+    
+    # Filter images by category
+    images = restaurant.images.all()
+    if category == 'menu_item':
+        images = images.filter(ai_category='menu_item')
+    elif category == 'scenery_ambiance':
+        images = images.filter(ai_category='scenery_ambiance')
+    elif category == 'featured':
+        images = images.filter(Q(is_featured=True) | Q(is_menu_highlight=True) | Q(is_ambiance_highlight=True))
+    
+    # Order by confidence and limit results
+    images = images.order_by('-category_confidence', '-created_at')[:limit]
+    
+    # Format image data
+    image_data = []
+    for image in images:
+        image_info = {
+            'id': str(image.id),
+            'url': image.source_url if image.source_url else (image.image.url if image.image else None),
+            'caption': image.get_display_name(),
+            'ai_category': image.ai_category,
+            'ai_labels': image.ai_labels[:5] if image.ai_labels else [],
+            'ai_description': image.ai_description,
+            'confidence': image.category_confidence,
+            'is_featured': image.is_featured,
+            'is_menu_highlight': image.is_menu_highlight,
+            'is_ambiance_highlight': image.is_ambiance_highlight,
+            'width': image.width,
+            'height': image.height
+        }
+        image_data.append(image_info)
+    
+    return JsonResponse({
+        'restaurant_id': str(restaurant.id),
+        'restaurant_name': restaurant.name,
+        'images': image_data,
+        'category': category,
+        'total_count': len(image_data),
+        'total_images': restaurant.images.count()
+    })
 
 
 @login_required

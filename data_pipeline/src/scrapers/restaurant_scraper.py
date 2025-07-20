@@ -8,26 +8,46 @@ from typing import Dict, List, Optional, Any
 import json
 from datetime import datetime
 
-# Add the original portfolio modules to path
-sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent.parent / 'portfolio'))
-sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / 'shared' / 'src'))
+# Setup portfolio paths for cross-component imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent / "shared" / "src"))
+from config import setup_portfolio_paths
+setup_portfolio_paths()
 
-from llm_web_scraper import NewWebsite
-from scrape_utils import (
-    get_filtered_links_and_landing, 
-    scrape_website_and_save,
-    detect_language,
-    translate_text,
-    clean_filename
-)
-from templates import (
-    link_system_prompt,
-    summary_prompt,
-    structured_menu_prompt,
-    get_links_user_prompt,
-    get_summary_prompt,
-    get_structured_menu_user_prompt
-)
+# Handle both relative and absolute imports
+try:
+    from .llm_web_scraper import NewWebsite
+    from .scrape_utils import (
+        get_filtered_links_and_landing, 
+        scrape_website_and_save,
+        detect_language,
+        translate_text,
+        clean_filename
+    )
+    from .templates import (
+        link_system_prompt,
+        summary_prompt,
+        structured_menu_prompt,
+        get_links_user_prompt,
+        get_summary_prompt,
+        get_structured_menu_user_prompt
+    )
+except ImportError:
+    from llm_web_scraper import NewWebsite
+    from scrape_utils import (
+        get_filtered_links_and_landing, 
+        scrape_website_and_save,
+        detect_language,
+        translate_text,
+        clean_filename
+    )
+    from templates import (
+        link_system_prompt,
+        summary_prompt,
+        structured_menu_prompt,
+        get_links_user_prompt,
+        get_summary_prompt,
+        get_structured_menu_user_prompt
+    )
 from token_management.token_manager import init_token_manager, call_openai_chat
 
 logger = logging.getLogger(__name__)

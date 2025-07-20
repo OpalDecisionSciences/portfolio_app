@@ -1,12 +1,15 @@
 """
 FastAPI application for RAG service.
 """
+import os
+import sys
 import json
 import logging
 import os
 import uuid
 from contextlib import asynccontextmanager
 from typing import List, Optional
+from pathlib import Path
 
 import redis
 from dotenv import find_dotenv, load_dotenv
@@ -19,12 +22,26 @@ from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from pydantic import BaseModel
-import sys
-from pathlib import Path
+import openai
 
-# Add shared modules to path
-sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / 'shared' / 'src'))
-from token_management.token_manager import init_token_manager, call_openai_chat
+# Get OpenAI API Key from environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Get API key from environment variable
+api_key = os.getenv("OPENAI_API_KEY")
+
+# API Key validation
+if api_key and api_key.startswith('sk-proj-') and len(api_key) > 10:
+    print("API key looks good.")
+else:
+    print("There might be a problem with your API key. Please check!")
+
+# Setup portfolio paths for cross-component imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent / "shared" / "src"))
+from config import setup_portfolio_paths
+setup_portfolio_paths()
+
+from token_management.token_manager import init_token_manager, call_openai_chat, get_token_usage_summary
 
 load_dotenv(find_dotenv())
 
@@ -33,7 +50,7 @@ db_user = os.getenv("POSTGRES_USER", "postgres")
 db_password = os.getenv("POSTGRES_PASSWORD", "password")
 db_host = os.getenv("DATABASE_HOST", "db")
 db_port = os.getenv("DATABASE_PORT", "5432")
-db_name = os.getenv("POSTGRES_DB", "restuarants_db")
+db_name = os.getenv("POSTGRES_DB", "restaurants_db")
 
 CONNECTION_STRING = (
     f"postgresql+psycopg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
@@ -71,7 +88,6 @@ class RestaurantQuery(BaseModel):
 
 # Initialize OpenAI components
 embeddings = OpenAIEmbeddings()
-chat = ChatOpenAI(temperature=0, model="gpt-4o-mini")
 
 # Initialize vector store
 vectorstore = PGVector(
@@ -91,15 +107,13 @@ redis_client = redis.Redis(
     password=os.getenv("REDIS_PASSWORD", None),
 )
 
-# Prompt templates
+# Prompt templates for token manager integration
 rephrase_template = """Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question about restaurants, in its original language.
 
 Chat History:
 {chat_history}
 Follow Up Input: {question}
 Standalone question:"""
-
-REPHRASE_TEMPLATE = PromptTemplate.from_template(rephrase_template)
 
 restaurant_template = """You are a knowledgeable restaurant expert and culinary advisor. Answer the question based only on the following context about restaurants.
 
@@ -119,20 +133,21 @@ Guidelines:
 
 Answer:"""
 
-RESTAURANT_PROMPT = ChatPromptTemplate.from_template(restaurant_template)
+def rephrase_question(chat_history: str, question: str) -> str:
+    """Rephrase follow-up question using token manager."""
+    return call_openai_chat(
+        system_prompt="You are a helpful assistant that rephrases questions about restaurants.",
+        user_prompt=f"Chat History:\n{chat_history}\n\nFollow Up Input: {question}\n\nRephrase this as a standalone question about restaurants:",
+        force_model="gpt-4o-mini"  # Use mini for simple rephrasing
+    )
 
-# Create chains
-rephrase_chain = REPHRASE_TEMPLATE | chat | StrOutputParser()
-
-retrieval_chain = (
-    {"context": retriever, "question": RunnablePassthrough()}
-    | RESTAURANT_PROMPT
-    | chat
-    | StrOutputParser()
-)
-
-# Combined chain for conversational RAG
-conversational_chain = rephrase_chain | retrieval_chain
+def generate_response(context: str, question: str) -> str:
+    """Generate restaurant response using token manager."""
+    return call_openai_chat(
+        system_prompt="You are a knowledgeable restaurant expert and culinary advisor.",
+        user_prompt=f"Context:\n{context}\n\nQuestion: {question}\n\nPlease answer based only on the context provided. Focus on restaurants, cuisine, and dining experiences. For Michelin-starred restaurants, mention their rating. If you don't know something from the context, say so.",
+        force_model=None  # Allow automatic model switching
+    )
 
 
 @asynccontextmanager
@@ -197,7 +212,7 @@ async def health_check():
 
 @app.post("/query")
 async def query_restaurants(request: RestaurantQuery):
-    """Query restaurants using RAG."""
+    """Query restaurants using RAG with token manager."""
     try:
         # Apply filters if provided
         if request.filters:
@@ -207,13 +222,12 @@ async def query_restaurants(request: RestaurantQuery):
         # Get relevant documents
         docs = retriever.get_relevant_documents(request.query)
         
-        # Generate response
+        # Generate response using token manager
         context = "\n\n".join([doc.page_content for doc in docs])
-        response = call_openai_chat(
-            system_prompt="You are a helpful restaurant expert.",
-            user_prompt=f"Context: {context}\n\nQuestion: {request.query}",
-            force_model="gpt-4o-mini"
-        )
+        response = generate_response(context, request.query)
+        
+        if not response:
+            response = "I apologize, but I'm unable to process your request at the moment due to token limits. Please try again later."
         
         return {
             "response": response,
@@ -251,7 +265,7 @@ async def start_conversation():
 
 @app.post("/conversation/{conversation_id}")
 async def conversation(conversation_id: str, request: ConversationRequest):
-    """Continue a conversation."""
+    """Continue a conversation using token manager."""
     try:
         # Get conversation history
         conversation_key = f"conversation:{conversation_id}"
@@ -262,24 +276,32 @@ async def conversation(conversation_id: str, request: ConversationRequest):
         
         chat_history = json.loads(conversation_history_json.decode("utf-8"))
         
-        # Format chat history for the model
-        chat_history_formatted = []
-        for msg in chat_history:
-            if msg["role"] == "human":
-                chat_history_formatted.append(HumanMessage(content=msg["content"]))
-            else:
-                chat_history_formatted.append(AIMessage(content=msg["content"]))
-        
-        # Prepare input for the chain
-        chain_input = {
-            "question": request.message,
-            "chat_history": chat_history_formatted,
-        }
+        # Format chat history for rephrasing
+        chat_history_text = "\n".join([
+            f"{'Human' if msg['role'] == 'human' else 'Assistant'}: {msg['content']}"
+            for msg in chat_history[-4:]  # Last 4 messages for context
+        ])
         
         logger.info(f"Conversation ID: {conversation_id}, Input: {request.message}")
         
-        # Generate response
-        response = conversational_chain.invoke(chain_input)
+        # Step 1: Rephrase question if there's conversation history
+        if chat_history:
+            rephrased_question = rephrase_question(chat_history_text, request.message)
+            if not rephrased_question:
+                # Fallback to original question if rephrasing fails
+                rephrased_question = request.message
+        else:
+            rephrased_question = request.message
+        
+        # Step 2: Get relevant documents
+        docs = retriever.get_relevant_documents(rephrased_question)
+        context = "\n\n".join([doc.page_content for doc in docs])
+        
+        # Step 3: Generate response using token manager
+        response = generate_response(context, rephrased_question)
+        
+        if not response:
+            response = "I apologize, but I'm unable to process your request at the moment due to token limits. Please try again later."
         
         # Update conversation history
         chat_history.append({"role": "human", "content": request.message})
@@ -361,6 +383,24 @@ async def search_embeddings(query: str, k: int = 5):
     
     except Exception as e:
         logger.error(f"Error searching embeddings: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/token-usage")
+async def get_token_usage():
+    """Get current token usage status."""
+    try:
+        usage_summary = get_token_usage_summary()
+        return {
+            "current_model": usage_summary["current_model"],
+            "date": usage_summary["date"],
+            "usage_by_model": usage_summary["usage_by_model"],
+            "last_completed_row": usage_summary["last_completed_row"],
+            "status": "active" if usage_summary["current_model"] else "exhausted"
+        }
+    
+    except Exception as e:
+        logger.error(f"Error getting token usage: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

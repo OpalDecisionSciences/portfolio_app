@@ -98,7 +98,7 @@ class Restaurant(models.Model):
         super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        return reverse('restaurant_detail', kwargs={'slug': self.slug})
+        return reverse('restaurants:restaurant_detail', kwargs={'slug': self.slug})
     
     @property
     def stars_display(self):
@@ -207,14 +207,55 @@ class MenuItem(models.Model):
 
 
 class RestaurantImage(models.Model):
-    """Restaurant image model."""
+    """Enhanced restaurant image model with AI-powered categorization and labeling."""
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='restaurants/')
-    caption = models.CharField(max_length=200, blank=True)
     
-    # Image Types
+    # Image Storage
+    image = models.ImageField(upload_to='restaurants/', blank=True)
+    source_url = models.URLField(blank=True, help_text="Original URL where the image was scraped from")
+    
+    # Manual metadata
+    caption = models.CharField(max_length=200, blank=True)
+    alt_text = models.CharField(max_length=255, blank=True)
+    
+    # AI-Powered Categorization
+    ai_category = models.CharField(
+        max_length=50,
+        choices=[
+            ('scenery_ambiance', 'Scenery/Ambiance/Dining'),
+            ('menu_item', 'Menu Item'),
+            ('uncategorized', 'Uncategorized'),
+        ],
+        default='uncategorized',
+        help_text="AI-determined primary category"
+    )
+    
+    # AI-Generated Labels and Descriptions
+    ai_labels = models.JSONField(
+        default=list, 
+        blank=True,
+        help_text="AI-generated descriptive labels (e.g., ['mountain views', 'outdoor terrace', 'romantic lighting'])"
+    )
+    ai_description = models.TextField(
+        blank=True,
+        help_text="AI-generated detailed description of what's in the image"
+    )
+    
+    # Confidence Scores (0.0 to 1.0)
+    category_confidence = models.FloatField(
+        default=0.0,
+        validators=[MinValueValidator(0.0), MaxValueValidator(1.0)],
+        help_text="AI confidence score for category classification"
+    )
+    description_confidence = models.FloatField(
+        default=0.0,
+        validators=[MinValueValidator(0.0), MaxValueValidator(1.0)],
+        help_text="AI confidence score for description accuracy"
+    )
+    
+    # Legacy Image Types (keeping for backwards compatibility)
     image_type = models.CharField(
         max_length=50,
         choices=[
@@ -224,22 +265,83 @@ class RestaurantImage(models.Model):
             ('chef', 'Chef'),
             ('staff', 'Staff'),
             ('event', 'Event'),
+            ('scenery', 'Scenery'),
+            ('dining_room', 'Dining Room'),
+            ('ambiance', 'Ambiance'),
         ],
         default='interior'
     )
     
+    # Processing Status
+    processing_status = models.CharField(
+        max_length=20,
+        choices=[
+            ('pending', 'Pending'),
+            ('processing', 'Processing'),
+            ('completed', 'Completed'),
+            ('failed', 'Failed'),
+        ],
+        default='pending'
+    )
+    processing_error = models.TextField(blank=True)
+    
+    # Image Quality and Metadata
+    width = models.IntegerField(null=True, blank=True)
+    height = models.IntegerField(null=True, blank=True)
+    file_size = models.IntegerField(null=True, blank=True, help_text="File size in bytes")
+    
     # Order and display
     order = models.IntegerField(default=0)
     is_featured = models.BooleanField(default=False)
+    is_menu_highlight = models.BooleanField(default=False, help_text="Is this a standout menu item image?")
+    is_ambiance_highlight = models.BooleanField(default=False, help_text="Is this a standout ambiance/scenery image?")
     
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    processed_at = models.DateTimeField(null=True, blank=True)
     
     class Meta:
         ordering = ['restaurant', 'order', '-created_at']
+        indexes = [
+            models.Index(fields=['restaurant', 'ai_category']),
+            models.Index(fields=['processing_status']),
+            models.Index(fields=['is_featured', 'is_menu_highlight', 'is_ambiance_highlight']),
+        ]
     
     def __str__(self):
+        if self.ai_category and self.ai_category != 'uncategorized':
+            return f"{self.restaurant.name} - {self.get_ai_category_display()}"
         return f"{self.restaurant.name} - {self.get_image_type_display()}"
+    
+    @property
+    def is_scenery_ambiance(self):
+        """Check if this image is categorized as scenery/ambiance."""
+        return self.ai_category == 'scenery_ambiance'
+    
+    @property
+    def is_menu_item(self):
+        """Check if this image is categorized as a menu item."""
+        return self.ai_category == 'menu_item'
+    
+    @property
+    def primary_labels(self):
+        """Get the first 3 AI labels as primary descriptors."""
+        return self.ai_labels[:3] if self.ai_labels else []
+    
+    @property
+    def is_high_confidence(self):
+        """Check if the AI categorization has high confidence (>0.8)."""
+        return self.category_confidence > 0.8
+    
+    def get_display_name(self):
+        """Get a human-readable display name for the image."""
+        if self.ai_labels:
+            return ", ".join(self.primary_labels).title()
+        elif self.caption:
+            return self.caption
+        else:
+            return self.get_ai_category_display() or self.get_image_type_display()
 
 
 class RestaurantReview(models.Model):
@@ -327,3 +429,81 @@ class ScrapingJob(models.Model):
         if self.processed_urls == 0:
             return 0
         return (self.successful_urls / self.processed_urls) * 100
+
+
+class ImageScrapingJob(models.Model):
+    """Model to track image scraping jobs."""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    # Job Information
+    job_name = models.CharField(max_length=200)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=True, blank=True)
+    source_urls = models.JSONField(default=list, help_text="List of URLs to scrape images from")
+    
+    # Job Status
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('pending', 'Pending'),
+            ('running', 'Running'),
+            ('completed', 'Completed'),
+            ('failed', 'Failed'),
+            ('cancelled', 'Cancelled'),
+        ],
+        default='pending'
+    )
+    
+    # Progress Tracking
+    total_images_found = models.IntegerField(default=0)
+    images_processed = models.IntegerField(default=0)
+    images_downloaded = models.IntegerField(default=0)
+    images_categorized = models.IntegerField(default=0)
+    images_failed = models.IntegerField(default=0)
+    
+    # Configuration
+    max_images_per_url = models.IntegerField(default=20, help_text="Maximum images to scrape per URL")
+    min_image_size = models.IntegerField(default=200, help_text="Minimum image size in pixels")
+    enable_ai_categorization = models.BooleanField(default=True)
+    
+    # Results and Errors
+    results = models.JSONField(default=dict, blank=True)
+    error_log = models.TextField(blank=True)
+    
+    # Metadata
+    started_at = models.DateTimeField(null=True, blank=True)
+    completed_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        'auth.User', 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True,
+        related_name='image_scraping_jobs'
+    )
+    
+    class Meta:
+        ordering = ['-created_at']
+    
+    def __str__(self):
+        if self.restaurant:
+            return f"Image scraping: {self.restaurant.name} - {self.status}"
+        return f"{self.job_name} - {self.status}"
+    
+    @property
+    def progress_percentage(self):
+        if self.total_images_found == 0:
+            return 0
+        return (self.images_processed / self.total_images_found) * 100
+    
+    @property
+    def success_rate(self):
+        if self.images_processed == 0:
+            return 0
+        return (self.images_downloaded / self.images_processed) * 100
+    
+    @property
+    def categorization_rate(self):
+        if self.images_downloaded == 0:
+            return 0
+        return (self.images_categorized / self.images_downloaded) * 100

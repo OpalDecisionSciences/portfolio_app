@@ -1,0 +1,1532 @@
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 78680
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2917
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59746)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 48214)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 78680
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 78680
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47416)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59742)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47586)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 58116)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50666)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 35438)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 44598)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50618)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 48952)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 55080)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 60846)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 45274)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 44236)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 53146)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 55264)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 53262)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 42372)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47484)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 55570)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 49150)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 34896)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47104)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 45302)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 53766)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 51862)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59246)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 54348)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 54708)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 78680
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 78680
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+"GET / HTTP/1.1" 200 15945
+"GET / HTTP/1.1" 200 15945
+"GET /static/js/modernizr.js HTTP/1.1" 200 15418
+"GET /static/css/bootstrap-slider.css HTTP/1.1" 200 8066
+"GET /static/js/bootstrap.js HTTP/1.1" 200 65128
+"GET /static/js/functions.js HTTP/1.1" 200 21298
+"GET /static/css/style.css HTTP/1.1" 200 304291
+"GET /static/css/iconmoon.css HTTP/1.1" 200 140690
+"GET /static/js/scripts.js HTTP/1.1" 200 616064
+"GET /static/css/cs-foodbakery-plugin.css HTTP/1.1" 200 371329
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/fonts/icomoon.ttf?wzp9o1 HTTP/1.1" 200 553220
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59786)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50280)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 44646)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 54570)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50500)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39586)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 43890)
+/app/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+/app/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39478)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47732)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/admin.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/admin.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/admin.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 33132)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 41558)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 43062)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 60144)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 57144)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 46432)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50112)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 46280)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 36848)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47132)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 56548)
+/app/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 41142)
+/app/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 46634)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 53756)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 40230)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 51434)
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 200 104
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 58320)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Internal Server Error: /restaurants/api/recommendations/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/views.py", line 299, in restaurant_recommendations_api
+    recommendations = recommender.get_recommendations(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/recommenders.py", line 62, in get_recommendations
+    recommendations = self._get_content_based_recommendations(location, cuisine_preference, price_range, max_results)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/recommenders.py", line 219, in _get_content_based_recommendations
+    score = self._calculate_popularity_score(restaurant)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/recommenders.py", line 331, in _calculate_popularity_score
+    score += (restaurant.rating / 5.0) * 0.3
+              ~~~~~~~~~~~~~~~~~~^~~~~
+TypeError: unsupported operand type(s) for /: 'decimal.Decimal' and 'float'
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 500 82808
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Internal Server Error: /restaurants/api/recommendations/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/views.py", line 299, in restaurant_recommendations_api
+    recommendations = recommender.get_recommendations(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/recommenders.py", line 62, in get_recommendations
+    recommendations = self._get_content_based_recommendations(location, cuisine_preference, price_range, max_results)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/recommenders.py", line 219, in _get_content_based_recommendations
+    score = self._calculate_popularity_score(restaurant)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/recommenders.py", line 331, in _calculate_popularity_score
+    score += (restaurant.rating / 5.0) * 0.3
+              ~~~~~~~~~~~~~~~~~~^~~~~
+TypeError: unsupported operand type(s) for /: 'decimal.Decimal' and 'float'
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 500 82808
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 37792)
+/app/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/app/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Internal Server Error: /restaurants/api/recommendations/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/views.py", line 323, in restaurant_recommendations_api
+    'url': restaurant.get_absolute_url(),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/models.py", line 101, in get_absolute_url
+    return reverse('restaurant_detail', kwargs={'slug': self.slug})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'restaurant_detail' not found. 'restaurant_detail' is not a valid view function or pattern name.
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 500 86307
+Internal Server Error: /restaurants/api/recommendations/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/views.py", line 323, in restaurant_recommendations_api
+    'url': restaurant.get_absolute_url(),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/restaurants/models.py", line 101, in get_absolute_url
+    return reverse('restaurant_detail', kwargs={'slug': self.slug})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'restaurant_detail' not found. 'restaurant_detail' is not a valid view function or pattern name.
+"GET /restaurants/api/recommendations/?max_results=3 HTTP/1.1" 500 86307
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+/app/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 57130)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 38270)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 40750)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 38576)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 55760)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 43748)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59078)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 44356)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 40070)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59450)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 49106)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 41294)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 49886)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 37806)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 49490)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 48864)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 54916)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 36078)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 48846)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 33430)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59912)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 60306)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 41824)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 42870)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39068)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 52016)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 49322)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 40962)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 37792)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50744)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 46870)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 44144)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 58956)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 40138)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 45020)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47662)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 48808)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39410)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 60366)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 46076)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 35986)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39422)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 55662)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 38196)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 34120)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 34606)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 53354)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59994)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 34868)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 51764)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50742)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 34358)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50308)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 34088)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 43362)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 54952)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39678)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 55128)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 58594)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 56148)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39012)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 35000)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59338)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 39608)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 36552)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 47652)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 60546)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59278)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 50214)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 59116)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 58182)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+- Broken pipe from ('127.0.0.1', 44536)
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Not Found: /health/
+"GET /health/ HTTP/1.1" 404 2905
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 23884
+Internal Server Error: /restaurants/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'mul'
+"GET /restaurants/ HTTP/1.1" 500 308632
+- Broken pipe from ('127.0.0.1', 63245)
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 302 0
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET / HTTP/1.1" 200 23884
+"GET /static/css/iconmoon.css HTTP/1.1" 304 0
+"GET /static/js/functions.js HTTP/1.1" 304 0
+"GET /static/css/cs-foodbakery-plugin.css HTTP/1.1" 304 0
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /static/css/bootstrap-slider.css HTTP/1.1" 304 0
+"GET /static/js/bootstrap.js HTTP/1.1" 304 0
+"GET /static/js/modernizr.js HTTP/1.1" 304 0
+"GET /static/js/scripts.js HTTP/1.1" 304 0
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /static/fonts/icomoon.ttf?wzp9o1 HTTP/1.1" 304 0
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3340
+- Broken pipe from ('127.0.0.1', 63478)
+"GET /restaurants HTTP/1.1" 301 0
+Internal Server Error: /restaurants/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'mul'
+"GET /restaurants/ HTTP/1.1" 500 310851
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3340
+"GET /static/extra-images/xlisting-logo03.png.pagespeed.ic_.aT-o9LinEJ.png HTTP/1.1" 404 2043
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-09.png HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-04.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/listing-logo09.png HTTP/1.1" 404 1953
+"GET /static/extra-images/fb-restaurant-02.jpg HTTP/1.1" 404 1959
+"GET /static/extra-images/fb-restaurant-06.jpg HTTP/1.1" 404 1959
+Watching for file changes with StatReloader
+"GET /restaurants/ HTTP/1.1" 200 766571
+- Broken pipe from ('127.0.0.1', 65349)
+"GET /admin/ HTTP/1.1" 302 0
+Not Found: /api/
+"GET /api/ HTTP/1.1" 404 2792
+"GET /restaurants/ HTTP/1.1" 200 766571
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/?search=&country=France&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 766246
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+"GET /restaurants/?search=&country=Hong+Kong+SAR+China&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 767176
+"GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929

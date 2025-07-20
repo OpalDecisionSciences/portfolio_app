@@ -12,11 +12,13 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 from decimal import Decimal, InvalidOperation
 
+# Setup portfolio paths for cross-component imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent / "shared" / "src"))
+from config import setup_portfolio_paths
+setup_portfolio_paths()
+
 # Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio_project.settings')
-
-# Add Django app to path
-sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / 'django_app' / 'src'))
 
 import django
 django.setup()
