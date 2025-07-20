@@ -192,6 +192,30 @@ PORTFOLIO_DATA_DIR = BASE_DIR / 'data'
 PORTFOLIO_SCRAPING_BATCH_SIZE = 10
 PORTFOLIO_TOKEN_MANAGEMENT_DIR = BASE_DIR / 'token_management'
 
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.User'
+
+# Chat Safety Settings
+CHAT_MAX_MESSAGE_LENGTH = 1000
+CHAT_RATE_LIMIT_MESSAGES = 20
+CHAT_RATE_LIMIT_WINDOW = 60  # seconds
+
+# Email Configuration for Password Reset
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'Michelin Star Service <noreply@example.com>')
+
+# Account Settings
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_EMAIL_REQUIRED = True
+
 # Create necessary directories
 os.makedirs(PORTFOLIO_DATA_DIR, exist_ok=True)
 os.makedirs(PORTFOLIO_TOKEN_MANAGEMENT_DIR, exist_ok=True)

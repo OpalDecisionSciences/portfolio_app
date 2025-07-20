@@ -7,11 +7,20 @@ for restaurants based on various features like cuisine, location, price, and rat
 
 import math
 import unicodedata
-from typing import List, Dict, Tuple, Optional
-from django.db.models import Q, Count, Avg, F
+import numpy as np
+from typing import List, Dict, Tuple, Optional, Set
+from django.db.models import Q, Count, Avg, F, Case, When, Value, IntegerField
 from django.core.cache import cache
-from django.contrib.auth.models import User
+from django.conf import settings
+from django.contrib.auth import get_user_model
 from .models import Restaurant, RestaurantReview, RestaurantImage
+
+# Import favorites model - need to use string reference to avoid circular imports
+def get_user_favorite_model():
+    from accounts.models import UserFavoriteRestaurant
+    return UserFavoriteRestaurant
+
+User = get_user_model()
 
 
 class RestaurantRecommender:
@@ -64,9 +73,9 @@ class RestaurantRecommender:
         if restaurant_id:
             # Similar restaurant recommendations
             recommendations = self._get_similar_restaurants(restaurant_id, max_results)
-        elif user and hasattr(user, 'restaurantreview_set'):
-            # Personalized recommendations based on user reviews
-            recommendations = self._get_personalized_recommendations(user, location, cuisine_preference, price_range, max_results)
+        elif user:
+            # Enhanced personalized recommendations using favorites, reviews, and preferences
+            recommendations = self._get_enhanced_personalized_recommendations(user, location, cuisine_preference, price_range, max_results)
         else:
             # Content-based recommendations for anonymous users
             recommendations = self._get_content_based_recommendations(location, cuisine_preference, price_range, max_results)
@@ -235,6 +244,108 @@ class RestaurantRecommender:
         
         # Sort by preference score
         recommendations.sort(key=lambda x: x['preference_score'], reverse=True)
+        return recommendations[:max_results]
+    
+    def _get_enhanced_personalized_recommendations(self, user: User, location: str, cuisine: str, price_range: str, max_results: int) -> List[Dict]:
+        """
+        Enhanced personalized recommendations using favorites, reviews, profile preferences, and collaborative filtering.
+        """
+        UserFavoriteRestaurant = get_user_favorite_model()
+        
+        # Get user's data sources
+        user_reviews = RestaurantReview.objects.filter(user=user, is_approved=True)
+        user_favorites = UserFavoriteRestaurant.objects.filter(user=user).select_related('restaurant')
+        
+        # Get restaurants to exclude (already favorited or reviewed)
+        excluded_ids = set()
+        if user_favorites.exists():
+            excluded_ids.update(user_favorites.values_list('restaurant_id', flat=True))
+        if user_reviews.exists():
+            excluded_ids.update(user_reviews.values_list('restaurant_id', flat=True))
+        
+        # Use user profile preferences if available
+        user_cuisines = getattr(user, 'preferred_cuisines', []) or []
+        user_dietary = getattr(user, 'dietary_restrictions', []) or []
+        user_price_pref = getattr(user, 'price_range_preference', None)
+        user_location = getattr(user, 'location', None)
+        
+        # Start with all active restaurants
+        candidates = Restaurant.objects.filter(is_active=True).exclude(
+            id__in=excluded_ids
+        ).select_related().prefetch_related('images')
+        
+        # Apply location filters (prefer user's location if not specified)
+        location_filter = location or user_location
+        if location_filter:
+            candidates = candidates.filter(
+                Q(city__icontains=location_filter) | Q(country__icontains=location_filter)
+            )
+        
+        # Apply cuisine filter
+        if cuisine:
+            candidates = candidates.filter(cuisine_type__icontains=cuisine)
+        
+        # Apply price range filter (prefer user's preference if not specified)
+        price_filter = price_range or user_price_pref
+        if price_filter and price_filter != 'any':
+            candidates = candidates.filter(price_range=price_filter)
+        
+        recommendations = []
+        
+        # Get collaborative filtering data
+        similar_users = self._find_similar_users(user)
+        collab_recommendations = self._get_collaborative_recommendations(user, similar_users) if similar_users else {}
+        
+        for candidate in candidates:
+            # Calculate multiple scores
+            scores = {
+                'favorites_score': self._calculate_favorites_similarity_score(user_favorites, candidate),
+                'profile_score': self._calculate_profile_match_score(user, candidate),
+                'review_score': self._calculate_user_preference_score(candidate, self._analyze_user_preferences(user_reviews)) if user_reviews.exists() else 0,
+                'collaborative_score': collab_recommendations.get(candidate.id, 0),
+                'popularity_score': self._calculate_popularity_score(candidate) * 0.3,  # Lower weight for popularity
+            }
+            
+            # Calculate weighted final score
+            final_score = (
+                scores['favorites_score'] * 0.35 +      # High weight for favorites similarity
+                scores['profile_score'] * 0.25 +        # Profile preferences
+                scores['review_score'] * 0.20 +         # Review history
+                scores['collaborative_score'] * 0.15 +  # Collaborative filtering
+                scores['popularity_score'] * 0.05       # Popularity boost
+            )
+            
+            # Only include if score meets threshold
+            if final_score > 0.25:
+                recommendation_reasons = []
+                
+                # Build explanation reasons
+                if scores['favorites_score'] > 0.3:
+                    recommendation_reasons.extend(self._get_favorites_reasons(user_favorites, candidate))
+                if scores['profile_score'] > 0.3:
+                    recommendation_reasons.extend(self._get_profile_match_reasons(user, candidate))
+                if scores['review_score'] > 0.3:
+                    recommendation_reasons.extend(self._get_preference_reasons(candidate, self._analyze_user_preferences(user_reviews)))
+                if scores['collaborative_score'] > 0.2:
+                    recommendation_reasons.append("Users with similar tastes also liked this restaurant")
+                
+                recommendations.append({
+                    'restaurant': candidate,
+                    'final_score': final_score,
+                    'score_breakdown': scores,
+                    'recommendation_reasons': recommendation_reasons[:3],  # Limit to top 3 reasons
+                    'recommendation_type': 'enhanced_personalized'
+                })
+        
+        # If no personalized recommendations found, fall back to content-based
+        if not recommendations and (user_cuisines or location_filter or price_filter):
+            fallback_recs = self._get_content_based_recommendations(location_filter, cuisine or (user_cuisines[0] if user_cuisines else None), price_filter, max_results)
+            for rec in fallback_recs:
+                rec['recommendation_type'] = 'content_based_fallback'
+            return fallback_recs
+        
+        # Sort by final score
+        recommendations.sort(key=lambda x: x['final_score'], reverse=True)
         return recommendations[:max_results]
     
     def _get_content_based_recommendations(self, location: str, cuisine: str, price_range: str, max_results: int) -> List[Dict]:
@@ -547,5 +658,237 @@ class RestaurantRecommender:
         
         if restaurant.is_featured:
             reasons.append("Featured restaurant")
+        
+        return reasons
+    
+    # Enhanced recommendation helper methods
+    
+    def _find_similar_users(self, user: User) -> List[User]:
+        """
+        Find users with similar preferences using collaborative filtering.
+        Based on favorites and reviews similarity.
+        """
+        UserFavoriteRestaurant = get_user_favorite_model()
+        
+        # Get current user's favorites and reviews
+        user_favorites = set(UserFavoriteRestaurant.objects.filter(user=user).values_list('restaurant_id', flat=True))
+        user_reviews = set(RestaurantReview.objects.filter(user=user, is_approved=True).values_list('restaurant_id', flat=True))
+        user_restaurants = user_favorites.union(user_reviews)
+        
+        if not user_restaurants:
+            return []
+        
+        # Find users who have interacted with similar restaurants
+        similar_users = []
+        other_users = User.objects.exclude(id=user.id).filter(
+            Q(favorite_restaurants__restaurant__in=user_restaurants) |
+            Q(restaurantreview__restaurant__in=user_restaurants, restaurantreview__is_approved=True)
+        ).distinct()
+        
+        for other_user in other_users:
+            other_favorites = set(UserFavoriteRestaurant.objects.filter(user=other_user).values_list('restaurant_id', flat=True))
+            other_reviews = set(RestaurantReview.objects.filter(user=other_user, is_approved=True).values_list('restaurant_id', flat=True))
+            other_restaurants = other_favorites.union(other_reviews)
+            
+            # Calculate Jaccard similarity
+            intersection = len(user_restaurants.intersection(other_restaurants))
+            union = len(user_restaurants.union(other_restaurants))
+            
+            if union > 0:
+                similarity = intersection / union
+                if similarity >= 0.15:  # Minimum similarity threshold
+                    similar_users.append((other_user, similarity))
+        
+        # Sort by similarity and return top 10
+        similar_users.sort(key=lambda x: x[1], reverse=True)
+        return [user for user, similarity in similar_users[:10]]
+    
+    def _get_collaborative_recommendations(self, user: User, similar_users: List[User]) -> Dict[str, float]:
+        """
+        Get restaurant recommendations based on what similar users liked.
+        """
+        if not similar_users:
+            return {}
+        
+        UserFavoriteRestaurant = get_user_favorite_model()
+        
+        # Get current user's restaurants to exclude
+        user_favorites = set(UserFavoriteRestaurant.objects.filter(user=user).values_list('restaurant_id', flat=True))
+        user_reviews = set(RestaurantReview.objects.filter(user=user, is_approved=True).values_list('restaurant_id', flat=True))
+        user_restaurants = user_favorites.union(user_reviews)
+        
+        restaurant_scores = {}
+        
+        for similar_user in similar_users:
+            # Get their favorites (higher weight) and positive reviews
+            favorites = UserFavoriteRestaurant.objects.filter(user=similar_user).exclude(restaurant_id__in=user_restaurants)
+            positive_reviews = RestaurantReview.objects.filter(
+                user=similar_user, 
+                is_approved=True, 
+                rating__gte=4
+            ).exclude(restaurant_id__in=user_restaurants)
+            
+            # Add scores for favorites (weight: 1.0)
+            for favorite in favorites:
+                restaurant_id = str(favorite.restaurant_id)
+                if restaurant_id not in restaurant_scores:
+                    restaurant_scores[restaurant_id] = 0
+                
+                # Weight by favorite category
+                category_weights = {
+                    'visited': 1.0,
+                    'to_visit': 0.7,
+                    'special_occasion': 0.9,
+                    'business_dining': 0.8,
+                    'romantic': 0.8,
+                    'family': 0.7,
+                    'quick_bite': 0.6,
+                }
+                weight = category_weights.get(favorite.category, 0.7)
+                restaurant_scores[restaurant_id] += weight
+            
+            # Add scores for positive reviews (weight: 0.7)
+            for review in positive_reviews:
+                restaurant_id = str(review.restaurant_id)
+                if restaurant_id not in restaurant_scores:
+                    restaurant_scores[restaurant_id] = 0
+                
+                # Weight by rating
+                rating_weight = (review.rating - 3) / 2  # Scale 4-5 stars to 0.5-1.0
+                restaurant_scores[restaurant_id] += rating_weight * 0.7
+        
+        # Normalize scores by number of similar users
+        max_score = max(restaurant_scores.values()) if restaurant_scores else 1
+        for restaurant_id in restaurant_scores:
+            restaurant_scores[restaurant_id] = min(restaurant_scores[restaurant_id] / max_score, 1.0)
+        
+        return restaurant_scores
+    
+    def _calculate_favorites_similarity_score(self, user_favorites, candidate_restaurant: Restaurant) -> float:
+        """
+        Calculate how similar a candidate restaurant is to user's favorites.
+        Uses content-based similarity with favorite restaurants.
+        """
+        if not user_favorites.exists():
+            return 0.0
+        
+        similarity_scores = []
+        
+        for favorite in user_favorites:
+            favorite_restaurant = favorite.restaurant
+            similarity = self._calculate_restaurant_similarity(favorite_restaurant, candidate_restaurant)
+            
+            # Weight by favorite category and personal rating
+            category_weights = {
+                'visited': 1.0,
+                'to_visit': 0.8,
+                'special_occasion': 0.9,
+                'business_dining': 0.7,
+                'romantic': 0.8,
+                'family': 0.7,
+                'quick_bite': 0.6,
+            }
+            category_weight = category_weights.get(favorite.category, 0.7)
+            
+            # Weight by personal rating if available
+            rating_weight = 1.0
+            if favorite.personal_rating:
+                rating_weight = favorite.personal_rating / 5.0
+            
+            weighted_similarity = similarity * category_weight * rating_weight
+            similarity_scores.append(weighted_similarity)
+        
+        # Return average similarity
+        return sum(similarity_scores) / len(similarity_scores) if similarity_scores else 0.0
+    
+    def _calculate_profile_match_score(self, user: User, restaurant: Restaurant) -> float:
+        """
+        Calculate how well a restaurant matches user's profile preferences.
+        """
+        score = 0.0
+        
+        # Cuisine preferences (40% weight)
+        user_cuisines = getattr(user, 'preferred_cuisines', []) or []
+        if user_cuisines and restaurant.cuisine_type:
+            cuisine_match = any(cuisine.lower() in restaurant.cuisine_type.lower() for cuisine in user_cuisines)
+            if cuisine_match:
+                score += 0.4
+        
+        # Price range preference (25% weight)
+        user_price_pref = getattr(user, 'price_range_preference', None)
+        if user_price_pref and user_price_pref != 'any' and restaurant.price_range:
+            if user_price_pref == restaurant.price_range:
+                score += 0.25
+        
+        # Location preference (20% weight)
+        user_location = getattr(user, 'location', None)
+        if user_location and restaurant.city:
+            location_parts = user_location.lower().split(',')
+            restaurant_location = f"{restaurant.city}, {restaurant.country}".lower()
+            if any(part.strip() in restaurant_location for part in location_parts):
+                score += 0.20
+        
+        # Dietary restrictions compatibility (15% weight)
+        user_dietary = getattr(user, 'dietary_restrictions', []) or []
+        if user_dietary:
+            # This would need restaurant dietary info to be fully implemented
+            # For now, give small boost to vegetarian-friendly cuisines for vegan/vegetarian users
+            vegetarian_friendly = ['vegetarian', 'vegan', 'indian', 'mediterranean', 'thai']
+            if any(restriction in ['vegetarian', 'vegan'] for restriction in user_dietary):
+                if restaurant.cuisine_type and any(cuisine in restaurant.cuisine_type.lower() for cuisine in vegetarian_friendly):
+                    score += 0.10
+        
+        return min(score, 1.0)
+    
+    def _get_favorites_reasons(self, user_favorites, candidate_restaurant: Restaurant) -> List[str]:
+        """
+        Generate explanation for why a restaurant is recommended based on favorites.
+        """
+        reasons = []
+        
+        for favorite in user_favorites:
+            similarity = self._calculate_restaurant_similarity(favorite.restaurant, candidate_restaurant)
+            if similarity > 0.5:
+                if favorite.restaurant.cuisine_type == candidate_restaurant.cuisine_type:
+                    reasons.append(f"Similar to your favorite {favorite.restaurant.cuisine_type} restaurant: {favorite.restaurant.name}")
+                elif favorite.restaurant.city == candidate_restaurant.city:
+                    reasons.append(f"In the same city as your favorite: {favorite.restaurant.name}")
+                elif favorite.restaurant.price_range == candidate_restaurant.price_range:
+                    reasons.append(f"Similar price range to your favorite: {favorite.restaurant.name}")
+                
+                if len(reasons) >= 2:  # Limit to avoid too many reasons
+                    break
+        
+        return reasons
+    
+    def _get_profile_match_reasons(self, user: User, restaurant: Restaurant) -> List[str]:
+        """
+        Generate explanation for profile-based recommendations.
+        """
+        reasons = []
+        
+        # Check cuisine preferences
+        user_cuisines = getattr(user, 'preferred_cuisines', []) or []
+        if user_cuisines and restaurant.cuisine_type:
+            matching_cuisines = [cuisine for cuisine in user_cuisines if cuisine.lower() in restaurant.cuisine_type.lower()]
+            if matching_cuisines:
+                reasons.append(f"Matches your preference for {matching_cuisines[0]} cuisine")
+        
+        # Check price range
+        user_price_pref = getattr(user, 'price_range_preference', None)
+        if user_price_pref and user_price_pref != 'any' and restaurant.price_range == user_price_pref:
+            price_labels = {
+                'budget': 'budget-friendly',
+                'moderate': 'moderately priced',
+                'upscale': 'upscale',
+                'luxury': 'luxury'
+            }
+            reasons.append(f"Fits your {price_labels.get(user_price_pref, user_price_pref)} preference")
+        
+        # Check location
+        user_location = getattr(user, 'location', None)
+        if user_location and restaurant.city:
+            if user_location.lower() in f"{restaurant.city}, {restaurant.country}".lower():
+                reasons.append(f"Located in your area ({restaurant.city})")
         
         return reasons

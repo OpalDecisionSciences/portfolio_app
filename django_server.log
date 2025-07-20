@@ -209,3 +209,658 @@ Django version 4.2.7, using settings 'portfolio_project.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 20:53:02
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 22:18:32
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 22:18:56
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 22:26:08
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 22:26:18
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 22:27:54
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+accounts.User.groups: (fields.E304) Reverse accessor 'Group.user_set' for 'accounts.User.groups' clashes with reverse accessor for 'auth.User.groups'.
+	HINT: Add or change a related_name argument to the definition for 'accounts.User.groups' or 'auth.User.groups'.
+accounts.User.user_permissions: (fields.E304) Reverse accessor 'Permission.user_set' for 'accounts.User.user_permissions' clashes with reverse accessor for 'auth.User.user_permissions'.
+	HINT: Add or change a related_name argument to the definition for 'accounts.User.user_permissions' or 'auth.User.user_permissions'.
+auth.User.groups: (fields.E304) Reverse accessor 'Group.user_set' for 'auth.User.groups' clashes with reverse accessor for 'accounts.User.groups'.
+	HINT: Add or change a related_name argument to the definition for 'auth.User.groups' or 'accounts.User.groups'.
+auth.User.user_permissions: (fields.E304) Reverse accessor 'Permission.user_set' for 'auth.User.user_permissions' clashes with reverse accessor for 'accounts.User.user_permissions'.
+	HINT: Add or change a related_name argument to the definition for 'auth.User.user_permissions' or 'accounts.User.user_permissions'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.Restaurant.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.RestaurantReview.user: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+restaurants.ScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 4 issues (0 silenced).
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    autoreload.raise_last_exception()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 87, in raise_last_exception
+    raise _exception[1]
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/apps/registry.py", line 116, in populate
+    app_config.import_models()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/apps/config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py", line 13, in <module>
+    class Restaurant(models.Model):
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py", line 83, in Restaurant
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+                                   ^^^^
+NameError: name 'User' is not defined
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    autoreload.raise_last_exception()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 87, in raise_last_exception
+    raise _exception[1]
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/apps/registry.py", line 116, in populate
+    app_config.import_models()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/apps/config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py", line 438, in <module>
+    class RestaurantReview(models.Model):
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py", line 443, in RestaurantReview
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+                             ^^^^
+NameError: name 'User' is not defined
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 556, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+restaurants.ImageScrapingJob.created_by: (fields.E301) Field defines a relation with the model 'auth.User', which has been swapped out.
+	HINT: Update the relation to point at 'settings.AUTH_USER_MODEL'.
+
+System check identified 1 issue (0 silenced).
+Performing system checks...
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 20, 2025 - 22:38:03
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: restaurants.0001_initial, restaurants.0002_restaurant_timezone_info, accounts.0001_initial
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 133, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 485, in check
+    all_issues = checks.run_checks(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/checks/registry.py", line 88, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/checks/urls.py", line 14, in check_url_config
+    return check_resolver(resolver)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/checks/urls.py", line 24, in check_resolver
+    return check_method()
+           ^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/urls/resolvers.py", line 494, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/urls/resolvers.py", line 715, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/urls/resolvers.py", line 708, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/urls.py", line 13, in <module>
+    path('restaurants/', include('restaurants.urls')),
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/urls/conf.py", line 38, in include
+    urlconf_module = import_module(urlconf_module)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/urls.py", line 23, in <module>
+    path('api/recommendations/personalized/', views.personalized_recommendations_api, name='personalized_recommendations_api'),
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'restaurants.views' has no attribute 'personalized_recommendations_api'. Did you mean: 'restaurant_recommendations_api'?
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/Users/iamai/.pyenv/versions/3.11.9/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/commands/runserver.py", line 136, in inner_run
+    self.check_migrations()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/management/base.py", line 574, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/loader.py", line 305, in build_graph
+    self.graph.ensure_not_cyclic()
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/migrations/graph.py", line 284, in ensure_not_cyclic
+    raise CircularDependencyError(
+django.db.migrations.exceptions.CircularDependencyError: accounts.0001_initial, restaurants.0001_initial, restaurants.0002_restaurant_timezone_info
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): accounts.
+Run 'python manage.py migrate' to apply them.
+July 20, 2025 - 22:57:47
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+

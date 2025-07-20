@@ -1,0 +1,1211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI Restaurant Assistant - Michelin Star Service</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		/* Chat Container Styles */
+		.chat-container {
+			display: flex;
+			height: calc(100vh - 200px);
+			min-height: 600px;
+			background: white;
+			border-radius: 15px;
+			box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+			overflow: hidden;
+		}
+		
+		.chat-sidebar {
+			width: 300px;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			padding: 30px 20px;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.chat-main {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			background: #f8f9fa;
+		}
+		
+		/* Sidebar Content */
+		.chat-welcome {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		
+		.chat-welcome h2 {
+			color: white;
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+		
+		.chat-welcome p {
+			color: rgba(255,255,255,0.9);
+			font-size: 14px;
+			line-height: 1.6;
+		}
+		
+		.chat-features {
+			list-style: none;
+			padding: 0;
+			margin-bottom: 30px;
+		}
+		
+		.chat-features li {
+			padding: 12px 0;
+			border-bottom: 1px solid rgba(255,255,255,0.2);
+			color: rgba(255,255,255,0.9);
+			font-size: 14px;
+		}
+		
+		.chat-features li:last-child {
+			border-bottom: none;
+		}
+		
+		.chat-features i {
+			margin-right: 10px;
+			color: #ffd700;
+		}
+		
+		.suggested-questions {
+			margin-top: auto;
+		}
+		
+		.suggested-questions h4 {
+			color: white;
+			font-size: 16px;
+			margin-bottom: 15px;
+		}
+		
+		.suggestion-button {
+			background: rgba(255,255,255,0.2);
+			border: 1px solid rgba(255,255,255,0.3);
+			color: white;
+			padding: 8px 12px;
+			margin: 5px 0;
+			border-radius: 20px;
+			font-size: 12px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			width: 100%;
+			text-align: left;
+		}
+		
+		.suggestion-button:hover {
+			background: rgba(255,255,255,0.3);
+			transform: translateY(-2px);
+		}
+		
+		/* Chat Header */
+		.chat-header {
+			background: white;
+			padding: 20px 30px;
+			border-bottom: 1px solid #eee;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		.chat-status {
+			display: flex;
+			align-items: center;
+		}
+		
+		.status-indicator {
+			width: 10px;
+			height: 10px;
+			background: #28a745;
+			border-radius: 50%;
+			margin-right: 10px;
+			animation: pulse 2s infinite;
+		}
+		
+		@keyframes pulse {
+			0% { transform: scale(1); opacity: 1; }
+			50% { transform: scale(1.1); opacity: 0.7; }
+			100% { transform: scale(1); opacity: 1; }
+		}
+		
+		.new-chat-btn {
+			background: #e74c3c;
+			color: white;
+			border: none;
+			padding: 8px 16px;
+			border-radius: 20px;
+			font-size: 14px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.new-chat-btn:hover {
+			background: #c0392b;
+			transform: translateY(-1px);
+		}
+		
+		/* Chat Messages */
+		.chat-messages {
+			flex: 1;
+			padding: 30px;
+			overflow-y: auto;
+			background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+		}
+		
+		.message {
+			margin-bottom: 20px;
+			animation: fadeIn 0.5s ease-in;
+		}
+		
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(10px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+		
+		.message.user {
+			text-align: right;
+		}
+		
+		.message.assistant {
+			text-align: left;
+		}
+		
+		.message-bubble {
+			display: inline-block;
+			max-width: 70%;
+			padding: 15px 20px;
+			border-radius: 20px;
+			font-size: 14px;
+			line-height: 1.6;
+			word-wrap: break-word;
+		}
+		
+		.message.user .message-bubble {
+			background: #e74c3c;
+			color: white;
+			border-bottom-right-radius: 5px;
+		}
+		
+		.message.assistant .message-bubble {
+			background: white;
+			color: #333;
+			border-bottom-left-radius: 5px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		}
+		
+		.message-time {
+			font-size: 11px;
+			color: #666;
+			margin-top: 5px;
+		}
+		
+		.typing-indicator {
+			display: none;
+			text-align: left;
+		}
+		
+		.typing-indicator .message-bubble {
+			background: white;
+			padding: 15px 20px;
+		}
+		
+		.typing-dots {
+			display: inline-block;
+		}
+		
+		.typing-dots span {
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #999;
+			margin: 0 2px;
+			animation: typing 1.4s infinite ease-in-out;
+		}
+		
+		.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+		.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+		
+		@keyframes typing {
+			0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+			40% { transform: scale(1); opacity: 1; }
+		}
+		
+		/* Chat Input */
+		.chat-input {
+			background: white;
+			padding: 20px 30px;
+			border-top: 1px solid #eee;
+		}
+		
+		.input-group {
+			display: flex;
+			align-items: center;
+			background: #f8f9fa;
+			border-radius: 25px;
+			padding: 5px;
+			border: 2px solid transparent;
+			transition: all 0.3s ease;
+		}
+		
+		.input-group:focus-within {
+			border-color: #e74c3c;
+			background: white;
+		}
+		
+		.chat-input-field {
+			flex: 1;
+			border: none;
+			background: transparent;
+			padding: 12px 20px;
+			font-size: 14px;
+			outline: none;
+			resize: none;
+			max-height: 120px;
+			min-height: 20px;
+		}
+		
+		.send-button {
+			background: #e74c3c;
+			color: white;
+			border: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.send-button:hover {
+			background: #c0392b;
+			transform: scale(1.05);
+		}
+		
+		.send-button:disabled {
+			background: #ccc;
+			cursor: not-allowed;
+			transform: none;
+		}
+		
+		/* Welcome Message */
+		.welcome-message {
+			text-align: center;
+			padding: 40px;
+			color: #666;
+		}
+		
+		.welcome-message h3 {
+			color: #333;
+			margin-bottom: 15px;
+		}
+		
+		.welcome-message p {
+			font-size: 16px;
+			line-height: 1.6;
+			margin-bottom: 30px;
+		}
+		
+		.example-questions {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 15px;
+			margin-top: 30px;
+		}
+		
+		.example-question {
+			background: white;
+			border: 2px solid #f0f0f0;
+			border-radius: 10px;
+			padding: 15px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.example-question:hover {
+			border-color: #e74c3c;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+		}
+		
+		.example-question h5 {
+			color: #e74c3c;
+			margin-bottom: 8px;
+			font-size: 14px;
+		}
+		
+		.example-question p {
+			color: #666;
+			margin: 0;
+			font-size: 13px;
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.chat-container {
+				flex-direction: column;
+				height: calc(100vh - 150px);
+			}
+			
+			.chat-sidebar {
+				width: 100%;
+				padding: 20px;
+				max-height: 200px;
+				overflow-y: auto;
+			}
+			
+			.suggested-questions {
+				display: none;
+			}
+			
+			.chat-messages {
+				padding: 20px;
+			}
+			
+			.message-bubble {
+				max-width: 85%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!--Main Wrapper-->
+	<div class="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<div class="main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div class="logo">
+								<figure>
+									<a href="{% url 'home' %}" class="light-logo">
+										<div style="display: flex; align-items: center; font-size: 24px; color: #e74c3c;">
+											<i class="icon-star-full" style="font-size: 32px; margin-right: 10px;"></i>
+											<span style="font-weight: bold;">Michelin Star Service</span>
+										</div>
+									</a>
+								</figure>
+							</div>
+							<div class="main-nav">
+								<nav id="site-navigation" class="main-navigation">
+									<ul>
+										<li><a href="{% url 'home' %}">Home</a></li>
+										<li><a href="{% url 'restaurants:restaurant_list' %}">Restaurants</a></li>
+										<li><a href="{% url 'restaurants:gallery' %}">Gallery</a></li>
+										<li><a href="{% url 'chat:chat' %}" class="active">AI Assistant</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="login-option">
+								{% if user.is_authenticated %}
+									<div class="user-info">
+										<span style="color: #e74c3c; margin-right: 15px;">Welcome, {{ user.get_short_name }}!</span>
+										<a class="cs-color" href="{% url 'accounts:profile' %}">Profile</a>
+										<a class="cs-color" href="{% url 'accounts:favorites' %}" style="margin: 0 10px;">Favorites</a>
+										<a class="get-start-btn" href="{% url 'accounts:logout' %}">Logout</a>
+									</div>
+								{% else %}
+									<a class="cs-color cs-popup-joinus-btn" href="{% url 'accounts:login' %}">Login</a>
+									<a class="get-start-btn" href="{% url 'accounts:register' %}">Register</a>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header End -->
+		
+		<!-- Main Section Start -->
+		<div class="main-section">
+			<div class="page-section" style="padding: 30px 0;">
+				<div class="container">
+					<div class="chat-container">
+						<!-- Chat Sidebar -->
+						<div class="chat-sidebar">
+							<div class="chat-welcome">
+								<h2><i class="icon-robot"></i> AI Assistant</h2>
+								<p>Your personal restaurant expert powered by AI. Ask me anything about restaurants, cuisines, or dining experiences!</p>
+							</div>
+							
+							<ul class="chat-features">
+								<li><i class="icon-star-full"></i> Michelin starred restaurant recommendations</li>
+								<li><i class="icon-location"></i> Location-based restaurant search</li>
+								<li><i class="icon-cutlery"></i> Cuisine and menu information</li>
+								<li><i class="icon-globe"></i> Global dining experiences</li>
+								<li><i class="icon-time"></i> Real-time restaurant information</li>
+							</ul>
+							
+							<div class="suggested-questions">
+								<h4>Try asking:</h4>
+								<button class="suggestion-button" onclick="sendSuggestion('Find me a Michelin starred French restaurant in Paris')">
+									French restaurants in Paris
+								</button>
+								<button class="suggestion-button" onclick="sendSuggestion('What are the best sushi restaurants with 3 Michelin stars?')">
+									Best 3-star sushi places
+								</button>
+								<button class="suggestion-button" onclick="sendSuggestion('Recommend restaurants with great ambiance for a romantic dinner')">
+									Romantic dining spots
+								</button>
+								<button class="suggestion-button" onclick="sendSuggestion('Which restaurants are currently open in Tokyo?')">
+									Restaurants open now
+								</button>
+							</div>
+						</div>
+						
+						<!-- Chat Main Area -->
+						<div class="chat-main">
+							<!-- Chat Header -->
+							<div class="chat-header">
+								<div class="chat-status">
+									<div class="status-indicator"></div>
+									<span>AI Assistant Online</span>
+								</div>
+								<button class="new-chat-btn" onclick="startNewChat()">
+									<i class="icon-refresh"></i> New Chat
+								</button>
+							</div>
+							
+							<!-- Chat Messages -->
+							<div class="chat-messages" id="chatMessages">
+								<!-- Welcome Message -->
+								<div class="welcome-message" id="welcomeMessage">
+									<h3>Welcome to your AI Restaurant Assistant! 🍽️</h3>
+									<p>I'm here to help you discover amazing restaurants around the world. Whether you're looking for Michelin-starred establishments, local hidden gems, or specific cuisines, just ask me!</p>
+									
+									<div class="example-questions">
+										<div class="example-question" onclick="sendSuggestion('Show me the best Italian restaurants in New York')">
+											<h5>🇮🇹 Cuisine Search</h5>
+											<p>Find the best Italian restaurants in New York</p>
+										</div>
+										<div class="example-question" onclick="sendSuggestion('What 3-star Michelin restaurants are in France?')">
+											<h5>⭐ Michelin Guide</h5>
+											<p>What 3-star Michelin restaurants are in France?</p>
+										</div>
+										<div class="example-question" onclick="sendSuggestion('Recommend restaurants with mountain views')">
+											<h5>🏔️ Ambiance</h5>
+											<p>Recommend restaurants with mountain views</p>
+										</div>
+										<div class="example-question" onclick="sendSuggestion('Which restaurants serve the best seafood?')">
+											<h5>🦞 Specialties</h5>
+											<p>Which restaurants serve the best seafood?</p>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Typing Indicator -->
+								<div class="message assistant typing-indicator" id="typingIndicator">
+									<div class="message-bubble">
+										<div class="typing-dots">
+											<span></span>
+											<span></span>
+											<span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Chat Input -->
+							<div class="chat-input">
+								<div class="input-group">
+									<textarea 
+										class="chat-input-field" 
+										id="messageInput" 
+										placeholder="Ask me about restaurants, cuisines, or dining experiences..."
+										rows="1"
+									></textarea>
+									<button class="send-button" id="sendButton" onclick="sendMessage()">
+										<i class="icon-paper-plane"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
+		
+		<!-- Footer Start -->
+		<footer id="footer" class="footer-style-2">
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="widget widget-newsletter">
+								<div class="widget-title">
+									<h5>Subscribe to our Newsletter</h5>
+								</div>
+								<div class="fieldset">
+									<form action="#">
+										<div class="field-holder">
+											<label>
+												<i class="icon-envelope3"></i>
+												<input type="text" class="field-input" placeholder="Enter Your Email Address...">
+											</label>
+										</div>
+										<div class="field-holder btn-holder">
+											<input class="subscribe-btn bgcolor" type="submit" value="Sign Up">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-sec">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="copyright-inner">
+								<div class="copy-right">
+									<p>© 2020 Foodbakery. All Rights Reserved. Developed By <a href="#">Rathan Kumar</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer End -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+	
+	<script>
+		// Chat functionality with safety guardrails
+		let conversationId = null;
+		let isWaitingForResponse = false;
+		let messageCount = 0;
+		let lastMessageTime = 0;
+		const MAX_MESSAGES_PER_MINUTE = 20;
+		const MAX_MESSAGE_LENGTH = 1000;
+		
+		// Restaurant-related keywords for topic validation
+		const RESTAURANT_KEYWORDS = [
+			'restaurant', 'cuisine', 'food', 'dining', 'menu', 'chef', 'michelin', 'star', 'starred',
+			'meal', 'dish', 'recipe', 'cooking', 'culinary', 'flavor', 'taste', 'wine', 'beverage',
+			'lunch', 'dinner', 'breakfast', 'brunch', 'reservation', 'review', 'rating', 'ambiance',
+			'service', 'location', 'price', 'budget', 'fine dining', 'casual dining', 'takeout',
+			'delivery', 'italian', 'french', 'japanese', 'chinese', 'thai', 'indian', 'mexican',
+			'seafood', 'steakhouse', 'vegetarian', 'vegan', 'organic', 'farm to table', 'bistro',
+			'cafe', 'bar', 'gastropub', 'tasting menu', 'course', 'appetizer', 'entree', 'dessert'
+		];
+		
+		// Inappropriate topics to block
+		const BLOCKED_TOPICS = [
+			'politics', 'political', 'election', 'government', 'president', 'congress', 'democrat', 'republican',
+			'religion', 'religious', 'church', 'bible', 'islam', 'christianity', 'judaism', 'buddhism',
+			'violence', 'violent', 'weapon', 'gun', 'bomb', 'terror', 'kill', 'murder', 'death',
+			'sexual', 'sex', 'adult', 'explicit', 'nsfw', 'inappropriate',
+			'personal', 'private', 'confidential', 'password', 'hack', 'illegal', 'drugs', 'medicine',
+			'financial advice', 'investment', 'stock', 'crypto', 'legal advice', 'lawsuit',
+			'medical advice', 'diagnosis', 'treatment', 'therapy', 'prescription'
+		];
+		
+		// Initialize chat on page load
+		document.addEventListener('DOMContentLoaded', function() {
+			initializeChat();
+			setupInputHandlers();
+			showWelcomeGuidelines();
+			
+			// Load personalized recommendations for authenticated users
+			setTimeout(() => {
+				loadPersonalizedRecommendations();
+			}, 2000); // Delay to show after welcome message
+		});
+		
+		async function initializeChat() {
+			try {
+				// Initialize RAG service conversation
+				const response = await fetch('{{ rag_service_url }}/conversation/start', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				});
+				
+				if (response.ok) {
+					const data = await response.json();
+					conversationId = data.conversation_id;
+					console.log('Chat initialized with conversation ID:', conversationId);
+					
+					// If user is authenticated, start chat session tracking
+					{% if user.is_authenticated %}
+					try {
+						const sessionResponse = await fetch('/chat/session/start/', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+								'X-CSRFToken': getCsrfToken()
+							},
+							body: JSON.stringify({
+								conversation_id: conversationId
+							})
+						});
+						
+						if (sessionResponse.ok) {
+							const sessionData = await sessionResponse.json();
+							console.log('User chat session started:', sessionData);
+							
+							// Show personalized welcome message
+							showPersonalizedWelcome();
+						}
+					} catch (sessionError) {
+						console.warn('Failed to start user session tracking:', sessionError);
+					}
+					{% endif %}
+				} else {
+					console.error('Failed to initialize chat');
+					showErrorMessage('Failed to connect to AI assistant. Please refresh the page.');
+				}
+			} catch (error) {
+				console.error('Error initializing chat:', error);
+				showErrorMessage('Connection error. Please check your internet connection.');
+			}
+		}
+		
+		function setupInputHandlers() {
+			const messageInput = document.getElementById('messageInput');
+			const sendButton = document.getElementById('sendButton');
+			
+			// Auto-resize textarea
+			messageInput.addEventListener('input', function() {
+				this.style.height = 'auto';
+				this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+			});
+			
+			// Send message on Enter (Shift+Enter for new line)
+			messageInput.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' && !e.shiftKey) {
+					e.preventDefault();
+					sendMessage();
+				}
+			});
+			
+			// Enable/disable send button based on input
+			messageInput.addEventListener('input', function() {
+				const message = this.value.trim();
+				sendButton.disabled = !message || isWaitingForResponse;
+			});
+		}
+		
+		// Safety validation functions
+		function validateMessage(message) {
+			// Check message length
+			if (message.length > MAX_MESSAGE_LENGTH) {
+				return {
+					valid: false,
+					reason: `Please keep your message under ${MAX_MESSAGE_LENGTH} characters. I'm here to help with restaurant-related questions!`
+				};
+			}
+			
+			// Check for blocked topics
+			const lowerMessage = message.toLowerCase();
+			for (const topic of BLOCKED_TOPICS) {
+				if (lowerMessage.includes(topic.toLowerCase())) {
+					return {
+						valid: false,
+						reason: "I'm your restaurant expert assistant! I can only help with questions about restaurants, dining, cuisines, and food-related topics. Please ask me about Michelin-starred restaurants, menu recommendations, or dining experiences instead."
+					};
+				}
+			}
+			
+			// Check if message is restaurant-related (more lenient check)
+			const hasRestaurantKeyword = RESTAURANT_KEYWORDS.some(keyword => 
+				lowerMessage.includes(keyword.toLowerCase())
+			);
+			
+			// Allow greetings and basic conversational words
+			const greetingWords = ['hello', 'hi', 'hey', 'good', 'thank', 'please', 'help', 'can', 'what', 'where', 'how', 'recommend', 'suggest', 'find', 'show', 'tell', 'best', 'good', 'great'];
+			const hasGreeting = greetingWords.some(word => lowerMessage.includes(word));
+			
+			if (!hasRestaurantKeyword && !hasGreeting && lowerMessage.length > 10) {
+				return {
+					valid: false,
+					reason: "I'm specialized in helping you discover amazing restaurants and dining experiences! Please ask me about Michelin-starred restaurants, cuisine recommendations, menu suggestions, or dining locations. What culinary adventure can I help you with today?"
+				};
+			}
+			
+			return { valid: true };
+		}
+		
+		function checkRateLimit() {
+			const now = Date.now();
+			const oneMinuteAgo = now - 60000;
+			
+			// Reset counter if it's been more than a minute
+			if (now - lastMessageTime > 60000) {
+				messageCount = 0;
+			}
+			
+			if (messageCount >= MAX_MESSAGES_PER_MINUTE) {
+				return {
+					allowed: false,
+					reason: "Please slow down a bit! I want to give you the best restaurant recommendations, so let's take our time with each question."
+				};
+			}
+			
+			messageCount++;
+			lastMessageTime = now;
+			return { allowed: true };
+		}
+		
+		function sanitizeInput(input) {
+			// Remove potentially harmful content
+			return input
+				.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+				.replace(/<[^>]*>/g, '')
+				.replace(/javascript:/gi, '')
+				.replace(/on\w+\s*=/gi, '')
+				.trim();
+		}
+		
+		function getUserId() {
+			// Use authenticated user ID if available, otherwise generate session ID
+			{% if user.is_authenticated %}
+				return '{{ user_context.user_id }}';
+			{% else %}
+				let userId = localStorage.getItem('chat_user_id');
+				if (!userId) {
+					userId = 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+					localStorage.setItem('chat_user_id', userId);
+				}
+				return userId;
+			{% endif %}
+		}
+		
+		function showWelcomeGuidelines() {
+			// Add guidelines to the welcome message
+			setTimeout(() => {
+				const welcomeMessage = document.getElementById('welcomeMessage');
+				if (welcomeMessage && welcomeMessage.style.display !== 'none') {
+					const guidelines = document.createElement('div');
+					guidelines.className = 'chat-guidelines';
+					guidelines.innerHTML = `
+						<div style="background: rgba(231, 76, 60, 0.1); border-left: 4px solid #e74c3c; padding: 15px; margin-top: 20px; border-radius: 5px;">
+							<h6 style="color: #e74c3c; margin-bottom: 10px;">🍽️ Your Restaurant Assistant Guidelines</h6>
+							<p style="font-size: 12px; color: #666; margin: 0;">
+								I'm specialized in restaurants, dining, and culinary experiences. I can help with Michelin-starred establishments, cuisine recommendations, menu suggestions, and dining locations worldwide. 
+								<br><br>
+								<strong>Please keep our conversation focused on food and dining topics!</strong>
+							</p>
+						</div>
+					`;
+					welcomeMessage.appendChild(guidelines);
+				}
+			}, 1000);
+		}
+		
+		function validateConversationContext() {
+			// Monitor conversation flow for potential off-topic drift
+			const messagesContainer = document.getElementById('chatMessages');
+			const messages = messagesContainer.querySelectorAll('.message.user .message-bubble');
+			
+			if (messages.length >= 3) {
+				const recentMessages = Array.from(messages).slice(-3);
+				const hasRestaurantContext = recentMessages.some(msg => {
+					const text = msg.textContent.toLowerCase();
+					return RESTAURANT_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()));
+				});
+				
+				if (!hasRestaurantContext) {
+					addMessage("I notice we might be drifting from restaurant topics! I'm here to help you discover amazing dining experiences, Michelin-starred restaurants, and culinary adventures. What would you like to explore in the world of fine dining?", 'assistant');
+					return false;
+				}
+			}
+			return true;
+		}
+
+		async function sendMessage() {
+			const messageInput = document.getElementById('messageInput');
+			let message = messageInput.value.trim();
+			
+			if (!message || isWaitingForResponse || !conversationId) return;
+			
+			// Sanitize input
+			message = sanitizeInput(message);
+			
+			// Rate limiting check
+			const rateLimitCheck = checkRateLimit();
+			if (!rateLimitCheck.allowed) {
+				addMessage(rateLimitCheck.reason, 'assistant');
+				return;
+			}
+			
+			// Client-side validation
+			const clientValidation = validateMessage(message);
+			if (!clientValidation.valid) {
+				addMessage(clientValidation.reason, 'assistant');
+				messageInput.value = '';
+				return;
+			}
+			
+			// Server-side safety validation
+			try {
+				const safetyResponse = await fetch('/chat/validate/', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						message: message,
+						user_id: getUserId()
+					})
+				});
+				
+				if (safetyResponse.ok) {
+					const safetyData = await safetyResponse.json();
+					if (!safetyData.valid) {
+						addMessage(safetyData.reason, 'assistant');
+						messageInput.value = '';
+						return;
+					}
+					// Use cleaned message from server
+					message = safetyData.cleaned_message || message;
+				} else {
+					// If safety validation fails, use a generic decline
+					addMessage("I'm having trouble processing your request. Please ask me about restaurants, cuisines, or dining experiences!", 'assistant');
+					messageInput.value = '';
+					return;
+				}
+			} catch (error) {
+				console.warn('Safety validation unavailable, using client-side only');
+			}
+			
+			// Clear input and disable send button
+			messageInput.value = '';
+			messageInput.style.height = 'auto';
+			document.getElementById('sendButton').disabled = true;
+			isWaitingForResponse = true;
+			
+			// Hide welcome message
+			hideWelcomeMessage();
+			
+			// Add user message to chat
+			addMessage(message, 'user');
+			
+			// Validate conversation context
+			if (!validateConversationContext()) {
+				isWaitingForResponse = false;
+				document.getElementById('sendButton').disabled = false;
+				messageInput.focus();
+				return;
+			}
+			
+			// Show typing indicator
+			showTypingIndicator();
+			
+			try {
+				const response = await fetch(`{{ rag_service_url }}/conversation/${conversationId}`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						message: message
+					})
+				});
+				
+				if (response.ok) {
+					const data = await response.json();
+					hideTypingIndicator();
+					addMessage(data.response, 'assistant');
+				} else {
+					hideTypingIndicator();
+					addMessage('Sorry, I encountered an error processing your request. Please try again.', 'assistant');
+				}
+			} catch (error) {
+				console.error('Error sending message:', error);
+				hideTypingIndicator();
+				addMessage('Connection error. Please check your internet connection and try again.', 'assistant');
+			} finally {
+				isWaitingForResponse = false;
+				document.getElementById('sendButton').disabled = false;
+				messageInput.focus();
+			}
+		}
+		
+		function sendSuggestion(suggestionText) {
+			const messageInput = document.getElementById('messageInput');
+			messageInput.value = suggestionText;
+			messageInput.focus();
+			sendMessage();
+		}
+		
+		function addMessage(content, type) {
+			const messagesContainer = document.getElementById('chatMessages');
+			const messageDiv = document.createElement('div');
+			messageDiv.className = `message ${type}`;
+			
+			const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+			
+			messageDiv.innerHTML = `
+				<div class="message-bubble">
+					${formatMessage(content)}
+				</div>
+				<div class="message-time">${currentTime}</div>
+			`;
+			
+			messagesContainer.appendChild(messageDiv);
+			scrollToBottom();
+		}
+		
+		function formatMessage(content) {
+			// Basic formatting for better readability
+			return content
+				.replace(/\n/g, '<br>')
+				.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+				.replace(/\*(.*?)\*/g, '<em>$1</em>');
+		}
+		
+		function showTypingIndicator() {
+			document.getElementById('typingIndicator').style.display = 'block';
+			scrollToBottom();
+		}
+		
+		function hideTypingIndicator() {
+			document.getElementById('typingIndicator').style.display = 'none';
+		}
+		
+		function hideWelcomeMessage() {
+			const welcomeMessage = document.getElementById('welcomeMessage');
+			if (welcomeMessage) {
+				welcomeMessage.style.display = 'none';
+			}
+		}
+		
+		function scrollToBottom() {
+			const messagesContainer = document.getElementById('chatMessages');
+			messagesContainer.scrollTop = messagesContainer.scrollHeight;
+		}
+		
+		function showErrorMessage(message) {
+			addMessage(message, 'assistant');
+		}
+		
+		async function startNewChat() {
+			// Clear current conversation
+			const messagesContainer = document.getElementById('chatMessages');
+			messagesContainer.innerHTML = `
+				<div class="welcome-message" id="welcomeMessage">
+					<h3>Welcome to your AI Restaurant Assistant! 🍽️</h3>
+					<p>I'm here to help you discover amazing restaurants around the world. Whether you're looking for Michelin-starred establishments, local hidden gems, or specific cuisines, just ask me!</p>
+					
+					<div class="example-questions">
+						<div class="example-question" onclick="sendSuggestion('Show me the best Italian restaurants in New York')">
+							<h5>🇮🇹 Cuisine Search</h5>
+							<p>Find the best Italian restaurants in New York</p>
+						</div>
+						<div class="example-question" onclick="sendSuggestion('What 3-star Michelin restaurants are in France?')">
+							<h5>⭐ Michelin Guide</h5>
+							<p>What 3-star Michelin restaurants are in France?</p>
+						</div>
+						<div class="example-question" onclick="sendSuggestion('Recommend restaurants with mountain views')">
+							<h5>🏔️ Ambiance</h5>
+							<p>Recommend restaurants with mountain views</p>
+						</div>
+						<div class="example-question" onclick="sendSuggestion('Which restaurants serve the best seafood?')">
+							<h5>🦞 Specialties</h5>
+							<p>Which restaurants serve the best seafood?</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="message assistant typing-indicator" id="typingIndicator">
+					<div class="message-bubble">
+						<div class="typing-dots">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+				</div>
+			`;
+			
+			// Initialize new conversation
+			await initializeChat();
+		}
+		
+		// Helper functions for authenticated users
+		function getCsrfToken() {
+			return document.querySelector('[name=csrfmiddlewaretoken]')?.value || 
+				   document.querySelector('meta[name="csrf-token"]')?.content || '';
+		}
+		
+		{% if user.is_authenticated %}
+		function showPersonalizedWelcome() {
+			// Show personalized welcome message for authenticated users
+			const welcomeMessage = document.getElementById('welcomeMessage');
+			if (welcomeMessage && welcomeMessage.style.display !== 'none') {
+				const personalizedSection = document.createElement('div');
+				personalizedSection.className = 'personalized-welcome';
+				personalizedSection.innerHTML = `
+					<div style="background: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 15px; margin-top: 15px; border-radius: 5px;">
+						<h6 style="color: #4caf50; margin-bottom: 10px;">👋 Welcome back, {{ user_context.short_name }}!</h6>
+						<p style="font-size: 12px; color: #666; margin: 0;">
+							{% if user_favorites %}
+								I remember your favorite restaurants and can give you personalized recommendations.
+							{% else %}
+								I'm ready to help you discover amazing restaurants. Don't forget to save your favorites!
+							{% endif %}
+							{% if not user_context.profile_completed %}
+								<br><strong>Tip:</strong> <a href="{% url 'accounts:profile' %}" style="color: #4caf50;">Complete your profile</a> for even better recommendations.
+							{% endif %}
+						</p>
+					</div>
+				`;
+				welcomeMessage.appendChild(personalizedSection);
+			}
+		}
+		
+		async function addRestaurantToFavorites(restaurantId, restaurantName) {
+			try {
+				const response = await fetch('/chat/favorites/add/', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-CSRFToken': getCsrfToken()
+					},
+					body: JSON.stringify({
+						restaurant_id: restaurantId,
+						category: 'to_visit',
+						notes: `Recommended during AI chat conversation on ${new Date().toLocaleDateString()}`
+					})
+				});
+				
+				if (response.ok) {
+					const data = await response.json();
+					if (data.success) {
+						addMessage(`✅ ${restaurantName} has been added to your favorites! <a href="{% url 'accounts:favorites' %}" style="color: #e74c3c;">View your favorites</a>`, 'assistant');
+					} else {
+						addMessage(`ℹ️ ${data.message}`, 'assistant');
+					}
+				} else {
+					addMessage('Sorry, I couldn\'t add that restaurant to your favorites right now.', 'assistant');
+				}
+			} catch (error) {
+				console.error('Error adding to favorites:', error);
+				addMessage('Sorry, I couldn\'t add that restaurant to your favorites right now.', 'assistant');
+			}
+		}
+		
+		async function endChatSession() {
+			if (conversationId) {
+				try {
+					// Count messages
+					const messages = document.querySelectorAll('.message.user');
+					const messageCount = messages.length;
+					
+					await fetch('/chat/session/end/', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': getCsrfToken()
+						},
+						body: JSON.stringify({
+							conversation_id: conversationId,
+							message_count: messageCount,
+							topics_discussed: ['restaurants', 'dining']
+						})
+					});
+				} catch (error) {
+					console.warn('Failed to end chat session:', error);
+				}
+			}
+		}
+		
+		// Load personalized recommendations
+		async function loadPersonalizedRecommendations() {
+			if (!{{ user.is_authenticated|yesno:"true,false" }}) {
+				return;
+			}
+			
+			try {
+				const response = await fetch('/restaurants/api/recommendations/personalized/?max_results=3');
+				if (response.ok) {
+					const data = await response.json();
+					if (data.recommendations && data.recommendations.length > 0) {
+						let recommendationsHtml = '<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 15px; margin: 20px 0; color: white;"><h6 style="color: white; margin-bottom: 15px;"><i class="icon-star-full"></i> Personalized Recommendations For You</h6>';
+						
+						data.recommendations.forEach(rec => {
+							const stars = '⭐'.repeat(rec.michelin_stars || 0);
+							const explanation = rec.explanation ? `<small style="color: #f0f0f0;">${rec.explanation}</small>` : '';
+							
+							recommendationsHtml += `
+								<div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 10px 0; border-radius: 10px; cursor: pointer;" onclick="askAboutRestaurant('${rec.name}', '${rec.id}')">
+									<div style="display: flex; justify-content: space-between; align-items: start;">
+										<div style="flex: 1;">
+											<h6 style="color: white; margin-bottom: 5px;">${rec.name} ${stars}</h6>
+											<p style="color: #f0f0f0; font-size: 12px; margin-bottom: 5px;">${rec.city}, ${rec.country} • ${rec.cuisine_type}</p>
+											${explanation}
+										</div>
+										<div style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px; font-size: 11px; color: white;">
+											Score: ${Math.round(rec.total_score * 100)}%
+										</div>
+									</div>
+								</div>
+							`;
+						});
+						
+						recommendationsHtml += '<p style="font-size: 11px; color: #f0f0f0; margin-top: 15px; text-align: center;">Click any restaurant to learn more about it!</p></div>';
+						
+						// Add recommendations message
+						addMessage(recommendationsHtml, 'assistant', false);
+					}
+				}
+			} catch (error) {
+				console.error('Error loading personalized recommendations:', error);
+			}
+		}
+		
+		// Function to ask about a specific restaurant
+		function askAboutRestaurant(restaurantName, restaurantId) {
+			const question = `Tell me more about ${restaurantName}`;
+			document.getElementById('messageInput').value = question;
+			sendMessage();
+		}
+		
+		// End chat session when user leaves
+		window.addEventListener('beforeunload', endChatSession);
+		{% endif %}
+	</script>
+</body>
+
+</html>

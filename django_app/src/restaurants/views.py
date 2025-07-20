@@ -22,18 +22,50 @@ from .recommenders import RestaurantRecommender
 
 
 def home_view(request):
-    """Enhanced home view with dynamic restaurant showcase."""
+    """Enhanced home view with dynamic restaurant showcase and intelligent recommendations."""
     
     # Get featured restaurants with high-quality images
     featured_restaurants = get_featured_restaurant_images(max_results=8)
     
-    # Get top Michelin-starred restaurants
-    top_restaurants = Restaurant.objects.filter(
-        is_active=True,
-        michelin_stars__gte=2
-    ).select_related().prefetch_related('images').order_by(
-        '-michelin_stars', '-rating'
-    )[:6]
+    # Get top Michelin-starred restaurants - enhanced with recommendation scoring for authenticated users
+    if request.user.is_authenticated:
+        # For authenticated users, get a mix of highly-rated and personalized restaurants
+        recommender = RestaurantRecommender()
+        try:
+            # Get some personalized recommendations
+            personalized_recs = recommender._get_enhanced_personalized_recommendations(
+                user=request.user, max_results=3
+            )
+            personalized_restaurant_ids = [rec['restaurant'].id for rec in personalized_recs]
+            
+            # Combine personalized with top Michelin restaurants, avoiding duplicates
+            top_restaurants = Restaurant.objects.filter(
+                is_active=True,
+                michelin_stars__gte=2
+            ).exclude(
+                id__in=personalized_restaurant_ids
+            ).select_related().prefetch_related('images').order_by(
+                '-michelin_stars', '-rating'
+            )[:3]
+            
+            # Add personalized restaurants to the top restaurants
+            top_restaurants = list(top_restaurants) + [rec['restaurant'] for rec in personalized_recs]
+        except Exception:
+            # Fallback to standard approach if recommendation fails
+            top_restaurants = Restaurant.objects.filter(
+                is_active=True,
+                michelin_stars__gte=2
+            ).select_related().prefetch_related('images').order_by(
+                '-michelin_stars', '-rating'
+            )[:6]
+    else:
+        # For anonymous users, show top restaurants by rating and popularity
+        top_restaurants = Restaurant.objects.filter(
+            is_active=True,
+            michelin_stars__gte=2
+        ).select_related().prefetch_related('images').order_by(
+            '-michelin_stars', '-rating'
+        )[:6]
     
     # Get restaurants with best scenery images for visual showcase
     visual_showcase = RestaurantImage.objects.filter(
@@ -502,15 +534,25 @@ def restaurant_recommendations_api(request):
     
     recommender = RestaurantRecommender()
     
-    # Get recommendations
-    recommendations = recommender.get_recommendations(
-        user=user,
-        restaurant_id=restaurant_id if restaurant_id else None,
-        location=location if location else None,
-        cuisine_preference=cuisine if cuisine else None,
-        price_range=price_range if price_range else None,
-        max_results=max_results
-    )
+    # Get enhanced recommendations with collaborative filtering
+    if user and user.is_authenticated:
+        recommendations = recommender._get_enhanced_personalized_recommendations(
+            user=user,
+            max_results=max_results,
+            location=location if location else None,
+            cuisine_preference=cuisine if cuisine else None,
+            price_range=price_range if price_range else None
+        )
+    else:
+        # Fallback to original method for anonymous users
+        recommendations = recommender.get_recommendations(
+            user=user,
+            restaurant_id=restaurant_id if restaurant_id else None,
+            location=location if location else None,
+            cuisine_preference=cuisine if cuisine else None,
+            price_range=price_range if price_range else None,
+            max_results=max_results
+        )
     
     # Format results for API response
     results = []
@@ -690,3 +732,82 @@ def gallery_view(request):
     }
     
     return render(request, 'restaurants/gallery.html', context)
+
+
+@require_http_methods(["GET"])
+def personalized_recommendations_api(request):
+    """Enhanced API endpoint specifically for personalized recommendations with collaborative filtering."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    user = request.user
+    max_results = int(request.GET.get('max_results', 10))
+    location = request.GET.get('location', '')
+    cuisine = request.GET.get('cuisine', '')
+    price_range = request.GET.get('price_range', '')
+    
+    recommender = RestaurantRecommender()
+    
+    try:
+        # Get enhanced personalized recommendations
+        recommendations = recommender._get_enhanced_personalized_recommendations(
+            user=user,
+            max_results=max_results,
+            location=location if location else None,
+            cuisine_preference=cuisine if cuisine else None,
+            price_range=price_range if price_range else None
+        )
+        
+        # Format results with enhanced data
+        results = []
+        for rec in recommendations:
+            restaurant = rec['restaurant']
+            
+            recommendation_data = {
+                'id': str(restaurant.id),
+                'name': restaurant.name,
+                'city': restaurant.city,
+                'country': restaurant.country,
+                'cuisine_type': restaurant.cuisine_type,
+                'michelin_stars': restaurant.michelin_stars,
+                'rating': float(restaurant.rating) if restaurant.rating else None,
+                'price_range': restaurant.price_range,
+                'url': restaurant.get_absolute_url(),
+                'description': restaurant.description[:200] + '...' if len(restaurant.description) > 200 else restaurant.description,
+                'image_count': rec.get('image_count', 0),
+                'total_score': rec.get('total_score', 0),
+                'favorites_score': rec.get('favorites_score', 0),
+                'profile_score': rec.get('profile_score', 0),
+                'collaborative_score': rec.get('collaborative_score', 0),
+                'review_score': rec.get('review_score', 0),
+                'popularity_score': rec.get('popularity_score', 0),
+                'explanation': rec.get('explanation', ''),
+                'similar_users_count': rec.get('similar_users_count', 0),
+                'is_favorited': rec.get('is_favorited', False)
+            }
+            
+            # Add featured image if available
+            featured_image = rec.get('featured_image')
+            if featured_image:
+                recommendation_data['featured_image'] = featured_image
+            
+            results.append(recommendation_data)
+        
+        # Get user's favorites summary
+        from accounts.models import UserFavoriteRestaurant
+        user_favorites_count = UserFavoriteRestaurant.objects.filter(user=user).count()
+        
+        return JsonResponse({
+            'recommendations': results,
+            'total_count': len(results),
+            'user_favorites_count': user_favorites_count,
+            'recommendation_type': 'enhanced_personalized',
+            'algorithm': 'collaborative_filtering_hybrid',
+            'timestamp': timezone.now().isoformat()
+        })
+        
+    except Exception as e:
+        return JsonResponse({
+            'error': 'Unable to generate personalized recommendations',
+            'details': str(e)
+        }, status=500)

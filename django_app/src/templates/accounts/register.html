@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 0;
+        }
+        
+        .auth-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #f0f0f0;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+        }
+        
+        .btn-register {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-register:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .auth-links a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-section a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .form-row .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="auth-card">
+                        <div class="logo-section">
+                            <a href="{% url 'home' %}">
+                                <i class="icon-star-full" style="margin-right: 10px;"></i>
+                                Michelin Star Service
+                            </a>
+                        </div>
+                        
+                        <div class="auth-header">
+                            <h2>Join Our Community!</h2>
+                            <p>Create your account to access personalized restaurant recommendations and save your favorites.</p>
+                        </div>
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                        {{ form.first_name }}
+                                        {% if form.first_name.errors %}
+                                            <div class="text-danger small">{{ form.first_name.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                        {{ form.last_name }}
+                                        {% if form.last_name.errors %}
+                                            <div class="text-danger small">{{ form.last_name.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <div class="text-danger small">{{ form.email.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                                        {{ form.username }}
+                                        {% if form.username.errors %}
+                                            <div class="text-danger small">{{ form.username.errors.0 }}</div>
+                                        {% endif %}
+                                        {% if form.username.help_text %}
+                                            <div class="help-text">{{ form.username.help_text }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.location.id_for_label }}">{{ form.location.label }}</label>
+                                        {{ form.location }}
+                                        {% if form.location.errors %}
+                                            <div class="text-danger small">{{ form.location.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+                                        {{ form.password1 }}
+                                        {% if form.password1.errors %}
+                                            <div class="text-danger small">{{ form.password1.errors.0 }}</div>
+                                        {% endif %}
+                                        {% if form.password1.help_text %}
+                                            <div class="help-text">{{ form.password1.help_text }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+                                        {{ form.password2 }}
+                                        {% if form.password2.errors %}
+                                            <div class="text-danger small">{{ form.password2.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    {{ form.newsletter_subscription }}
+                                    <label class="form-check-label" for="{{ form.newsletter_subscription.id_for_label }}">
+                                        {{ form.newsletter_subscription.label }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-register">
+                                    <i class="icon-user-plus" style="margin-right: 8px;"></i>
+                                    Create Account
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="auth-links">
+                            <p>
+                                Already have an account? 
+                                <a href="{% url 'accounts:login' %}">Sign in here</a>
+                            </p>
+                            <p>
+                                <a href="{% url 'home' %}">← Back to Home</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -477,3 +477,153 @@ Model: gpt-4o | Tokens used: 1894
   warnings.warn(
 /Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:31:19.895175) while time zone support is active.
   warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:32:47.750079) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:34:10.106578) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:35:54.483415) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:37:30.469315) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:38:52.416013) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:40:17.043793) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:41:39.993427) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:43:02.568793) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:44:23.383528) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:45:48.887691) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:47:44.362292) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:49:40.286109) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:51:01.420571) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:52:31.800736) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:54:07.965012) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:55:31.608806) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:57:21.965082) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 21:59:27.146090) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:01:10.526316) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:02:44.277380) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:04:06.867829) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:05:27.449481) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:07:00.181920) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:08:24.117901) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:10:09.060901) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:11:49.618000) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:13:13.736628) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:14:38.003224) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:16:02.945968) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:17:25.888630) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:18:55.485876) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:20:20.302926) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:21:43.475217) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:23:17.485282) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:24:42.592249) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:26:07.575528) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:27:45.012739) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:29:28.510934) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:30:57.555348) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:32:47.429366) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:34:39.340177) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:36:19.897493) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:38:02.980339) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:39:23.717586) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:40:45.581858) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:43:23.253174) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:46:02.543558) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:47:25.614340) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:48:48.985062) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:50:11.868269) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:51:34.586124) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:53:23.646574) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:55:08.705585) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:56:29.499592) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 22:58:13.890932) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:00:04.078722) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:01:46.874056) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:03:28.790612) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:05:03.217775) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:06:43.996048) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:08:50.106599) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:10:37.757391) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:12:13.239733) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:14:08.147939) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:15:48.909485) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:17:19.677119) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:19:24.821583) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:23:40.576123) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:25:31.930169) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:27:09.899570) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:28:32.756867) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:31:08.527271) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:32:56.674202) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:34:15.993830) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-20 23:36:23.312086) while time zone support is active.
+  warnings.warn(

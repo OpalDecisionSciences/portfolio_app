@@ -20,6 +20,7 @@ urlpatterns = [
     # API endpoints
     path('api/search/', views.restaurant_search_api, name='restaurant_search_api'),
     path('api/recommendations/', views.restaurant_recommendations_api, name='restaurant_recommendations_api'),
+    path('api/recommendations/personalized/', views.personalized_recommendations_api, name='personalized_recommendations_api'),
     path('api/<uuid:restaurant_id>/images/', views.restaurant_images_api, name='restaurant_images_api'),
     path('api/stats/', views.restaurant_stats_api, name='restaurant_stats_api'),
     path('api/<uuid:restaurant_id>/timezone-status/', views.restaurant_timezone_status_api, name='restaurant_timezone_status_api'),

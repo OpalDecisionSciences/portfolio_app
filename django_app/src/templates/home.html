@@ -702,11 +702,17 @@
 		
 		function loadRecommendations() {
 			const container = document.getElementById('recommendations-container');
+			const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
 			
-			fetch('{% url "restaurants:restaurant_recommendations_api" %}?max_results=6')
+			// Use enhanced personalized recommendations for authenticated users
+			const apiUrl = isAuthenticated 
+				? '{% url "restaurants:personalized_recommendations_api" %}?max_results=6'
+				: '{% url "restaurants:restaurant_recommendations_api" %}?max_results=6';
+			
+			fetch(apiUrl)
 				.then(response => response.json())
 				.then(data => {
-					displayRecommendations(data.recommendations);
+					displayRecommendations(data.recommendations, data.recommendation_type);
 				})
 				.catch(error => {
 					console.error('Recommendations error:', error);
@@ -718,7 +724,7 @@
 				});
 		}
 		
-		function displayRecommendations(recommendations) {
+		function displayRecommendations(recommendations, recommendationType) {
 			const container = document.getElementById('recommendations-container');
 			
 			if (recommendations.length === 0) {
@@ -737,7 +743,25 @@
 				const imageUrl = restaurant.featured_image?.url || '';
 				const stars = '⭐'.repeat(restaurant.michelin_stars || 0);
 				const rating = restaurant.rating ? `${restaurant.rating.toFixed(1)}/5` : '';
-				const reasons = restaurant.reasons?.slice(0, 2).join(', ') || 'Popular choice';
+				
+				// Enhanced recommendation display with collaborative filtering info
+				let reasons = '';
+				let scoreDisplay = '';
+				
+				if (recommendationType === 'enhanced_personalized') {
+					// Show collaborative filtering explanation and score breakdown
+					reasons = restaurant.explanation || 'Recommended based on your preferences';
+					const totalScore = Math.round((restaurant.total_score || 0) * 100);
+					scoreDisplay = `
+						<div style="background: rgba(231, 76, 60, 0.1); padding: 8px; border-radius: 6px; margin: 5px 0; font-size: 11px;">
+							<strong>Match Score: ${totalScore}%</strong>
+							${restaurant.similar_users_count > 0 ? `<br>📊 ${restaurant.similar_users_count} similar users liked this` : ''}
+						</div>
+					`;
+				} else {
+					// Fallback for anonymous users
+					reasons = restaurant.reasons?.slice(0, 2).join(', ') || 'Popular choice';
+				}
 				
 				html += `
 					<li class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -758,6 +782,7 @@
 								<p class="recommendation-reasons">
 									${reasons}
 								</p>
+								${scoreDisplay}
 							</div>
 						</div>
 					</li>

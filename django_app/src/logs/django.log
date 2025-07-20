@@ -1762,3 +1762,62 @@ Not Found: /assets/extra-images/bg-image1.jpg
 "GET /restaurants/?search=&location=Cleveland%2C+Ohio&foodbakery_radius=10 HTTP/1.1" 200 772040
 "GET /restaurants/?search=e&location=&foodbakery_radius=10 HTTP/1.1" 200 772062
 "GET /restaurants/?search=e&country=FRANCE&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 758431
+/Users/iamai/projects/portfolio_app/django_app/src/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/accounts/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/accounts/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/accounts/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/chat/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/recommenders.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/accounts/migrations/0001_initial.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/accounts/migrations/0001_initial.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
