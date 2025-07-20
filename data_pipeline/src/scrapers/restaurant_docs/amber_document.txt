@@ -1,0 +1,22 @@
+# Amber
+
+## Cuisine
+Asian
+
+## Ambiance & Atmosphere
+Contemporary luxury with signature oriental charm
+
+## Location
+Hong Kong - The Landmark, Mandarin Oriental
+
+## Location & Time Zone
+
+Country: China
+City: Hong Kong
+Timezone: Asia/Shanghai
+Current local time: 2025-07-20 22:50:17 CST
+
+## Document Information
+
+Generated: 2025-07-20 14:50:17 UTC
+Source: https://www.mandarinoriental.com/en/hong-kong/the-landmark/dine/amber

@@ -1,0 +1,22 @@
+# Sketch, The Lecture Room and Library
+
+## Cuisine
+Not specified
+
+## Ambiance & Atmosphere
+Sophisticated and creative atmosphere with a focus on art and interactive dining experiences.
+
+## Location
+9 Conduit Street, London W1S 2XG
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: London
+Timezone: Europe/London
+Current local time: 2025-07-20 20:52:17 BST
+
+## Document Information
+
+Generated: 2025-07-20 19:52:17 UTC
+Source: https://sketch.london/the-lecture-room

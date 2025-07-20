@@ -1,0 +1,22 @@
+# Villa Crespi
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Luxurious hotel atmosphere with a Middle Eastern charm, elegant and refined environment.
+
+## Location
+Ameno, Lago d'Orta, Piemonte, Italy
+
+## Location & Time Zone
+
+Country: Italy
+City: Ameno
+Timezone: Europe/Rome
+Current local time: 2025-07-20 22:01:41 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:01:41 UTC
+Source: http://www.villacrespi.it

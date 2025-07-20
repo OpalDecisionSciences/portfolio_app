@@ -1,0 +1,22 @@
+# Fat Duck
+
+## Cuisine
+Modern British
+
+## Ambiance & Atmosphere
+Surprising, indulgent, inventive, theatrical, and emotional dining experience.
+
+## Location
+Bray, Berkshire, United Kingdom
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: Bray
+Timezone: Europe/London
+Current local time: 2025-07-20 20:52:01 BST
+
+## Document Information
+
+Generated: 2025-07-20 19:52:01 UTC
+Source: https://thefatduck.co.uk/

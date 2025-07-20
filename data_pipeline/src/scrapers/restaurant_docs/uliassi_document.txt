@@ -1,0 +1,22 @@
+# Uliassi
+
+## Cuisine
+Adriatic
+
+## Ambiance & Atmosphere
+A family-friendly and elegant place, welcoming and relaxed, full of energy and beautiful in all seasons.
+
+## Location
+Via Banchina di Levante, 6, 60019 Senigallia (Ancona)
+
+## Location & Time Zone
+
+Country: Italy
+City: Senigallia
+Timezone: Europe/Rome
+Current local time: 2025-07-20 22:00:57 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:00:57 UTC
+Source: http://www.uliassi.com

@@ -1,0 +1,22 @@
+# Restaurant Bareiss
+
+## Cuisine
+Gastronomy (Fine Dining)
+
+## Ambiance & Atmosphere
+Luxury family resort with a focus on personal atmosphere and guest hospitality, set in a tranquil natural environment.
+
+## Location
+Mitteltal, Schwarzwald, Germany
+
+## Location & Time Zone
+
+Country: Germany
+City: Mitteltal
+Timezone: Europe/Berlin
+Current local time: 2025-07-20 22:19:36 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:19:36 UTC
+Source: https://www.bareiss.com/

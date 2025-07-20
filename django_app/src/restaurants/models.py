@@ -118,6 +118,75 @@ class Restaurant(models.Model):
             }
         return None
     
+    def get_current_local_time(self):
+        """Get current time in restaurant's local timezone."""
+        import pytz
+        from django.utils import timezone as django_timezone
+        
+        if self.timezone_info and self.timezone_info.get('local_timezone'):
+            try:
+                restaurant_tz = pytz.timezone(self.timezone_info['local_timezone'])
+                utc_now = django_timezone.now()
+                return utc_now.astimezone(restaurant_tz)
+            except Exception:
+                pass
+        return django_timezone.now()
+    
+    def is_currently_open(self):
+        """
+        Check if restaurant is currently open based on local time and operating hours.
+        Returns: dict with 'is_open' boolean and 'next_change' datetime if available
+        """
+        if not self.opening_hours:
+            return {'is_open': None, 'status': 'Hours not available', 'next_change': None}
+        
+        try:
+            import json
+            from datetime import datetime, time
+            
+            local_time = self.get_current_local_time()
+            current_day = local_time.strftime('%A').lower()
+            current_time = local_time.time()
+            
+            # Parse opening hours (assuming JSON format like {"monday": "09:00-22:00", ...})
+            if self.opening_hours.startswith('{'):
+                hours_data = json.loads(self.opening_hours)
+            else:
+                # Parse simple text format if needed
+                return {'is_open': None, 'status': 'Hours format not supported', 'next_change': None}
+            
+            day_hours = hours_data.get(current_day, '')
+            
+            if not day_hours or day_hours.lower() in ['closed', 'fermé', 'cerrado']:
+                return {'is_open': False, 'status': 'Closed today', 'next_change': None}
+            
+            # Parse time ranges (e.g., "09:00-14:00,19:00-23:00" or "09:00-22:00")
+            time_ranges = day_hours.split(',')
+            
+            for time_range in time_ranges:
+                if '-' in time_range:
+                    try:
+                        start_str, end_str = time_range.strip().split('-')
+                        start_time = datetime.strptime(start_str.strip(), '%H:%M').time()
+                        end_time = datetime.strptime(end_str.strip(), '%H:%M').time()
+                        
+                        # Handle overnight hours (e.g., 22:00-02:00)
+                        if start_time <= end_time:
+                            if start_time <= current_time <= end_time:
+                                return {'is_open': True, 'status': f'Open until {end_str}', 'next_change': None}
+                        else:
+                            # Overnight service
+                            if current_time >= start_time or current_time <= end_time:
+                                next_close = end_str if current_time >= start_time else end_str
+                                return {'is_open': True, 'status': f'Open until {next_close}', 'next_change': None}
+                    except ValueError:
+                        continue
+            
+            return {'is_open': False, 'status': 'Currently closed', 'next_change': None}
+            
+        except Exception as e:
+            return {'is_open': None, 'status': 'Unable to determine hours', 'next_change': None}
+    
     def get_absolute_url(self):
         return reverse('restaurants:restaurant_detail', kwargs={'slug': self.slug})
     

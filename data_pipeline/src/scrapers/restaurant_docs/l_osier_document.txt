@@ -1,0 +1,22 @@
+# L'OSIER
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Elegant dining atmosphere with a formal dress code.
+
+## Location
+Ginza, Tokyo, Japan
+
+## Location & Time Zone
+
+Country: Japan
+City: Tokyo
+Timezone: Asia/Tokyo
+Current local time: 2025-07-21 05:08:01 JST
+
+## Document Information
+
+Generated: 2025-07-20 20:08:01 UTC
+Source: https://losier.shiseido.co.jp/

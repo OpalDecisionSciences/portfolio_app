@@ -1,0 +1,22 @@
+# El Celler de Can Roca
+
+## Cuisine
+Catalan
+
+## Ambiance & Atmosphere
+A blend of authenticity, audacity, generosity, and hospitality, featuring a space in continuous evolution.
+
+## Location
+Girona, Spain
+
+## Location & Time Zone
+
+Country: Spain
+City: Girona
+Timezone: Europe/Madrid
+Current local time: 2025-07-20 21:58:18 CEST
+
+## Document Information
+
+Generated: 2025-07-20 19:58:18 UTC
+Source: http://www.cellercanroca.com

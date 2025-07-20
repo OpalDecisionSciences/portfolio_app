@@ -1,0 +1,22 @@
+# Rutz
+
+## Cuisine
+Contemporary European
+
+## Ambiance & Atmosphere
+Modern and refined, focusing on creative contrasts and clear flavors.
+
+## Location
+Berlin Mitte, Germany
+
+## Location & Time Zone
+
+Country: Germany
+City: Berlin
+Timezone: Europe/Berlin
+Current local time: 2025-07-20 22:20:01 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:20:01 UTC
+Source: https://rutz-restaurant.de/

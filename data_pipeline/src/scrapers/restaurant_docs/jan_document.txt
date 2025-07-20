@@ -1,0 +1,22 @@
+# JAN
+
+## Cuisine
+Contemporary
+
+## Ambiance & Atmosphere
+Modern dining experience that leaves a lasting impression.
+
+## Location
+Luisenstraße 27, 80333 München, Germany
+
+## Location & Time Zone
+
+Country: Germany
+City: München
+Timezone: Europe/Berlin
+Current local time: 2025-07-20 22:19:22 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:19:22 UTC
+Source: https://jan-hartwig.com/

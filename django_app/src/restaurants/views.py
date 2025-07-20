@@ -11,6 +11,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic import ListView, DetailView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 
 from .models import Restaurant, Chef, MenuSection, MenuItem, RestaurantReview, ScrapingJob, RestaurantImage
 import json
@@ -18,6 +19,59 @@ import os
 from pathlib import Path
 from .forms import RestaurantReviewForm, RestaurantSearchForm
 from .recommenders import RestaurantRecommender
+
+
+def home_view(request):
+    """Enhanced home view with dynamic restaurant showcase."""
+    
+    # Get featured restaurants with high-quality images
+    featured_restaurants = get_featured_restaurant_images(max_results=8)
+    
+    # Get top Michelin-starred restaurants
+    top_restaurants = Restaurant.objects.filter(
+        is_active=True,
+        michelin_stars__gte=2
+    ).select_related().prefetch_related('images').order_by(
+        '-michelin_stars', '-rating'
+    )[:6]
+    
+    # Get restaurants with best scenery images for visual showcase
+    visual_showcase = RestaurantImage.objects.filter(
+        ai_category='scenery_ambiance',
+        category_confidence__gte=0.85,
+        restaurant__is_active=True,
+        restaurant__michelin_stars__gte=1
+    ).select_related('restaurant').order_by('-category_confidence')[:12]
+    
+    # Get restaurant statistics for display
+    stats = {
+        'total_restaurants': Restaurant.objects.filter(is_active=True).count(),
+        'michelin_starred': Restaurant.objects.filter(is_active=True, michelin_stars__gte=1).count(),
+        'countries': Restaurant.objects.filter(is_active=True).values('country').distinct().count(),
+        'total_images': RestaurantImage.objects.count(),
+    }
+    
+    context = {
+        'featured_restaurants': featured_restaurants,
+        'top_restaurants': top_restaurants,
+        'visual_showcase': visual_showcase,
+        'stats': stats,
+    }
+    
+    return render(request, 'home.html', context)
+
+
+def get_featured_restaurant_images(max_results=12):
+    """Get featured restaurant images for home page showcase."""
+    return RestaurantImage.objects.filter(
+        ai_category='scenery_ambiance',
+        category_confidence__gte=0.85,
+        restaurant__michelin_stars__gte=2,
+        restaurant__is_active=True
+    ).select_related('restaurant').order_by(
+        '-restaurant__michelin_stars', 
+        '-category_confidence'
+    )[:max_results]
 
 
 class RestaurantListView(ListView):
@@ -362,6 +416,78 @@ def restaurant_stats_api(request):
     }
     
     return JsonResponse(stats)
+
+
+@require_http_methods(["GET"])
+def restaurant_timezone_status_api(request, restaurant_id):
+    """API endpoint to get restaurant's current status in its local timezone."""
+    try:
+        restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+        
+        # Get restaurant's current local time and status
+        local_time = restaurant.get_current_local_time()
+        open_status = restaurant.is_currently_open()
+        
+        response_data = {
+            'restaurant_name': restaurant.name,
+            'location': f"{restaurant.city}, {restaurant.country}",
+            'timezone': restaurant.get_timezone_display(),
+            'local_time': local_time.strftime('%Y-%m-%d %H:%M:%S %Z'),
+            'local_time_12h': local_time.strftime('%I:%M %p %Z'),
+            'is_open': open_status['is_open'],
+            'status': open_status['status'],
+            'opening_hours': restaurant.opening_hours or 'Not available'
+        }
+        
+        return JsonResponse(response_data)
+        
+    except Exception as e:
+        return JsonResponse({
+            'error': 'Unable to get restaurant status',
+            'details': str(e)
+        }, status=500)
+
+
+@require_http_methods(["GET"])
+def restaurants_open_now_api(request):
+    """API endpoint to get restaurants currently open in their local timezones."""
+    try:
+        # Get restaurants with timezone info
+        restaurants = Restaurant.objects.filter(
+            is_active=True,
+            timezone_info__isnull=False
+        ).exclude(opening_hours='')[:50]  # Limit for performance
+        
+        open_restaurants = []
+        
+        for restaurant in restaurants:
+            try:
+                status = restaurant.is_currently_open()
+                if status['is_open'] is True:
+                    local_time = restaurant.get_current_local_time()
+                    open_restaurants.append({
+                        'id': str(restaurant.id),
+                        'name': restaurant.name,
+                        'location': f"{restaurant.city}, {restaurant.country}",
+                        'local_time': local_time.strftime('%H:%M %Z'),
+                        'status': status['status'],
+                        'michelin_stars': restaurant.michelin_stars,
+                        'url': restaurant.get_absolute_url()
+                    })
+            except Exception:
+                continue  # Skip restaurants with invalid data
+        
+        return JsonResponse({
+            'open_restaurants': open_restaurants,
+            'count': len(open_restaurants),
+            'timestamp': timezone.now().isoformat()
+        })
+        
+    except Exception as e:
+        return JsonResponse({
+            'error': 'Unable to get open restaurants',
+            'details': str(e)
+        }, status=500)
 
 
 @csrf_exempt

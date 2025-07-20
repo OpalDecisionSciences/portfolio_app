@@ -1,0 +1,15 @@
+{
+  "scraping_session": {
+    "start_time": "2025-07-20T13:20:40.491708",
+    "end_time": "2025-07-20T15:42:36.710852",
+    "total_time": "2:21:56.219145",
+    "start_row": 1,
+    "max_restaurants": 100
+  },
+  "results": {
+    "total_processed": 100,
+    "successful_scrapes": 98,
+    "failed_scrapes": 2,
+    "success_rate": 98.0
+  }
+}

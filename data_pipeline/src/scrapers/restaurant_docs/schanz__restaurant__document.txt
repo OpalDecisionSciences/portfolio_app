@@ -1,0 +1,22 @@
+# schanz. restaurant.
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Relaxed atmosphere with warm guest care in a tastefully designed environment.
+
+## Location
+Piesport, Mosel region, Germany
+
+## Location & Time Zone
+
+Country: Germany
+City: Piesport
+Timezone: Europe/Berlin
+Current local time: 2025-07-20 22:21:15 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:21:15 UTC
+Source: https://www.schanz-restaurant.de/de/

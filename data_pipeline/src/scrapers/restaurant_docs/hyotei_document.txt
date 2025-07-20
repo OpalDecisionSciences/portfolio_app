@@ -1,0 +1,22 @@
+# Hyotei
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+Traditional atmosphere with independent tea rooms and a garden surround.
+
+## Location
+京都市左京区南禅寺草川町35, Japan
+
+## Location & Time Zone
+
+Country: Japan
+City: Kyoto
+Timezone: Asia/Tokyo
+Current local time: 2025-07-21 04:47:49 JST
+
+## Document Information
+
+Generated: 2025-07-20 19:47:49 UTC
+Source: http://hyotei.co.jp/

@@ -1,0 +1,15 @@
+# Kashiwaya Osaka Senriyama
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+A space reflecting the beauty of the four seasons, offering a tranquil experience away from daily life.
+
+## Location
+[{'name': 'Senriyama', 'address': '2-5-18 Senriyama-nishi, Suita, Osaka 565-0851, Japan'}, {'name': 'Kitashinchi', 'address': '1-7-4 Sonezaki Shinchi, Kita-ku, Osaka City, Osaka 530-0002, Japan'}]
+
+## Document Information
+
+Generated: 2025-07-20 19:47:05 UTC
+Source: https://jp-kashiwaya.com/

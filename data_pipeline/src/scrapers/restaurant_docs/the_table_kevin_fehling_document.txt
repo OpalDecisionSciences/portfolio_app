@@ -1,0 +1,22 @@
+# The Table Kevin Fehling
+
+## Cuisine
+Contemporary fine dining
+
+## Ambiance & Atmosphere
+A culinary journey marked by complex flavors and unparalleled creativity, inspired by Michelin star excellence.
+
+## Location
+Hamburg, Germany
+
+## Location & Time Zone
+
+Country: Germany
+City: Hamburg
+Timezone: Europe/Berlin
+Current local time: 2025-07-20 22:17:52 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:17:52 UTC
+Source: https://thetable-hamburg.de/

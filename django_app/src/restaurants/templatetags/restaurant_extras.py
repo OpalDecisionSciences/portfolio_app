@@ -35,3 +35,37 @@ def michelin_stars_display(stars):
         return "⭐" * star_count
     except (ValueError, TypeError):
         return ""
+
+
+@register.filter
+def restaurant_open_status(restaurant):
+    """Get restaurant open/closed status with local time consideration."""
+    try:
+        status_info = restaurant.is_currently_open()
+        if status_info['is_open'] is True:
+            return f"🟢 {status_info['status']}"
+        elif status_info['is_open'] is False:
+            return f"🔴 {status_info['status']}"
+        else:
+            return f"⚪ {status_info['status']}"
+    except Exception:
+        return "⚪ Hours unknown"
+
+
+@register.filter
+def restaurant_local_time(restaurant):
+    """Display current local time for the restaurant."""
+    try:
+        local_time = restaurant.get_current_local_time()
+        return local_time.strftime('%H:%M %Z')
+    except Exception:
+        return "Time unknown"
+
+
+@register.filter
+def restaurant_timezone(restaurant):
+    """Display restaurant's timezone in a user-friendly format."""
+    try:
+        return restaurant.get_timezone_display()
+    except Exception:
+        return "Unknown timezone"

@@ -28,7 +28,7 @@ def analyze_restaurant_with_openai(content: str, restaurant_name: str) -> Dict[s
         load_dotenv()
         client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
         
-        if not client.api_key or client.api_key == "your-openai-api-key-here":
+        if not client.api_key or client.api_key.startswith("your-openai-api-key"):
             return {'analysis_error': 'OpenAI API key not configured'}
         
         prompt = f"""

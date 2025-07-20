@@ -1694,3 +1694,71 @@ Watching for file changes with StatReloader
 "GET /static/extra-images/listing-logo18.png HTTP/1.1" 404 1953
 "GET /restaurants/epicure-paris/ HTTP/1.1" 200 23931
 "GET /static/logo/foodOnlineLogo.png HTTP/1.1" 404 1929
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"HEAD / HTTP/1.1" 200 0
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 55141
+"GET /restaurants/ HTTP/1.1" 200 771932
+- Broken pipe from ('127.0.0.1', 58065)
+"GET /restaurants/?search=boury HTTP/1.1" 200 758270
+Not Found: /restaurants/1/
+"GET /restaurants/1/ HTTP/1.1" 404 2992
+"GET /restaurants/boury-roeselare/ HTTP/1.1" 200 20845
+"GET /restaurants/?stars=3 HTTP/1.1" 200 775082
+Not Found: /restaurants/boury-roeselare/gallery/
+"GET /restaurants/boury-roeselare/gallery/ HTTP/1.1" 404 5327
+"GET /restaurants/gallery/ HTTP/1.1" 200 84109
+"GET /restaurants/api/stats/ HTTP/1.1" 200 122
+/Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /restaurants/api/stats/ HTTP/1.1" 200 122
+"GET / HTTP/1.1" 200 55141
+"GET /static/css/bootstrap-slider.css HTTP/1.1" 304 0
+"GET /static/css/iconmoon.css HTTP/1.1" 304 0
+"GET /static/js/bootstrap.js HTTP/1.1" 304 0
+"GET /static/js/modernizr.js HTTP/1.1" 304 0
+"GET /static/js/functions.js HTTP/1.1" 304 0
+"GET /static/css/cs-foodbakery-plugin.css HTTP/1.1" 304 0
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /static/js/scripts.js HTTP/1.1" 304 0
+"GET /static/fonts/icomoon.ttf?wzp9o1 HTTP/1.1" 304 0
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/templatetags/restaurant_extras.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /restaurants/api/open-now/
+"GET /restaurants/api/open-now/ HTTP/1.1" 500 88
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /restaurants/api/open-now/ HTTP/1.1" 200 85
+"GET /restaurants/api/fe991a26-e83d-4a9b-bd63-90d4e8eda770/timezone-status/ HTTP/1.1" 200 251
+"GET / HTTP/1.1" 200 55257
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+"GET / HTTP/1.1" 200 55257
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+"GET /?location=2109+Fulton+Road+NW+Apt.+2+Canton%2C+OH+44709 HTTP/1.1" 200 55257
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+"GET /restaurants/api/search/?q=Cleveland&location=&max_results=5 HTTP/1.1" 200 86
+"GET /restaurants/api/search/?q=Cleveland%2C&location=&max_results=5 HTTP/1.1" 200 87
+"GET /restaurants/api/search/?q=Cleveland%2C%20O&location=&max_results=5 HTTP/1.1" 200 89
+"GET /restaurants/api/search/?q=Cleveland%2C%20OH&location=&max_results=5 HTTP/1.1" 200 90
+"GET /restaurants/api/search/?q=Cleveland%2C%20O&location=&max_results=5 HTTP/1.1" 200 89
+"GET /restaurants/?search=&location=Cleveland%2C+Ohio&foodbakery_radius=10 HTTP/1.1" 200 772040
+"GET /restaurants/?search=e&location=&foodbakery_radius=10 HTTP/1.1" 200 772062
+"GET /restaurants/?search=e&country=FRANCE&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 758431

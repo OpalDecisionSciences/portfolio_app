@@ -1,22 +1,22 @@
 # La Villa Madie
 
 ## Cuisine
-French
+Gastronomic
 
 ## Ambiance & Atmosphere
-Elegant dining with a terrace facing the Mediterranean, offering a gourmet escape that harmonizes with the local terroir.
+A sophisticated and harmonious setting with a focus on high-quality service and an impressive view of the Mediterranean.
 
 ## Location
-Cassis, facing the Mediterranean.
+Cassis, France, facing the Mediterranean Sea.
 
 ## Location & Time Zone
 
 Country: France
 City: Cassis
 Timezone: Europe/Paris
-Current local time: 2025-07-20 16:09:06 CEST
+Current local time: 2025-07-20 21:41:24 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 14:09:06 UTC
+Generated: 2025-07-20 19:41:24 UTC
 Source: http://www.lavillamadie.com

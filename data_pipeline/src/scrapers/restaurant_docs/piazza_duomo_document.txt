@@ -1,0 +1,22 @@
+# Piazza Duomo
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+A unique gastronomic experience in the heart of Alba, among the gentle hills of the Langhe.
+
+## Location
+In the heart of Alba, Italy.
+
+## Location & Time Zone
+
+Country: Italy
+City: Alba
+Timezone: Europe/Rome
+Current local time: 2025-07-20 22:04:13 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:04:13 UTC
+Source: http://www.piazzaduomoalba.it

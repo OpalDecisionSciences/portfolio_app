@@ -22,6 +22,8 @@ urlpatterns = [
     path('api/recommendations/', views.restaurant_recommendations_api, name='restaurant_recommendations_api'),
     path('api/<uuid:restaurant_id>/images/', views.restaurant_images_api, name='restaurant_images_api'),
     path('api/stats/', views.restaurant_stats_api, name='restaurant_stats_api'),
+    path('api/<uuid:restaurant_id>/timezone-status/', views.restaurant_timezone_status_api, name='restaurant_timezone_status_api'),
+    path('api/open-now/', views.restaurants_open_now_api, name='restaurants_open_now_api'),
     
     # Scraping management
     path('admin/scraping/', views.scraping_jobs, name='scraping_jobs'),

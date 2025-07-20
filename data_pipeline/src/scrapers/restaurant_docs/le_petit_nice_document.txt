@@ -4,19 +4,19 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-Luxurious and tranquil setting by the sea, with a minimalist and raw materials decor designed by architect Rudy Ricciotti.
+5-star boutique hotel with a refined dining atmosphere
 
 ## Location
-Marseille, Provence, France
+Marseille, France
 
 ## Location & Time Zone
 
 Country: France
 City: Marseille
 Timezone: Europe/Paris
-Current local time: 2025-07-20 15:39:56 CEST
+Current local time: 2025-07-20 21:05:14 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 13:39:56 UTC
+Generated: 2025-07-20 19:05:14 UTC
 Source: https://www.passedat.fr

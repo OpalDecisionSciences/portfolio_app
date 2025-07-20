@@ -1,0 +1,22 @@
+# Benu
+
+## Cuisine
+Contemporary American, Asian Fusion
+
+## Ambiance & Atmosphere
+Sophisticated and elegant dining with a focus on refined service
+
+## Location
+San Francisco, California
+
+## Location & Time Zone
+
+Country: United States
+City: San Francisco
+Timezone: America/New_York
+Current local time: 2025-07-20 16:14:15 EDT
+
+## Document Information
+
+Generated: 2025-07-20 20:14:15 UTC
+Source: https://www.benusf.com/

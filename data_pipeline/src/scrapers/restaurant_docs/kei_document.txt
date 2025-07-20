@@ -4,19 +4,15 @@
 Japanese
 
 ## Ambiance & Atmosphere
-Casual Chic with a focus on harmony and sensitivity in dining experience.
+Casual Chic with a focus on sensitivity and harmony
 
 ## Location
-5 Rue Coq Héron, 75001 Paris, France
+Not specified in the provided text
 
-## Location & Time Zone
-
-Country: France
-City: Paris
-Timezone: Europe/Paris
-Current local time: 2025-07-20 15:41:39 CEST
+## Language
+Original website language: fr
 
 ## Document Information
 
-Generated: 2025-07-20 13:41:39 UTC
+Generated: 2025-07-20 19:37:56 UTC
 Source: https://www.restaurant-kei.fr/

@@ -1,22 +1,22 @@
 # Troisgros - Le Bois sans Feuilles
 
 ## Cuisine
-French
+Gastronomic
 
 ## Ambiance & Atmosphere
-Family home atmosphere with a focus on hospitality and conviviality.
+A family-oriented atmosphere with a unique charm, focusing on hospitality and an intimate dining experience.
 
 ## Location
-Ouches and Roanne, France
+Ouches, France
 
 ## Location & Time Zone
 
 Country: France
-City: Roanne
+City: Ouches
 Timezone: Europe/Paris
-Current local time: 2025-07-20 16:02:52 CEST
+Current local time: 2025-07-20 21:40:59 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 14:02:52 UTC
+Generated: 2025-07-20 19:40:59 UTC
 Source: https://www.troisgros.fr/

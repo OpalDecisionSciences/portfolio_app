@@ -1,0 +1,22 @@
+# ES:SENZ
+
+## Cuisine
+Gourmet, Bavarian
+
+## Ambiance & Atmosphere
+Luxurious and relaxed atmosphere with stylish decor, open fireplace, and attentive service
+
+## Location
+Grassau, Chiemgau, Germany
+
+## Location & Time Zone
+
+Country: Germany
+City: Grassau
+Timezone: Europe/Berlin
+Current local time: 2025-07-20 22:17:10 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:17:10 UTC
+Source: https://www.das-achental.com/

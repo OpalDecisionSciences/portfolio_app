@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Elegant and discreet atmosphere, often referred to as a 'home away from home'.
+Contemporary gastronomic experience with an emphasis on craftsmanship and a focus on high-quality, local produce.
 
 ## Location
-Le Bristol, Paris
+112 rue du Faubourg Saint-Honoré, 75008 Paris
 
 ## Location & Time Zone
 
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-20 15:28:36 CEST
+Current local time: 2025-07-20 20:08:35 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 13:28:36 UTC
+Generated: 2025-07-20 18:08:35 UTC
 Source: https://www.oetkercollection.com/fr/hotels/le-bristol-paris/restaurants-et-bar/epicure/

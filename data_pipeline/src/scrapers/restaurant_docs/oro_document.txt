@@ -1,0 +1,22 @@
+# Oro
+
+## Cuisine
+Cozinha brasileira de vanguarda
+
+## Ambiance & Atmosphere
+Restaurante de vanguarda, em constante evolução.
+
+## Location
+Rua General San Martin, 889, Leblon, Rio de Janeiro, Brasil
+
+## Location & Time Zone
+
+Country: Brazil
+City: Rio de Janeiro
+Timezone: America/Sao_Paulo
+Current local time: 2025-07-20 17:34:07 -03
+
+## Document Information
+
+Generated: 2025-07-20 20:34:07 UTC
+Source: https://ororestaurante.com.br/

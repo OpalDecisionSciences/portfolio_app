@@ -159,9 +159,19 @@ class DataProcessor:
             if scraped_at:
                 try:
                     if isinstance(scraped_at, str):
-                        restaurant_data['scraped_at'] = datetime.fromisoformat(scraped_at.replace('Z', '+00:00'))
+                        # Parse ISO format and ensure timezone-aware
+                        parsed_dt = datetime.fromisoformat(scraped_at.replace('Z', '+00:00'))
+                        if parsed_dt.tzinfo is None:
+                            # If naive, make it timezone-aware in UTC
+                            restaurant_data['scraped_at'] = timezone.make_aware(parsed_dt, timezone.utc)
+                        else:
+                            restaurant_data['scraped_at'] = parsed_dt
                     else:
-                        restaurant_data['scraped_at'] = scraped_at
+                        # Ensure datetime object is timezone-aware
+                        if hasattr(scraped_at, 'tzinfo') and scraped_at.tzinfo is None:
+                            restaurant_data['scraped_at'] = timezone.make_aware(scraped_at, timezone.utc)
+                        else:
+                            restaurant_data['scraped_at'] = scraped_at
                 except (ValueError, TypeError):
                     restaurant_data['scraped_at'] = timezone.now()
             else:

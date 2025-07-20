@@ -1,0 +1,22 @@
+# Reale
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+A creative lab of research and experimentation focused on food and taste, providing a unique guest experience.
+
+## Location
+Rivisondoli, Italy
+
+## Location & Time Zone
+
+Country: Italy
+City: Rivisondoli
+Timezone: Europe/Rome
+Current local time: 2025-07-20 22:02:34 CEST
+
+## Document Information
+
+Generated: 2025-07-20 20:02:34 UTC
+Source: http://www.nikoromito.com/reale

@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-Elegant and sophisticated atmosphere, suitable for fine dining.
+Elegant and refined dining atmosphere
 
 ## Location
 9 place des Vosges, 75004 PARIS
@@ -14,9 +14,9 @@ Elegant and sophisticated atmosphere, suitable for fine dining.
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-20 15:25:53 CEST
+Current local time: 2025-07-20 20:05:37 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 13:25:53 UTC
+Generated: 2025-07-20 18:05:37 UTC
 Source: https://www.ambroisie-paris.com/

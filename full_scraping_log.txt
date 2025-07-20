@@ -1070,3 +1070,2375 @@ Model: gpt-4o | Tokens used: 1655
 [INFO] Clicking language switch button: the gardens / https://www.mirazur.fr/les-jardins.php
 [INFO] Clicking language switch button: the kitchen / https://www.mirazur.fr/le-restaurant.php#cuisine
 [INFO] Clicking language switch button: custom-designed exterior events / https://www.mirazur.fr/mauro-colagreco.php#consulting
+[INFO] Clicking language switch button: the kitchen / https://www.mirazur.fr/le-restaurant.php#cuisine
+[INFO] Clicking language switch button: the gardens / https://www.mirazur.fr/les-jardins.php
+[INFO] Clicking language switch button: custom-designed exterior events / https://www.mirazur.fr/mauro-colagreco.php#consulting
+[INFO] Clicking language switch button: book now » / https://www.covermanager.com/reservation/module_restaurant/mirazur-menton-francia/english
+[DEBUG] Final URL after language switch: https://www.covermanager.com/reservation/module_restaurant/mirazur-menton-francia/english
+[INFO] Trying to switch language to English for https://www.mirazur.fr/
+[INFO] Clicking language switch button: the gardens / https://www.mirazur.fr/les-jardins.php
+[INFO] Clicking language switch button: the kitchen / https://www.mirazur.fr/le-restaurant.php#cuisine
+[INFO] Clicking language switch button: custom-designed exterior events / https://www.mirazur.fr/mauro-colagreco.php#consulting
+[INFO] Clicking language switch button: the kitchen / https://www.mirazur.fr/le-restaurant.php#cuisine
+[INFO] Clicking language switch button: the gardens / https://www.mirazur.fr/les-jardins.php
+[INFO] Clicking language switch button: custom-designed exterior events / https://www.mirazur.fr/mauro-colagreco.php#consulting
+[INFO] Clicking language switch button: book now » / https://www.covermanager.com/reservation/module_restaurant/mirazur-menton-francia/english
+[DEBUG] Final URL after language switch: https://www.covermanager.com/reservation/module_restaurant/mirazur-menton-francia/english
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [35] Scraping: Les Prés d'Eugénie - Michel Guérard
+   🌐 URL: http://www.lespresdeugenie.com
+[INFO] Trying to switch language to English for http://www.lespresdeugenie.com
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/fr/powered-by-cookiebot-c-est-quoi-au-juste/
+[DEBUG] Final URL after language switch: https://lespresdeugenie.com/
+[INFO] Trying to switch language to English for http://www.lespresdeugenie.com
+[INFO] Clicking language switch button: evènements à venir / https://lespresdeugenie.com/cat/evenements-a-venir/
+[INFO] Clicking language switch button: développement durable / https://lespresdeugenie.com/developpement-durable/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1723
+[INFO] Trying to switch language to English for https://lespresdeugenie.com/notre-histoire/
+[INFO] Trying to switch language to English for https://lespresdeugenie.com/les-tables/restaurant-etoile-michel-guerard/
+[INFO] Trying to switch language to English for https://lespresdeugenie.com/les-tables/lorangerie/
+[INFO] Trying to switch language to English for https://lespresdeugenie.com/les-tables/la-ferme-aux-grives/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/fr/powered-by-cookiebot-c-est-quoi-au-juste/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/fr/powered-by-cookiebot-c-est-quoi-au-juste/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/fr/powered-by-cookiebot-c-est-quoi-au-juste/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/fr/powered-by-cookiebot-c-est-quoi-au-juste/
+[DEBUG] Final URL after language switch: https://lespresdeugenie.com/les-tables/la-ferme-aux-grives/
+[DEBUG] Final URL after language switch: https://lespresdeugenie.com/les-tables/la-ferme-aux-grives/
+[DEBUG] Final URL after language switch: https://lespresdeugenie.com/les-tables/la-ferme-aux-grives/
+[DEBUG] Final URL after language switch: https://lespresdeugenie.com/les-tables/la-ferme-aux-grives/
+Model: gpt-4o | Tokens used: 1730
+Model: gpt-4o | Tokens used: 1741
+Model: gpt-4o | Tokens used: 1739
+Model: gpt-4o | Tokens used: 1711
+[INFO] Trying to switch language to English for https://lespresdeugenie.com/carte-du-domaine/
+[INFO] Clicking language switch button: développement durable / https://lespresdeugenie.com/developpement-durable/
+[INFO] Clicking language switch button: recrutement / https://jobs.lespresdeugenie.com/
+[INFO] Clicking language switch button: travel agents & partners / https://lespresdeugenie.com/travel-agents-partners/
+[INFO] Clicking language switch button: conditions générales de vente / https://lespresdeugenie.com/conditions-generales-de-vente/
+[INFO] Clicking language switch button: conditions générales de vente e-boutique / https://lespresdeugenie.com/conditions-generales-de-vente-e-boutique/
+[INFO] Clicking language switch button: mentions légales / https://lespresdeugenie.com/mentions-legales/
+[INFO] Clicking language switch button: politique de confidentialité / https://lespresdeugenie.com/politique-de-confidentialite/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1729
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [36] Scraping: Auberge du Vieux Puits
+   🌐 URL: https://www.aubergeduvieuxpuits.fr/fr/
+[INFO] Trying to switch language to English for https://www.aubergeduvieuxpuits.fr/fr/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: identité / https://www.aubergeduvieuxpuits.fr/fr/identite.html
+[INFO] Clicking language switch button: recrutement / https://www.aubergeduvieuxpuits.fr/fr/carrieres.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: mentions légales / https://www.aubergeduvieuxpuits.fr/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://www.aubergeduvieuxpuits.fr/fr/politique-de-confidentialite.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.aubergeduvieuxpuits.fr/fr/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: identité / https://www.aubergeduvieuxpuits.fr/fr/identite.html
+[INFO] Clicking language switch button: recrutement / https://www.aubergeduvieuxpuits.fr/fr/carrieres.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: mentions légales / https://www.aubergeduvieuxpuits.fr/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://www.aubergeduvieuxpuits.fr/fr/politique-de-confidentialite.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2111
+[INFO] Trying to switch language to English for https://www.aubergeduvieuxpuits.fr/fr/identite.html
+[INFO] Trying to switch language to English for https://www.aubergeduvieuxpuits.fr/fr/reservation.html
+[INFO] Trying to switch language to English for https://www.aubergeduvieuxpuits.fr/fr/carte-menu.html
+[INFO] Trying to switch language to English for https://www.aubergeduvieuxpuits.fr/fr/plat-signature.html
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: recrutement / https://www.aubergeduvieuxpuits.fr/fr/carrieres.html
+[INFO] Clicking language switch button: recrutement / https://www.aubergeduvieuxpuits.fr/fr/carrieres.html
+[INFO] Clicking language switch button: recrutement / https://www.aubergeduvieuxpuits.fr/fr/carrieres.html
+[INFO] Clicking language switch button: recrutement / https://www.aubergeduvieuxpuits.fr/fr/carrieres.html
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: politique de confidentialité / 
+[INFO] Clicking language switch button: mentions légales / https://www.aubergeduvieuxpuits.fr/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://www.aubergeduvieuxpuits.fr/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://www.aubergeduvieuxpuits.fr/fr/mentions-legales.html
+[INFO] Clicking language switch button: mentions légales / https://www.aubergeduvieuxpuits.fr/fr/mentions-legales.html
+[INFO] Clicking language switch button: confidentialité / https://www.aubergeduvieuxpuits.fr/fr/politique-de-confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://www.aubergeduvieuxpuits.fr/fr/politique-de-confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://www.aubergeduvieuxpuits.fr/fr/politique-de-confidentialite.html
+[INFO] Clicking language switch button: confidentialité / https://www.aubergeduvieuxpuits.fr/fr/politique-de-confidentialite.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1950
+Model: gpt-4o | Tokens used: 1967
+Model: gpt-4o | Tokens used: 1951
+Model: gpt-4o | Tokens used: 1972
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [37] Scraping: Alléno Paris au Pavillon Ledoyen
+   🌐 URL: https://www.yannick-alleno.com
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com
+[INFO] Clicking language switch button: 13/6/2025
+événements
+le barbecue gastronomique au cœur de paris par le chef yannick alléno / https://www.yannick-alleno.com/blog/le-pavillon-ledoyen-inaugure-un-nouveau-format-evenementiel-estival-le-barbecue-gastronomique-au-coeur-de-paris
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/
+[INFO] Closing popup/modal with element text: 'Réserver'
+[INFO] Closing popup/modal with element text: 'Réserver'
+[INFO] Closing popup/modal with element text: 'Réserver'
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com
+[INFO] Clicking language switch button: 13/6/2025
+événements
+le barbecue gastronomique au cœur de paris par le chef yannick alléno / https://www.yannick-alleno.com/blog/le-pavillon-ledoyen-inaugure-un-nouveau-format-evenementiel-estival-le-barbecue-gastronomique-au-coeur-de-paris
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/
+[INFO] Closing popup/modal with element text: 'Réserver'
+[INFO] Closing popup/modal with element text: 'Réserver'
+[INFO] Closing popup/modal with element text: 'Réserver'
+Model: gpt-4o | Tokens used: 2811
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com/groupe-yannick-alleno/le-chef
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com/groupe-yannick-alleno/la-vision-du-groupe
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com/groupe-yannick-alleno/pavillon-ledoyen
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com/les-etablissements-du-groupe/les-comptoirs-gastronomiques
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-monte-carlo
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-monte-carlo
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-monte-carlo
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-monte-carlo
+[INFO] Clicking language switch button: réserver / https://www.opentable.co.uk/restref/client/?restref=291477&lang=en-GB&ot_source=Restaurant%20website&corrid=2fa1d08f-bcc3-4259-8792-d12e1e0cf326
+[INFO] Clicking language switch button: réserver / https://www.opentable.co.uk/restref/client/?restref=291477&lang=en-GB&ot_source=Restaurant%20website&corrid=2fa1d08f-bcc3-4259-8792-d12e1e0cf326
+[INFO] Clicking language switch button: réserver / https://www.opentable.co.uk/restref/client/?restref=291477&lang=en-GB&ot_source=Restaurant%20website&corrid=2fa1d08f-bcc3-4259-8792-d12e1e0cf326
+[INFO] Clicking language switch button: réserver / https://www.opentable.co.uk/restref/client/?restref=291477&lang=en-GB&ot_source=Restaurant%20website&corrid=2fa1d08f-bcc3-4259-8792-d12e1e0cf326
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-londres
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-londres
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-londres
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/pavyllon-londres
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-paris
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-monte-carlo
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-monte-carlo
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-monte-carlo
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-monte-carlo
+[INFO] Clicking language switch button: réserver / https://www.tablecheck.com/en/shops/labysse-osaka-fourseasons/reserve
+[INFO] Clicking language switch button: réserver / https://www.tablecheck.com/en/shops/labysse-osaka-fourseasons/reserve
+[INFO] Clicking language switch button: réserver / https://www.tablecheck.com/en/shops/labysse-osaka-fourseasons/reserve
+[INFO] Clicking language switch button: réserver / https://www.tablecheck.com/en/shops/labysse-osaka-fourseasons/reserve
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-osaka
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-osaka
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-osaka
+[INFO] Clicking language switch button: en savoir plus > / https://www.yannick-alleno.com/les-etablissements-du-groupe/abysse-osaka
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/les-etablissements-du-groupe/les-comptoirs-gastronomiques
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/les-etablissements-du-groupe/les-comptoirs-gastronomiques
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/les-etablissements-du-groupe/les-comptoirs-gastronomiques
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/les-etablissements-du-groupe/les-comptoirs-gastronomiques
+Model: gpt-4o | Tokens used: 1389
+Model: gpt-4o | Tokens used: 1517
+Model: gpt-4o | Tokens used: 1563
+Model: gpt-4o | Tokens used: 1507
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] Trying to switch language to English for https://www.yannick-alleno.com/masterclasses/masterclasses-cuisine
+[INFO] Clicking language switch button: organiser un événemenent / https://www.yannick-alleno.com/organiser-un-evenement
+[INFO] Clicking language switch button: mentions légales / https://www.yannick-alleno.com/mentions-legales
+[INFO] Clicking language switch button: politique de confidentialité / https://www.yannick-alleno.com/politique-de-confidentilite
+[INFO] Clicking language switch button: développé par hugo villeneuve / https://www.hugo-newton.com/
+Model: gpt-4o | Tokens used: 1543
+[INFO] Clicking language switch button: en savoir plus / https://www.yannick-alleno.com/politique-de-confidentilite
+[DEBUG] Final URL after language switch: https://www.yannick-alleno.com/masterclasses/masterclasses-cuisine
+Model: gpt-4o | Tokens used: 1544
+Model: gpt-4o-mini | Tokens used: 110
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [38] Scraping: Le 1947 à Cheval Blanc
+   🌐 URL: https://www.chevalblanc.com/fr/maison/courchevel/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2408
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2235
+Model: gpt-4o | Tokens used: 2371
+Model: gpt-4o | Tokens used: 2374
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 5
+   📄 Document: Yes
+\n🔄 [39] Scraping: HAJIME
+   🌐 URL: https://www.hajime-artistes.com/
+[INFO] Trying to switch language to English for https://www.hajime-artistes.com/
+[INFO] Clicking language switch button: 01
+philosophy / https://www.hajime-artistes.com/en/philosophy/
+[DEBUG] Final URL after language switch: https://www.hajime-artistes.com/en/philosophy/
+[INFO] Trying to switch language to English for https://www.hajime-artistes.com/
+[INFO] Clicking language switch button: menu / https://www.hajime-artistes.com/6-gastronomies/restaurant/#menu
+[DEBUG] Final URL after language switch: https://www.hajime-artistes.com/6-gastronomies/restaurant/#menu
+Model: gpt-4o | Tokens used: 4336
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+⚠️  Row 40: Taian - No website URL, skipping
+\n📈 PROGRESS UPDATE
+   Processed: 40
+   Successful: 39
+   Failed: 1
+   Success Rate: 97.5%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 1:00:20.588434
+\n🔄 [41] Scraping: Mizai
+   🌐 URL: https://mizai.jp/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 2121
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 718
+Model: gpt-4o | Tokens used: 723
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 2
+   📄 Document: Yes
+\n🔄 [42] Scraping: Gion Sasaki
+   🌐 URL: https://gionsasaki.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1244
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 959
+Model: gpt-4o | Tokens used: 933
+Model: gpt-4o | Tokens used: 938
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 8
+   📄 Document: Yes
+\n🔄 [43] Scraping: Isshisoden Nakamura
+   🌐 URL: http://www.kyoryori-nakamura.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 480
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [44] Scraping: Kashiwaya Osaka Senriyama
+   🌐 URL: https://jp-kashiwaya.com/
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: 千里山本店
+senriyama / 
+[INFO] Clicking language switch button: 2025.07.16
+千里山本店 senriyama
+【7月16日（水）12:00より予約開始】コラボ食事会　一本杉川嶋 × 柏屋 大阪千里山
+- / https://jp-kashiwaya.com/news/1039/
+[INFO] Clicking language switch button: 2025.07.04
+休業日 information of holidays
+【千里山本店】7月夏季休業のお知らせ
+【senriyama】summer holiday notice / https://jp-kashiwaya.com/news/1029/
+[INFO] Clicking language switch button: 2025.07.01
+休業日 information of holidays
+【千里山本店】 休業日・お子様受入日のご案内
+information of holidays and welcoming children days of senriyama / https://jp-kashiwaya.com/news/138/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: 千里山本店
+senriyama / 
+[INFO] Clicking language switch button: 2025.07.16
+千里山本店 senriyama
+【7月16日（水）12:00より予約開始】コラボ食事会　一本杉川嶋 × 柏屋 大阪千里山
+- / https://jp-kashiwaya.com/news/1039/
+[INFO] Clicking language switch button: 2025.07.04
+休業日 information of holidays
+【千里山本店】7月夏季休業のお知らせ
+【senriyama】summer holiday notice / https://jp-kashiwaya.com/news/1029/
+[INFO] Clicking language switch button: 2025.07.01
+休業日 information of holidays
+【千里山本店】 休業日・お子様受入日のご案内
+information of holidays and welcoming children days of senriyama / https://jp-kashiwaya.com/news/138/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/welcome/
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/gifts/
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/kitashinchi/
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/senriyama/
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: 千里山本店献立 夏至〜小暑（6/21〜 7/19）
+menu / https://jp-kashiwaya.com/blog/1026/
+[INFO] Clicking language switch button: 千里山本店献立 夏至〜小暑（6/21〜 7/19）
+menu / https://jp-kashiwaya.com/blog/1026/
+[INFO] Clicking language switch button: 千里山本店献立 夏至〜小暑（6/21〜 7/19）
+menu / https://jp-kashiwaya.com/blog/1026/
+[INFO] Clicking language switch button: 千里山本店献立 夏至〜小暑（6/21〜 7/19）
+menu / https://jp-kashiwaya.com/blog/1026/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/cselect
+[INFO] Trying to switch language to English for https://jp-kashiwaya.com/rselect
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: もくじ
+menu / 
+[INFO] Clicking language switch button: english / https://myconciergejapan.com/kashiwaya/
+[INFO] Clicking language switch button: english / https://myconciergejapan.com/kashiwaya/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] Clicking language switch button: 千里山本店
+kashiwaya osaka senriyama / https://jp-kashiwaya.com/senriyama/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [45] Scraping: Hyotei
+   🌐 URL: http://hyotei.co.jp/
+[INFO] Trying to switch language to English for http://hyotei.co.jp/
+[INFO] Clicking language switch button: skip to content / http://hyotei.co.jp/#content
+[INFO] Clicking language switch button: en / http://hyotei.co.jp/en/
+[DEBUG] Final URL after language switch: http://hyotei.co.jp/
+[INFO] Closing popup/modal with element text: 'Next'
+[INFO] Closing popup/modal with element text: 'Next'
+[INFO] Closing popup/modal with element text: 'Next'
+[INFO] Closing popup/modal with element text: 'Next'
+Model: gpt-4o | Tokens used: 2885
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 6
+   📄 Document: Yes
+   🌐 Language: ja → English
+\n🔄 [46] Scraping: Kikunoi Honten
+   🌐 URL: https://kikunoi.jp/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1962
+[INFO] Trying to switch language to English for https://kikunoi.jp/about/
+[INFO] Trying to switch language to English for https://kikunoi.jp/restaurant/roan.html
+[INFO] Trying to switch language to English for https://kikunoi.jp/restaurant/akasaka.html
+[INFO] Trying to switch language to English for https://kikunoi.jp/restaurant/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2279
+Model: gpt-4o | Tokens used: 2294
+Model: gpt-4o | Tokens used: 2323
+Model: gpt-4o | Tokens used: 2345
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1385
+Model: gpt-4o | Tokens used: 1399
+Model: gpt-4o | Tokens used: 1400
+Model: gpt-4o | Tokens used: 1447
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 6
+   📄 Document: Yes
+\n🔄 [47] Scraping: Ta Vie
+   🌐 URL: https://www.tavie.com.hk
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [48] Scraping: Caprice
+   🌐 URL: https://www.fourseasons.com/hongkong/dining/restaurants/caprice/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/restaurants/caprice/
+[INFO] Clicking language switch button: check rates / https://reservations.fourseasons.com/en?cawConfig.customBooker=true&generalReservationForm.locationId=HKG581
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/restaurants/caprice/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/restaurants/caprice/
+[INFO] Clicking language switch button: check rates / https://reservations.fourseasons.com/en?cawConfig.customBooker=true&generalReservationForm.locationId=HKG581
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/restaurants/caprice/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/restaurants/caprice/#the_team
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/restaurants/caprice/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/menus/caprice-signature-menu/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/menus/caprice-set-lunch/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-set-lunch/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-set-lunch/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-set-lunch/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-set-lunch/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/menus/caprice-refined-power-lunch/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/menus/caprice-refined-power-dinner/
+[INFO] Trying to switch language to English for https://www.fourseasons.com/hongkong/dining/menus/caprice-connaisseur/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-connaisseur/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-connaisseur/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/hongkong/dining/menus/caprice-connaisseur/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [49] Scraping: Robuchon au Dôme
+   🌐 URL: https://www.grandlisboahotels.com/en/dining/robuchon-au-dome
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 4
+   📄 Document: Yes
+\n🔄 [50] Scraping: T'ang Court
+   🌐 URL: https://www.langhamhotels.com/en/the-langham/hong-kong/dine/tang-court/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 50
+   Successful: 49
+   Failed: 1
+   Success Rate: 98.0%
+   Rate: 0.6 restaurants/minute
+   Elapsed: 1:19:27.891888
+💾 Intermediate results saved: michelin_scraping_results/intermediate_results_20250720_144008.json
+\n🔄 [51] Scraping: Sushi Shikon
+   🌐 URL: https://sushi-shikon.com
+[INFO] Trying to switch language to English for https://sushi-shikon.com
+[INFO] Clicking language switch button: skip to content / https://sushi-shikon.com/#content
+[INFO] Clicking language switch button: explore the menu / https://sushi-shikon.com/menu/
+[DEBUG] Final URL after language switch: https://sushi-shikon.com/menu/
+[INFO] Trying to switch language to English for https://sushi-shikon.com
+[INFO] Clicking language switch button: skip to content / https://sushi-shikon.com/#content
+[INFO] Clicking language switch button: explore the menu / https://sushi-shikon.com/menu/
+[DEBUG] Final URL after language switch: https://sushi-shikon.com/menu/
+[INFO] Trying to switch language to English for https://sushi-shikon.com/menu/
+[INFO] Trying to switch language to English for https://sushi-shikon.com/menu/?lang=zh-hant
+[INFO] Trying to switch language to English for https://sushi-shikon.com/menu/#content
+[INFO] Trying to switch language to English for https://sushi-shikon.com/menu/?lang=zh-hans
+[INFO] Clicking language switch button: skip to content / https://sushi-shikon.com/menu/?lang=zh-hans#content
+[INFO] Clicking language switch button: skip to content / https://sushi-shikon.com/menu/?lang=zh-hans#content
+[INFO] Clicking language switch button: skip to content / https://sushi-shikon.com/menu/?lang=zh-hans#content
+[INFO] Clicking language switch button: skip to content / https://sushi-shikon.com/menu/?lang=zh-hans#content
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 897
+Model: gpt-4o | Tokens used: 906
+Model: gpt-4o | Tokens used: 899
+Model: gpt-4o | Tokens used: 889
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [52] Scraping: Jade Dragon
+   🌐 URL: https://www.cityofdreamsmacau.com
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button: view all / https://www.cityofdreamsmacau.com/en/offers#all-offer
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/hotels/morpheus
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/hotels/morpheus
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: book now / https://tickets.cityofdreamsmacau.com/en/hodw
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/dining/tasting-room-prime-steak-grill
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/dining/jade-dragon
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/dining/alain-ducasse-morpheus
+[INFO] Clicking language switch button: signature dining / https://www.cityofdreamsmacau.com/en/dining?restaurant-category=signature+dining#all-dining
+[INFO] Clicking language switch button: chinese / https://www.cityofdreamsmacau.com/en/dining?restaurant-category=chinese#all-dining
+[INFO] Clicking language switch button: michelin starred / https://www.cityofdreamsmacau.com/en/dining?restaurant-category=michelin+starred#all-dining
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/dining/jade-dragon
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/amenities/isala-spa
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/amenities/nuwa-spa
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/amenities/morpheus-spa
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/amenities/nuwa-spa
+[INFO] Clicking language switch button: view all / https://www.cityofdreamsmacau.com/en/amenities
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button: view all / https://www.cityofdreamsmacau.com/en/offers#all-offer
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/hotels/morpheus
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/hotels/morpheus
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: book now / https://tickets.cityofdreamsmacau.com/en/hodw
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/dining/tasting-room-prime-steak-grill
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/dining/jade-dragon
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/dining/alain-ducasse-morpheus
+[INFO] Clicking language switch button: signature dining / https://www.cityofdreamsmacau.com/en/dining?restaurant-category=signature+dining#all-dining
+[INFO] Clicking language switch button: chinese / https://www.cityofdreamsmacau.com/en/dining?restaurant-category=chinese#all-dining
+[INFO] Clicking language switch button: michelin starred / https://www.cityofdreamsmacau.com/en/dining?restaurant-category=michelin+starred#all-dining
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/dining/jade-dragon
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/amenities/isala-spa
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/amenities/nuwa-spa
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en/amenities/morpheus-spa
+[INFO] Clicking language switch button: learn more / https://www.cityofdreamsmacau.com/en/amenities/nuwa-spa
+[INFO] Clicking language switch button: view all / https://www.cityofdreamsmacau.com/en/amenities
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/dinner-in-the-sky
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/alain-ducasse-morpheus
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/yi
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/jin-ying
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/lattitude
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/jin-man-pavilion
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button: menu / https://www.cityofdreamsmacau.com/assets/public/2025-04/2025-Q2_Menu_JinManPavilion_ALC.pdf
+[INFO] Clicking language switch button: menu / https://www.cityofdreamsmacau.com/assets/public/2025-04/2025-Q2_Menu_JinManPavilion_ALC.pdf
+[INFO] Clicking language switch button: menu / https://www.cityofdreamsmacau.com/assets/public/2025-04/2025-Q2_Menu_JinManPavilion_ALC.pdf
+[INFO] Clicking language switch button: menu / https://www.cityofdreamsmacau.com/assets/public/2025-04/2025-Q2_Menu_JinManPavilion_ALC.pdf
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/golden-pavilion
+[INFO] Trying to switch language to English for https://www.cityofdreamsmacau.com/en/dining/t-tapas
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button:  / https://www.cityofdreamsmacau.com/en
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: about us / https://www.cityofdreamsmacau.com/en/about-city-dreams
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: getting here / https://www.cityofdreamsmacau.com/en/getting-here
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: discover macau / https://www.cityofdreamsmacau.com/en/discover-macau
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: telephone fraud & scam alert / https://www.cityofdreamsmacau.com/en/telephone-fraud-and-scam-alert
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: media center / https://media.melco-resorts.com/en/melco/macau/city-of-dreams
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: contact us / https://www.cityofdreamsmacau.com/en/contact-us
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: open wechat qrcode / 
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: terms & conditions / https://www.cityofdreamsmacau.com/en/terms-and-conditions
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: site map / https://www.cityofdreamsmacau.com/en/site-map
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: hotels / https://www.cityofdreamsmacau.com/en/hotels
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: dining / https://www.cityofdreamsmacau.com/en/dining
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] Clicking language switch button: entertainment / https://www.cityofdreamsmacau.com/en/house-of-dancing-water
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [53] Scraping: 8 1/2 Otto e Mezzo - Bombana
+   🌐 URL: https://www.ottoemezzobombana.com
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [54] Scraping: Forum
+   🌐 URL: http://www.forumrestaurant1977.com
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [55] Scraping: Amber
+   🌐 URL: https://www.mandarinoriental.com/en/hong-kong/the-landmark/dine/amber
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/hong-kong/the-landmark/dine/amber
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[DEBUG] Final URL after language switch: https://www.mandarinoriental.com/en
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/hong-kong/the-landmark/dine/amber
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[DEBUG] Final URL after language switch: https://www.mandarinoriental.com/en
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/dine
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/dubai/jumeira-beach/dine/tasca-by-jose-avillez
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/abu-dhabi/emirates-palace/dine/hakkasan
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/abu-dhabi/emirates-palace/dine/talea-by-antonio-guida
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.mandarinoriental.com/en/hong-kong/victoria-harbour/dine/mandarin-grill-and-bar
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/guangzhou/tianhe/dine/jiang-by-chef-fei
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/hong-kong/victoria-harbour/dine/mandarin-grill-and-bar
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/london/hyde-park/dine/dinner-by-heston-blumenthal
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[DEBUG] Final URL after language switch: https://www.mandarinoriental.com/en/milan/la-scala/dine/seta
+[INFO] Trying to switch language to English for https://www.mandarinoriental.com/en/milan/la-scala/dine/seta
+[INFO] Clicking language switch button: global home / https://www.mandarinoriental.com/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.mandarinoriental.com/en
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 1
+   📄 Document: Yes
+\n🔄 [56] Scraping: Mingles
+   🌐 URL: https://www.restaurant-mingles.com/
+[INFO] Trying to switch language to English for https://www.restaurant-mingles.com/
+[INFO] Clicking language switch button: toggle menu / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.restaurant-mingles.com/
+[INFO] Clicking language switch button: toggle menu / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.restaurant-mingles.com/about
+[INFO] Trying to switch language to English for https://www.restaurant-mingles.com/team
+[INFO] Trying to switch language to English for https://www.restaurant-mingles.com/location
+[INFO] Trying to switch language to English for https://www.restaurant-mingles.com/menu
+[INFO] Clicking language switch button: toggle menu / 
+[INFO] Clicking language switch button: toggle menu / 
+[INFO] Clicking language switch button: toggle menu / 
+[INFO] Clicking language switch button: toggle menu / 
+[DEBUG] Final URL after language switch: https://www.restaurant-mingles.com/menu
+[DEBUG] Final URL after language switch: https://www.restaurant-mingles.com/menu
+[DEBUG] Final URL after language switch: https://www.restaurant-mingles.com/menu
+[DEBUG] Final URL after language switch: https://www.restaurant-mingles.com/menu
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [57] Scraping: L'Enclume
+   🌐 URL: https://www.lenclume.co.uk/
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/
+[INFO] Clicking language switch button: our lunch menu / https://www.lenclume.co.uk/lunch-menu
+[INFO] Clicking language switch button: view our lunch menu / https://www.lenclume.co.uk/lunch-menu
+[INFO] Clicking language switch button: view our sample menu / https://www.lenclume.co.uk/sample-menu
+[INFO] Clicking language switch button: aulis london + oli marlow present 20 courses, 20 chefs, 20 pounds in aid of hospitality action / https://www.lenclume.co.uk/news/aulis-london-oli-marlow-present-20-courses-20-chefs-20-pounds-in-aid-of-hospitality-action
+[INFO] Clicking language switch button: exclusive recipe: simon rogan spiced chicken thighs / https://www.lenclume.co.uk/news/exclusive-recipe-simon-rogan-spiced-chicken-thighs
+[INFO] Clicking language switch button: tom barnes will be attending york races 2025. / https://www.lenclume.co.uk/news/tom-barnes-will-be-attending-york-races-2025
+[INFO] Clicking language switch button: 'an ode to mould' - mark's great british menu dessert / https://www.lenclume.co.uk/news/an-ode-to-mould-marks-great-british-menu-dessert
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/
+[INFO] Clicking language switch button: our lunch menu / https://www.lenclume.co.uk/lunch-menu
+[INFO] Clicking language switch button: view our lunch menu / https://www.lenclume.co.uk/lunch-menu
+[INFO] Clicking language switch button: view our sample menu / https://www.lenclume.co.uk/sample-menu
+[INFO] Clicking language switch button: aulis london + oli marlow present 20 courses, 20 chefs, 20 pounds in aid of hospitality action / https://www.lenclume.co.uk/news/aulis-london-oli-marlow-present-20-courses-20-chefs-20-pounds-in-aid-of-hospitality-action
+[INFO] Clicking language switch button: exclusive recipe: simon rogan spiced chicken thighs / https://www.lenclume.co.uk/news/exclusive-recipe-simon-rogan-spiced-chicken-thighs
+[INFO] Clicking language switch button: tom barnes will be attending york races 2025. / https://www.lenclume.co.uk/news/tom-barnes-will-be-attending-york-races-2025
+[INFO] Clicking language switch button: 'an ode to mould' - mark's great british menu dessert / https://www.lenclume.co.uk/news/an-ode-to-mould-marks-great-british-menu-dessert
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/simon-rogan
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/lunch-menu
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/dine
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/sample-menu
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/reservations
+[INFO] Trying to switch language to English for https://www.lenclume.co.uk/our-farm
+[INFO] Clicking language switch button: henrock / https://www.henrock.co.uk/
+[INFO] Clicking language switch button: henrock / https://www.henrock.co.uk/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [58] Scraping: Alain Ducasse at The Dorchester
+   🌐 URL: https://www.alainducasse-dorchester.com/
+[INFO] Trying to switch language to English for https://www.alainducasse-dorchester.com/
+[INFO] Clicking language switch button: skip to content / https://www.alainducasse-dorchester.com/#content
+[INFO] Clicking language switch button: la maison / https://www.ducasse-paris.com/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.alainducasse-dorchester.com/
+[INFO] Clicking language switch button: skip to content / https://www.alainducasse-dorchester.com/#content
+[INFO] Clicking language switch button: la maison / https://www.ducasse-paris.com/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.alainducasse-dorchester.com/about/
+[INFO] Trying to switch language to English for https://www.alainducasse-dorchester.com/private-dining/
+[INFO] Trying to switch language to English for https://www.alainducasse-dorchester.com/menus/
+[INFO] Clicking language switch button: skip to content / https://www.alainducasse-dorchester.com/menus/#content
+[INFO] Clicking language switch button: skip to content / https://www.alainducasse-dorchester.com/menus/#content
+[INFO] Clicking language switch button: skip to content / https://www.alainducasse-dorchester.com/menus/#content
+[INFO] Clicking language switch button: a la carte menu / https://www.alainducasse-dorchester.com/wp-content/uploads/2025/07/Alain-Ducasse-at-The-Dorchester-A-La-Carte-Menu.pdf
+[INFO] Clicking language switch button: a la carte menu / https://www.alainducasse-dorchester.com/wp-content/uploads/2025/07/Alain-Ducasse-at-The-Dorchester-A-La-Carte-Menu.pdf
+[INFO] Clicking language switch button: a la carte menu / https://www.alainducasse-dorchester.com/wp-content/uploads/2025/07/Alain-Ducasse-at-The-Dorchester-A-La-Carte-Menu.pdf
+[DEBUG] Final URL after language switch: https://www.alainducasse-dorchester.com/menus/
+[DEBUG] Final URL after language switch: https://www.alainducasse-dorchester.com/menus/
+[DEBUG] Final URL after language switch: https://www.alainducasse-dorchester.com/menus/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [59] Scraping: Hélène Darroze at The Connaught
+   🌐 URL: https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: menus
+in our three michelin-star restaurant, each dish is grounded in seasonal produce sourced from the farmers, makers and growers carefully chosen by hélène. / https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/sample-menus/
+[INFO] Clicking language switch button: wine dinners
+embark on a gastronomic journey with our elegant showcase for the world’s most prestigious wines, alongside a bespoke menu created by hélène darroze. / https://www.the-connaught.co.uk/restaurants-bars/wine-dinners/
+[INFO] Clicking language switch button: chef's table
+our newly unveiled chef’s table places you metres from the creative buzz of the kitchen, with a bespoke menu carefully curated using seasonal ingredients. / https://www.the-connaught.co.uk/restaurants-bars/the-chefs-table/
+[INFO] Clicking language switch button: the sommelier's table
+in our private dining room enjoy a personalised dining experience with a difference where wines are hand-selected and paired with exquisite dishes. / https://www.the-connaught.co.uk/restaurants-bars/the-sommeliers-table/
+[INFO] Clicking language switch button: private dining
+experience bespoke private dining by hélène darroze at the connaught, where refined elegance and culinary artistry create truly memorable moments. / https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/bespoke-private-event-menus/
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: menus
+in our three michelin-star restaurant, each dish is grounded in seasonal produce sourced from the farmers, makers and growers carefully chosen by hélène. / https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/sample-menus/
+[INFO] Clicking language switch button: wine dinners
+embark on a gastronomic journey with our elegant showcase for the world’s most prestigious wines, alongside a bespoke menu created by hélène darroze. / https://www.the-connaught.co.uk/restaurants-bars/wine-dinners/
+[INFO] Clicking language switch button: chef's table
+our newly unveiled chef’s table places you metres from the creative buzz of the kitchen, with a bespoke menu carefully curated using seasonal ingredients. / https://www.the-connaught.co.uk/restaurants-bars/the-chefs-table/
+[INFO] Clicking language switch button: the sommelier's table
+in our private dining room enjoy a personalised dining experience with a difference where wines are hand-selected and paired with exquisite dishes. / https://www.the-connaught.co.uk/restaurants-bars/the-sommeliers-table/
+[INFO] Clicking language switch button: private dining
+experience bespoke private dining by hélène darroze at the connaught, where refined elegance and culinary artistry create truly memorable moments. / https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/bespoke-private-event-menus/
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/wine-dinners/
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/sample-menus/
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/helene-darroze-at-the-connaught/bespoke-private-event-menus/
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/the-chefs-table/
+[INFO] Trying to switch language to English for https://www.the-connaught.co.uk/restaurants-bars/the-sommeliers-table/
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: open navigation menu / 
+[INFO] Clicking language switch button: jean-georges at the connaught
+an eclectic menu and fresh-from-the-market ingredients combine for all-day informal gourmet dining, with imagination. / https://www.the-connaught.co.uk/restaurants-bars/jean-georges-at-the-connaught/
+[INFO] Clicking language switch button: jean-georges at the connaught
+an eclectic menu and fresh-from-the-market ingredients combine for all-day informal gourmet dining, with imagination. / https://www.the-connaught.co.uk/restaurants-bars/jean-georges-at-the-connaught/
+[INFO] Clicking language switch button: connaught bar
+sleek, stylish and revered worldwide, with an award-winning cocktail menu to match. / https://www.the-connaught.co.uk/restaurants-bars/connaught-bar/
+[INFO] Clicking language switch button: connaught bar
+sleek, stylish and revered worldwide, with an award-winning cocktail menu to match. / https://www.the-connaught.co.uk/restaurants-bars/connaught-bar/
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: experience / 
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] Clicking language switch button: section 172 statement section 172 statement / https://www.the-connaught.co.uk/section-172-statement/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Experience'
+[INFO] Closing popup/modal with element text: 'Experience'
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 7
+   📄 Document: Yes
+\n🔄 [60] Scraping: Restaurant Gordon Ramsay
+   🌐 URL: https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/
+[INFO] Trying to switch language to English for https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/
+[DEBUG] Final URL after language switch: https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/
+[INFO] Trying to switch language to English for https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/
+[INFO] Clicking language switch button: menu / https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/#
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/
+[INFO] Trying to switch language to English for https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/menus/
+[INFO] Trying to switch language to English for https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/private-dining-and-events/
+[INFO] Trying to switch language to English for https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/behind-the-pass/our-team/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/
+[INFO] Clicking language switch button: usercentrics cookiebot - opens in a new window / https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/
+[DEBUG] Final URL after language switch: https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/behind-the-pass/our-team/
+[DEBUG] Final URL after language switch: https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/behind-the-pass/our-team/
+[DEBUG] Final URL after language switch: https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/behind-the-pass/our-team/
+[DEBUG] Final URL after language switch: https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/behind-the-pass/our-team/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 60
+   Successful: 59
+   Failed: 1
+   Success Rate: 98.3%
+   Rate: 0.6 restaurants/minute
+   Elapsed: 1:35:04.798274
+\n🔄 [61] Scraping: Fat Duck
+   🌐 URL: https://thefatduck.co.uk/
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/
+[INFO] Clicking language switch button: learn more à la carte menu and booking / https://thefatduck.co.uk/A-la-carte
+[INFO] Clicking language switch button: learn more à la carte menu and booking / https://thefatduck.co.uk/the-journey
+[INFO] Clicking language switch button: learn more à la carte menu and booking / https://thefatduck.co.uk/christmas-at-the-fat-duck
+[INFO] Clicking language switch button: learn more exclusive experiences / https://thefatduck.co.uk/experiences#ExclusiveExperiences
+[INFO] Clicking language switch button: menus & experiences / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Menus & Experiences'
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/
+[INFO] Clicking language switch button: learn more à la carte menu and booking / https://thefatduck.co.uk/A-la-carte
+[INFO] Clicking language switch button: learn more à la carte menu and booking / https://thefatduck.co.uk/the-journey
+[INFO] Clicking language switch button: learn more à la carte menu and booking / https://thefatduck.co.uk/christmas-at-the-fat-duck
+[INFO] Clicking language switch button: learn more exclusive experiences / https://thefatduck.co.uk/experiences#ExclusiveExperiences
+[INFO] Clicking language switch button: menus & experiences / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Menus & Experiences'
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/discover-more
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/heston-blumenthal
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/A-la-carte
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/menus
+[INFO] Clicking language switch button: menus & experiences / 
+[INFO] Clicking language switch button: menus & experiences / 
+[INFO] Clicking language switch button: menus & experiences / 
+[INFO] Clicking language switch button: menus & experiences / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Next'
+[INFO] Closing popup/modal with element text: 'Next'
+[INFO] Closing popup/modal with element text: 'Next'
+[DEBUG] Final URL after language switch: https://thefatduck.co.uk/menus
+[INFO] Closing popup/modal with element text: 'Menus & Experiences'
+[INFO] Closing popup/modal with element text: 'Menus & Experiences'
+[INFO] Closing popup/modal with element text: 'Menus & Experiences'
+[INFO] Closing popup/modal with element text: 'Next'
+[INFO] Closing popup/modal with element text: 'Menus & Experiences'
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/files/wine-list/Wine_List_2025_-_20.07.2025.pdf
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/experiences
+[INFO] Trying to switch language to English for https://thefatduck.co.uk/bookings/menus
+[INFO] Clicking language switch button: view menu / https://thefatduck.co.uk/bookings/menus#menu
+[INFO] Clicking language switch button: view menu / https://thefatduck.co.uk/bookings/menus#menu
+[INFO] Clicking language switch button: view menu / https://thefatduck.co.uk/bookings/menus#menu
+[DEBUG] Final URL after language switch: https://thefatduck.co.uk/bookings/menus
+[DEBUG] Final URL after language switch: https://thefatduck.co.uk/bookings/menus
+[DEBUG] Final URL after language switch: https://thefatduck.co.uk/bookings/menus
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 8
+   📄 Document: Yes
+\n🔄 [62] Scraping: Waterside Inn
+   🌐 URL: https://www.waterside-inn.co.uk/
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/our-story/
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/menus/
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/private_parties_weddings/
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/wine-tastings/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.waterside-inn.co.uk/culinary-school/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button:  / https://lesgrandestablesdumonde.com/en/
+[INFO] Clicking language switch button:  / https://www.relais-desserts.net/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [63] Scraping: Sketch, The Lecture Room and Library
+   🌐 URL: https://sketch.london/the-lecture-room
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [64] Scraping: The Ledbury
+   🌐 URL: https://www.theledbury.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] Trying to switch language to English for https://www.theledbury.com/menu
+[INFO] Clicking language switch button: sample tasting menu (download) / https://www.theledbury.com/pdf/The-Ledbury-Tasting-Menu-300525.pdf
+[DEBUG] Final URL after language switch: https://www.theledbury.com/pdf/The-Ledbury-Tasting-Menu-300525.pdf
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 1
+   📄 Document: Yes
+\n🔄 [65] Scraping: Moor Hall
+   🌐 URL: https://moorhall.com/
+[INFO] Trying to switch language to English for https://moorhall.com/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://moorhall.com/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://moorhall.com/moor-hall/about/
+[INFO] Trying to switch language to English for https://moorhall.com/menus/
+[INFO] Trying to switch language to English for https://moorhall.com/moor-hall/markbirchall/
+[INFO] Trying to switch language to English for https://moorhall.com/moor-hall/restaurant/private-dining/
+[INFO] Clicking language switch button: enquiry form / https://moorhall.com/private-hire-contact-us/
+[INFO] Clicking language switch button: enquiry form / https://moorhall.com/private-hire-contact-us/
+[INFO] Clicking language switch button: enquiry form / https://moorhall.com/private-hire-contact-us/
+[INFO] Clicking language switch button: enquiry form / https://moorhall.com/private-hire-contact-us/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://moorhall.com/moor-hall/restaurant/
+[INFO] Clicking language switch button: bar menu / https://moorhall.com/wp-content/uploads/2025/04/BAR-MENU-2025.pdf
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [66] Scraping: CORE by Clare Smyth
+   🌐 URL: https://www.corebyclaresmyth.com/
+[INFO] Trying to switch language to English for https://www.corebyclaresmyth.com/
+[INFO] Clicking language switch button: see the menus / https://corebyclaresmyth.com/menus/
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/menus/
+[INFO] Trying to switch language to English for https://www.corebyclaresmyth.com/
+[INFO] Clicking language switch button: see the menus / https://corebyclaresmyth.com/menus/
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/menus/
+[INFO] Trying to switch language to English for https://corebyclaresmyth.com/about/
+[INFO] Trying to switch language to English for https://corebyclaresmyth.com/menus/
+[INFO] Trying to switch language to English for https://corebyclaresmyth.com/chefs-table/
+[INFO] Trying to switch language to English for https://corebyclaresmyth.com/team/
+[INFO] Clicking language switch button: view current vacancies / 
+[INFO] Clicking language switch button: view current vacancies / 
+[INFO] Clicking language switch button: view current vacancies / 
+[INFO] Clicking language switch button: view current vacancies / 
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/team/
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/team/
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/team/
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/team/
+[INFO] Trying to switch language to English for https://corebyclaresmyth.com/the-bar/
+[INFO] Clicking language switch button: see the cocktail menu > / https://corebyclaresmyth.com/wp-content/uploads/2023/10/Cocktail-menu_Oct23.pdf
+[DEBUG] Final URL after language switch: https://corebyclaresmyth.com/whiskeyandseaweed/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [67] Scraping: Steirereck im Stadtpark
+   🌐 URL: https://www.steirereck.at/
+[INFO] Trying to switch language to English for https://www.steirereck.at/
+[INFO] Clicking language switch button: en / https://www.steirereck.at/index.en.html
+[DEBUG] Final URL after language switch: https://www.steirereck.at/index.en.html
+[INFO] Trying to switch language to English for https://www.steirereck.at/
+[INFO] Clicking language switch button: en / https://www.steirereck.at/index.en.html
+[DEBUG] Final URL after language switch: https://www.steirereck.at/index.en.html
+[INFO] Trying to switch language to English for https://www.steirereck.at/steirereck.en.html
+[INFO] Trying to switch language to English for https://www.steirereck.at/meierei.en.html
+[INFO] Clicking language switch button: en / https://www.steirereck.at/meierei.en.html
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.steirereck.at/meierei.en.html
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 2
+   📄 Document: Yes
+\n🔄 [68] Scraping: Amador
+   🌐 URL: https://www.restaurant-amador.com/
+[INFO] Trying to switch language to English for https://www.restaurant-amador.com/
+[INFO] Clicking language switch button: en / https://en.restaurant-amador.com/
+[DEBUG] Final URL after language switch: https://en.restaurant-amador.com/
+[INFO] Trying to switch language to English for https://www.restaurant-amador.com/
+[INFO] Clicking language switch button: en / https://en.restaurant-amador.com/
+[DEBUG] Final URL after language switch: https://en.restaurant-amador.com/
+[INFO] Trying to switch language to English for https://en.restaurant-amador.com/the-restaurant/
+[INFO] Trying to switch language to English for https://en.restaurant-amador.com/menu-2/
+[INFO] Trying to switch language to English for https://en.restaurant-amador.com/the-cook/
+[INFO] Clicking language switch button: restaurant amador amador (fd betriebs gmbh & co. kg) / https://en.restaurant-amador.com/
+[INFO] Clicking language switch button: restaurant amador amador (fd betriebs gmbh & co. kg) / https://en.restaurant-amador.com/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://en.restaurant-amador.com/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [69] Scraping: Jungsik New York
+   🌐 URL: https://www.jungsik.com/
+[INFO] Trying to switch language to English for https://www.jungsik.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.jungsik.com/
+[INFO] Trying to switch language to English for https://www.jungsik.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.jungsik.com/
+[INFO] Trying to switch language to English for https://www.jungsik.com/
+[INFO] Trying to switch language to English for https://www.jungsik.com/menu/
+[INFO] Trying to switch language to English for https://www.jungsik.com/private-dining/
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.jungsik.com/private-dining/
+[DEBUG] Final URL after language switch: https://www.jungsik.com/private-dining/
+[DEBUG] Final URL after language switch: https://www.jungsik.com/private-dining/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [70] Scraping: Per Se
+   🌐 URL: https://www.thomaskeller.com/perseny
+[INFO] Trying to switch language to English for https://www.thomaskeller.com/perseny
+[INFO] Clicking language switch button: menus & stories / 
+[DEBUG] Final URL after language switch: https://thomaskeller.com/perseny/
+[INFO] Trying to switch language to English for https://www.thomaskeller.com/perseny
+[INFO] Clicking language switch button: menus & stories / 
+[DEBUG] Final URL after language switch: https://thomaskeller.com/perseny/
+[INFO] Trying to switch language to English for https://thomaskeller.com/new-york-new-york/per-se/about-wine-cocktails
+[INFO] Trying to switch language to English for https://thomaskeller.com/new-york-new-york/per-se/todays-menus
+[INFO] Trying to switch language to English for https://thomaskeller.com/new-york-new-york/per-se/private-dining-events-general-information
+[INFO] Trying to switch language to English for https://thomaskeller.com/new-york-new-york/per-se/team
+[INFO] Clicking language switch button: gift experiences / https://thomaskeller.com/new-york-new-york/per-se/gift-experiences
+[INFO] Clicking language switch button: gift experiences / https://thomaskeller.com/new-york-new-york/per-se/gift-experiences
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://thomaskeller.com/new-york-new-york/per-se/restaurant/
+[INFO] Trying to switch language to English for https://thomaskeller.com/new-york-new-york/per-se/restaurant
+[INFO] Clicking language switch button: gift experiences / https://thomaskeller.com/new-york-new-york/per-se/gift-experiences
+[DEBUG] Final URL after language switch: https://thomaskeller.com/new-york-new-york/per-se/gift-experiences/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 1
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 70
+   Successful: 69
+   Failed: 1
+   Success Rate: 98.6%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 1:43:58.241869
+\n🔄 [71] Scraping: Le Bernardin
+   🌐 URL: https://www.le-bernardin.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [72] Scraping: Eleven Madison Park
+   🌐 URL: https://www.elevenmadisonpark.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o-mini | Tokens used: 114
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [73] Scraping: Masa
+   🌐 URL: https://www.masanyc.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o-mini | Tokens used: 113
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+\n🔄 [74] Scraping: The Inn at Little Washington
+   🌐 URL: https://www.theinnatlittlewashington.com/
+[INFO] Trying to switch language to English for https://www.theinnatlittlewashington.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.theinnatlittlewashington.com/
+[INFO] Trying to switch language to English for https://www.theinnatlittlewashington.com/
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.theinnatlittlewashington.com/
+[INFO] Trying to switch language to English for https://www.theinnatlittlewashington.com/dine
+[INFO] Trying to switch language to English for https://www.theinnatlittlewashington.com/team
+[INFO] Trying to switch language to English for https://www.theinnatlittlewashington.com/team/patrick-oconnell
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[DEBUG] Final URL after language switch: https://www.theinnatlittlewashington.com/team/patrick-oconnell
+[DEBUG] Final URL after language switch: https://www.theinnatlittlewashington.com/team/patrick-oconnell
+[DEBUG] Final URL after language switch: https://www.theinnatlittlewashington.com/team/patrick-oconnell
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 4
+   📄 Document: Yes
+\n🔄 [75] Scraping: Smyth
+   🌐 URL: https://www.smythandtheloyalist.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [76] Scraping: Alinea
+   🌐 URL: https://www.alinearestaurant.com/
+[INFO] Trying to switch language to English for https://www.alinearestaurant.com/
+[INFO] Clicking language switch button: open menu / 
+[INFO] Clicking language switch button: party size
+2 guests party size - current selection is 2 guests desired reservation party size / 
+[INFO] Clicking language switch button: date
+jul 20, 2025 date - current selection is jul 20, 2025 desired reservation date / 
+[INFO] Clicking language switch button: time
+7:00 pm time - current selection is 7:00 pm desired reservation time / 
+[INFO] Clicking language switch button: book now book now (opens a dialog) / 
+[INFO] Clicking language switch button: party size
+2 guests party size - current selection is 2 guests desired reservation party size / 
+[INFO] Clicking language switch button: date
+jul 20, 2025 date - current selection is jul 20, 2025 desired reservation date / 
+[INFO] Clicking language switch button: time
+7:00 pm time - current selection is 7:00 pm desired reservation time / 
+[INFO] Clicking language switch button: book now book now (opens a dialog) / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Closing popup/modal with element text: 'Open Menu'
+[INFO] Trying to switch language to English for https://www.alinearestaurant.com/
+[INFO] Clicking language switch button: open menu / 
+[DEBUG] Final URL after language switch: https://www.alinearestaurant.com/
+[INFO] Closing popup/modal with element text: 'Close Menu'
+[INFO] Trying to switch language to English for https://www.alinearestaurant.com/
+[INFO] Trying to switch language to English for https://www.alinearestaurant.com/shop
+[INFO] Trying to switch language to English for https://www.alinearestaurant.com/private-events
+[INFO] Trying to switch language to English for https://exploretock.com/alinea
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: view all 8 photos view all 8 photos (opens a dialog) / 
+[INFO] Clicking language switch button: view all 8 photos view all 8 photos (opens a dialog) / 
+[INFO] Clicking language switch button: view all 8 photos view all 8 photos (opens a dialog) / 
+[DEBUG] Final URL after language switch: https://www.exploretock.com/alinea
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [77] Scraping: Sorn
+   🌐 URL: https://www.sornfinesouthern.com
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [78] Scraping: Azurmendi
+   🌐 URL: http://www.azurmendi.restaurant
+[INFO] Trying to switch language to English for http://www.azurmendi.restaurant
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[DEBUG] Final URL after language switch: https://azurmendi.restaurant/
+[INFO] Trying to switch language to English for http://www.azurmendi.restaurant
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[DEBUG] Final URL after language switch: https://azurmendi.restaurant/
+Model: gpt-4o | Tokens used: 2408
+[INFO] Trying to switch language to English for https://azurmendi.restaurant/historia/
+[INFO] Trying to switch language to English for https://azurmendi.restaurant/experiencia-azurmendi-dom-perignon/
+[INFO] Trying to switch language to English for https://azurmendi.restaurant/menus/
+[INFO] Trying to switch language to English for https://azurmendi.restaurant/restaurante-sostenible/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] Clicking language switch button: comience a hacer compras / https://azurmendi.restaurant/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://azurmendi.restaurant/
+Model: gpt-4o | Tokens used: 2153
+Model: gpt-4o | Tokens used: 2187
+Model: gpt-4o | Tokens used: 2186
+Model: gpt-4o | Tokens used: 2152
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [79] Scraping: Aponiente
+   🌐 URL: https://www.aponiente.com/
+[INFO] Trying to switch language to English for https://www.aponiente.com/
+[INFO] Clicking language switch button: denegar / 
+[DEBUG] Final URL after language switch: https://www.aponiente.com/
+[INFO] Trying to switch language to English for https://www.aponiente.com/
+[INFO] Clicking language switch button: logo-aponiente-blanco / https://www.aponiente.com/
+[DEBUG] Final URL after language switch: https://www.aponiente.com/
+Model: gpt-4o | Tokens used: 1130
+[INFO] Trying to switch language to English for https://www.aponiente.com/menu-aponiente-2025
+[INFO] Trying to switch language to English for https://www.aponiente.com/restaurante/
+[INFO] Clicking language switch button: logo-aponiente / https://www.aponiente.com/
+[INFO] Clicking language switch button: logo-aponiente / https://www.aponiente.com/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.aponiente.com/
+Model: gpt-4o | Tokens used: 1127
+Model: gpt-4o | Tokens used: 1123
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [80] Scraping: DiverXO
+   🌐 URL: https://diverxo.com/
+[INFO] Trying to switch language to English for https://diverxo.com/
+[INFO] Clicking language switch button: denegar / 
+[DEBUG] Final URL after language switch: https://diverxo.com/en/home/
+[INFO] Trying to switch language to English for https://diverxo.com/
+[INFO] Clicking language switch button:  / https://diverxo.com/en/home/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE1MDQiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D
+[DEBUG] Final URL after language switch: https://diverxo.com/en/home/
+Model: gpt-4o | Tokens used: 1257
+[INFO] Trying to switch language to English for https://diverxo.com/en/#diverxo-masterpiece
+[INFO] Trying to switch language to English for https://diverxo.com/en/#menu
+[INFO] Clicking language switch button:  / https://diverxo.com/en/home/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE1MDQiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D
+[INFO] Clicking language switch button:  / https://diverxo.com/en/home/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE1MDQiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D
+[INFO] Clicking language switch button:  / https://diverxo.com/en/home/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0OTgiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D
+[INFO] Clicking language switch button:  / https://diverxo.com/en/reservations/
+[INFO] Clicking language switch button:  / https://diverxo.com/en/reservations/
+[DEBUG] Final URL after language switch: https://diverxo.com/en/home/#menu
+[INFO] Clicking language switch button: home / https://diverxo.com/en/home/
+[INFO] Clicking language switch button: diverxo masterpiece / https://diverxo.com/en/#diverxo-masterpiece
+[INFO] Clicking language switch button: menu / https://diverxo.com/en/#menu
+[INFO] Clicking language switch button: gift diverxo / https://diverxo.com/en/gift-diverxo/
+[INFO] Clicking language switch button: diverxo invitation / https://diverxo.com/en/home/#
+[INFO] Clicking language switch button: reservations / https://diverxo.com/en/reservations/
+[INFO] Clicking language switch button: legal notice / https://diverxo.com/en/legal-notice/
+Model: gpt-4o | Tokens used: 1242
+[INFO] Clicking language switch button: faq / https://diverxo.com/en/faq/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1252
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 80
+   Successful: 79
+   Failed: 1
+   Success Rate: 98.8%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 1:57:33.335930
+\n🔄 [81] Scraping: Noor
+   🌐 URL: https://noorrestaurant.es/
+[INFO] Trying to switch language to English for https://noorrestaurant.es/
+[INFO] Clicking language switch button: saltar al contenido / https://noorrestaurant.es/#content
+[INFO] Clicking language switch button: en / https://noorrestaurant.es/en
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://noorrestaurant.es/
+[INFO] Clicking language switch button: saltar al contenido / https://noorrestaurant.es/#content
+[INFO] Clicking language switch button: en / https://noorrestaurant.es/en
+[DEBUG] Final URL after language switch: https://noorrestaurant.es/en/
+[INFO] Trying to switch language to English for https://noorrestaurant.es/en/#Paco
+[INFO] Trying to switch language to English for https://noorrestaurant.es/Menu_ING.pdf
+[INFO] Trying to switch language to English for https://noorrestaurant.es/en/#Menu
+[INFO] Trying to switch language to English for https://noorrestaurant.es/en/#Experience
+[INFO] Clicking language switch button: skip to content / https://noorrestaurant.es/en/#content
+[INFO] Clicking language switch button: skip to content / https://noorrestaurant.es/en/#content
+[INFO] Clicking language switch button: skip to content / https://noorrestaurant.es/en/#content
+[INFO] Clicking language switch button: skip to content / https://noorrestaurant.es/en/#content
+[INFO] Clicking language switch button: en / https://noorrestaurant.es/en
+[INFO] Clicking language switch button: en / https://noorrestaurant.es/en
+[INFO] Clicking language switch button: en / https://noorrestaurant.es/en
+[INFO] Clicking language switch button: en / https://noorrestaurant.es/en
+[INFO] Clicking language switch button:  / https://noorrestaurant.es/en/
+[INFO] Clicking language switch button:  / https://noorrestaurant.es/en/
+[INFO] Clicking language switch button:  / https://noorrestaurant.es/en/
+[INFO] Clicking language switch button:  / https://noorrestaurant.es/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [82] Scraping: Cenador de Amós
+   🌐 URL: https://www.cenadordeamos.com/
+[INFO] Trying to switch language to English for https://www.cenadordeamos.com/
+[INFO] Clicking language switch button: ir al contenido ir al contenido / https://cenadordeamos.com/#content
+[INFO] Clicking language switch button: main menu / 
+[DEBUG] Final URL after language switch: https://cenadordeamos.com/
+[INFO] Trying to switch language to English for https://www.cenadordeamos.com/
+[INFO] Clicking language switch button: ir al contenido ir al contenido / https://cenadordeamos.com/#content
+[INFO] Clicking language switch button: main menu / 
+[DEBUG] Final URL after language switch: https://cenadordeamos.com/
+Model: gpt-4o | Tokens used: 709
+[INFO] Trying to switch language to English for https://cenadordeamos.com/equipo/
+[INFO] Trying to switch language to English for https://cenadordeamos.com/el-restaurante-la-carta/
+[INFO] Clicking language switch button: ir al contenido ir al contenido / https://cenadordeamos.com/el-restaurante-la-carta/#content
+[INFO] Clicking language switch button: ir al contenido ir al contenido / https://cenadordeamos.com/el-restaurante-la-carta/#content
+[INFO] Clicking language switch button: main menu / 
+[INFO] Clicking language switch button: main menu / 
+[INFO] Clicking language switch button: cenador de amós / https://cenadordeamos.com/
+[INFO] Clicking language switch button: los 10 mandamientos / https://cenadordeamos.com/los-10-mandamientos/
+[INFO] Clicking language switch button: política de desistimiento / https://cenadordeamos.com/politica-de-desistimiento/
+[DEBUG] Final URL after language switch: https://cenadordeamos.com/el-restaurante-la-carta/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1697
+Model: gpt-4o | Tokens used: 1717
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [83] Scraping: Quique Dacosta
+   🌐 URL: https://www.quiquedacosta.es/
+Model: gpt-4o | Tokens used: 1919
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+   🌐 Language: es → English
+\n🔄 [84] Scraping: Atrio
+   🌐 URL: https://atriocaceres.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [85] Scraping: Casa Marcial
+   🌐 URL: http://www.casamarcial.com
+[INFO] Trying to switch language to English for http://www.casamarcial.com
+[INFO] Clicking language switch button: en / https://casamarcial.es/en/
+[DEBUG] Final URL after language switch: https://casamarcial.es/en/
+[INFO] Trying to switch language to English for http://www.casamarcial.com
+[INFO] Clicking language switch button: en / https://casamarcial.es/en/
+[DEBUG] Final URL after language switch: https://casamarcial.es/en/
+[INFO] Trying to switch language to English for https://casamarcial.es/en/casa/
+[INFO] Trying to switch language to English for https://casamarcial.es/en/cocina/
+[INFO] Trying to switch language to English for https://casamarcial.es/en/northeastern-menu-el-cachuchu/
+[INFO] Trying to switch language to English for https://casamarcial.es/en/manzano/
+[INFO] Clicking language switch button:  / https://casamarcial.es/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://casamarcial.es/en/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [86] Scraping: El Celler de Can Roca
+   🌐 URL: http://www.cellercanroca.com
+[INFO] Trying to switch language to English for http://www.cellercanroca.com
+[INFO] Clicking language switch button: en / https://cellercanroca.com/en/
+[DEBUG] Final URL after language switch: https://cellercanroca.com/en/
+[INFO] Trying to switch language to English for http://www.cellercanroca.com
+[INFO] Clicking language switch button: en / https://cellercanroca.com/en/
+[DEBUG] Final URL after language switch: https://cellercanroca.com/en/
+[INFO] Trying to switch language to English for https://cellercanroca.com/en/celler/
+[INFO] Trying to switch language to English for https://cellercanroca.com/en/el-celler-de-can-roca/the-dining-room/
+[INFO] Trying to switch language to English for https://cellercanroca.com/en/the-roca-brothers/
+[INFO] Trying to switch language to English for https://cellercanroca.com/en/el-celler-de-can-roca/the-kitchen/
+[INFO] Clicking language switch button:  / https://cellercanroca.com/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://cellercanroca.com/en/el-celler-de-can-roca/the-winery-of-the-celler/
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [87] Scraping: Akelaŕe
+   🌐 URL: https://akelarre.net/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [88] Scraping: Martín Berasategui
+   🌐 URL: https://www.martinberasategui.com/es/inicio
+[INFO] Trying to switch language to English for https://www.martinberasategui.com/es/inicio
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.martinberasategui.com/es/inicio
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 814
+[INFO] Trying to switch language to English for https://www.martinberasategui.com/es/martin-berasategui
+[INFO] Trying to switch language to English for https://www.martinberasategui.com/es/carta
+[INFO] Trying to switch language to English for https://www.martinberasategui.com/en/inicio
+[INFO] Clicking language switch button:  / https://www.martinberasategui.com/en/inicio
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://www.martinberasategui.com/en/inicio
+Model: gpt-4o-mini | Tokens used: 127
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 8
+   📄 Document: Yes
+\n🔄 [89] Scraping: Lasarte
+   🌐 URL: https://www.restaurantlasarte.com/
+[INFO] Trying to switch language to English for https://www.restaurantlasarte.com/
+[INFO] Clicking language switch button: see more / https://www.restaurantlasarte.com/en/lasarte-odette
+[INFO] Clicking language switch button: lasarte restaurant / https://www.restaurantlasarte.com/en
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: see more see more / https://www.restaurantlasarte.com/en/restaurant
+[INFO] Clicking language switch button: see more see more / https://www.restaurantlasarte.com/en/experience
+[INFO] Clicking language switch button: meet the team meet the team / https://www.restaurantlasarte.com/en/team
+[INFO] Clicking language switch button: discover discover / https://www.restaurantlasarte.com/en/il-milione
+[INFO] Clicking language switch button: see menu see menu / https://www.restaurantlasarte.com/en/the-menu
+[INFO] Clicking language switch button: gift gift / https://www.restaurantlasarte.com/en/gift
+[INFO] Clicking language switch button: join our team job vacancies / https://www.monumenthotel.com/en/job-board/
+[INFO] Clicking language switch button: terms of use terms of use / https://www.restaurantlasarte.com/en/terms-of-use
+[INFO] Clicking language switch button: site map site map / https://www.restaurantlasarte.com/en/site-map
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.restaurantlasarte.com/en/
+[INFO] Clicking language switch button: see more / https://www.restaurantlasarte.com/en/lasarte-odette
+[INFO] Clicking language switch button: lasarte restaurant / https://www.restaurantlasarte.com/en
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: see more see more / https://www.restaurantlasarte.com/en/restaurant
+[INFO] Clicking language switch button: see more see more / https://www.restaurantlasarte.com/en/experience
+[INFO] Clicking language switch button: meet the team meet the team / https://www.restaurantlasarte.com/en/team
+[INFO] Clicking language switch button: discover discover / https://www.restaurantlasarte.com/en/il-milione
+[INFO] Clicking language switch button: see menu see menu / https://www.restaurantlasarte.com/en/the-menu
+[INFO] Clicking language switch button: gift gift / https://www.restaurantlasarte.com/en/gift
+[INFO] Clicking language switch button: join our team job vacancies / https://www.monumenthotel.com/en/job-board/
+[INFO] Clicking language switch button: terms of use terms of use / https://www.restaurantlasarte.com/en/terms-of-use
+[INFO] Clicking language switch button: site map site map / https://www.restaurantlasarte.com/en/site-map
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.restaurantlasarte.com/en/restaurant
+[INFO] Trying to switch language to English for https://www.restaurantlasarte.com/en/experience
+[INFO] Trying to switch language to English for https://www.restaurantlasarte.com/en/team
+[INFO] Trying to switch language to English for https://www.restaurantlasarte.com/en/the-menu
+[INFO] Clicking language switch button: see more / https://www.restaurantlasarte.com/en/lasarte-odette
+[INFO] Clicking language switch button: see more / https://www.restaurantlasarte.com/en/lasarte-odette
+[INFO] Clicking language switch button: see more / https://www.restaurantlasarte.com/en/lasarte-odette
+[INFO] Clicking language switch button: see more / https://www.restaurantlasarte.com/en/lasarte-odette
+[INFO] Clicking language switch button: lasarte restaurant / https://www.restaurantlasarte.com/en
+[INFO] Clicking language switch button: lasarte restaurant / https://www.restaurantlasarte.com/en
+[INFO] Clicking language switch button: lasarte restaurant / https://www.restaurantlasarte.com/en
+[INFO] Clicking language switch button: lasarte restaurant / https://www.restaurantlasarte.com/en
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: join our team job vacancies / https://www.monumenthotel.com/en/job-board/
+[INFO] Clicking language switch button: join our team job vacancies / https://www.monumenthotel.com/en/job-board/
+[INFO] Clicking language switch button: join our team job vacancies / https://www.monumenthotel.com/en/job-board/
+[INFO] Clicking language switch button: join our team job vacancies / https://www.monumenthotel.com/en/job-board/
+[INFO] Clicking language switch button: terms of use terms of use / https://www.restaurantlasarte.com/en/terms-of-use
+[INFO] Clicking language switch button: terms of use terms of use / https://www.restaurantlasarte.com/en/terms-of-use
+[INFO] Clicking language switch button: terms of use terms of use / https://www.restaurantlasarte.com/en/terms-of-use
+[INFO] Clicking language switch button: terms of use terms of use / https://www.restaurantlasarte.com/en/terms-of-use
+[INFO] Clicking language switch button: site map site map / https://www.restaurantlasarte.com/en/site-map
+[INFO] Clicking language switch button: site map site map / https://www.restaurantlasarte.com/en/site-map
+[INFO] Clicking language switch button: site map site map / https://www.restaurantlasarte.com/en/site-map
+[INFO] Clicking language switch button: site map site map / https://www.restaurantlasarte.com/en/site-map
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [90] Scraping: ABaC
+   🌐 URL: https://abacrestaurant.com
+[INFO] Trying to switch language to English for https://abacrestaurant.com
+[INFO] Clicking language switch button: denegar / 
+[DEBUG] Final URL after language switch: https://abacrestaurant.com/es/
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1775
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1584
+Model: gpt-4o | Tokens used: 1578
+Model: gpt-4o | Tokens used: 1568
+Model: gpt-4o | Tokens used: 1584
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n📈 PROGRESS UPDATE
+   Processed: 90
+   Successful: 89
+   Failed: 1
+   Success Rate: 98.9%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 2:09:25.894546
+\n🔄 [91] Scraping: Disfrutar
+   🌐 URL: https://www.disfrutarbarcelona.com/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] Trying to switch language to English for https://www.disfrutarbarcelona.com/#quisom
+[INFO] Trying to switch language to English for https://store.cxcchefs.com/?lang=en
+[INFO] Trying to switch language to English for https://www.disfrutarbarcelona.com/#restaurant
+[INFO] Trying to switch language to English for https://www.disfrutarbarcelona.com/bookings
+[INFO] Clicking language switch button: gift / https://store.cxcchefs.com/?lang=en
+[INFO] Clicking language switch button: gift / https://store.cxcchefs.com/?lang=en
+[INFO] Clicking language switch button: gift / https://store.cxcchefs.com/?lang=en
+[INFO] Clicking language switch button: gift / https://store.cxcchefs.com/?lang=en
+[DEBUG] Final URL after language switch: https://www.disfrutarbarcelona.com/bookings
+[DEBUG] Final URL after language switch: https://www.disfrutarbarcelona.com/bookings
+[DEBUG] Final URL after language switch: https://www.disfrutarbarcelona.com/bookings
+[DEBUG] Final URL after language switch: https://www.disfrutarbarcelona.com/bookings
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 4
+   📄 Document: Yes
+\n🔄 [92] Scraping: Arzak
+   🌐 URL: http://www.arzak.es
+[INFO] Trying to switch language to English for http://www.arzak.es
+[INFO] Clicking language switch button: en / https://www.arzak.es/en/
+[DEBUG] Final URL after language switch: https://www.arzak.es/en/
+[INFO] Trying to switch language to English for http://www.arzak.es
+[INFO] Clicking language switch button: en / https://www.arzak.es/en/
+[DEBUG] Final URL after language switch: https://www.arzak.es/en/
+[INFO] Trying to switch language to English for https://www.arzak.es/en/background/
+[INFO] Trying to switch language to English for https://www.arzak.es/en/laboratorio/
+[INFO] Trying to switch language to English for https://www.arzak.es/en/cuisine-and-restaurant/
+[INFO] Trying to switch language to English for https://www.arzak.es/en/instruction/
+[INFO] Clicking language switch button: restaurant restaurante arzak / https://www.arzak.es/en/
+[INFO] Clicking language switch button: restaurant restaurante arzak / https://www.arzak.es/en/
+[INFO] Clicking language switch button: restaurant restaurante arzak / https://www.arzak.es/en/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.arzak.es/en/#menu
+[INFO] Clicking language switch button: restaurant restaurante arzak / https://www.arzak.es/en/
+[DEBUG] Final URL after language switch: https://www.arzak.es/en/
+[DEBUG] Final URL after language switch: https://www.arzak.es/en/
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [93] Scraping: Cocina Hermanos Torres
+   🌐 URL: http://www.cocinahermanostorres.com
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 644
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+Model: gpt-4o | Tokens used: 1914
+Model: gpt-4o | Tokens used: 1895
+Model: gpt-4o | Tokens used: 1931
+Model: gpt-4o | Tokens used: 1884
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 2
+   📄 Document: Yes
+\n🔄 [94] Scraping: Taian Table
+   🌐 URL: https://sh.taian-table.cn
+[INFO] Trying to switch language to English for https://sh.taian-table.cn
+[INFO] Clicking language switch button: menu / https://sh.taian-table.cn/wp-content/uploads/2025/05/20250508_TT_Menu50_online.pdf
+[DEBUG] Final URL after language switch: https://sh.taian-table.cn/
+[INFO] Trying to switch language to English for https://sh.taian-table.cn
+[INFO] Clicking language switch button: menu / https://sh.taian-table.cn/wp-content/uploads/2025/05/20250508_TT_Menu50_online.pdf
+[DEBUG] Final URL after language switch: https://sh.taian-table.cn/
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 1
+   📄 Document: Yes
+\n🔄 [95] Scraping: Casa Perbellini 12 Apostoli
+   🌐 URL: http://www.casaperbellini.com
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+[INFO] No English language switch button found, proceeding with default language.
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [96] Scraping: Le Calandre
+   🌐 URL: https://alajmo.it/pages/homepage-le-calandre
+[INFO] Trying to switch language to English for https://alajmo.it/pages/homepage-le-calandre
+[INFO] Clicking language switch button: passare al contenuto / https://alajmo.it/pages/homepage-le-calandre#main
+[INFO] Clicking language switch button: prenota / https://alajmo.it/pages/booking-le-calandre
+[INFO] Clicking language switch button: scopri il menu / https://cdn.shopify.com/s/files/1/0508/7356/5353/files/Calandre_ESTATE25-ITA_c4ecec47-5b95-440d-8c7d-ae9a60a44fea.pdf?v=1750702372
+[INFO] Clicking language switch button: organizza un evento / https://alajmo.it/pages/eventi
+[INFO] Clicking language switch button: condizioni di vendita / https://alajmo.it/pages/condizioni-di-vendita
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for https://www.alajmo.it/en/
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en#main
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[DEBUG] Final URL after language switch: https://alajmo.it/en
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/about-massimiliano
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/about-raffaele
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-le-calandre
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/la-famiglia
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/la-famiglia#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/la-famiglia#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/la-famiglia#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/la-famiglia#main
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[DEBUG] Final URL after language switch: https://alajmo.it/en/pages/la-famiglia
+[DEBUG] Final URL after language switch: https://alajmo.it/en/pages/la-famiglia
+[DEBUG] Final URL after language switch: https://alajmo.it/en/pages/la-famiglia
+[DEBUG] Final URL after language switch: https://alajmo.it/en/pages/la-famiglia
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-il-calandrino
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-la-dispensa
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-quadrino
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-grancaffe-quadri
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/homepage-grancaffe-quadri#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/homepage-grancaffe-quadri#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/homepage-grancaffe-quadri#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/homepage-grancaffe-quadri#main
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://alajmo.it/en/pages/homepage-ristorante-quadri
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-ristorante-quadri
+[INFO] Trying to switch language to English for https://alajmo.it/en/pages/homepage-le-cementine
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/homepage-le-cementine#main
+[INFO] Clicking language switch button: go to the content / https://alajmo.it/en/pages/homepage-le-cementine#main
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] Clicking language switch button: free shipping within italy for orders over 120 euros. / https://alajmo.it/en/collections
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://alajmo.it/en/collections
+Model: gpt-4o | Tokens used: 2810
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 5
+   📄 Document: Yes
+   🌐 Language: it → English
+\n🔄 [97] Scraping: Enrico Bartolini al Mudec
+   🌐 URL: http://www.enricobartolini.net
+[INFO] Trying to switch language to English for http://www.enricobartolini.net
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: prenota il ristorante / 
+[INFO] Clicking language switch button: regala un’esperienza / https://www.enricobartolini.net/gift-cards
+[INFO] Clicking language switch button: villa elena / https://www.enricobartolini.net/i-ristoranti/villa-elena
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for http://www.enricobartolini.net
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: prenota il ristorante / 
+[INFO] Clicking language switch button: regala un’esperienza / https://www.enricobartolini.net/gift-cards
+[INFO] Clicking language switch button: villa elena / https://www.enricobartolini.net/i-ristoranti/villa-elena
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1155
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/enrico-bartolini
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/villa-elena
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/mudec
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: prenota il ristorante / https://widget.thefork.com/it/357f3eb9-4a56-467b-b281-45b51da8e226?utm_source=enricobartolini.net
+[INFO] Clicking language switch button: prenota il ristorante / https://widget.thefork.com/it/357f3eb9-4a56-467b-b281-45b51da8e226?utm_source=enricobartolini.net
+[INFO] Clicking language switch button: prenota il ristorante / https://widget.thefork.com/it/357f3eb9-4a56-467b-b281-45b51da8e226?utm_source=enricobartolini.net
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[DEBUG] Final URL after language switch: https://widget.thefork.com/it/357f3eb9-4a56-467b-b281-45b51da8e226?utm_source=enricobartolini.net
+Model: gpt-4o | Tokens used: 224
+Model: gpt-4o | Tokens used: 226
+Model: gpt-4o | Tokens used: 232
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/la-trattoria
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/locanda-del-santuffizio
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/glam
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2114
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/il-poggio-rosso
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: prenota il ristorante / https://www.borgosanfelice.com/ristorante-gourmet-chianti/form-prenotazione
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2147
+Model: gpt-4o | Tokens used: 2145
+Model: gpt-4o | Tokens used: 2125
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/milano-verticale
+[INFO] Trying to switch language to English for http://www.enricobartolini.net/i-ristoranti/il-fuoco-sacro
+[INFO] Clicking language switch button: menu / 
+[INFO] Clicking language switch button: menu / 
+Model: gpt-4o | Tokens used: 1983
+[INFO] Clicking language switch button: prenota il ristorante / https://www.petrasegretaresort.com/it/ristorazione/fuoco-sacro/
+[INFO] Clicking language switch button: prenota il ristorante / https://www.petrasegretaresort.com/it/ristorazione/fuoco-sacro/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2022
+Model: gpt-4o | Tokens used: 2049
+Model: gpt-4o | Tokens used: 2236
+Model: gpt-4o-mini | Tokens used: 705
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 10
+   📄 Document: Yes
+   🌐 Language: it → English
+\n🔄 [98] Scraping: Uliassi
+   🌐 URL: http://www.uliassi.com
+[INFO] Trying to switch language to English for http://www.uliassi.com
+[INFO] Clicking language switch button: skip to content / https://uliassi.com/#content
+[INFO] Clicking language switch button: visualizza preferenze / 
+[DEBUG] Final URL after language switch: https://uliassi.com/
+[INFO] Trying to switch language to English for http://www.uliassi.com
+[INFO] Clicking language switch button: visualizza preferenze / 
+[DEBUG] Final URL after language switch: https://uliassi.com/
+Model: gpt-4o | Tokens used: 2018
+[INFO] Trying to switch language to English for https://uliassi.com/storia/
+[INFO] Trying to switch language to English for https://uliassi.com/mauro-uliassi/
+[INFO] Trying to switch language to English for https://uliassi.com/catia-uliassi/
+[INFO] Trying to switch language to English for https://uliassi.com/menu/
+[INFO] Clicking language switch button: visualizza preferenze / 
+[INFO] Clicking language switch button: visualizza preferenze / 
+[INFO] Clicking language switch button: visualizza preferenze / 
+[INFO] Clicking language switch button: visualizza preferenze / 
+[INFO] Clicking language switch button: salva preferenze / 
+[INFO] Clicking language switch button: salva preferenze / 
+[INFO] Clicking language switch button: salva preferenze / 
+[INFO] Clicking language switch button: skip to content / https://uliassi.com/menu/#content
+[INFO] Clicking language switch button: skip to content / https://uliassi.com/menu/#content
+[DEBUG] Final URL after language switch: https://uliassi.com/menu/
+[DEBUG] Final URL after language switch: https://uliassi.com/menu/
+[INFO] Clicking language switch button: menu / https://uliassi.com/menu/
+[INFO] Clicking language switch button: menu / https://uliassi.com/menu/
+[INFO] Clicking language switch button: prenota / https://uliassi.com/prenotazioni/
+[INFO] Clicking language switch button: prenota / https://uliassi.com/prenotazioni/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 2080
+Model: gpt-4o | Tokens used: 2080
+[INFO] Trying to switch language to English for https://uliassi.com/menu/#vini
+[INFO] Trying to switch language to English for https://uliassi.com/ristorante/
+[INFO] Clicking language switch button: skip to content / https://uliassi.com/ristorante/#content
+[INFO] Clicking language switch button: skip to content / https://uliassi.com/ristorante/#content
+Model: gpt-4o | Tokens used: 2074
+Model: gpt-4o | Tokens used: 2083
+[INFO] Trying to switch language to English for https://uliassi.com/filosofia-gastronomica/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Clicking language switch button: skip to content / https://uliassi.com/filosofia-gastronomica/#content
+[INFO] Clicking language switch button: menu / https://uliassi.com/menu/
+[INFO] Clicking language switch button: prenota / https://uliassi.com/prenotazioni/
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1853
+Model: gpt-4o | Tokens used: 1959
+Model: gpt-4o | Tokens used: 1973
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [99] Scraping: Enoteca Pinchiorri
+   🌐 URL: http://www.enotecapinchiorri.com
+[INFO] Trying to switch language to English for http://www.enotecapinchiorri.com
+[INFO] Clicking language switch button: prenota / https://www.enotecapinchiorri.it/prenota-una-cena.php
+[INFO] Clicking language switch button: regala una cena / https://www.enotecapinchiorri.it/regala-una-cena.php
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] Trying to switch language to English for http://www.enotecapinchiorri.com
+[INFO] Clicking language switch button: prenota / https://www.enotecapinchiorri.it/prenota-una-cena.php
+[INFO] Clicking language switch button: regala una cena / https://www.enotecapinchiorri.it/regala-una-cena.php
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 933
+[INFO] Trying to switch language to English for http://www.enotecapinchiorri.com/persone.php
+[INFO] Trying to switch language to English for http://www.enotecapinchiorri.com/menu.php
+[INFO] Trying to switch language to English for http://www.enotecapinchiorri.com/enotecapinchiorri-experience.php
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+[INFO] No English language switch button clicked.
+[INFO] Language switch button clicked but no success or no page change, proceeding with current language.
+Model: gpt-4o | Tokens used: 1003
+Model: gpt-4o | Tokens used: 1011
+Model: gpt-4o | Tokens used: 992
+   ✅ Scraping successful
+   ✅ Database save successful
+   📊 Menu sections: 0
+   📊 Menu items: 0
+   📊 Images: 0
+   📄 Document: Yes
+\n🔄 [100] Scraping: Atelier Moessmer Norbert Niederkofler
+   🌐 URL: https://ateliernorbertniederkofler.com/moessmer/
+[INFO] No English language switch button found, proceeding with default language.
+   ❌ Scraping failed: Unknown error
+\n📈 PROGRESS UPDATE
+   Processed: 100
+   Successful: 98
+   Failed: 2
+   Success Rate: 98.0%
+   Rate: 0.7 restaurants/minute
+   Elapsed: 2:21:53.213735
+💾 Intermediate results saved: michelin_scraping_results/intermediate_results_20250720_154233.json
+\n============================================================
+🏁 SCRAPING COMPLETED
+============================================================
+📅 Started: 2025-07-20 13:20:40
+📅 Finished: 2025-07-20 15:42:36
+⏱️  Total Time: 2:21:56.219026
+📊 Total Processed: 100
+✅ Successful: 98
+❌ Failed: 2
+📈 Success Rate: 98.0%
+⚡ Average Time: 85.2 seconds per restaurant
+💾 Final results saved: michelin_scraping_results/final_results_20250720_154236.json

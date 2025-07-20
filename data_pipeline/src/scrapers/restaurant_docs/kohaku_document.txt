@@ -1,0 +1,22 @@
+# Kohaku
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+A refined atmosphere focused on the excellence of ingredients and meticulous service.
+
+## Location
+新宿区神楽坂5-37, 相良ビル１階, Tokyo, Japan
+
+## Location & Time Zone
+
+Country: Japan
+City: Tokyo
+Timezone: Asia/Tokyo
+Current local time: 2025-07-21 05:07:07 JST
+
+## Document Information
+
+Generated: 2025-07-20 20:07:07 UTC
+Source: https://kagurazaka-kohaku.jp/

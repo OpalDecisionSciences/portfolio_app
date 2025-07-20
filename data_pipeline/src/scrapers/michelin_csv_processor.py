@@ -78,10 +78,12 @@ class MichelinCSVProcessor:
         """
         try:
             # Create scraping job
+            from django.utils import timezone
+            
             job = ScrapingJob.objects.create(
-                job_name=f"Michelin CSV Processing - {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+                job_name=f"Michelin CSV Processing - {timezone.now().strftime('%Y-%m-%d %H:%M')}",
                 status='running',
-                started_at=datetime.now()
+                started_at=timezone.now()
             )
             
             logger.info(f"Started scraping job: {job.job_name}")
@@ -271,7 +273,7 @@ class MichelinCSVProcessor:
                 'cuisine_type': csv_data.get('Cuisine', '').strip(),
                 'price_range': price_range,
                 'original_url': csv_data.get('Url', '').strip(),
-                'scraped_at': datetime.now().isoformat(),
+                'scraped_at': timezone.now().isoformat(),
                 'scraped_content': f"Imported from Michelin CSV: {csv_data.get('Description', '')}",
             }
             
@@ -308,7 +310,7 @@ class MichelinCSVProcessor:
             content = scraped_data.get('content', '')
             if content:
                 restaurant.scraped_content = content
-                restaurant.scraped_at = datetime.now()
+                restaurant.scraped_at = timezone.now()
             
             # Process LLM analysis data
             llm_analysis = scraped_data.get('llm_analysis', {})
