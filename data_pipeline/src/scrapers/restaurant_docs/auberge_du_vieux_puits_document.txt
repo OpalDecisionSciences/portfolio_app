@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Comfortable atmosphere with a focus on exceptional hospitality.
+Comfortable atmosphere with a characterful universe, focusing on passion and kindness.
 
 ## Location
-Fontjoncouse, Aude, France.
+5, Avenue St Victor, 11360 Fontjoncouse
 
 ## Location & Time Zone
 
 Country: France
 City: Fontjoncouse
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:42:29 CEST
+Current local time: 2025-07-21 19:57:01 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:42:29 UTC
+Generated: 2025-07-21 17:57:01 UTC
 Source: https://www.aubergeduvieuxpuits.fr/fr/

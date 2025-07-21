@@ -1,22 +1,22 @@
 # Le Coquillage
 
 ## Cuisine
-Seafood
+French
 
 ## Ambiance & Atmosphere
-Charming atmosphere in a 1920s villa with changing views of the bay.
+The dining room is in a villa from the 1920s with a gentle atmosphere, featuring windows that frame a changing landscape. It offers a timeless dining experience.
 
 ## Location
-Le Château Richeux, Cancale, France
+Le Buot - 35350 Saint-Méloir-des-Ondes, France
 
 ## Location & Time Zone
 
 Country: France
-City: Cancale
+City: Saint-Méloir-des-Ondes
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:39:32 CEST
+Current local time: 2025-07-21 19:40:09 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:39:32 UTC
+Generated: 2025-07-21 17:40:09 UTC
 Source: https://www.maisons-de-bricourt.com/fr/page/le-coquillage

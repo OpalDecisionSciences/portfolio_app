@@ -315,7 +315,7 @@
 							</div>
 							
 							<!-- LLM Chatbot Engagement -->
-							<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; color: white;">
+							<div style="background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%); padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; color: white;">
 								<h4 style="color: white; margin-bottom: 10px;">
 									<i class="icon-heart" style="margin-right: 8px;"></i>
 									Discover Your Perfect Restaurant
@@ -604,26 +604,15 @@
 		
 		// LLM Chatbot engagement for cuisine preferences
 		function startCuisineChat() {
-			// This function would integrate with your RAG chatbot system
-			console.log('Starting cuisine preference chat...');
+			// Navigate to chat page with pre-filled message
+			const chatUrl = '/chat/';
+			const message = "What's your favorite cuisine style? I'm looking for restaurant recommendations!";
 			
-			// Example: You could trigger your RAG chatbot with a pre-filled prompt
-			// initiateChatWith("What's your favorite cuisine? I can recommend restaurants based on your preferences!");
+			// Store the pre-filled message in localStorage for the chat page to use
+			localStorage.setItem('chatPrefilledMessage', message);
 			
-			// Or scroll to a chat interface if it exists on the page
-			const chatInterface = document.getElementById('rag-chatbot');
-			if (chatInterface) {
-				chatInterface.scrollIntoView({ behavior: 'smooth' });
-				// Pre-fill with cuisine preference prompt
-				const chatInput = chatInterface.querySelector('input, textarea');
-				if (chatInput) {
-					chatInput.value = "What's your favorite cuisine style? I'm looking for restaurant recommendations!";
-					chatInput.focus();
-				}
-			} else {
-				// Fallback: show alert with instructions
-				alert('🍽️ Chat coming soon! You\'ll be able to get personalized restaurant recommendations based on your favorite cuisines and preferences.');
-			}
+			// Navigate to chat page
+			window.location.href = chatUrl;
 		}
 	</script>
 </body>

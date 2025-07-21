@@ -31,8 +31,8 @@
 		
 		.gallery-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-			gap: 20px;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 25px;
 			margin-top: 30px;
 		}
 		
@@ -50,7 +50,80 @@
 			box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 		}
 		
-		.gallery-image {
+		/* Gallery carousel styles - adapted from home page */
+		.gallery-image-carousel {
+			position: relative;
+			width: 100%;
+			height: 250px;
+			overflow: hidden;
+		}
+		
+		.gallery-carousel-track {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			transition: transform 0.3s ease;
+		}
+		
+		.gallery-carousel-track img {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+			flex-shrink: 0;
+		}
+		
+		.gallery-carousel-nav {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			gap: 5px;
+		}
+		
+		.gallery-carousel-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.5);
+			cursor: pointer;
+			transition: background 0.3s ease;
+		}
+		
+		.gallery-carousel-dot.active {
+			background: rgba(255,255,255,1);
+		}
+		
+		.gallery-carousel-controls {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: white;
+			border: none;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			font-size: 18px;
+			cursor: pointer;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			z-index: 10;
+		}
+		
+		.gallery-carousel-controls.prev {
+			left: 10px;
+		}
+		
+		.gallery-carousel-controls.next {
+			right: 10px;
+		}
+		
+		.gallery-image-carousel:hover .gallery-carousel-controls {
+			opacity: 1;
+		}
+		
+		.gallery-single-image {
 			width: 100%;
 			height: 250px;
 			object-fit: cover;
@@ -73,31 +146,22 @@
 			margin: 0 0 8px 0;
 		}
 		
-		.image-category {
+		.restaurant-metadata {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-top: 8px;
+		}
+		
+		.image-count-badge {
 			display: inline-block;
-			background: #e74c3c;
+			background: #3498db;
 			color: white;
 			padding: 3px 8px;
 			border-radius: 12px;
 			font-size: 11px;
 			text-transform: uppercase;
 			font-weight: 500;
-		}
-		
-		.image-category.menu_item {
-			background: #e74c3c;
-		}
-		
-		.image-category.scenery_ambiance {
-			background: #27ae60;
-		}
-		
-		.image-category.exterior {
-			background: #3498db;
-		}
-		
-		.image-category.chef {
-			background: #f39c12;
 		}
 		
 		.filter-sidebar {
@@ -261,32 +325,70 @@
 									{% if current_filters.search %}
 										Showing results for "{{ current_filters.search }}" • 
 									{% endif %}
-									{{ total_images }} image{{ total_images|pluralize }} found
+									{{ total_restaurants }} restaurant{{ total_restaurants|pluralize }} • {{ total_images }} image{{ total_images|pluralize }} found
 									{% if current_filters.category %}
 										• Category: {{ current_filters.category|title }}
 									{% endif %}
 								</div>
 							</div>
 							
-							{% if images %}
+							{% if restaurants %}
 								<div class="gallery-grid">
-									{% for image in images %}
-									<div class="gallery-item" onclick="window.location.href='{% url 'restaurants:restaurant_detail' image.restaurant.slug %}'">
-										<img src="{{ image.source_url }}" 
-											 alt="{{ image.caption|default:image.restaurant.name }}" 
-											 class="gallery-image"
-											 onerror="this.parentElement.style.display='none'">
-										<div class="gallery-info">
-											<h4 class="restaurant-name">{{ image.restaurant.name }}</h4>
-											<p class="restaurant-location">{{ image.restaurant.city }}, {{ image.restaurant.country }}</p>
-											<span class="image-category {{ image.ai_category }}">{{ image.ai_category|default:"restaurant" }}</span>
-											{% if image.restaurant.michelin_stars %}
-												<span style="margin-left: 10px; color: #e74c3c;">
-													{% for i in "123" %}
-														{% if forloop.counter <= image.restaurant.michelin_stars %}⭐{% endif %}
+									{% for restaurant in restaurants %}
+									<div class="gallery-item" onclick="window.location.href='{% url 'restaurants:restaurant_detail' restaurant.slug %}'">
+										<!-- Image carousel or single image -->
+										{% if restaurant.images.count > 1 %}
+											<!-- Multiple images - carousel -->
+											<div class="gallery-image-carousel" data-restaurant-id="gallery-{{ restaurant.id }}">
+												<div class="gallery-carousel-track" id="gallery-carousel-{{ restaurant.id }}">
+													{% for image in restaurant.images.all %}
+														<img src="{{ image.source_url }}" 
+															 alt="{{ image.caption|default:restaurant.name }}"
+															 onerror="this.style.display='none'">
 													{% endfor %}
-												</span>
-											{% endif %}
+												</div>
+												<button class="gallery-carousel-controls prev" onclick="event.stopPropagation(); galleryCarouselPrev('{{ restaurant.id }}')">‹</button>
+												<button class="gallery-carousel-controls next" onclick="event.stopPropagation(); galleryCarouselNext('{{ restaurant.id }}')">›</button>
+												
+												<!-- Dots navigation -->
+												<div class="gallery-carousel-nav">
+													{% for image in restaurant.images.all %}
+														<div class="gallery-carousel-dot {% if forloop.first %}active{% endif %}" 
+															 onclick="event.stopPropagation(); galleryCarouselGoTo('{{ restaurant.id }}', {{ forloop.counter0 }})"></div>
+													{% endfor %}
+												</div>
+											</div>
+										{% elif restaurant.images.count == 1 %}
+											<!-- Single image -->
+											{% with restaurant.images.first as image %}
+												<img src="{{ image.source_url }}" 
+													 alt="{{ image.caption|default:restaurant.name }}" 
+													 class="gallery-single-image"
+													 onerror="this.parentElement.style.display='none'">
+											{% endwith %}
+										{% else %}
+											<!-- No images placeholder -->
+											<div class="gallery-single-image" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #6c757d;">
+												<i class="icon-image" style="font-size: 48px;"></i>
+											</div>
+										{% endif %}
+										
+										<div class="gallery-info">
+											<h4 class="restaurant-name">{{ restaurant.name }}</h4>
+											<p class="restaurant-location">{{ restaurant.city }}{% if restaurant.country %}, {{ restaurant.country }}{% endif %}</p>
+											<div class="restaurant-metadata">
+												<span class="image-count-badge">{{ restaurant.images.count }} image{{ restaurant.images.count|pluralize }}</span>
+												{% if restaurant.michelin_stars %}
+													<span style="color: #e74c3c;">
+														{% for i in "123" %}
+															{% if forloop.counter <= restaurant.michelin_stars %}⭐{% endif %}
+														{% endfor %}
+													</span>
+												{% endif %}
+												{% if restaurant.cuisine_type %}
+													<span style="color: #27ae60; font-size: 12px;">{{ restaurant.cuisine_type }}</span>
+												{% endif %}
+											</div>
 										</div>
 									</div>
 									{% endfor %}
@@ -314,10 +416,10 @@
 							{% else %}
 								<div class="no-images">
 									<i class="icon-image"></i>
-									<h3>No images found</h3>
-									<p>Try adjusting your search criteria or <a href="{% url 'restaurants:gallery' %}">browse all images</a>.</p>
+									<h3>No restaurants found</h3>
+									<p>Try adjusting your search criteria or <a href="{% url 'restaurants:gallery' %}">browse all restaurants</a>.</p>
 									<p style="margin-top: 20px; font-size: 14px; color: #95a5a6;">
-										New images are being added as restaurants are scraped. Check back soon for more content!
+										New restaurants and images are being added as our scrapers process more data. Check back soon for more content!
 									</p>
 								</div>
 							{% endif %}
@@ -376,5 +478,89 @@
 	<!-- Scripts -->
 	<script src="{% static 'js/scripts.js' %}"></script>
 	<script src="{% static 'js/functions.js' %}"></script>
+	
+	<!-- Gallery carousel functionality -->
+	<script>
+		// Gallery carousel state management
+		const galleryCarouselStates = {};
+		
+		function initializeGalleryCarousel(carouselId) {
+			if (!galleryCarouselStates[carouselId]) {
+				const track = document.getElementById(`gallery-carousel-${carouselId}`);
+				if (track) {
+					galleryCarouselStates[carouselId] = {
+						currentIndex: 0,
+						totalImages: track.children.length
+					};
+				}
+			}
+		}
+		
+		function updateGalleryCarousel(carouselId) {
+			const track = document.getElementById(`gallery-carousel-${carouselId}`);
+			const dots = document.querySelectorAll(`[data-restaurant-id="gallery-${carouselId}"] .gallery-carousel-dot`);
+			
+			if (!track || !galleryCarouselStates[carouselId]) return;
+			
+			const state = galleryCarouselStates[carouselId];
+			
+			// Update track position
+			track.style.transform = `translateX(-${state.currentIndex * 100}%)`;
+			
+			// Update dots
+			dots.forEach((dot, index) => {
+				dot.classList.toggle('active', index === state.currentIndex);
+			});
+		}
+		
+		function galleryCarouselPrev(carouselId) {
+			initializeGalleryCarousel(carouselId);
+			const state = galleryCarouselStates[carouselId];
+			
+			if (state.currentIndex > 0) {
+				state.currentIndex--;
+			} else {
+				state.currentIndex = state.totalImages - 1; // Wrap to last
+			}
+			
+			updateGalleryCarousel(carouselId);
+		}
+		
+		function galleryCarouselNext(carouselId) {
+			initializeGalleryCarousel(carouselId);
+			const state = galleryCarouselStates[carouselId];
+			
+			if (state.currentIndex < state.totalImages - 1) {
+				state.currentIndex++;
+			} else {
+				state.currentIndex = 0; // Wrap to first
+			}
+			
+			updateGalleryCarousel(carouselId);
+		}
+		
+		function galleryCarouselGoTo(carouselId, index) {
+			initializeGalleryCarousel(carouselId);
+			const state = galleryCarouselStates[carouselId];
+			
+			if (index >= 0 && index < state.totalImages) {
+				state.currentIndex = index;
+				updateGalleryCarousel(carouselId);
+			}
+		}
+		
+		// Initialize all gallery carousels when page loads
+		document.addEventListener('DOMContentLoaded', function() {
+			const carousels = document.querySelectorAll('.gallery-image-carousel');
+			carousels.forEach(carousel => {
+				const carouselId = carousel.getAttribute('data-restaurant-id');
+				if (carouselId) {
+					const id = carouselId.replace('gallery-', '');
+					initializeGalleryCarousel(id);
+					updateGalleryCarousel(id);
+				}
+			});
+		});
+	</script>
 </body>
 </html>

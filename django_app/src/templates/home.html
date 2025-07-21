@@ -34,11 +34,53 @@
 			height: 200px;
 			background: linear-gradient(45deg, #e74c3c, #c0392b);
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
 			color: white;
 			font-size: 48px;
 			border-radius: 8px;
+			text-align: center;
+		}
+		
+		.star-placeholder::after {
+			content: "Images coming soon!";
+			font-size: 14px;
+			margin-top: 10px;
+			opacity: 0.9;
+		}
+		
+		/* Search bar customization */
+		.main-search .field-holder input[type="text"] {
+			border: 2px solid #f39c12 !important;
+			border-radius: 5px;
+		}
+		
+		.main-search .field-holder input[type="text"]:focus {
+			border-color: #f1c40f !important;
+			box-shadow: 0 0 5px rgba(241, 196, 64, 0.3) !important;
+		}
+		
+		.main-search input[type="submit"] {
+			background: #e74c3c !important;
+			border: 2px solid #e74c3c !important;
+			color: white !important;
+		}
+		
+		.main-search input[type="submit"]:hover {
+			background: #c0392b !important;
+			border-color: #c0392b !important;
+		}
+		
+		#use-location-btn {
+			background: transparent !important;
+			border: 2px solid #e74c3c !important;
+			color: #e74c3c !important;
+		}
+		
+		#use-location-btn:hover {
+			background: #e74c3c !important;
+			color: white !important;
 		}
 		
 		.suggestion-image, .recommendation-image {
@@ -53,11 +95,20 @@
 			height: 150px;
 			background: linear-gradient(45deg, #e74c3c, #c0392b);
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
 			color: white;
 			font-size: 32px;
 			border-radius: 8px;
+			text-align: center;
+		}
+		
+		.star-placeholder-small::after {
+			content: "Images coming soon!";
+			font-size: 12px;
+			margin-top: 8px;
+			opacity: 0.9;
 		}
 		
 		/* Home Page Image Carousel Styles */
@@ -304,7 +355,7 @@
 			<!-- Main Search End -->
 			
 			<!-- LLM Chatbot Engagement -->
-			<div class="page-section nopadding cs-nomargin" style="padding: 40px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+			<div class="page-section nopadding cs-nomargin" style="padding: 40px 0; background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%);">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1132,26 +1183,15 @@
 		
 		// LLM Chatbot engagement for restaurant discovery
 		function startRestaurantDiscoveryChat() {
-			// This function would integrate with your RAG chatbot system
-			console.log('Starting restaurant discovery chat...');
+			// Navigate to chat page with pre-filled message
+			const chatUrl = '/chat/';
+			const message = encodeURIComponent("I'm looking for a new restaurant to try! Can you help me find something based on my preferences?");
 			
-			// Example: You could trigger your RAG chatbot with a pre-filled prompt
-			// initiateChatWith("I can help you find your new favorite restaurant! What type of dining experience are you looking for?");
+			// Store the pre-filled message in localStorage for the chat page to use
+			localStorage.setItem('chatPrefilledMessage', "I'm looking for a new restaurant to try! Can you help me find something based on my preferences?");
 			
-			// Or scroll to a chat interface if it exists on the page
-			const chatInterface = document.getElementById('rag-chatbot');
-			if (chatInterface) {
-				chatInterface.scrollIntoView({ behavior: 'smooth' });
-				// Pre-fill with restaurant discovery prompt
-				const chatInput = chatInterface.querySelector('input, textarea');
-				if (chatInput) {
-					chatInput.value = "I'm looking for a new restaurant to try! Can you help me find something based on my preferences?";
-					chatInput.focus();
-				}
-			} else {
-				// Fallback: show alert with instructions
-				alert('🍽️ Chat coming soon! You\'ll be able to get personalized restaurant recommendations based on your preferences, dietary needs, location, and occasion.');
-			}
+			// Navigate to chat page
+			window.location.href = chatUrl;
 		}
 		
 		// Home Page Carousel Management

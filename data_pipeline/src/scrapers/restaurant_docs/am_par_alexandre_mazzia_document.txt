@@ -1,10 +1,10 @@
 # AM par Alexandre Mazzia
 
 ## Cuisine
-Gourmet
+French
 
 ## Ambiance & Atmosphere
-Elegant and passionate atmosphere reflecting a deep connection to territory.
+Modern and creative atmosphere focused on the senses, knowledge, and passion.
 
 ## Location
 9 Rue François Rocca, 13008 Marseille, France
@@ -14,9 +14,9 @@ Elegant and passionate atmosphere reflecting a deep connection to territory.
 Country: France
 City: Marseille
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:38:36 CEST
+Current local time: 2025-07-21 19:34:52 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:38:36 UTC
+Generated: 2025-07-21 17:34:52 UTC
 Source: https://www.alexandre-mazzia.com/

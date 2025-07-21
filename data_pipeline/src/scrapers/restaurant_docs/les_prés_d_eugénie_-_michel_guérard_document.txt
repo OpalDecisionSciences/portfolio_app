@@ -1,22 +1,6 @@
 # Les Prés d'Eugénie - Michel Guérard
 
-## Cuisine
-French
-
-## Ambiance & Atmosphere
-A poetic and pastoral refuge, romantic haven in the countryside with a focus on sensory delight and relaxation.
-
-## Location
-Landes, France
-
-## Location & Time Zone
-
-Country: France
-City: Landes
-Timezone: Europe/Paris
-Current local time: 2025-07-20 21:42:18 CEST
-
 ## Document Information
 
-Generated: 2025-07-20 19:42:18 UTC
+Generated: 2025-07-21 17:55:29 UTC
 Source: http://www.lespresdeugenie.com

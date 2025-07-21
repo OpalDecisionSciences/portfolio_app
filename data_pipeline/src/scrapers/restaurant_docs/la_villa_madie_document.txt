@@ -4,19 +4,19 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-A sophisticated and harmonious setting with a focus on high-quality service and an impressive view of the Mediterranean.
+A Mediterranean terrace setting providing a true gastronomic escape between land and sea.
 
 ## Location
-Cassis, France, facing the Mediterranean Sea.
+Anse de Corton, Cassis, France
 
 ## Location & Time Zone
 
 Country: France
 City: Cassis
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:41:24 CEST
+Current local time: 2025-07-21 19:53:08 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:41:24 UTC
+Generated: 2025-07-21 17:53:08 UTC
 Source: http://www.lavillamadie.com

@@ -931,3 +931,11 @@ Django version 4.2.7, using settings 'portfolio_project.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 15:03:48
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+

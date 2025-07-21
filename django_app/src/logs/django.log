@@ -1866,3 +1866,53 @@ Watching for file changes with StatReloader
 /Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 75456
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+"GET / HTTP/1.1" 200 75456
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+"GET / HTTP/1.1" 200 76641
+Not Found: /assets/extra-images/bg-image1.jpg
+"GET /assets/extra-images/bg-image1.jpg HTTP/1.1" 404 2983
+"GET /restaurants/api/recommendations/?max_results=6 HTTP/1.1" 200 3310
+"GET /restaurants/ HTTP/1.1" 200 777670
+Internal Server Error: /restaurants/gallery/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py", line 951, in gallery_view
+    image_count=models.Count('images')
+                ^^^^^^
+NameError: name 'models' is not defined
+"GET /restaurants/gallery/ HTTP/1.1" 500 75930
+"GET / HTTP/1.1" 200 76090
+"GET /chat/ HTTP/1.1" 200 31353
+"GET /chat/ HTTP/1.1" 200 31353
+"GET / HTTP/1.1" 200 76090
+Internal Server Error: /restaurants/gallery/
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py", line 951, in gallery_view
+    image_count=models.Count('images')
+                ^^^^^^
+NameError: name 'models' is not defined
+"GET /restaurants/gallery/ HTTP/1.1" 500 73548
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /restaurants/gallery/ HTTP/1.1" 200 101371
+"GET /chat/ HTTP/1.1" 200 31353
+"GET /chat/ HTTP/1.1" 200 31353

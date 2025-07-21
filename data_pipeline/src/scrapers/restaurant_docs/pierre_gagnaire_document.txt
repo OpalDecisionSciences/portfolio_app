@@ -4,12 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Elegant and rigorously crafted environment reflecting the essence of original French culinary artistry.
+Elegant and sophisticated atmosphere with a focus on meticulous service.
 
 ## Location
-Not specified in the provided text.
+6 Rue Balzac, 75008 Paris, France
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-21 19:45:52 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:40:31 UTC
+Generated: 2025-07-21 17:45:52 UTC
 Source: http://pierregagnaire-lerestaurant.com

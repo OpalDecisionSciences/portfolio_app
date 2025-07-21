@@ -1,9 +1,9 @@
 {
   "used_tokens_by_model": {
-    "gpt-4o-mini": 81935,
-    "gpt-4o": 240436
+    "gpt-4o-mini": 1697,
+    "gpt-4o": 95549
   },
   "current_model": "gpt-4o-mini",
   "last_completed_row": -1,
-  "date": "2025-07-20"
+  "date": "2025-07-21"
 }

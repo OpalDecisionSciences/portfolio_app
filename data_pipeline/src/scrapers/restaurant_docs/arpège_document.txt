@@ -1,10 +1,10 @@
 # Arpège
 
 ## Cuisine
-French
+Vegetarian
 
 ## Ambiance & Atmosphere
-A focus on seasonal ingredients with an emphasis on collaborative creativity between the chef and nature.
+Creative and artistic atmosphere with a focus on seasonal ingredients
 
 ## Location
 84, Rue de Varenne, 75007 Paris
@@ -14,9 +14,9 @@ A focus on seasonal ingredients with an emphasis on collaborative creativity bet
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-20 20:09:05 CEST
+Current local time: 2025-07-21 19:19:27 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 18:09:05 UTC
+Generated: 2025-07-21 17:19:27 UTC
 Source: https://www.alain-passard.com/

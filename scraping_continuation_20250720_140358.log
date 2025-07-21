@@ -1315,3 +1315,84 @@ Model: gpt-4o | Tokens used: 1894
   warnings.warn(
 /Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:22:31.546238) while time zone support is active.
   warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:24:27.620648) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:27:18.098711) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:30:35.932381) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:32:42.453109) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:35:02.056863) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:37:23.665184) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:39:22.044491) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:41:15.848747) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:43:58.588610) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:47:24.806108) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:49:46.185737) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:51:22.986328) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:53:37.267002) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:55:53.848455) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:57:59.076721) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 15:59:50.409345) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:02:07.685825) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:04:31.489680) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:06:57.302324) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:08:54.843782) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:10:53.197793) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:13:07.037338) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:15:37.770393) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:17:30.144217) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:20:42.872655) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField Restaurant.scraped_at received a naive datetime (2025-07-21 16:25:13.356229) while time zone support is active.
+  warnings.warn(
+/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1595: RuntimeWarning: DateTimeField ScrapingJob.completed_at received a naive datetime (2025-07-21 16:25:20.387748) while time zone support is active.
+  warnings.warn(
+[INFO] Clicking language switch button: encounter nature, community and traditional barbacoa / https://www.fourseasons.com/puntamita/services-and-amenities/activities/
+[INFO] Clicking language switch button: delight your senses at our omakase table / https://www.fourseasons.com/jacksonhole/dining/culinary-experiences/prix-fixe-menu/four-seasons-omakase-experience/
+[INFO] Clicking language switch button: delight your senses at our omakase table / https://www.fourseasons.com/jacksonhole/dining/culinary-experiences/prix-fixe-menu/four-seasons-omakase-experience/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[INFO] Clicking language switch button: legal notice legal information, opens in a new tab / https://www.fourseasons.com/legal/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/dining/
+[DEBUG] Final URL after language switch: https://www.fourseasons.com/dining/
+Model: gpt-4o | Tokens used: 1511
+Model: gpt-4o-mini | Tokens used: 209
+Model: gpt-4o-mini | Tokens used: 117
+Model: gpt-4o-mini | Tokens used: 114
+Model: gpt-4o-mini | Tokens used: 105
+Model: gpt-4o-mini | Tokens used: 115
+Model: gpt-4o-mini | Tokens used: 243
+Model: gpt-4o-mini | Tokens used: 99
+Model: gpt-4o-mini | Tokens used: 113
+Model: gpt-4o-mini | Tokens used: 110
+Model: gpt-4o-mini | Tokens used: 1007
+Model: gpt-4o-mini | Tokens used: 110
+Model: gpt-4o-mini | Tokens used: 602
+Model: gpt-4o-mini | Tokens used: 126
+Model: gpt-4o-mini | Tokens used: 524
+Model: gpt-4o-mini | Tokens used: 988
+Model: gpt-4o-mini | Tokens used: 108
+Model: gpt-4o-mini | Tokens used: 101
+Model: gpt-4o-mini | Tokens used: 119
+Processing failed: the connection is closed

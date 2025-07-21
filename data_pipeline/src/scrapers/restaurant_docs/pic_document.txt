@@ -1,10 +1,10 @@
 # Pic
 
 ## Cuisine
-Fine Dining
+French
 
 ## Ambiance & Atmosphere
-Sophisticated culinary experience focused on sincerity and sharing values.
+Gastronomic atmosphere with a focus on wellness and wine experiences
 
 ## Location
 Valence, France
@@ -14,9 +14,9 @@ Valence, France
 Country: France
 City: Valence
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:38:50 CEST
+Current local time: 2025-07-21 19:36:48 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:38:50 UTC
+Generated: 2025-07-21 17:36:48 UTC
 Source: http://www.anne-sophie-pic.com

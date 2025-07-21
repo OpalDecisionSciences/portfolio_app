@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-A welcoming and relaxing atmosphere reflecting the art of hosting; situated in a historic former postal relay.
+A place to share, conducive to relaxation and disconnection, without pretension.
 
 ## Location
-Chagny, Bourgogne, France
+36, place d’Armes – 71150 Chagny Bourgogne France
 
 ## Location & Time Zone
 
 Country: France
 City: Chagny
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:39:15 CEST
+Current local time: 2025-07-21 19:38:14 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:39:15 UTC
+Generated: 2025-07-21 17:38:14 UTC
 Source: https://www.lameloise.fr/

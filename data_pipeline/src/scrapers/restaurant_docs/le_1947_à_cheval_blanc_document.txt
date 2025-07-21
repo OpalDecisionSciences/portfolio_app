@@ -1,22 +1,22 @@
 # Le 1947 à Cheval Blanc
 
 ## Cuisine
-French
+Savoyard
 
 ## Ambiance & Atmosphere
-Exclusive, modern, and surprising atmosphere offering a luxury experience.
+Audacious, modern, and exclusive, with a luxurious atmosphere and attentive service.
 
 ## Location
-Courchevel 1850, France
+Courchevel, Three Valleys, France
 
 ## Location & Time Zone
 
 Country: France
 City: Courchevel
 Timezone: Europe/Paris
-Current local time: 2025-07-20 21:43:50 CEST
+Current local time: 2025-07-21 20:04:00 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:43:50 UTC
+Generated: 2025-07-21 18:04:00 UTC
 Source: https://www.chevalblanc.com/fr/maison/courchevel/

@@ -4,19 +4,12 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-Innovative, with a focus on authenticity and unique experiences for customers.
+Innovative and gourmet atmosphere with a focus on customer experience
 
 ## Location
-Pavilion Ledoyen, Paris - FRANCE
-
-## Location & Time Zone
-
-Country: France
-City: Paris
-Timezone: Europe/Paris
-Current local time: 2025-07-20 21:43:16 CEST
+Multiple locations including Pavillon Ledoyen Paris, Hotel Hermitage Monaco, Four Seasons London
 
 ## Document Information
 
-Generated: 2025-07-20 19:43:16 UTC
+Generated: 2025-07-21 18:02:25 UTC
 Source: https://www.yannick-alleno.com
