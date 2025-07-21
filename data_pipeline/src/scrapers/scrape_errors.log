@@ -22941,3 +22941,445 @@ ERROR:image_scraper:Error extracting images from https://www.yannick-alleno.com:
 ERROR:image_scraper:Error extracting images from https://www.restaurant-amador.com/: [Errno 8] Exec format error: '/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/THIRD_PARTY_NOTICES.chromedriver'
 ERROR:image_scraper:Error extracting images from https://www.mandarinoriental.com/en/hong-kong/the-landmark/dine/amber: [Errno 8] Exec format error: '/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/THIRD_PARTY_NOTICES.chromedriver'
 ERROR:comprehensive_restaurant_scraper:Error processing image from https://www.tresind.com/wp-content/plugins/gtranslate/flags/svg/en.svg: cannot identify image file <_io.BytesIO object at 0x157d67100>
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:Error creating RestaurantImage: value too long for type character varying(200)
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:Error creating RestaurantImage: value too long for type character varying(200)
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:processors.image_integrator:OpenAI Vision categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Hiša Franko
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Trèsind Studio
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: FZN by Björn Frantzén
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Hiša Franko
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Trèsind Studio
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: FZN by Björn Frantzén
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Le Louis XV - Alain Ducasse à l'Hôtel de Paris
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:root:Failed to scrape https://www.floconsdesel.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x0000000104fcb55c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000104fc3454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x0000000104b123f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x0000000104b180b0 cxxbridge1$string$len + 114400
+4   chromedriver                        0x0000000104b1a3f4 cxxbridge1$string$len + 123428
+5   chromedriver                        0x0000000104b1a49c cxxbridge1$string$len + 123596
+6   chromedriver                        0x0000000104b546ac cxxbridge1$string$len + 361692
+7   chromedriver                        0x0000000104b4efbc cxxbridge1$string$len + 339436
+8   chromedriver                        0x0000000104b9ab1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x0000000104b4da0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x0000000104f8e5e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x0000000104f91848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x0000000104f6f234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x0000000104f92104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x0000000104f602e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000104fb1ff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000104fb2184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000104fc3090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Hiša Franko
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Trèsind Studio
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: FZN by Björn Frantzén
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR:michelin_csv_processor:Failed to import restaurant: Le Louis XV - Alain Ducasse à l'Hôtel de Paris
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:root:Failed to scrape https://www.floconsdesel.com
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 122, in _scrape_content
+    (btn.text or "").lower().strip(),
+     ^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 89, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.158); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+0   chromedriver                        0x000000010512f55c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000105127454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x0000000104c763f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x0000000104c7c0b0 cxxbridge1$string$len + 114400
+4   chromedriver                        0x0000000104c7e3f4 cxxbridge1$string$len + 123428
+5   chromedriver                        0x0000000104c7e49c cxxbridge1$string$len + 123596
+6   chromedriver                        0x0000000104cb86ac cxxbridge1$string$len + 361692
+7   chromedriver                        0x0000000104cb2fbc cxxbridge1$string$len + 339436
+8   chromedriver                        0x0000000104cfeb1c cxxbridge1$string$len + 649548
+9   chromedriver                        0x0000000104cb1a0c cxxbridge1$string$len + 333884
+10  chromedriver                        0x00000001050f25e0 cxxbridge1$str$ptr + 2481340
+11  chromedriver                        0x00000001050f5848 cxxbridge1$str$ptr + 2494244
+12  chromedriver                        0x00000001050d3234 cxxbridge1$str$ptr + 2353424
+13  chromedriver                        0x00000001050f6104 cxxbridge1$str$ptr + 2496480
+14  chromedriver                        0x00000001050c42e4 cxxbridge1$str$ptr + 2292160
+15  chromedriver                        0x0000000105115ff8 cxxbridge1$str$ptr + 2627284
+16  chromedriver                        0x0000000105116184 cxxbridge1$str$ptr + 2627680
+17  chromedriver                        0x0000000105127090 cxxbridge1$str$ptr + 2697068
+18  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+19  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:unified_restaurant_scraper:AI image categorization failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+ERROR:root:Failed all retries for model gpt-4o-mini.
+ERROR:michelin_csv_processor:Error updating restaurant with comprehensive data: name 'timezone' is not defined
+ERROR:root:Failed to scrape https://www.passedat.fr
+Traceback (most recent call last):
+  File "/Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers/llm_web_scraper.py", line 104, in _scrape_content
+    self.driver.get(self.url)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/Users/iamai/projects/portfolio_app/.venv/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=138.0.7204.158)
+Stacktrace:
+0   chromedriver                        0x000000010512f55c cxxbridge1$str$ptr + 2731064
+1   chromedriver                        0x0000000105127454 cxxbridge1$str$ptr + 2698032
+2   chromedriver                        0x0000000104c763f8 cxxbridge1$string$len + 90664
+3   chromedriver                        0x0000000104c5fdc8 chromedriver + 196040
+4   chromedriver                        0x0000000104c82f14 cxxbridge1$string$len + 142660
+5   chromedriver                        0x0000000104ce59bc cxxbridge1$string$len + 546796
+6   chromedriver                        0x0000000104cfe638 cxxbridge1$string$len + 648296
+7   chromedriver                        0x0000000104cb1a0c cxxbridge1$string$len + 333884
+8   chromedriver                        0x00000001050f25e0 cxxbridge1$str$ptr + 2481340
+9   chromedriver                        0x00000001050f5848 cxxbridge1$str$ptr + 2494244
+10  chromedriver                        0x00000001050d3234 cxxbridge1$str$ptr + 2353424
+11  chromedriver                        0x00000001050f6104 cxxbridge1$str$ptr + 2496480
+12  chromedriver                        0x00000001050c42e4 cxxbridge1$str$ptr + 2292160
+13  chromedriver                        0x0000000105115ff8 cxxbridge1$str$ptr + 2627284
+14  chromedriver                        0x0000000105116184 cxxbridge1$str$ptr + 2627680
+15  chromedriver                        0x0000000105127090 cxxbridge1$str$ptr + 2697068
+16  libsystem_pthread.dylib             0x0000000198cbac0c _pthread_start + 136
+17  libsystem_pthread.dylib             0x0000000198cb5b80 thread_start + 8
+
+
+ERROR:unified_restaurant_scraper:Direct OpenAI call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}

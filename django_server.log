@@ -864,3 +864,70 @@ Django version 4.2.7, using settings 'portfolio_project.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 1 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): accounts.
+Run 'python manage.py migrate' to apply them.
+July 20, 2025 - 22:58:45
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 03:27:42
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 03:27:58
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 03:29:39
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 03:29:55
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 14:57:38
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 14:58:59
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 21, 2025 - 15:03:35
+Django version 4.2.7, using settings 'portfolio_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+

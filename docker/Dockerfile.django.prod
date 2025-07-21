@@ -1,0 +1,76 @@
+# Production Django application Dockerfile
+FROM python:3.11-slim as base
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=portfolio_project.settings.production
+
+# Set work directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        postgresql-client \
+        build-essential \
+        libpq-dev \
+        wget \
+        curl \
+        unzip \
+        gnupg \
+        ca-certificates \
+        chromium \
+        chromium-driver \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables for Chromium
+ENV CHROME_BIN=/usr/bin/chromium
+ENV CHROMEDRIVER=/usr/lib/chromium/chromedriver
+
+# Create app user for security
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Install Python dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install gunicorn==21.2.0
+
+# Copy project files
+COPY ./django_app/src /app/
+COPY ./shared /shared/
+COPY ./data_pipeline /data_pipeline/
+
+# Add shared modules to Python path
+ENV PYTHONPATH="/app:/shared/src:/data_pipeline/src:$PYTHONPATH"
+
+# Create necessary directories and set permissions
+RUN mkdir -p /app/media /app/staticfiles /app/logs \
+    && chown -R appuser:appuser /app /shared /data_pipeline
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
+# Switch to non-root user
+USER appuser
+
+# Expose port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health/ || exit 1
+
+# Start gunicorn
+CMD ["gunicorn", "portfolio_project.wsgi:application", \
+     "--bind", "0.0.0.0:8000", \
+     "--workers", "3", \
+     "--worker-class", "gevent", \
+     "--worker-connections", "1000", \
+     "--max-requests", "1000", \
+     "--max-requests-jitter", "100", \
+     "--timeout", "30", \
+     "--keep-alive", "5", \
+     "--access-logfile", "-", \
+     "--error-logfile", "-", \
+     "--log-level", "info"]

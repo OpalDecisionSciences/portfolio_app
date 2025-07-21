@@ -154,7 +154,7 @@ Key environment variables to configure:
 ```bash
 # Required
 OPENAI_API_KEY=your-openai-api-key
-DB_PASSWORD=your-database-password
+DATABASE_PASSWORD=your-database-password
 DJANGO_SECRET_KEY=your-secret-key
 
 # Optional

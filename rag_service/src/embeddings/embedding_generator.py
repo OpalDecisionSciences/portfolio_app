@@ -31,12 +31,13 @@ class EmbeddingGenerator:
         """Initialize the embedding generator."""
         self.embeddings = OpenAIEmbeddings()
         
-        # Database configuration
-        db_user = os.getenv("DB_USER", "postgres")
-        db_password = os.getenv("DB_PASSWORD", "password")
-        db_host = os.getenv("DB_HOST", "127.0.0.1")
-        db_port = os.getenv("DB_PORT", "5432")
-        db_name = os.getenv("DB_NAME", "portfolio_db")
+        # Database configuration - Using Django-compatible environment variables
+        # Support both Django naming (DATABASE_*) and legacy naming for compatibility
+        db_user = os.getenv("DATABASE_USER") or os.getenv("DB_USER", "postgres")
+        db_password = os.getenv("DATABASE_PASSWORD") or os.getenv("DB_PASSWORD", "password")
+        db_host = os.getenv("DATABASE_HOST") or os.getenv("DB_HOST", "127.0.0.1")
+        db_port = os.getenv("DATABASE_PORT") or os.getenv("DB_PORT", "5432")
+        db_name = os.getenv("DATABASE_NAME") or os.getenv("DB_NAME", "portfolio_db")
         
         self.connection_string = (
             f"postgresql+psycopg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"

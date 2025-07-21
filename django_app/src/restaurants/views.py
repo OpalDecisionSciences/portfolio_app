@@ -19,6 +19,9 @@ import os
 from pathlib import Path
 from .forms import RestaurantReviewForm, RestaurantSearchForm
 from .recommenders import RestaurantRecommender
+import requests
+from django.conf import settings
+import math
 
 
 def home_view(request):
@@ -128,18 +131,18 @@ class RestaurantListView(ListView):
                 Q(description__icontains=search_query)
             )
         
-        # Filters
+        # Filters with case-insensitive matching
         country = self.request.GET.get('country', '')
         if country:
-            queryset = queryset.filter(country=country)
+            queryset = queryset.filter(country__iexact=country)
         
         city = self.request.GET.get('city', '')
         if city:
-            queryset = queryset.filter(city=city)
+            queryset = queryset.filter(city__iexact=city)
         
         cuisine = self.request.GET.get('cuisine', '')
         if cuisine:
-            queryset = queryset.filter(cuisine_type=cuisine)
+            queryset = queryset.filter(cuisine_type__iexact=cuisine)
         
         stars = self.request.GET.get('stars', '')
         if stars:
@@ -436,6 +439,238 @@ def restaurant_search_api(request):
     })
 
 
+def geocode_address(address):
+    """Geocode an address using Google Maps API."""
+    google_maps_api_key = getattr(settings, 'GOOGLE_MAPS_API_KEY', None)
+    if not google_maps_api_key:
+        return None
+    
+    try:
+        url = "https://maps.googleapis.com/maps/api/geocode/json"
+        params = {
+            'address': address,
+            'key': google_maps_api_key
+        }
+        response = requests.get(url, params=params, timeout=5)
+        data = response.json()
+        
+        if data['status'] == 'OK' and data['results']:
+            location = data['results'][0]['geometry']['location']
+            return {
+                'lat': location['lat'],
+                'lng': location['lng'],
+                'formatted_address': data['results'][0]['formatted_address']
+            }
+    except Exception as e:
+        print(f"Geocoding error: {e}")
+    
+    return None
+
+
+def calculate_distance(lat1, lng1, lat2, lng2):
+    """Calculate distance between two points using Haversine formula."""
+    R = 6371  # Earth's radius in kilometers
+    
+    dlat = math.radians(lat2 - lat1)
+    dlng = math.radians(lng2 - lng1)
+    a = (math.sin(dlat/2) * math.sin(dlat/2) + 
+         math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * 
+         math.sin(dlng/2) * math.sin(dlng/2))
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+    distance = R * c
+    
+    return distance
+
+
+def geographic_search_api(request):
+    """Enhanced geographic search with Google Maps integration."""
+    address = request.GET.get('address', '')
+    query = request.GET.get('q', '')
+    max_results = int(request.GET.get('max_results', 10))
+    radius_km = float(request.GET.get('radius', 50))  # Default 50km radius
+    
+    result = {
+        'query': query,
+        'address': address,
+        'results': [],
+        'fallback_results': [],
+        'message': '',
+        'search_type': 'local'
+    }
+    
+    # First try to geocode the address
+    geocoded = geocode_address(address) if address else None
+    
+    if geocoded:
+        user_lat = geocoded['lat']
+        user_lng = geocoded['lng']
+        
+        # Find restaurants with coordinates within radius
+        restaurants_with_coords = Restaurant.objects.filter(
+            is_active=True,
+            latitude__isnull=False,
+            longitude__isnull=False
+        ).select_related().prefetch_related('images')
+        
+        nearby_restaurants = []
+        for restaurant in restaurants_with_coords:
+            distance = calculate_distance(
+                user_lat, user_lng,
+                float(restaurant.latitude), float(restaurant.longitude)
+            )
+            if distance <= radius_km:
+                nearby_restaurants.append({
+                    'restaurant': restaurant,
+                    'distance': distance
+                })
+        
+        # Sort by distance
+        nearby_restaurants.sort(key=lambda x: x['distance'])
+        
+        # Apply query filter if provided
+        if query:
+            filtered_restaurants = []
+            query_lower = query.lower()
+            for item in nearby_restaurants:
+                restaurant = item['restaurant']
+                if (query_lower in restaurant.name.lower() or
+                    (restaurant.cuisine_type and query_lower in restaurant.cuisine_type.lower()) or
+                    query_lower in restaurant.city.lower()):
+                    filtered_restaurants.append(item)
+            nearby_restaurants = filtered_restaurants
+        
+        # Format results
+        for item in nearby_restaurants[:max_results]:
+            restaurant = item['restaurant']
+            featured_image = get_restaurant_featured_image(restaurant)
+            
+            result['results'].append({
+                'id': str(restaurant.id),
+                'name': restaurant.name,
+                'city': restaurant.city,
+                'country': restaurant.country,
+                'cuisine_type': restaurant.cuisine_type,
+                'michelin_stars': restaurant.michelin_stars,
+                'rating': float(restaurant.rating) if restaurant.rating else None,
+                'price_range': restaurant.price_range,
+                'url': restaurant.get_absolute_url(),
+                'description': restaurant.description[:200] + '...' if len(restaurant.description) > 200 else restaurant.description,
+                'distance_km': round(item['distance'], 1),
+                'featured_image': featured_image,
+                'image_count': restaurant.images.count(),
+            })
+        
+        if result['results']:
+            result['message'] = f"Found {len(result['results'])} restaurant{'s' if len(result['results']) != 1 else ''} within {radius_km}km of {geocoded['formatted_address']}"
+        else:
+            # Fallback: find nearest Michelin restaurants regardless of query
+            michelin_restaurants = []
+            for restaurant in restaurants_with_coords.filter(michelin_stars__gt=0):
+                distance = calculate_distance(
+                    user_lat, user_lng,
+                    float(restaurant.latitude), float(restaurant.longitude)
+                )
+                michelin_restaurants.append({
+                    'restaurant': restaurant,
+                    'distance': distance
+                })
+            
+            michelin_restaurants.sort(key=lambda x: x['distance'])
+            
+            # Format fallback results
+            for item in michelin_restaurants[:max_results]:
+                restaurant = item['restaurant']
+                featured_image = get_restaurant_featured_image(restaurant)
+                
+                result['fallback_results'].append({
+                    'id': str(restaurant.id),
+                    'name': restaurant.name,
+                    'city': restaurant.city,
+                    'country': restaurant.country,
+                    'cuisine_type': restaurant.cuisine_type,
+                    'michelin_stars': restaurant.michelin_stars,
+                    'rating': float(restaurant.rating) if restaurant.rating else None,
+                    'price_range': restaurant.price_range,
+                    'url': restaurant.get_absolute_url(),
+                    'description': restaurant.description[:200] + '...' if len(restaurant.description) > 200 else restaurant.description,
+                    'distance_km': round(item['distance'], 1),
+                    'featured_image': featured_image,
+                    'image_count': restaurant.images.count(),
+                })
+            
+            if result['fallback_results']:
+                result['message'] = f"No restaurants found matching '{query}' near {geocoded['formatted_address']}. Here are the nearest Michelin-starred restaurants:"
+                result['search_type'] = 'fallback_nearest_michelin'
+            else:
+                result['message'] = f"No restaurants found near {geocoded['formatted_address']}. Try expanding your search area or browse our global collection."
+                result['search_type'] = 'no_results'
+    
+    else:
+        # Fallback to text-based location search
+        if address:
+            result['message'] = f"Could not locate '{address}'. Showing restaurants matching this location name:"
+        else:
+            result['message'] = "Please enter a location to find nearby restaurants."
+        
+        # Try to find restaurants by city/country name matching the address
+        if address:
+            restaurants = Restaurant.objects.filter(
+                Q(city__icontains=address) | Q(country__icontains=address),
+                is_active=True
+            ).select_related().prefetch_related('images')
+            
+            if query:
+                restaurants = restaurants.filter(
+                    Q(name__icontains=query) |
+                    Q(cuisine_type__icontains=query) |
+                    Q(description__icontains=query)
+                )
+            
+            # Format results
+            for restaurant in restaurants[:max_results]:
+                featured_image = get_restaurant_featured_image(restaurant)
+                
+                result['results'].append({
+                    'id': str(restaurant.id),
+                    'name': restaurant.name,
+                    'city': restaurant.city,
+                    'country': restaurant.country,
+                    'cuisine_type': restaurant.cuisine_type,
+                    'michelin_stars': restaurant.michelin_stars,
+                    'rating': float(restaurant.rating) if restaurant.rating else None,
+                    'price_range': restaurant.price_range,
+                    'url': restaurant.get_absolute_url(),
+                    'description': restaurant.description[:200] + '...' if len(restaurant.description) > 200 else restaurant.description,
+                    'featured_image': featured_image,
+                    'image_count': restaurant.images.count(),
+                })
+            
+            result['search_type'] = 'text_location_match'
+    
+    return JsonResponse(result)
+
+
+def get_restaurant_featured_image(restaurant):
+    """Helper function to get featured image for a restaurant."""
+    image = (
+        restaurant.images.filter(is_featured=True).first() or
+        restaurant.images.filter(is_menu_highlight=True).first() or
+        restaurant.images.filter(is_ambiance_highlight=True).first() or
+        restaurant.images.filter(ai_category='scenery_ambiance').first() or
+        restaurant.images.first()
+    )
+    
+    if image:
+        return {
+            'id': str(image.id),
+            'url': image.source_url if image.source_url else (image.image.url if image.image else None),
+            'caption': image.get_display_name(),
+            'category': image.ai_category,
+            'labels': image.ai_labels[:3] if image.ai_labels else [],
+        }
+    return None
+
+
 def restaurant_stats_api(request):
     """API endpoint for restaurant statistics."""
     stats = {
@@ -672,61 +907,141 @@ def scraping_job_detail(request, job_id):
 
 
 def gallery_view(request):
-    """Gallery view showing all restaurant images with filtering."""
+    """Gallery view showing restaurants with image carousels, grouped by restaurant."""
     
-    # Get all images with their restaurants
-    images = RestaurantImage.objects.select_related('restaurant').filter(
-        restaurant__is_active=True
-    )
+    # Build base queryset for restaurants with images
+    restaurants = Restaurant.objects.filter(
+        is_active=True,
+        images__isnull=False
+    ).prefetch_related('images').distinct()
     
-    # Filtering
+    # Enhanced filtering with AI labels support  
     category = request.GET.get('category', '')
     if category:
-        images = images.filter(ai_category=category)
+        # Check if it's an AI label or traditional category
+        if category in ['scenery_ambiance', 'menu_item', 'uncategorized']:
+            restaurants = restaurants.filter(images__ai_category=category)
+        else:
+            # Filter by AI labels for more granular filtering
+            restaurants = restaurants.filter(images__ai_labels__icontains=category)
     
     country = request.GET.get('country', '')
     if country:
-        images = images.filter(restaurant__country=country)
+        restaurants = restaurants.filter(country=country)
     
     cuisine = request.GET.get('cuisine', '')
     if cuisine:
-        images = images.filter(restaurant__cuisine_type=cuisine)
+        restaurants = restaurants.filter(cuisine_type__iexact=cuisine)
     
-    # Search
+    # Search with AI labels support
     search_query = request.GET.get('search', '')
     if search_query:
-        images = images.filter(
-            Q(restaurant__name__icontains=search_query) |
-            Q(restaurant__city__icontains=search_query) |
-            Q(caption__icontains=search_query) |
-            Q(ai_category__icontains=search_query)
-        )
+        restaurants = restaurants.filter(
+            Q(name__icontains=search_query) |
+            Q(city__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(images__caption__icontains=search_query) |
+            Q(images__ai_category__icontains=search_query) |
+            Q(images__ai_labels__icontains=search_query) |
+            Q(images__ai_description__icontains=search_query)
+        ).distinct()
     
-    # Order by newest first
-    images = images.order_by('-created_at')
+    # Order by restaurants with most images first, then by name
+    restaurants = restaurants.annotate(
+        image_count=models.Count('images')
+    ).order_by('-image_count', 'name')
     
-    # Pagination
-    paginator = Paginator(images, 24)  # 24 images per page
+    # Pagination - restaurants per page instead of images
+    paginator = Paginator(restaurants, 12)  # 12 restaurants per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    # Get filter options
-    categories = RestaurantImage.objects.values_list('ai_category', flat=True).distinct().exclude(ai_category='')
-    countries = Restaurant.objects.filter(is_active=True, images__isnull=False).values_list('country', flat=True).distinct()
-    cuisines = Restaurant.objects.filter(is_active=True, images__isnull=False).values_list('cuisine_type', flat=True).distinct().exclude(cuisine_type='')
+    # Calculate total images for display
+    total_images = RestaurantImage.objects.filter(
+        restaurant__in=restaurants
+    ).count()
+    
+    # Get improved filter options
+    
+    # 1. Enhanced Categories: Use top AI labels instead of basic categories
+    from collections import Counter
+    from itertools import chain
+    
+    # Get all AI labels and count frequency
+    all_labels = RestaurantImage.objects.exclude(ai_labels=[]).values_list('ai_labels', flat=True)
+    label_counter = Counter()
+    for label_list in all_labels:
+        if label_list:  # Ensure it's not empty
+            label_counter.update(label_list)
+    
+    # Get top 15 most common AI labels as categories
+    top_ai_labels = [label for label, count in label_counter.most_common(15) if count > 5]
+    
+    # Add traditional categories as backup
+    traditional_categories = ['scenery_ambiance', 'menu_item', 'uncategorized']
+    categories = traditional_categories + top_ai_labels
+    
+    # 2. Clean Countries: Filter out non-countries
+    import re
+    
+    # List of common country name patterns to validate
+    valid_country_patterns = [
+        r'^[A-Z][a-zA-Z\s]+$',  # Starts with capital, contains only letters and spaces
+        r'^[A-Z][a-zA-Z]+(\s[A-Z][a-zA-Z]+)*$'  # Proper country name format
+    ]
+    
+    # Get all countries and clean them
+    all_countries = Restaurant.objects.filter(
+        is_active=True, 
+        images__isnull=False
+    ).values_list('country', flat=True).distinct()
+    
+    # Filter out empty/invalid countries and normalize
+    clean_countries = set()  # Use set for automatic deduplication
+    for country in all_countries:
+        if country and country.strip():  # Not empty
+            country = country.strip()
+            # Filter out obvious non-countries (contains numbers, too many special chars, etc.)
+            if (not re.search(r'\d', country) and  # No numbers
+                len(country) > 2 and  # Not too short
+                len(country) < 50 and  # Not too long
+                not country.startswith('A-') and  # Not postal code
+                '-' not in country[:3]):  # Not starting with hyphen prefix
+                # Normalize country name: title case
+                normalized_country = country.title()
+                clean_countries.add(normalized_country)
+    
+    countries = sorted(list(clean_countries))
+    
+    # 3. Deduplicated Cuisines: Use set to remove duplicates with case normalization
+    cuisine_values = Restaurant.objects.filter(
+        is_active=True, 
+        images__isnull=False
+    ).values_list('cuisine_type', flat=True).distinct().exclude(cuisine_type='')
+    
+    # Normalize and deduplicate cuisines
+    normalized_cuisines = set()
+    for cuisine in cuisine_values:
+        if cuisine and cuisine.strip():
+            # Normalize: title case and strip whitespace
+            normalized = cuisine.strip().title()
+            normalized_cuisines.add(normalized)
+    
+    cuisines = sorted(list(normalized_cuisines))
     
     context = {
-        'images': page_obj,
-        'categories': sorted(categories),
-        'countries': sorted(countries),
-        'cuisines': sorted(cuisines),
+        'restaurants': page_obj,  # Changed from images to restaurants
+        'categories': categories,
+        'countries': countries,
+        'cuisines': cuisines,
         'current_filters': {
             'category': category,
             'country': country,
             'cuisine': cuisine,
             'search': search_query,
         },
-        'total_images': images.count(),
+        'total_images': total_images,
+        'total_restaurants': restaurants.count(),
         'is_paginated': page_obj.has_other_pages(),
         'page_obj': page_obj,
     }

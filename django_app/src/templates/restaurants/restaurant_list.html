@@ -34,15 +34,30 @@
 			margin-bottom: 30px;
 		}
 		
-		.list-post .img-holder figure img {
+		.list-post .img-holder {
+			position: relative;
 			width: 100%;
 			height: 250px;
+			overflow: hidden;
+			border-radius: 8px;
+		}
+		
+		.list-post .img-holder figure {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		}
+		
+		.list-post .img-holder figure img {
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
+			transition: transform 0.3s ease;
 		}
 		
 		.restaurant-image-fallback {
 			width: 100%;
-			height: 250px;
+			height: 100%;
 			background: linear-gradient(45deg, #f8f9fa, #e9ecef);
 			display: flex;
 			align-items: center;
@@ -57,6 +72,79 @@
 			margin-left: 10px;
 		}
 		
+		.image-carousel {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.image-carousel-track {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			transition: transform 0.3s ease;
+		}
+		
+		.image-carousel img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			flex-shrink: 0;
+		}
+		
+		.image-carousel-nav {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			gap: 5px;
+			z-index: 10;
+		}
+		
+		.carousel-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.5);
+			cursor: pointer;
+			transition: background 0.3s ease;
+		}
+		
+		.carousel-dot.active {
+			background: white;
+		}
+		
+		.image-controls {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: white;
+			border: none;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			font-size: 14px;
+			z-index: 10;
+		}
+		
+		.image-controls.prev {
+			left: 10px;
+		}
+		
+		.image-controls.next {
+			right: 10px;
+		}
+		
+		.img-holder:hover .image-controls {
+			display: flex;
+		}
+		
 		.image-count-badge {
 			position: absolute;
 			top: 10px;
@@ -66,6 +154,7 @@
 			padding: 4px 8px;
 			border-radius: 12px;
 			font-size: 12px;
+			z-index: 5;
 		}
 		
 		.filter-sidebar {
@@ -225,49 +314,89 @@
 								</div>
 							</div>
 							
+							<!-- LLM Chatbot Engagement -->
+							<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: center; color: white;">
+								<h4 style="color: white; margin-bottom: 10px;">
+									<i class="icon-heart" style="margin-right: 8px;"></i>
+									Discover Your Perfect Restaurant
+								</h4>
+								<p style="margin-bottom: 15px; font-size: 16px;">
+									What's your favorite style of cuisine? I can help you find restaurants that match your taste!
+								</p>
+								<button onclick="startCuisineChat()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 14px; transition: all 0.3s ease;">
+									🍽️ Tell Me Your Preferences
+								</button>
+							</div>
+							
 							{% if restaurants %}
 							<div class="listing fancy">
 								<ul class="row">
 									{% for restaurant in restaurants %}
 									<li class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 										<div class="list-post featured">
-											<div class="img-holder" style="position: relative;">
-												{% with restaurant.images.first as featured_image %}
-													{% if featured_image %}
-														{% if featured_image.source_url %}
+											<div class="img-holder" data-restaurant-id="{{ restaurant.id }}">
+												{% if restaurant.images.all %}
+													{% if restaurant.images.count == 1 %}
+														<!-- Single image -->
+														{% with restaurant.images.first as featured_image %}
 															<figure>
 																<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}">
-																	<img src="{{ featured_image.source_url }}" 
-																		 alt="{{ restaurant.name }}" 
-																		 class="img-thumb wp-post-image"
-																		 onerror="this.parentElement.parentElement.innerHTML='<div class=\'restaurant-image-fallback\'><i class=\'icon-knife-fork\'></i></div>'">
+																	{% if featured_image.source_url %}
+																		<img src="{{ featured_image.source_url }}" 
+																			 alt="{{ restaurant.name }}" 
+																			 class="img-thumb wp-post-image"
+																			 onerror="this.parentElement.parentElement.innerHTML='<div class=\'restaurant-image-fallback\'><i class=\'icon-knife-fork\'></i></div>'">
+																	{% elif featured_image.image %}
+																		<img src="{{ featured_image.image.url }}" 
+																			 alt="{{ restaurant.name }}" 
+																			 class="img-thumb wp-post-image"
+																			 onerror="this.parentElement.parentElement.innerHTML='<div class=\'restaurant-image-fallback\'><i class=\'icon-knife-fork\'></i></div>'">
+																	{% endif %}
 																</a>
 															</figure>
-														{% elif featured_image.image %}
-															<figure>
-																<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}">
-																	<img src="{{ featured_image.image.url }}" 
-																		 alt="{{ restaurant.name }}" 
-																		 class="img-thumb wp-post-image"
-																		 onerror="this.parentElement.parentElement.innerHTML='<div class=\'restaurant-image-fallback\'><i class=\'icon-knife-fork\'></i></div>'">
-																</a>
-															</figure>
-														{% else %}
-															<div class="restaurant-image-fallback">
-																<i class="icon-knife-fork"></i>
-															</div>
-														{% endif %}
-														{% if restaurant.images.count > 1 %}
-															<div class="image-count-badge">
-																+{{ restaurant.images.count|add:"-1" }} more
-															</div>
-														{% endif %}
+														{% endwith %}
 													{% else %}
-														<div class="restaurant-image-fallback">
-															<i class="icon-knife-fork"></i>
+														<!-- Multiple images - carousel -->
+														<div class="image-carousel">
+															<div class="image-carousel-track" id="carousel-{{ restaurant.id }}">
+																{% for image in restaurant.images.all|slice:":5" %}
+																	{% if image.source_url %}
+																		<img src="{{ image.source_url }}" 
+																			 alt="{{ restaurant.name }}" 
+																			 onerror="this.style.display='none'">
+																	{% elif image.image %}
+																		<img src="{{ image.image.url }}" 
+																			 alt="{{ restaurant.name }}" 
+																			 onerror="this.style.display='none'">
+																	{% endif %}
+																{% endfor %}
+															</div>
+															
+															<!-- Navigation controls -->
+															<button class="image-controls prev" onclick="prevImage('{{ restaurant.id }}')">‹</button>
+															<button class="image-controls next" onclick="nextImage('{{ restaurant.id }}')">›</button>
+															
+															<!-- Dots navigation -->
+															<div class="image-carousel-nav">
+																{% for image in restaurant.images.all|slice:":5" %}
+																	<div class="carousel-dot {% if forloop.first %}active{% endif %}" 
+																		 onclick="goToImage('{{ restaurant.id }}', {{ forloop.counter0 }})"></div>
+																{% endfor %}
+															</div>
+															
+															<!-- Image count badge -->
+															{% if restaurant.images.count > 5 %}
+																<div class="image-count-badge">
+																	{{ restaurant.images.count }} photos
+																</div>
+															{% endif %}
 														</div>
 													{% endif %}
-												{% endwith %}
+												{% else %}
+													<div class="restaurant-image-fallback">
+														<i class="icon-knife-fork"></i>
+													</div>
+												{% endif %}
 											</div>
 											<div class="text-holder">
 												<div class="list-rating">
@@ -394,5 +523,108 @@
 	<!-- Scripts -->
 	<script src="{% static 'js/scripts.js' %}"></script>
 	<script src="{% static 'js/functions.js' %}"></script>
+	
+	<!-- Image Carousel JavaScript -->
+	<script>
+		// Track current image index for each restaurant carousel
+		const carouselStates = {};
+		
+		function initializeCarousel(restaurantId) {
+			if (!carouselStates[restaurantId]) {
+				const track = document.getElementById('carousel-' + restaurantId);
+				const images = track ? track.querySelectorAll('img') : [];
+				carouselStates[restaurantId] = {
+					currentIndex: 0,
+					totalImages: images.length
+				};
+			}
+		}
+		
+		function updateCarousel(restaurantId) {
+			const track = document.getElementById('carousel-' + restaurantId);
+			const dots = document.querySelectorAll(`[data-restaurant-id="${restaurantId}"] .carousel-dot`);
+			
+			if (!track || !carouselStates[restaurantId]) return;
+			
+			const state = carouselStates[restaurantId];
+			const translateX = -state.currentIndex * 100;
+			track.style.transform = `translateX(${translateX}%)`;
+			
+			// Update dots
+			dots.forEach((dot, index) => {
+				dot.classList.toggle('active', index === state.currentIndex);
+			});
+		}
+		
+		function prevImage(restaurantId) {
+			initializeCarousel(restaurantId);
+			const state = carouselStates[restaurantId];
+			
+			if (state.currentIndex > 0) {
+				state.currentIndex--;
+			} else {
+				state.currentIndex = state.totalImages - 1; // Loop to last image
+			}
+			
+			updateCarousel(restaurantId);
+		}
+		
+		function nextImage(restaurantId) {
+			initializeCarousel(restaurantId);
+			const state = carouselStates[restaurantId];
+			
+			if (state.currentIndex < state.totalImages - 1) {
+				state.currentIndex++;
+			} else {
+				state.currentIndex = 0; // Loop to first image
+			}
+			
+			updateCarousel(restaurantId);
+		}
+		
+		function goToImage(restaurantId, index) {
+			initializeCarousel(restaurantId);
+			const state = carouselStates[restaurantId];
+			
+			if (index >= 0 && index < state.totalImages) {
+				state.currentIndex = index;
+				updateCarousel(restaurantId);
+			}
+		}
+		
+		// Initialize all carousels when page loads
+		document.addEventListener('DOMContentLoaded', function() {
+			const carousels = document.querySelectorAll('.image-carousel-track');
+			carousels.forEach(carousel => {
+				const restaurantId = carousel.id.replace('carousel-', '');
+				initializeCarousel(restaurantId);
+				updateCarousel(restaurantId);
+			});
+		});
+		
+		// LLM Chatbot engagement for cuisine preferences
+		function startCuisineChat() {
+			// This function would integrate with your RAG chatbot system
+			console.log('Starting cuisine preference chat...');
+			
+			// Example: You could trigger your RAG chatbot with a pre-filled prompt
+			// initiateChatWith("What's your favorite cuisine? I can recommend restaurants based on your preferences!");
+			
+			// Or scroll to a chat interface if it exists on the page
+			const chatInterface = document.getElementById('rag-chatbot');
+			if (chatInterface) {
+				chatInterface.scrollIntoView({ behavior: 'smooth' });
+				// Pre-fill with cuisine preference prompt
+				const chatInput = chatInterface.querySelector('input, textarea');
+				if (chatInput) {
+					chatInput.value = "What's your favorite cuisine style? I'm looking for restaurant recommendations!";
+					chatInput.focus();
+				}
+			} else {
+				// Fallback: show alert with instructions
+				alert('🍽️ Chat coming soon! You\'ll be able to get personalized restaurant recommendations based on your favorite cuisines and preferences.');
+			}
+		}
+	</script>
 </body>
 </html>

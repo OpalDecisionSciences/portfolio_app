@@ -1,0 +1,202 @@
+version: '3.8'
+
+services:
+  # PostgreSQL database with pgvector extension
+  db:
+    image: pgvector/pgvector:pg15
+    container_name: portfolio_db_prod
+    env_file: 
+      - .env.prod
+    volumes:
+      - postgres_data_prod:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis for caching and session management
+  redis:
+    image: redis:7-alpine
+    container_name: portfolio_redis_prod
+    env_file:
+      - .env.prod
+    volumes:
+      - redis_data_prod:/data
+      - ./docker/config/redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Django web application
+  web:
+    build: 
+      context: .
+      dockerfile: ./docker/Dockerfile.django.prod
+    container_name: portfolio_web_prod
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env.prod
+    volumes:
+      - media_volume_prod:/app/media
+      - static_volume_prod:/app/staticfiles
+      - ./logs:/app/logs
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn portfolio_project.wsgi:application 
+             --bind 0.0.0.0:8000 
+             --workers 3 
+             --worker-class gevent 
+             --worker-connections 1000 
+             --max-requests 1000 
+             --max-requests-jitter 100 
+             --timeout 30 
+             --keep-alive 5 
+             --access-logfile /app/logs/gunicorn-access.log 
+             --error-logfile /app/logs/gunicorn-error.log 
+             --log-level info"
+
+  # FastAPI RAG service
+  rag:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.rag
+    container_name: portfolio_rag_prod
+    env_file:
+      - .env.prod
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./rag_service/src:/app
+      - ./shared:/shared
+      - ./logs:/app/logs
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8001 --workers 2
+
+  # Celery worker for background tasks
+  celery:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.django.prod
+    container_name: portfolio_celery_prod
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file: 
+      - .env.prod
+    volumes:
+      - media_volume_prod:/app/media
+      - ./logs:/app/logs
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    command: celery -A portfolio_project worker --loglevel=info --concurrency=2
+
+  # Celery beat for periodic tasks
+  celery-beat:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.django.prod
+    container_name: portfolio_celery_beat_prod
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file: 
+      - .env.prod
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    command: celery -A portfolio_project beat --loglevel=info
+
+  # Flower for monitoring Celery tasks (optional in production)
+  flower:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.django.prod
+    container_name: portfolio_flower_prod
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file: 
+      - .env.prod
+    ports:
+      - "127.0.0.1:5555:5555"  # Only accessible from localhost
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    command: celery -A portfolio_project flower --port=5555
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: portfolio_nginx_prod
+    depends_on:
+      - web
+      - rag
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - static_volume_prod:/staticfiles:ro
+      - media_volume_prod:/media:ro
+      - ./ssl:/etc/letsencrypt:ro
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - portfolio_network_prod
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Certbot for SSL certificates
+  certbot:
+    image: certbot/certbot
+    container_name: portfolio_certbot
+    volumes:
+      - ./ssl:/etc/letsencrypt
+      - ./ssl-challenges:/var/www/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot --email your-email@domain.com --agree-tos --no-eff-email --staging -d your-domain.com -d www.your-domain.com
+    profiles:
+      - ssl-setup
+
+volumes:
+  postgres_data_prod:
+  redis_data_prod:
+  media_volume_prod:
+  static_volume_prod:
+
+networks:
+  portfolio_network_prod:
+    driver: bridge

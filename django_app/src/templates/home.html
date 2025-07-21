@@ -59,6 +59,102 @@
 			font-size: 32px;
 			border-radius: 8px;
 		}
+		
+		/* Home Page Image Carousel Styles */
+		.home-image-carousel {
+			position: relative;
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+			border-radius: 8px 8px 0 0;
+		}
+		
+		.home-carousel-track {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			transition: transform 0.3s ease;
+		}
+		
+		.home-carousel-track img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			flex-shrink: 0;
+		}
+		
+		.home-carousel-nav {
+			position: absolute;
+			bottom: 8px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			gap: 4px;
+			z-index: 10;
+		}
+		
+		.home-carousel-dot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.5);
+			cursor: pointer;
+			transition: background 0.3s ease;
+		}
+		
+		.home-carousel-dot.active {
+			background: white;
+		}
+		
+		.home-carousel-controls {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: white;
+			border: none;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			font-size: 12px;
+			z-index: 10;
+		}
+		
+		.home-carousel-controls.prev {
+			left: 8px;
+		}
+		
+		.home-carousel-controls.next {
+			right: 8px;
+		}
+		
+		.home-image-carousel:hover .home-carousel-controls {
+			display: flex;
+		}
+		
+		.michelin-star-badge {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: rgba(0,0,0,0.7);
+			color: white;
+			padding: 5px 10px;
+			border-radius: 15px;
+			font-size: 12px;
+			z-index: 10;
+		}
+		
+		.customer-rating {
+			color: #f39c12;
+		}
+		
+		.michelin-stars {
+			color: #e74c3c;
+		}
 	</style>
 </head>
 
@@ -116,11 +212,10 @@
 							<div class="main-location">
 								<ul>
 									<li class="location-has-children choose-location">
-										<form action="#">
-											<input type="text" value="" name="location" placeholder="Enter your delivery location" autocomplete="off">
-											<span id="foodbakery_radius_location_open" class="foodbakery-radius-location"><i class="icon-target5"></i></span>
+										<form action="#" id="location-search-form">
+											<input type="text" value="" name="location" id="location-input" placeholder="Enter your location for nearby restaurants" autocomplete="off">
+											<span id="get-location-btn" class="foodbakery-radius-location" title="Use my current location"><i class="icon-target5"></i></span>
 										</form>
-										
 									</li>
 								</ul>
 								</div>
@@ -178,70 +273,26 @@
 							<div class="main-search fancy bg-holder">
 								<form id="restaurant-search-form" action="{% url 'restaurants:restaurant_list' %}" method="GET">
 									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+										<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
 											<div class="field-holder">
-												<input type="text" name="search" id="restaurant-query" placeholder="Restaurant name, cuisine, or city" autocomplete="off">
+												<input type="text" name="search" id="restaurant-query" placeholder="Search restaurants, cuisine, or enter a location (e.g., 'French restaurants in Paris' or 'New York, NY')" autocomplete="off">
 												<div id="search-suggestions" class="search-suggestions" style="display: none;"></div>
 											</div>
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
 											<div class="field-holder">
-												<ul>
-													<li class="select-location">
-														<div class="foodbakery-locations-fields-group foodbakery-focus-out">
-															<span class="foodbakery-search-location-icon"><i class="icon-location"></i></span>
-															<span id="foodbakery_radius_location_open333" class="foodbakery-radius-location"><i class="icon-target5"></i></span>
-															<input type="text" name="location" class="location-field-text filter" placeholder="Location (city or country)" autocomplete="off">
-														</div>
-														<div class="select-location" id="foodbakery-radius-range333" style="display: none;">
-															<div class="select-popup popup-open">
-																<a id="location_close_popup333" href="javascript:0;" class="location-close-popup">
-																	<i class="icon-times"></i></a>
-																<input type="hidden" class="foodbakery-radius" name="foodbakery_radius" value="10">
-																<p>Show with in</p>
-																<input id="ex16b333" type="text" data-value="10" value="10" style="display: none;">
-																<script>
-																	jQuery(document).ready(function () {
-																		var elem = jQuery("#ex16b333");
-																		if (elem.length != "") {
-																			elem.slider({
-																				step: 1,
-																				min: 0,
-																				max: 500,
-																				value: 10,
-																			});
-																			elem.on("slideStop", function () {
-																				var rang_slider_val = elem.val();
-																				jQuery("#ex16b333CurrentSliderValLabel").html(rang_slider_val);
-																				jQuery("#range-hidden-foodbakery-radius333").val(rang_slider_val);
-																				//foodbakery_restaurant_content("333");
-																			});
-																			elem.on("slide", function () {
-																				jQuery("#ex16b333CurrentSliderValLabel").html(elem.val());
-																			});
-																		}
-
-																		$("#foodbakery_radius_location_open333").click(function () {
-																			$("#foodbakery-radius-range333").show();
-																		});
-																		$("#location_close_popup333").click(function () {
-																			$("#foodbakery-radius-range333").hide();
-																		});
-																	});
-																</script>
-																<span>Miles: <span id="ex16b333CurrentSliderValLabel">10</span></span><br>
-																<p class="my-location">of <i class="cs-color icon-location-arrow"></i><a id="foodbakery-geo-location-all" class="cs-color foodbakery-geo-location313324" href="javascript:void(0)">My location</a></p>
-															</div>
-														</div>
-													</li>
-												</ul>
+												<div style="display: flex; gap: 10px;">
+													<button type="button" id="use-location-btn" class="btn btn-outline-primary" style="white-space: nowrap; padding: 8px 12px;">
+														<i class="icon-target5"></i> Use My Location
+													</button>
+													<input type="submit" value="Search" style="flex: 1;">
+												</div>
 											</div>
 										</div>
-										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-											<div class="field-holder">
-												<input type="submit" value="Search">
-											</div>
-										</div>
+									</div>
+									<!-- Search results container for enhanced messaging -->
+									<div id="search-results-message" class="search-results-message" style="display: none; margin-top: 15px; padding: 10px; border-radius: 5px; background: #f8f9fa; border-left: 4px solid #17a2b8;">
+										<p id="search-message-text" style="margin: 0; color: #333;"></p>
 									</div>
 								</form>
 							</div>
@@ -252,12 +303,37 @@
 			</div>
 			<!-- Main Search End -->
 			
+			<!-- LLM Chatbot Engagement -->
+			<div class="page-section nopadding cs-nomargin" style="padding: 40px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div style="text-align: center; color: white;">
+								<h3 style="color: white; margin-bottom: 15px; font-size: 28px;">
+									<i class="icon-comments" style="margin-right: 10px;"></i>
+									Your Personal Dining Assistant
+								</h3>
+								<p style="font-size: 20px; margin-bottom: 25px; line-height: 1.6;">
+									I can help you find your new favorite restaurant! Ask me about cuisines, locations, dietary preferences, or special occasions.
+								</p>
+								<button onclick="startRestaurantDiscoveryChat()" style="background: rgba(255,255,255,0.2); border: 3px solid white; color: white; padding: 15px 30px; border-radius: 30px; font-size: 18px; cursor: pointer; transition: all 0.3s ease; font-weight: 600;">
+									🍽️ Start Restaurant Discovery
+								</button>
+								<p style="margin-top: 15px; font-size: 14px; opacity: 0.9;">
+									Ask me anything: "I want romantic French dining in Paris" or "Vegan options near me"
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 			<!-- Top Restarurants Section Start -->
 			<div class="page-section nopadding cs-nomargin" style="margin-top: 0px;padding-top: 60px;padding-bottom: 0px;margin-bottom: 0px;background: #ffffff;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div class="element-title align-left">
+							<div class="element-title align-center">
 								<h2>Top Michelin-Starred Restaurants</h2>
 								<p>Discover the world's finest dining establishments with exceptional ratings</p>
 							</div>
@@ -268,18 +344,64 @@
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" style="margin-bottom: 30px;">
 									<div class="restaurant-card" style="background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
 										{% if restaurant.images.all %}
-											<div class="restaurant-image" style="height: 200px; overflow: hidden; position: relative;">
-												<img src="{{ restaurant.images.first.image_file.url }}" style="width: 100%; height: 100%; object-fit: cover;" alt="{{ restaurant.name }}">
-												<div style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 15px; font-size: 12px;">
-													{% for i in "123"|slice:":restaurant.michelin_stars" %}★{% endfor %} {{ restaurant.michelin_stars }} Star{{ restaurant.michelin_stars|pluralize }}
+											{% if restaurant.images.count == 1 %}
+												<!-- Single image -->
+												<div class="restaurant-image" style="height: 200px; overflow: hidden; position: relative;">
+													{% with restaurant.images.first as image %}
+														{% if image.source_url %}
+															<img src="{{ image.source_url }}" style="width: 100%; height: 100%; object-fit: cover;" alt="{{ restaurant.name }}" onerror="this.parentElement.innerHTML='<div class=\'star-placeholder\'><i class=\'icon-knife-fork\'></i></div>'">
+														{% elif image.image %}
+															<img src="{{ image.image.url }}" style="width: 100%; height: 100%; object-fit: cover;" alt="{{ restaurant.name }}" onerror="this.parentElement.innerHTML='<div class=\'star-placeholder\'><i class=\'icon-knife-fork\'></i></div>'">
+														{% endif %}
+													{% endwith %}
+													<div class="michelin-star-badge">
+														<span class="michelin-stars">
+															{% for i in "123" %}
+																{% if forloop.counter <= restaurant.michelin_stars %}⭐{% endif %}
+															{% endfor %}
+														</span>
+														{{ restaurant.michelin_stars }} Star{{ restaurant.michelin_stars|pluralize }}
+													</div>
 												</div>
-											</div>
+											{% else %}
+												<!-- Multiple images - carousel -->
+												<div class="home-image-carousel" data-restaurant-id="top-{{ restaurant.id }}">
+													<div class="home-carousel-track" id="top-carousel-{{ restaurant.id }}">
+														{% for image in restaurant.images.all|slice:":5" %}
+															{% if image.source_url %}
+																<img src="{{ image.source_url }}" alt="{{ restaurant.name }}" onerror="this.style.display='none'">
+															{% elif image.image %}
+																<img src="{{ image.image.url }}" alt="{{ restaurant.name }}" onerror="this.style.display='none'">
+															{% endif %}
+														{% endfor %}
+													</div>
+													
+													<!-- Navigation controls -->
+													<button class="home-carousel-controls prev" onclick="homeCarouselPrev('top-{{ restaurant.id }}')">‹</button>
+													<button class="home-carousel-controls next" onclick="homeCarouselNext('top-{{ restaurant.id }}')">›</button>
+													
+													<!-- Dots navigation -->
+													<div class="home-carousel-nav">
+														{% for image in restaurant.images.all|slice:":5" %}
+															<div class="home-carousel-dot {% if forloop.first %}active{% endif %}" 
+																 onclick="homeCarouselGoTo('top-{{ restaurant.id }}', {{ forloop.counter0 }})"></div>
+														{% endfor %}
+													</div>
+													
+													<!-- Michelin star badge -->
+													<div class="michelin-star-badge">
+														<span class="michelin-stars">
+															{% for i in "123" %}
+																{% if forloop.counter <= restaurant.michelin_stars %}⭐{% endif %}
+															{% endfor %}
+														</span>
+														{{ restaurant.michelin_stars }} Star{{ restaurant.michelin_stars|pluralize }}
+													</div>
+												</div>
+											{% endif %}
 										{% else %}
-											<div class="restaurant-image" style="height: 200px; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; justify-content: center; position: relative;">
-												<span style="color: white; font-size: 24px; font-weight: bold;">{{ restaurant.name|first }}</span>
-												<div style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 15px; font-size: 12px;">
-													{% for i in "123"|slice:":restaurant.michelin_stars" %}★{% endfor %} {{ restaurant.michelin_stars }} Star{{ restaurant.michelin_stars|pluralize }}
-												</div>
+											<div class="star-placeholder">
+												<i class="icon-knife-fork"></i>
 											</div>
 										{% endif %}
 										<div style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
@@ -289,7 +411,7 @@
 												<p style="margin: 0 0 15px 0; color: #666; font-size: 13px;">{{ restaurant.cuisine_type|default:"Fine Dining" }}</p>
 											</div>
 											<div style="display: flex; justify-content: space-between; align-items: center;">
-												<span style="color: #e74c3c; font-weight: bold;">★ {{ restaurant.rating|floatformat:1 }}</span>
+												<span class="customer-rating" style="font-weight: bold;">★ {{ restaurant.rating|floatformat:1 }}</span>
 												<a href="{% url 'restaurants:restaurant_detail' restaurant.pk %}" class="btn btn-sm" style="background: #e74c3c; color: white; text-decoration: none; padding: 5px 15px; border-radius: 20px; font-size: 12px;">View Details</a>
 											</div>
 										</div>
@@ -619,13 +741,18 @@
 	</style>
 	
 	<script>
-		// Search functionality
+		// Enhanced search functionality with geolocation
 		document.addEventListener('DOMContentLoaded', function() {
 			const searchInput = document.getElementById('restaurant-query');
 			const suggestionsContainer = document.getElementById('search-suggestions');
+			const useLocationBtn = document.getElementById('use-location-btn');
+			const searchForm = document.getElementById('restaurant-search-form');
+			const searchMessage = document.getElementById('search-results-message');
+			const searchMessageText = document.getElementById('search-message-text');
 			let searchTimeout;
+			let userLocation = null;
 			
-			// Search suggestions
+			// Enhanced search with intelligent parsing
 			searchInput.addEventListener('input', function() {
 				const query = this.value.trim();
 				
@@ -633,12 +760,69 @@
 				
 				if (query.length < 2) {
 					suggestionsContainer.style.display = 'none';
+					hideSearchMessage();
 					return;
 				}
 				
 				searchTimeout = setTimeout(() => {
-					fetchSearchSuggestions(query);
+					// Check if query contains location indicators
+					if (isLocationQuery(query)) {
+						fetchGeographicSuggestions(query);
+					} else {
+						fetchSearchSuggestions(query);
+					}
 				}, 300);
+			});
+			
+			// Use current location button
+			useLocationBtn.addEventListener('click', function() {
+				if (navigator.geolocation) {
+					this.innerHTML = '<i class="icon-spin"></i> Getting Location...';
+					this.disabled = true;
+					
+					navigator.geolocation.getCurrentPosition(
+						position => {
+							userLocation = {
+								lat: position.coords.latitude,
+								lng: position.coords.longitude
+							};
+							
+							// Reverse geocode to get address
+							reverseGeocode(userLocation.lat, userLocation.lng)
+								.then(address => {
+									searchInput.value = `Restaurants near ${address}`;
+									showSearchMessage(`Using your current location: ${address}`, 'success');
+								})
+								.catch(() => {
+									searchInput.value = `Restaurants near me (${userLocation.lat.toFixed(4)}, ${userLocation.lng.toFixed(4)})`;
+									showSearchMessage('Using your current coordinates for search', 'info');
+								})
+								.finally(() => {
+									this.innerHTML = '<i class="icon-target5"></i> Use My Location';
+									this.disabled = false;
+								});
+						},
+						error => {
+							showSearchMessage('Unable to access your location. Please enter your address manually.', 'warning');
+							this.innerHTML = '<i class="icon-target5"></i> Use My Location';
+							this.disabled = false;
+						}
+					);
+				} else {
+					showSearchMessage('Geolocation is not supported by your browser. Please enter your address manually.', 'warning');
+				}
+			});
+			
+			// Enhanced form submission
+			searchForm.addEventListener('submit', function(e) {
+				const query = searchInput.value.trim();
+				
+				// If it's a location-based query, use geographic search
+				if (isLocationQuery(query) || userLocation) {
+					e.preventDefault();
+					performGeographicSearch(query);
+				}
+				// Otherwise, let normal form submission handle it
 			});
 			
 			// Hide suggestions when clicking outside
@@ -648,9 +832,64 @@
 				}
 			});
 			
+			function isLocationQuery(query) {
+				const locationIndicators = [
+					'near', 'in', 'around', 'close to', 'restaurants in', 'dining in',
+					'food near', 'michelin near', 'starred restaurants in'
+				];
+				
+				const queryLower = query.toLowerCase();
+				return locationIndicators.some(indicator => queryLower.includes(indicator)) ||
+					   /\b\d{5}\b/.test(query) || // ZIP code
+					   /\b[A-Z]{2}\b/.test(query); // State abbreviation
+			}
+			
+			function fetchGeographicSuggestions(query) {
+				// Extract location and search terms
+				const { location, searchTerm } = parseLocationQuery(query);
+				
+				const url = `{% url 'restaurants:geographic_search_api' %}?address=${encodeURIComponent(location)}&q=${encodeURIComponent(searchTerm)}&max_results=5`;
+				
+				fetch(url)
+					.then(response => response.json())
+					.then(data => {
+						if (data.message) {
+							showSearchMessage(data.message, data.search_type === 'fallback_nearest_michelin' ? 'info' : 'success');
+						}
+						
+						const results = data.results.length > 0 ? data.results : data.fallback_results;
+						displaySearchSuggestions(results, true);
+					})
+					.catch(error => {
+						console.error('Geographic search error:', error);
+						showSearchMessage('Search temporarily unavailable. Please try again.', 'error');
+						suggestionsContainer.style.display = 'none';
+					});
+			}
+			
+			function parseLocationQuery(query) {
+				const patterns = [
+					/(.+?)\s+(?:in|near|around)\s+(.+)/i,
+					/(?:restaurants|dining|food|michelin)\s+(?:in|near|around)\s+(.+)/i,
+					/(.+)/i  // fallback - treat entire query as location
+				];
+				
+				for (let pattern of patterns) {
+					const match = query.match(pattern);
+					if (match) {
+						if (match.length === 3) {
+							return { searchTerm: match[1].trim(), location: match[2].trim() };
+						} else {
+							return { searchTerm: '', location: match[1].trim() };
+						}
+					}
+				}
+				
+				return { searchTerm: '', location: query };
+			}
+			
 			function fetchSearchSuggestions(query) {
-				const location = document.querySelector('input[name="location"]').value;
-				const url = `{% url 'restaurants:restaurant_search_api' %}?q=${encodeURIComponent(query)}&location=${encodeURIComponent(location)}&max_results=5`;
+				const url = `{% url 'restaurants:restaurant_search_api' %}?q=${encodeURIComponent(query)}&max_results=5`;
 				
 				fetch(url)
 					.then(response => response.json())
@@ -663,7 +902,7 @@
 					});
 			}
 			
-			function displaySearchSuggestions(results) {
+			function displaySearchSuggestions(results, includeDistance = false) {
 				if (results.length === 0) {
 					suggestionsContainer.style.display = 'none';
 					return;
@@ -673,6 +912,8 @@
 				results.forEach(restaurant => {
 					const imageUrl = restaurant.featured_image?.url || '';
 					const stars = '⭐'.repeat(restaurant.michelin_stars || 0);
+					const distance = includeDistance && restaurant.distance_km ? 
+						` • ${restaurant.distance_km}km away` : '';
 					
 					html += `
 						<div class="suggestion-item" onclick="selectRestaurant('${restaurant.url}')">
@@ -681,7 +922,7 @@
 								<h4 class="suggestion-name">${restaurant.name}</h4>
 								<p class="suggestion-details">
 									${restaurant.city}, ${restaurant.country} • ${restaurant.cuisine_type || 'Restaurant'}
-									${stars ? ' • ' + stars : ''}
+									${stars ? ' • ' + stars : ''}${distance}
 								</p>
 							</div>
 						</div>
@@ -690,6 +931,68 @@
 				
 				suggestionsContainer.innerHTML = html;
 				suggestionsContainer.style.display = 'block';
+			}
+			
+			function performGeographicSearch(query) {
+				const { location, searchTerm } = parseLocationQuery(query);
+				
+				// Redirect to restaurant list with geographic search parameters
+				let url = "{% url 'restaurants:restaurant_list' %}";
+				const params = new URLSearchParams();
+				
+				if (searchTerm) params.append('search', searchTerm);
+				if (location) params.append('location', location);
+				
+				if (params.toString()) {
+					url += '?' + params.toString();
+				}
+				
+				window.location.href = url;
+			}
+			
+			function reverseGeocode(lat, lng) {
+				return new Promise((resolve, reject) => {
+					// You can implement Google Maps reverse geocoding here
+					// For now, return a simple format
+					resolve(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+				});
+			}
+			
+			function showSearchMessage(message, type = 'info') {
+				searchMessageText.textContent = message;
+				
+				// Reset classes
+				searchMessage.className = 'search-results-message';
+				
+				// Add type-specific styling
+				switch(type) {
+					case 'success':
+						searchMessage.style.borderLeftColor = '#28a745';
+						searchMessage.style.backgroundColor = '#d4edda';
+						break;
+					case 'warning':
+						searchMessage.style.borderLeftColor = '#ffc107';
+						searchMessage.style.backgroundColor = '#fff3cd';
+						break;
+					case 'error':
+						searchMessage.style.borderLeftColor = '#dc3545';
+						searchMessage.style.backgroundColor = '#f8d7da';
+						break;
+					default:
+						searchMessage.style.borderLeftColor = '#17a2b8';
+						searchMessage.style.backgroundColor = '#f8f9fa';
+				}
+				
+				searchMessage.style.display = 'block';
+				
+				// Auto-hide after 5 seconds for non-error messages
+				if (type !== 'error') {
+					setTimeout(hideSearchMessage, 5000);
+				}
+			}
+			
+			function hideSearchMessage() {
+				searchMessage.style.display = 'none';
 			}
 			
 			// Load recommendations
@@ -741,8 +1044,11 @@
 			recommendations.forEach(rec => {
 				const restaurant = rec;
 				const imageUrl = restaurant.featured_image?.url || '';
-				const stars = '⭐'.repeat(restaurant.michelin_stars || 0);
-				const rating = restaurant.rating ? `${restaurant.rating.toFixed(1)}/5` : '';
+				// Michelin stars (red) and customer rating (yellow) 
+				const michelinStars = restaurant.michelin_stars ? 
+					`<span class="michelin-stars">${'⭐'.repeat(restaurant.michelin_stars)}</span> ${restaurant.michelin_stars} Star${restaurant.michelin_stars > 1 ? 's' : ''}` : '';
+				const customerRating = restaurant.rating ? 
+					`<span class="customer-rating">★ ${restaurant.rating.toFixed(1)}/5</span>` : '';
 				
 				// Enhanced recommendation display with collaborative filtering info
 				let reasons = '';
@@ -763,10 +1069,39 @@
 					reasons = restaurant.reasons?.slice(0, 2).join(', ') || 'Popular choice';
 				}
 				
+				// Generate carousel or single image
+				let imageHtml = '';
+				if (restaurant.images && restaurant.images.length > 1) {
+					// Multiple images - carousel
+					const carouselId = `rec-${restaurant.id || Math.random().toString(36).substr(2, 9)}`;
+					imageHtml = `
+						<div class="home-image-carousel" data-restaurant-id="${carouselId}">
+							<div class="home-carousel-track" id="rec-carousel-${carouselId}">
+								${restaurant.images.slice(0, 5).map(img => 
+									`<img src="${img.url}" alt="${restaurant.name}" onerror="this.style.display='none'">`
+								).join('')}
+							</div>
+							<button class="home-carousel-controls prev" onclick="homeCarouselPrev('${carouselId}')">‹</button>
+							<button class="home-carousel-controls next" onclick="homeCarouselNext('${carouselId}')">›</button>
+							<div class="home-carousel-nav">
+								${restaurant.images.slice(0, 5).map((_, index) => 
+									`<div class="home-carousel-dot ${index === 0 ? 'active' : ''}" onclick="homeCarouselGoTo('${carouselId}', ${index})"></div>`
+								).join('')}
+							</div>
+						</div>
+					`;
+				} else if (imageUrl) {
+					// Single image
+					imageHtml = `<img src="${imageUrl}" alt="${restaurant.name}" class="recommendation-image" onerror="this.parentElement.innerHTML='<div class=\\'star-placeholder-small\\'><i class=\\'icon-star-full\\'></i></div>'">`;
+				} else {
+					// No image fallback
+					imageHtml = `<div class="star-placeholder-small"><i class="icon-knife-fork"></i></div>`;
+				}
+				
 				html += `
 					<li class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 						<div class="recommendation-card">
-							${imageUrl ? `<img src="${imageUrl}" alt="${restaurant.name}" class="recommendation-image" onerror="this.parentElement.innerHTML='<div class=\\'star-placeholder-small\\'><i class=\\'icon-star-full\\'></i></div>'">` : `<div class="star-placeholder-small"><i class="icon-star-full"></i></div>`}
+							${imageHtml}
 							<div class="recommendation-content">
 								<h3 class="recommendation-name">
 									<a href="${restaurant.url}" style="color: inherit; text-decoration: none;">
@@ -777,7 +1112,9 @@
 									${restaurant.city}, ${restaurant.country}
 								</p>
 								<div class="recommendation-stars">
-									${stars} ${rating}
+									${michelinStars}
+									${michelinStars && customerRating ? '<br>' : ''}
+									${customerRating}
 								</div>
 								<p class="recommendation-reasons">
 									${reasons}
@@ -792,6 +1129,108 @@
 			html += '</ul>';
 			container.innerHTML = html;
 		}
+		
+		// LLM Chatbot engagement for restaurant discovery
+		function startRestaurantDiscoveryChat() {
+			// This function would integrate with your RAG chatbot system
+			console.log('Starting restaurant discovery chat...');
+			
+			// Example: You could trigger your RAG chatbot with a pre-filled prompt
+			// initiateChatWith("I can help you find your new favorite restaurant! What type of dining experience are you looking for?");
+			
+			// Or scroll to a chat interface if it exists on the page
+			const chatInterface = document.getElementById('rag-chatbot');
+			if (chatInterface) {
+				chatInterface.scrollIntoView({ behavior: 'smooth' });
+				// Pre-fill with restaurant discovery prompt
+				const chatInput = chatInterface.querySelector('input, textarea');
+				if (chatInput) {
+					chatInput.value = "I'm looking for a new restaurant to try! Can you help me find something based on my preferences?";
+					chatInput.focus();
+				}
+			} else {
+				// Fallback: show alert with instructions
+				alert('🍽️ Chat coming soon! You\'ll be able to get personalized restaurant recommendations based on your preferences, dietary needs, location, and occasion.');
+			}
+		}
+		
+		// Home Page Carousel Management
+		const homeCarouselStates = {};
+		
+		function initializeHomeCarousel(carouselId) {
+			if (!homeCarouselStates[carouselId]) {
+				const track = document.getElementById(`top-carousel-${carouselId}`) || document.getElementById(`rec-carousel-${carouselId}`);
+				const images = track ? track.querySelectorAll('img') : [];
+				homeCarouselStates[carouselId] = {
+					currentIndex: 0,
+					totalImages: images.length
+				};
+			}
+		}
+		
+		function updateHomeCarousel(carouselId) {
+			const track = document.getElementById(`top-carousel-${carouselId}`) || document.getElementById(`rec-carousel-${carouselId}`);
+			const dots = document.querySelectorAll(`[data-restaurant-id="${carouselId}"] .home-carousel-dot`);
+			
+			if (!track || !homeCarouselStates[carouselId]) return;
+			
+			const state = homeCarouselStates[carouselId];
+			const translateX = -state.currentIndex * 100;
+			track.style.transform = `translateX(${translateX}%)`;
+			
+			// Update dots
+			dots.forEach((dot, index) => {
+				dot.classList.toggle('active', index === state.currentIndex);
+			});
+		}
+		
+		function homeCarouselPrev(carouselId) {
+			initializeHomeCarousel(carouselId);
+			const state = homeCarouselStates[carouselId];
+			
+			if (state.currentIndex > 0) {
+				state.currentIndex--;
+			} else {
+				state.currentIndex = state.totalImages - 1; // Loop to last image
+			}
+			
+			updateHomeCarousel(carouselId);
+		}
+		
+		function homeCarouselNext(carouselId) {
+			initializeHomeCarousel(carouselId);
+			const state = homeCarouselStates[carouselId];
+			
+			if (state.currentIndex < state.totalImages - 1) {
+				state.currentIndex++;
+			} else {
+				state.currentIndex = 0; // Loop to first image
+			}
+			
+			updateHomeCarousel(carouselId);
+		}
+		
+		function homeCarouselGoTo(carouselId, index) {
+			initializeHomeCarousel(carouselId);
+			const state = homeCarouselStates[carouselId];
+			
+			if (index >= 0 && index < state.totalImages) {
+				state.currentIndex = index;
+				updateHomeCarousel(carouselId);
+			}
+		}
+		
+		// Initialize all home carousels when page loads
+		document.addEventListener('DOMContentLoaded', function() {
+			const carousels = document.querySelectorAll('.home-image-carousel');
+			carousels.forEach(carousel => {
+				const carouselId = carousel.getAttribute('data-restaurant-id');
+				if (carouselId) {
+					initializeHomeCarousel(carouselId);
+					updateHomeCarousel(carouselId);
+				}
+			});
+		});
 	</script>
 </body>
 

@@ -491,6 +491,22 @@
 							</div>
 							{% endif %}
 							
+							<!-- LLM Chatbot Engagement -->
+							<div class="restaurant-info-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
+								<div style="padding: 10px;">
+									<h3 style="color: white; margin-bottom: 15px;">
+										<i class="icon-comment" style="margin-right: 10px;"></i>
+										Have Questions?
+									</h3>
+									<p style="font-size: 18px; margin-bottom: 20px; color: #f8f9fa;">
+										Ask me about the menu! I can help you discover {{ restaurant.name }}'s specialties, ingredients, prices, and more.
+									</p>
+									<button onclick="startChatAboutMenu()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 12px 25px; border-radius: 25px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
+										💬 Ask About This Restaurant
+									</button>
+								</div>
+							</div>
+							
 							<!-- Image Gallery -->
 							{% if images %}
 							<div class="image-gallery">
@@ -740,6 +756,31 @@
 		updateLocalTime();
 		setInterval(updateLocalTime, 60000);
 		{% endif %}
+		
+		// LLM Chatbot engagement
+		function startChatAboutMenu() {
+			// This function would integrate with your RAG chatbot system
+			// For now, it can scroll to an existing chat interface or open a modal
+			console.log('Starting chat about {{ restaurant.name|escapejs }} menu...');
+			
+			// Example: You could trigger your RAG chatbot with a pre-filled prompt
+			// initiateChatWith("Tell me about {{ restaurant.name|escapejs }}'s menu and specialties");
+			
+			// Or scroll to a chat interface if it exists on the page
+			const chatInterface = document.getElementById('rag-chatbot');
+			if (chatInterface) {
+				chatInterface.scrollIntoView({ behavior: 'smooth' });
+				// Pre-fill with restaurant-specific prompt
+				const chatInput = chatInterface.querySelector('input, textarea');
+				if (chatInput) {
+					chatInput.value = "Tell me about {{ restaurant.name|escapejs }}'s menu!";
+					chatInput.focus();
+				}
+			} else {
+				// Fallback: show alert with instructions
+				alert('💬 Chat coming soon! You\'ll be able to ask detailed questions about {{ restaurant.name|escapejs }}\'s menu, ingredients, and dining experience.');
+			}
+		}
 	</script>
 </body>
 </html>

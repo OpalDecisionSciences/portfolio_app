@@ -199,15 +199,33 @@
 								<h4><i class="icon-funnel"></i> Filter Gallery</h4>
 								<form method="GET">
 									<input type="text" name="search" class="form-control" 
-										   placeholder="Search restaurants, locations..." 
+										   placeholder="Search restaurants, locations, ambiance, food..." 
 										   value="{{ current_filters.search }}">
 									
 									<select name="category" class="form-control">
 										<option value="">All Categories</option>
+										
+										<!-- Traditional AI Categories -->
 										{% for category in categories %}
-										<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
-											{{ category|title }}
-										</option>
+											{% if category == 'scenery_ambiance' or category == 'menu_item' or category == 'uncategorized' %}
+												<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
+													{% if category == 'scenery_ambiance' %}🏛️ Scenery & Ambiance{% elif category == 'menu_item' %}🍽️ Menu Items{% else %}📷 Uncategorized{% endif %}
+												</option>
+											{% endif %}
+										{% endfor %}
+										
+										<!-- AI Labels Separator -->
+										{% if categories|length > 3 %}
+											<option disabled>──── AI Labels ────</option>
+										{% endif %}
+										
+										<!-- AI Labels for granular filtering -->
+										{% for category in categories %}
+											{% if category != 'scenery_ambiance' and category != 'menu_item' and category != 'uncategorized' %}
+												<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
+													✨ {{ category|title }}
+												</option>
+											{% endif %}
 										{% endfor %}
 									</select>
 									

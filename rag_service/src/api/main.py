@@ -45,12 +45,13 @@ from token_management.token_manager import init_token_manager, call_openai_chat,
 
 load_dotenv(find_dotenv())
 
-# Database configuration
-db_user = os.getenv("POSTGRES_USER", "postgres")
-db_password = os.getenv("POSTGRES_PASSWORD", "password")
+# Database configuration - Using Django-compatible environment variables
+# Support both Django naming (DATABASE_*) and legacy Docker naming (POSTGRES_*) for compatibility
+db_user = os.getenv("DATABASE_USER") or os.getenv("POSTGRES_USER", "postgres")
+db_password = os.getenv("DATABASE_PASSWORD") or os.getenv("POSTGRES_PASSWORD", "password")
 db_host = os.getenv("DATABASE_HOST", "db")
 db_port = os.getenv("DATABASE_PORT", "5432")
-db_name = os.getenv("POSTGRES_DB", "restaurants_db")
+db_name = os.getenv("DATABASE_NAME") or os.getenv("POSTGRES_DB", "restaurants_db")
 
 CONNECTION_STRING = (
     f"postgresql+psycopg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"

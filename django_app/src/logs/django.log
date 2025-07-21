@@ -1821,3 +1821,48 @@ Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/urls.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /restaurants/?search=e&country=FRANCE&city=&cuisine=&stars=&price_range=&sort=name HTTP/1.1" 200 777397
+"GET /static/css/iconmoon.css HTTP/1.1" 304 0
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /static/css/bootstrap-slider.css HTTP/1.1" 304 0
+"GET /static/css/cs-foodbakery-plugin.css HTTP/1.1" 304 0
+"GET /static/js/modernizr.js HTTP/1.1" 304 0
+"GET /static/js/functions.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.js HTTP/1.1" 304 0
+"GET /static/js/scripts.js HTTP/1.1" 304 0
+"GET /static/fonts/icomoon.ttf?wzp9o1 HTTP/1.1" 304 0
+"GET /restaurants/ HTTP/1.1" 200 777670
+"GET /restaurants/gallery/ HTTP/1.1" 200 201235
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /restaurants/gallery/ HTTP/1.1" 200 47691
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+/Users/iamai/projects/portfolio_app/django_app/src/restaurants/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

@@ -19,6 +19,7 @@ urlpatterns = [
     
     # API endpoints
     path('api/search/', views.restaurant_search_api, name='restaurant_search_api'),
+    path('api/search/geographic/', views.geographic_search_api, name='geographic_search_api'),
     path('api/recommendations/', views.restaurant_recommendations_api, name='restaurant_recommendations_api'),
     path('api/recommendations/personalized/', views.personalized_recommendations_api, name='personalized_recommendations_api'),
     path('api/<uuid:restaurant_id>/images/', views.restaurant_images_api, name='restaurant_images_api'),
