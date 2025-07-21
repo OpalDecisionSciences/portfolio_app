@@ -1,22 +1,25 @@
 # Tuju
 
 ## Cuisine
-Seasonal Paulista
+Seasonal Paulistian
 
 ## Ambiance & Atmosphere
-A cultural dive reflecting a multicultural city, with an architectural authenticity that feels natural and genuine.
+The restaurant features a unique atmosphere that reflects the cultural diversity of São Paulo, combined with a commitment to authenticity and sustainability.
 
 ## Location
-São Paulo
+São Paulo, Brazil
+
+## Language
+Original website language: pt
 
 ## Location & Time Zone
 
 Country: Brazil
 City: São Paulo
 Timezone: America/Sao_Paulo
-Current local time: 2025-07-20 17:35:04 -03
+Current local time: 2025-07-21 18:44:58 -03
 
 ## Document Information
 
-Generated: 2025-07-20 20:35:04 UTC
+Generated: 2025-07-21 21:44:58 UTC
 Source: http://www.tuju.com.br

@@ -1,15 +1,12 @@
 # Nuance
 
 ## Cuisine
-Vlaamse kitchen (Flemish)
+Vlaamse (Flemish)
 
 ## Ambiance & Atmosphere
-Passionate and authentic culinary experience inspired by global gastronomic influences.
-
-## Location
-Not specified.
+Passionate and love-driven cooking with a focus on seasonal ingredients.
 
 ## Document Information
 
-Generated: 2025-07-20 20:39:35 UTC
+Generated: 2025-07-21 21:50:45 UTC
 Source: https://resto-nuance.be/

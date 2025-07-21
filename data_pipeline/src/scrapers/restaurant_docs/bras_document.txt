@@ -1,0 +1,22 @@
+# Bras
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Located in the wild landscapes of the Aubrac plateau, the restaurant features a clean design and is illuminated by natural light, creating a serene atmosphere.
+
+## Location
+Laguiole, France
+
+## Location & Time Zone
+
+Country: France
+City: Laguiole
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:09:58 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:09:58 UTC
+Source: http://www.bras.fr/fr/

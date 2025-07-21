@@ -4,12 +4,19 @@
 British
 
 ## Ambiance & Atmosphere
-Elegant fine-dining atmosphere emphasizing natural, sustainable food
+Elegant and sophisticated atmosphere focused on seasonal ingredients and sustainable producers.
 
 ## Location
-Not specified
+92 Kensington Park Road, London W11 2PN
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: London
+Timezone: Europe/London
+Current local time: 2025-07-21 19:31:59 BST
 
 ## Document Information
 
-Generated: 2025-07-20 19:52:54 UTC
+Generated: 2025-07-21 18:31:59 UTC
 Source: https://www.corebyclaresmyth.com/

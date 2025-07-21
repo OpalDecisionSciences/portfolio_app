@@ -4,19 +4,12 @@
 Contemporary
 
 ## Ambiance & Atmosphere
-Intimate and highly food-driven, centered around an open kitchen
+Intimate and highly food-driven dining experience with an open kitchen
 
 ## Location
-Shanghai
-
-## Location & Time Zone
-
-Country: China
-City: Shanghai
-Timezone: Asia/Shanghai
-Current local time: 2025-07-21 03:59:34 CST
+Not specified
 
 ## Document Information
 
-Generated: 2025-07-20 19:59:34 UTC
+Generated: 2025-07-21 18:55:20 UTC
 Source: https://sh.taian-table.cn

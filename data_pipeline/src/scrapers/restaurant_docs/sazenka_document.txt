@@ -4,19 +4,19 @@
 Chinese
 
 ## Ambiance & Atmosphere
-A tranquil dining experience emphasizing harmony between host and guest, with a focus on quality service and a refined atmosphere.
+Elegant dining experience with a focus on high-end cuisine
 
 ## Location
-4-7-5 Minamiazabu, Minato, Tokyo, 106-0047, Japan
+Minamiazabu, Minato, Tokyo, Japan
 
 ## Location & Time Zone
 
 Country: Japan
 City: Tokyo
 Timezone: Asia/Tokyo
-Current local time: 2025-07-21 05:09:55 JST
+Current local time: 2025-07-22 04:29:01 JST
 
 ## Document Information
 
-Generated: 2025-07-20 20:09:55 UTC
+Generated: 2025-07-21 19:29:01 UTC
 Source: https://sazenka.com/

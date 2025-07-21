@@ -1,0 +1,22 @@
+# Anne de Bretagne
+
+## Cuisine
+Gastronomic, Seafood
+
+## Ambiance & Atmosphere
+Apaisante au bord de l'océan, avec un design épuré et une vue imprenable sur la mer.
+
+## Location
+{'address': 'Port de Gravette, 163, Boulevard de la Tara, 44770 La Plaine-Sur-Mer, France'}
+
+## Location & Time Zone
+
+Country: France
+City: La Plaine-Sur-Mer
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:19:05 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:19:05 UTC
+Source: http://www.annedebretagne.com

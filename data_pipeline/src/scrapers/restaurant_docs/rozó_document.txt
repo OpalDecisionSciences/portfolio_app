@@ -1,0 +1,22 @@
+# Rozó
+
+## Cuisine
+Gastronomic
+
+## Ambiance & Atmosphere
+Intimate and warm atmosphere in a spacious setting with modern decor, featuring a unique winter garden.
+
+## Location
+Marcq-en-Baroeul, Nord, Hauts-de-France, France
+
+## Location & Time Zone
+
+Country: France
+City: Marcq-en-Baroeul
+Timezone: Europe/Paris
+Current local time: 2025-07-21 23:54:38 CEST
+
+## Document Information
+
+Generated: 2025-07-21 21:54:38 UTC
+Source: http://www.restaurant-rozo.fr

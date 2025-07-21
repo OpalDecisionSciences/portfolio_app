@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Server Error - Michelin Star Service</title>
+    
+    <!-- Inline CSS to ensure it loads even if static files fail -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .error-container {
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .error-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            color: #333;
+        }
+        
+        .error-icon {
+            font-size: 120px;
+            color: #e74c3c;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        .error-code {
+            font-size: 72px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .error-title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .error-message {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-home {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-home:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-reload {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .btn-reload:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.3);
+        }
+        
+        .error-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .error-info h4 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .error-info p {
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        
+        .contact-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .contact-info h5 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info p {
+            color: #856404;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .error-card {
+                margin: 20px;
+                padding: 40px 20px;
+            }
+            
+            .error-code {
+                font-size: 48px;
+            }
+            
+            .error-title {
+                font-size: 24px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/" class="logo" style="display: none;">
+        ⭐ Michelin Star Service
+    </a>
+    
+    <div class="error-container">
+        <div class="error-card">
+            <div style="font-size: 120px; color: #e74c3c; margin-bottom: 30px;">⚠️</div>
+            <div class="error-code">500</div>
+            <h1 class="error-title">Server Error</h1>
+            <p class="error-message">
+                We're experiencing some technical difficulties in our kitchen right now. 
+                Our team has been notified and is working to resolve the issue as quickly as possible.
+            </p>
+            
+            <div class="action-buttons">
+                <a href="/" class="btn-home">
+                    🏠 Return Home
+                </a>
+                <button onclick="window.location.reload()" class="btn-reload">
+                    🔄 Try Again
+                </button>
+            </div>
+            
+            <div class="error-info">
+                <h4>What happened?</h4>
+                <p>
+                    Our server encountered an unexpected error while processing your request. 
+                    This could be due to temporary high traffic, a database issue, or a configuration problem.
+                </p>
+                <p>
+                    <strong>What you can do:</strong>
+                </p>
+                <ul style="color: #666; margin-left: 20px;">
+                    <li>Wait a few minutes and try again</li>
+                    <li>Check if the issue persists on other pages</li>
+                    <li>Clear your browser cache and cookies</li>
+                    <li>Contact support if the problem continues</li>
+                </ul>
+                
+                <div class="contact-info">
+                    <h5>Need Help?</h5>
+                    <p>If this problem persists, please contact our support team with the timestamp: <strong id="timestamp"></strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add timestamp for support reference
+        document.getElementById('timestamp').textContent = new Date().toISOString();
+        
+        // Auto-retry after 30 seconds
+        setTimeout(function() {
+            var retryBtn = document.querySelector('.btn-reload');
+            if (retryBtn) {
+                retryBtn.innerHTML = '🔄 Auto-Retry in Progress...';
+                retryBtn.style.opacity = '0.7';
+                window.location.reload();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

@@ -119,7 +119,7 @@ class RestaurantListView(ListView):
     paginate_by = 12
     
     def get_queryset(self):
-        queryset = Restaurant.objects.filter(is_active=True)
+        queryset = Restaurant.objects.filter(is_active=True).select_related().prefetch_related('images')
         
         # Search functionality
         search_query = self.request.GET.get('search', '')
@@ -198,7 +198,9 @@ class RestaurantDetailView(DetailView):
     slug_url_kwarg = 'slug'
     
     def get_queryset(self):
-        return Restaurant.objects.filter(is_active=True)
+        return Restaurant.objects.filter(is_active=True).select_related().prefetch_related(
+            'images', 'chefs', 'menu_sections__items', 'reviews__user'
+        )
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

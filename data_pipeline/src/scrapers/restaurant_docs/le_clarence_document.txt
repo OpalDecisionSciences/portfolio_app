@@ -1,0 +1,22 @@
+# Le Clarence
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Modern, vibrant atmosphere with a focus on intuitive and dynamic service.
+
+## Location
+Paris, France
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:27:19 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:27:19 UTC
+Source: https://www.le-clarence.paris/la-table/

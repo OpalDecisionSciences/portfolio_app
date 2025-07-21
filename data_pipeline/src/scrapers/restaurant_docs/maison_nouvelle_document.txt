@@ -1,0 +1,22 @@
+# Maison Nouvelle
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Intimate and warm atmosphere
+
+## Location
+11 rue Rode, Bordeaux
+
+## Location & Time Zone
+
+Country: France
+City: Bordeaux
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:15:34 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:15:34 UTC
+Source: http://www.maison-nouvelle.fr

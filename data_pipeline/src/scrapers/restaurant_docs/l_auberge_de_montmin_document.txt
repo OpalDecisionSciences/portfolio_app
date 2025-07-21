@@ -1,0 +1,22 @@
+# L'Auberge de Montmin
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Seasonal and elegant atmosphere, 2-Michelin-star service
+
+## Location
+Col de la Forclaz, Talloires
+
+## Location & Time Zone
+
+Country: France
+City: Talloires
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:21:36 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:21:36 UTC
+Source: http://www.aubergedemontmin.com

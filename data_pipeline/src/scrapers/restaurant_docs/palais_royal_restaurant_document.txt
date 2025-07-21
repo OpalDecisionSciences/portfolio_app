@@ -1,0 +1,22 @@
+# Palais Royal Restaurant
+
+## Cuisine
+French, Mediterranean
+
+## Ambiance & Atmosphere
+Exclusive decor, intimate table setting with contemporary furniture and warm lighting, featuring private salons resembling a Parisian apartment.
+
+## Location
+Between the colonnades of the Palais-Royal, Paris 1er.
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-21 23:56:05 CEST
+
+## Document Information
+
+Generated: 2025-07-21 21:56:05 UTC
+Source: https://palaisroyalrestaurantparis.com/

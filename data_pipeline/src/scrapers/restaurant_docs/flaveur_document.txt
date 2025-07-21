@@ -1,0 +1,22 @@
+# Flaveur
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Luminous dining room adorned with contemporary art, creating a warm and inviting atmosphere.
+
+## Location
+Nice, France; near Avenue Jean Médecin and Place Masséna.
+
+## Location & Time Zone
+
+Country: France
+City: Nice
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:27:02 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:27:02 UTC
+Source: https://www.restaurant-flaveur.com/

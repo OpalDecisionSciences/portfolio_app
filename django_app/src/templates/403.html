@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access Denied - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .error-container {
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+        
+        .error-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        
+        .error-icon {
+            font-size: 120px;
+            color: #f39c12;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        .error-code {
+            font-size: 72px;
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .error-title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .error-message {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-home {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-home:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-login {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-login:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .access-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .access-info h4 {
+            color: #f39c12;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .access-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .access-info li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .access-info li:before {
+            content: "🔐";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .error-card {
+                margin: 20px;
+                padding: 40px 20px;
+            }
+            
+            .error-code {
+                font-size: 48px;
+            }
+            
+            .error-title {
+                font-size: 24px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="{% url 'home' %}" class="logo d-none d-md-block">
+        <i class="icon-star-full" style="margin-right: 10px;"></i>
+        Michelin Star Service
+    </a>
+    
+    <div class="error-container">
+        <div class="container">
+            <div class="error-card">
+                <a href="{% url 'home' %}" class="logo d-md-none">
+                    <i class="icon-star-full" style="margin-right: 10px;"></i>
+                    Michelin Star Service
+                </a>
+                
+                <i class="icon-lock error-icon"></i>
+                <div class="error-code">403</div>
+                <h1 class="error-title">Access Denied</h1>
+                <p class="error-message">
+                    Sorry, you don't have permission to access this exclusive area. 
+                    This section may be reserved for members or require special privileges.
+                </p>
+                
+                <div class="action-buttons">
+                    <a href="{% url 'home' %}" class="btn-home">
+                        <i class="icon-home"></i>
+                        Return Home
+                    </a>
+                    {% if not user.is_authenticated %}
+                        <a href="{% url 'accounts:login' %}" class="btn-login">
+                            <i class="icon-user"></i>
+                            Sign In
+                        </a>
+                    {% endif %}
+                </div>
+                
+                <div class="access-info">
+                    <h4>Understanding Access Levels</h4>
+                    <ul>
+                        {% if not user.is_authenticated %}
+                            <li>Create an account to access personalized features</li>
+                            <li>Sign in to view your saved restaurants and preferences</li>
+                            <li>Members get exclusive access to advanced recommendations</li>
+                        {% else %}
+                            <li>This area may require special permissions</li>
+                            <li>Contact support if you believe this is an error</li>
+                            <li>Some features are limited to premium members</li>
+                        {% endif %}
+                        <li>Public areas are always available to explore</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,15 +1,15 @@
 # Hof van Cleve - Floris Van Der Veken
 
 ## Cuisine
-Gastronomic
+Gastronomic/Belgian
 
 ## Ambiance & Atmosphere
-Idyllic landscape of the Flemish fields, blending tradition and innovation with exceptional attention to detail and excellent service.
+Idyllic landscape, blending tradition and innovation with exceptional service
 
 ## Location
-Flemish fields, Belgium
+Vlaamse velden, Belgium
 
 ## Document Information
 
-Generated: 2025-07-20 20:40:28 UTC
+Generated: 2025-07-21 21:51:47 UTC
 Source: https://www.hofvancleve.com/

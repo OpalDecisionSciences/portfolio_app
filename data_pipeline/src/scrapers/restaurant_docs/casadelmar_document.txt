@@ -1,0 +1,22 @@
+# Casadelmar
+
+## Cuisine
+Mediterranean
+
+## Ambiance & Atmosphere
+Luxury setting with a serene and minimalist design, featuring wood and glass architecture and spectacular views.
+
+## Location
+Baie de Porto-Vecchio, Corsica, France.
+
+## Location & Time Zone
+
+Country: France
+City: Porto-Vecchio
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:30:05 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:30:05 UTC
+Source: https://www.casadelmar.fr

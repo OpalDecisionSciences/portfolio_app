@@ -1,0 +1,22 @@
+# La Villa Archange
+
+## Cuisine
+Gastronomic and Bistronomic
+
+## Ambiance & Atmosphere
+Warm and refined atmosphere in a Provençal 18th-century building, set in a green landscape.
+
+## Location
+Located at La Bastide Bruno Oger, Le Cannet, Côte d'Azur, France.
+
+## Location & Time Zone
+
+Country: France
+City: Le Cannet
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:21:19 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:21:19 UTC
+Source: http://www.bruno-oger.com

@@ -1,0 +1,22 @@
+# La Table des Amis
+
+## Cuisine
+Provencal
+
+## Ambiance & Atmosphere
+Peaceful atmosphere ideal for relaxation and disconnecting, with a personalized welcome and attention to detail.
+
+## Location
+Bonnieux, Luberon, Provence
+
+## Location & Time Zone
+
+Country: France
+City: Bonnieux
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:10:15 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:10:15 UTC
+Source: http://www.leseydins.com

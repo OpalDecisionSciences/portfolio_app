@@ -1,15 +1,25 @@
 # Oryori Hanagaki
 
 ## Cuisine
-日本料理
+Japanese
 
 ## Ambiance & Atmosphere
-完全予約制で、アンティークや古美術品を使用した落ち着いた空間
+Fine dining atmosphere in a private room with a focus on seasonal ingredients and traditional Japanese culinary principles.
 
 ## Location
-奈良県奈良市学園南2-13-2
+Near Gakuenmae Station, Nara City, Japan.
+
+## Language
+Original website language: ja
+
+## Location & Time Zone
+
+Country: Japan
+City: Nara City
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 06:37:34 JST
 
 ## Document Information
 
-Generated: 2025-07-20 20:28:19 UTC
+Generated: 2025-07-21 21:37:34 UTC
 Source: https://www.hanagaki2611.com/

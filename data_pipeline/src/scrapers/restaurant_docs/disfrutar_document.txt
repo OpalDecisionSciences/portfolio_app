@@ -4,19 +4,19 @@
 Mediterranean
 
 ## Ambiance & Atmosphere
-A surprisingly Mediterranean space with a close and welcoming service style, inspired by history and heritage.
+Intimate and welcoming atmosphere with a design inspired by Mediterranean history and legacy, featuring a bright, white main dining room that connects with a terrace.
 
 ## Location
-Located in Eixample, Barcelona, directly in front of Mercado del Ninot.
+C. de Villarroel, 163, 08036 Barcelona, Spain.
 
 ## Location & Time Zone
 
 Country: Spain
 City: Barcelona
 Timezone: Europe/Madrid
-Current local time: 2025-07-20 21:59:14 CEST
+Current local time: 2025-07-21 20:53:14 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:59:14 UTC
+Generated: 2025-07-21 18:53:14 UTC
 Source: https://www.disfrutarbarcelona.com/

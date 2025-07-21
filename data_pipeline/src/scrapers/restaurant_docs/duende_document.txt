@@ -1,0 +1,22 @@
+# Duende
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Intimate and luxurious atmosphere with a focus on personalized hospitality and eco-responsibility.
+
+## Location
+Near the Maison Carrée and the Jardin de la Fontaine, Nîmes, France.
+
+## Location & Time Zone
+
+Country: France
+City: Nîmes
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:11:26 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:11:26 UTC
+Source: http://www.maison-albar-hotels-l-imperator.com

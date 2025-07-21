@@ -4,19 +4,19 @@
 Italian
 
 ## Ambiance & Atmosphere
-A laboratory of ideas and an observatory reflecting on culinary traditions with contemporary art as inspiration.
+A laboratory of ideas with an artistic atmosphere, focusing on contemporary art as an inspiration.
 
 ## Location
-Via Stella, 22, 41121 Modena MO, Italy
+Via Stella, 22 · 41121 Modena MO · Italy
 
 ## Location & Time Zone
 
 Country: Italy
 City: Modena
 Timezone: Europe/Rome
-Current local time: 2025-07-20 22:03:03 CEST
+Current local time: 2025-07-21 21:05:34 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 20:03:03 UTC
+Generated: 2025-07-21 19:05:34 UTC
 Source: http://osteriafrancescana.it

@@ -1,0 +1,22 @@
+# Maison Rostang
+
+## Cuisine
+Traditional French
+
+## Ambiance & Atmosphere
+Modern and refined atmosphere combining classic culinary arts with creative achievement.
+
+## Location
+20 rue rennequin, 75017 PARIS
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:21:55 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:21:55 UTC
+Source: http://www.maisonrostang.com

@@ -4,12 +4,19 @@
 Italian
 
 ## Ambiance & Atmosphere
-Elegant atmosphere with a focus on high-quality hospitality and wine selection.
+Elegant atmosphere with a focus on fine dining and high-quality service.
 
 ## Location
-Not specified.
+Località Runate - 46013 Canneto sull'Oglio - Mantova - Italy
+
+## Location & Time Zone
+
+Country: Italy
+City: Canneto sull'Oglio
+Timezone: Europe/Rome
+Current local time: 2025-07-21 21:08:16 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 20:04:01 UTC
+Generated: 2025-07-21 19:08:16 UTC
 Source: http://www.dalpescatore.com

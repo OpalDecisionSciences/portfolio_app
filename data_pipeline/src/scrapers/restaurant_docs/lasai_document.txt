@@ -1,22 +1,25 @@
 # Lasai
 
 ## Cuisine
-Contemporary Brazilian
+Brazilian
 
 ## Ambiance & Atmosphere
-Modern, cozy, and informal with elegance; efficient service that puts food in the spotlight.
+Modern, cozy, and elegantly informal atmosphere with efficient service
 
 ## Location
-Botafogo - Rio de Janeiro - RJ
+Botafogo, Rio de Janeiro, RJ
+
+## Language
+Original website language: pt
 
 ## Location & Time Zone
 
 Country: Brazil
 City: Rio de Janeiro
 Timezone: America/Sao_Paulo
-Current local time: 2025-07-20 17:34:43 -03
+Current local time: 2025-07-21 18:44:30 -03
 
 ## Document Information
 
-Generated: 2025-07-20 20:34:43 UTC
+Generated: 2025-07-21 21:44:30 UTC
 Source: https://lasai.com.br/

@@ -1,6 +1,22 @@
 # Aponiente
 
+## Cuisine
+Seafood
+
+## Ambiance & Atmosphere
+A fantasy inspiration and play
+
+## Location
+C/ Francisco Cossi Ochoa, s/n, El Puerto de Santa María, Cádiz
+
+## Location & Time Zone
+
+Country: Spain
+City: El Puerto de Santa María
+Timezone: Europe/Madrid
+Current local time: 2025-07-21 20:41:15 CEST
+
 ## Document Information
 
-Generated: 2025-07-20 19:56:01 UTC
+Generated: 2025-07-21 18:41:15 UTC
 Source: https://www.aponiente.com/

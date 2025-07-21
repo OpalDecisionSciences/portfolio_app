@@ -4,19 +4,19 @@
 Japanese
 
 ## Ambiance & Atmosphere
-A refined atmosphere focused on the excellence of ingredients and meticulous service.
+A refined atmosphere focusing on high-quality ingredients with a takeout option.
 
 ## Location
-新宿区神楽坂5-37, 相良ビル１階, Tokyo, Japan
+Sagara Building 1F, Kagurazaka 5-37, Shinjuku Ward, Tokyo, Japan.
 
 ## Location & Time Zone
 
 Country: Japan
 City: Tokyo
 Timezone: Asia/Tokyo
-Current local time: 2025-07-21 05:07:07 JST
+Current local time: 2025-07-22 04:21:36 JST
 
 ## Document Information
 
-Generated: 2025-07-20 20:07:07 UTC
+Generated: 2025-07-21 19:21:36 UTC
 Source: https://kagurazaka-kohaku.jp/

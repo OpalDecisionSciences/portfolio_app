@@ -4,19 +4,22 @@
 Mexican
 
 ## Ambiance & Atmosphere
-High-quality service with an emphasis on hospitality and personal touch, creating a full dining experience.
+High-quality service with effective communication between kitchen and dining room, creating a complete dining experience.
 
 ## Location
-Ciudad de México, 2012
+Mexico City, 2012
+
+## Language
+Original website language: es
 
 ## Location & Time Zone
 
 Country: Mexico
-City: Ciudad de México
+City: Mexico City
 Timezone: America/Mexico_City
-Current local time: 2025-07-20 14:25:02 CST
+Current local time: 2025-07-21 15:33:30 CST
 
 ## Document Information
 
-Generated: 2025-07-20 20:25:02 UTC
+Generated: 2025-07-21 21:33:30 UTC
 Source: https://quintonil.com/

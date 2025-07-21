@@ -1,0 +1,22 @@
+# La Table de Franck Putelat
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Chic brasserie atmosphere with velvet banquettes and bistro tables; modernized with a private glass-roofed room.
+
+## Location
+Carcassonne, France, near the medieval walled city.
+
+## Location & Time Zone
+
+Country: France
+City: Carcassonne
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:18:01 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:18:01 UTC
+Source: http://www.franckputelat.com

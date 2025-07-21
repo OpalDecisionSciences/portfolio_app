@@ -1,0 +1,22 @@
+# Blanc
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Elegant with a focus on simplicity and purity
+
+## Location
+52 Rue de Longchamp, 75116 Paris
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:17:33 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:17:33 UTC
+Source: https://blanc-paris.com/

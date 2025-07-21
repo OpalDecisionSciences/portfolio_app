@@ -1,22 +1,25 @@
 # Waldhotel Sonnora
 
 ## Cuisine
-German
+Modern European
 
 ## Ambiance & Atmosphere
-Surrounded by nature and a beautiful park, offering a dedicated space for enjoyment and good taste.
+Surrounded by nature & a beautiful park, creating a delightful atmosphere focused on good taste.
 
 ## Location
-Hotel Sonnora, Germany
+Waldhotel Sonnora
+
+## Language
+Original website language: de
 
 ## Location & Time Zone
 
 Country: Germany
-City: Unknown
+City: Hilscheid
 Timezone: Europe/Berlin
-Current local time: 2025-07-20 22:17:27 CEST
+Current local time: 2025-07-21 23:24:33 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 20:17:27 UTC
+Generated: 2025-07-21 21:24:33 UTC
 Source: https://www.hotel-sonnora.de/

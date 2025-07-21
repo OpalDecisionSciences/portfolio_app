@@ -4,7 +4,7 @@
 Italian, Mediterranean
 
 ## Ambiance & Atmosphere
-Elegant atmosphere with a unique view of the Eternal City, offering exceptional service
+Elegant setting with a unique view of the Eternal City, renowned for its architectural design.
 
 ## Location
 Rome, Italy
@@ -14,9 +14,9 @@ Rome, Italy
 Country: Italy
 City: Rome
 Timezone: Europe/Rome
-Current local time: 2025-07-20 22:02:18 CEST
+Current local time: 2025-07-21 21:02:15 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 20:02:18 UTC
+Generated: 2025-07-21 19:02:15 UTC
 Source: https://romecavalieri.com/it/la-pergola-it/

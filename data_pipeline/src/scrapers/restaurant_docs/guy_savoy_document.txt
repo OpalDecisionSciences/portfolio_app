@@ -1,0 +1,22 @@
+# Guy Savoy
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Elegant and convivial dining atmosphere, recognized as one of the best restaurants in the world.
+
+## Location
+Monnaie de Paris, Paris, France
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:05:31 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:05:31 UTC
+Source: http://www.guysavoy.com

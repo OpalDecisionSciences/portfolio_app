@@ -1,0 +1,22 @@
+# Paul Bocuse
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Elegant atmosphere with respectful service. Attire guests looking for a high-end dining experience.
+
+## Location
+40 Rue de la plage, 69660 Collonges-au-Mont-d'Or, Lyon
+
+## Location & Time Zone
+
+Country: France
+City: Collonges-au-Mont-d'Or
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:06:19 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:06:19 UTC
+Source: http://www.bocuse.fr

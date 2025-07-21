@@ -1,0 +1,524 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Favorite - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .edit-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        .edit-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .restaurant-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .restaurant-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-location {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .restaurant-stars {
+            color: #ffd700;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h5 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #f0f0f0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+        }
+        
+        .form-control[readonly] {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .category-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .category-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-option.selected {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+        
+        .category-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .category-label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .category-description {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .rating-star {
+            font-size: 32px;
+            color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .rating-star:hover,
+        .rating-star.active {
+            color: #ffd700;
+            transform: scale(1.1);
+        }
+        
+        .btn-save {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 40px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-save:hover {
+            background: #c0392b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-cancel {
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 40px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cancel:hover {
+            background: #5a6268;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+        
+        .recommended-dishes {
+            margin-top: 15px;
+        }
+        
+        .dish-input {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .dish-input input {
+            flex: 1;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        
+        .btn-remove-dish {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        
+        .btn-add-dish {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: #e74c3c !important;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #e74c3c !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="icon-star-full" style="margin-right: 10px;"></i>
+                Michelin Star Service
+            </a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'accounts:dashboard' %}">Dashboard</a>
+                <a class="nav-link" href="{% url 'accounts:favorites' %}">Favorites</a>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Edit Header -->
+    <div class="edit-header">
+        <div class="container">
+            <h1><i class="icon-edit" style="margin-right: 15px;"></i>Edit Favorite Restaurant</h1>
+            <p class="mb-0">Update your favorite restaurant details and preferences</p>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Restaurant Info -->
+                <div class="restaurant-info">
+                    <div class="restaurant-name">{{ favorite.restaurant.name }}</div>
+                    <div class="restaurant-location">
+                        <i class="icon-location" style="margin-right: 5px;"></i>
+                        {{ favorite.restaurant.city }}, {{ favorite.restaurant.country }}
+                    </div>
+                    <div class="restaurant-stars">
+                        {% for i in "123"|make_list %}
+                            {% if forloop.counter <= favorite.restaurant.michelin_stars %}
+                                <i class="icon-star-full"></i>
+                            {% endif %}
+                        {% endfor %}
+                        {% if favorite.restaurant.michelin_stars > 0 %}
+                            <span class="ml-2">{{ favorite.restaurant.michelin_stars }} Michelin Star{{ favorite.restaurant.michelin_stars|pluralize }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Edit Form -->
+                <div class="edit-card">
+                    <form method="post" id="editFavoriteForm">
+                        {% csrf_token %}
+                        
+                        <!-- Category Selection -->
+                        <div class="form-section">
+                            <h5><i class="icon-tag" style="margin-right: 10px;"></i>Category</h5>
+                            <div class="category-grid">
+                                <label class="category-option {% if favorite.category == 'to_visit' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="to_visit" {% if favorite.category == 'to_visit' %}checked{% endif %}>
+                                    <i class="icon-bookmark category-icon" style="color: #3498db;"></i>
+                                    <div class="category-label">Want to Visit</div>
+                                    <div class="category-description">Places on your wishlist</div>
+                                </label>
+                                
+                                <label class="category-option {% if favorite.category == 'visited' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="visited" {% if favorite.category == 'visited' %}checked{% endif %}>
+                                    <i class="icon-check category-icon" style="color: #2ecc71;"></i>
+                                    <div class="category-label">Visited & Loved</div>
+                                    <div class="category-description">Great experiences</div>
+                                </label>
+                                
+                                <label class="category-option {% if favorite.category == 'special_occasion' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="special_occasion" {% if favorite.category == 'special_occasion' %}checked{% endif %}>
+                                    <i class="icon-gift category-icon" style="color: #9b59b6;"></i>
+                                    <div class="category-label">Special Occasions</div>
+                                    <div class="category-description">Celebrations & events</div>
+                                </label>
+                                
+                                <label class="category-option {% if favorite.category == 'business_dining' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="business_dining" {% if favorite.category == 'business_dining' %}checked{% endif %}>
+                                    <i class="icon-briefcase category-icon" style="color: #34495e;"></i>
+                                    <div class="category-label">Business Dining</div>
+                                    <div class="category-description">Professional meetings</div>
+                                </label>
+                                
+                                <label class="category-option {% if favorite.category == 'romantic' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="romantic" {% if favorite.category == 'romantic' %}checked{% endif %}>
+                                    <i class="icon-heart category-icon" style="color: #e74c3c;"></i>
+                                    <div class="category-label">Romantic Dinners</div>
+                                    <div class="category-description">Date nights & romance</div>
+                                </label>
+                                
+                                <label class="category-option {% if favorite.category == 'family' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="family" {% if favorite.category == 'family' %}checked{% endif %}>
+                                    <i class="icon-users category-icon" style="color: #e67e22;"></i>
+                                    <div class="category-label">Family-Friendly</div>
+                                    <div class="category-description">Family gatherings</div>
+                                </label>
+                                
+                                <label class="category-option {% if favorite.category == 'quick_bite' %}selected{% endif %}">
+                                    <input type="radio" name="category" value="quick_bite" {% if favorite.category == 'quick_bite' %}checked{% endif %}>
+                                    <i class="icon-clock category-icon" style="color: #f1c40f;"></i>
+                                    <div class="category-label">Quick Bites</div>
+                                    <div class="category-description">Fast & casual</div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Personal Rating -->
+                        <div class="form-section">
+                            <h5><i class="icon-star-full" style="margin-right: 10px;"></i>Personal Rating</h5>
+                            <div class="text-center">
+                                <div class="rating-stars">
+                                    {% for i in "12345"|make_list %}
+                                        <i class="icon-star-empty rating-star" data-rating="{{ forloop.counter }}" {% if forloop.counter <= favorite.personal_rating %}style="color: #ffd700;"{% endif %}></i>
+                                    {% endfor %}
+                                </div>
+                                <input type="hidden" name="personal_rating" id="personalRating" value="{{ favorite.personal_rating|default:'' }}">
+                                <small class="text-muted">Click stars to rate (optional)</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Visit Date -->
+                        <div class="form-section">
+                            <h5><i class="icon-calendar" style="margin-right: 10px;"></i>Visit Date</h5>
+                            <input type="date" name="visit_date" class="form-control" value="{{ favorite.visit_date|date:'Y-m-d' }}" placeholder="When did you visit? (optional)">
+                            <small class="text-muted">Leave blank if you haven't visited yet</small>
+                        </div>
+                        
+                        <!-- Notes -->
+                        <div class="form-section">
+                            <h5><i class="icon-note" style="margin-right: 10px;"></i>Personal Notes</h5>
+                            <textarea name="notes" class="form-control" rows="4" placeholder="What makes this restaurant special to you? Any memorable experiences or thoughts...">{{ favorite.notes }}</textarea>
+                        </div>
+                        
+                        <!-- Recommended Dishes -->
+                        <div class="form-section">
+                            <h5><i class="icon-cutlery" style="margin-right: 10px;"></i>Recommended Dishes</h5>
+                            <div id="recommendedDishes">
+                                {% for dish in favorite.recommended_dishes %}
+                                    <div class="dish-input">
+                                        <input type="text" name="recommended_dishes" class="form-control" value="{{ dish }}" placeholder="Dish name">
+                                        <button type="button" class="btn-remove-dish" onclick="removeDish(this)">
+                                            <i class="icon-trash"></i>
+                                        </button>
+                                    </div>
+                                {% empty %}
+                                    <div class="dish-input">
+                                        <input type="text" name="recommended_dishes" class="form-control" placeholder="Enter a recommended dish">
+                                        <button type="button" class="btn-remove-dish" onclick="removeDish(this)">
+                                            <i class="icon-trash"></i>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button type="button" class="btn-add-dish" onclick="addDish()">
+                                <i class="icon-plus" style="margin-right: 5px;"></i>Add Another Dish
+                            </button>
+                        </div>
+                        
+                        <!-- Form Actions -->
+                        <div class="text-center">
+                            <button type="submit" class="btn-save">
+                                <i class="icon-check" style="margin-right: 8px;"></i>
+                                Save Changes
+                            </button>
+                            <a href="{% url 'accounts:favorites' %}" class="btn-cancel ml-3">
+                                <i class="icon-arrow-left" style="margin-right: 8px;"></i>
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category selection
+            const categoryOptions = document.querySelectorAll('.category-option');
+            categoryOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    categoryOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const radio = this.querySelector('input[type="radio"]');
+                    radio.checked = true;
+                });
+            });
+            
+            // Star rating
+            const stars = document.querySelectorAll('.rating-star');
+            const ratingInput = document.getElementById('personalRating');
+            
+            stars.forEach((star, index) => {
+                star.addEventListener('click', function() {
+                    const rating = index + 1;
+                    ratingInput.value = rating;
+                    updateStars(rating);
+                });
+                
+                star.addEventListener('mouseover', function() {
+                    const rating = index + 1;
+                    updateStars(rating);
+                });
+            });
+            
+            // Reset stars on mouse leave
+            document.querySelector('.rating-stars').addEventListener('mouseleave', function() {
+                const currentRating = ratingInput.value || 0;
+                updateStars(parseInt(currentRating));
+            });
+            
+            function updateStars(rating) {
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.remove('icon-star-empty');
+                        star.classList.add('icon-star-full');
+                        star.style.color = '#ffd700';
+                    } else {
+                        star.classList.remove('icon-star-full');
+                        star.classList.add('icon-star-empty');
+                        star.style.color = '#ddd';
+                    }
+                });
+            }
+            
+            // Initialize stars
+            const initialRating = parseInt(ratingInput.value) || 0;
+            updateStars(initialRating);
+        });
+        
+        function addDish() {
+            const dishesContainer = document.getElementById('recommendedDishes');
+            const dishInput = document.createElement('div');
+            dishInput.className = 'dish-input';
+            dishInput.innerHTML = `
+                <input type="text" name="recommended_dishes" class="form-control" placeholder="Enter a recommended dish">
+                <button type="button" class="btn-remove-dish" onclick="removeDish(this)">
+                    <i class="icon-trash"></i>
+                </button>
+            `;
+            dishesContainer.appendChild(dishInput);
+        }
+        
+        function removeDish(button) {
+            const dishInput = button.parentElement;
+            const container = dishInput.parentElement;
+            
+            // Don't remove if it's the last input
+            if (container.children.length > 1) {
+                dishInput.remove();
+            } else {
+                // Clear the input instead
+                dishInput.querySelector('input').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

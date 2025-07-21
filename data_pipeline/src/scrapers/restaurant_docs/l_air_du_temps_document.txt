@@ -4,12 +4,15 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-Michelin-starred experience offering a culinary atmosphere
+Michelin-starred experience with a focus on fine dining.
 
 ## Location
-Belgium
+Not specified in the information provided.
+
+## Language
+Original website language: fr
 
 ## Document Information
 
-Generated: 2025-07-20 20:36:19 UTC
+Generated: 2025-07-21 21:46:45 UTC
 Source: https://airdutemps.be/

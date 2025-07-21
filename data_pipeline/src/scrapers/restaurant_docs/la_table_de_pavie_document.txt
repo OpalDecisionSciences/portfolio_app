@@ -1,0 +1,22 @@
+# La Table de Pavie
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Elegant atmosphere with a modern touch, featuring a bar and terrace with a panoramic view of the medieval village.
+
+## Location
+Saint-Émilion, France
+
+## Location & Time Zone
+
+Country: France
+City: Saint-Émilion
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:16:54 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:16:54 UTC
+Source: http://www.hoteldepavie.com

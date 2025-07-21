@@ -1,0 +1,485 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Dashboard - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        .welcome-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .stats-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .stats-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stats-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .quick-actions {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .action-btn {
+            display: block;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .action-btn:hover {
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+        
+        .action-primary {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .action-secondary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+        
+        .action-success {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+        
+        .action-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+        
+        .recent-activity {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .activity-meta {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .recommendations-preview {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .recommendation-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .recommendation-item:last-child {
+            border-bottom: none;
+        }
+        
+        .restaurant-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .recommendation-content {
+            flex: 1;
+        }
+        
+        .restaurant-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .restaurant-location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .match-score {
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .profile-completion {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .completion-bar {
+            background: #f0f0f0;
+            border-radius: 20px;
+            height: 12px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .completion-progress {
+            background: linear-gradient(135deg, #e74c3c, #ffd700);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: #e74c3c !important;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #e74c3c !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="icon-star-full" style="margin-right: 10px;"></i>
+                Michelin Star Service
+            </a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'accounts:profile' %}">Profile</a>
+                <a class="nav-link" href="{% url 'accounts:favorites' %}">Favorites</a>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1>Welcome back, {{ user.get_full_name|default:user.email }}!</h1>
+                    <p class="mb-0">Your personalized dining companion</p>
+                </div>
+                <div class="col-md-4 text-right">
+                    <div class="text-white">
+                        <small>Member since</small>
+                        <h4>{{ user.date_joined|date:"F Y" }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-8">
+                <!-- Profile Completion -->
+                {% if not user.profile_completed %}
+                    <div class="profile-completion">
+                        <h4><i class="icon-user" style="margin-right: 10px;"></i>Complete Your Profile</h4>
+                        <p>Complete your profile to get better restaurant recommendations tailored to your preferences.</p>
+                        <div class="completion-bar">
+                            <div class="completion-progress" style="width: {{ completion_percentage }}%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>{{ completion_percentage }}% Complete</span>
+                            <a href="{% url 'accounts:profile' %}" class="btn btn-sm" style="background: #e74c3c; color: white; border-radius: 20px;">Complete Profile</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <!-- Statistics Cards -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="icon-heart stats-icon" style="color: #e74c3c;"></i>
+                            <div class="stats-number">{{ favorites_count }}</div>
+                            <div class="stats-label">Favorites</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="icon-cutlery stats-icon" style="color: #f39c12;"></i>
+                            <div class="stats-number">{{ visited_count }}</div>
+                            <div class="stats-label">Visited</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="icon-star-full stats-icon" style="color: #ffd700;"></i>
+                            <div class="stats-number">{{ michelin_stars_total }}</div>
+                            <div class="stats-label">Michelin Stars</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-card">
+                            <i class="icon-location stats-icon" style="color: #3498db;"></i>
+                            <div class="stats-number">{{ cities_count }}</div>
+                            <div class="stats-label">Cities</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personalized Recommendations -->
+                <div class="recommendations-preview">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4><i class="icon-magic-wand" style="margin-right: 10px;"></i>Recommended for You</h4>
+                        <a href="{% url 'restaurants:restaurant_list' %}?personalized=true" class="btn btn-sm" style="background: #e74c3c; color: white; border-radius: 20px;">View All</a>
+                    </div>
+                    
+                    {% if recommendations %}
+                        {% for restaurant in recommendations|slice:":3" %}
+                            <div class="recommendation-item">
+                                <div class="restaurant-thumb">
+                                    <i class="icon-cutlery"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <div class="restaurant-name">{{ restaurant.name }}</div>
+                                    <div class="restaurant-location">{{ restaurant.city }}, {{ restaurant.country }}</div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        {% if restaurant.michelin_stars > 0 %}
+                                            <span style="color: #ffd700; margin-right: 10px;">
+                                                {% for i in "123"|make_list %}
+                                                    {% if forloop.counter <= restaurant.michelin_stars %}
+                                                        <i class="icon-star-full"></i>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </span>
+                                        {% endif %}
+                                        <span class="match-score">{{ restaurant.match_percentage|default:"85" }}% Match</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">Complete your profile to see personalized recommendations!</p>
+                    {% endif %}
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h4><i class="icon-clock" style="margin-right: 10px;"></i>Recent Activity</h4>
+                    
+                    {% if recent_activities %}
+                        {% for activity in recent_activities %}
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: {% cycle '#e74c3c' '#3498db' '#2ecc71' '#f39c12' %};">
+                                    <i class="icon-{% if activity.type == 'favorite' %}heart{% elif activity.type == 'visit' %}location{% elif activity.type == 'review' %}star{% else %}info{% endif %}"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">{{ activity.title }}</div>
+                                    <div class="activity-meta">{{ activity.date|timesince }} ago</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="activity-item">
+                            <div class="activity-icon" style="background: #95a5a6;">
+                                <i class="icon-info"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Welcome to Michelin Star Service!</div>
+                                <div class="activity-meta">Start exploring restaurants to see your activity here</div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-4">
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h4 style="margin-bottom: 25px;"><i class="icon-flash" style="margin-right: 10px;"></i>Quick Actions</h4>
+                    
+                    <a href="{% url 'restaurants:restaurant_list' %}" class="action-btn action-primary">
+                        <i class="icon-search" style="margin-right: 10px;"></i>
+                        <strong>Discover Restaurants</strong><br>
+                        <small>Find your next dining experience</small>
+                    </a>
+                    
+                    <a href="{% url 'accounts:favorites' %}" class="action-btn action-secondary">
+                        <i class="icon-heart" style="margin-right: 10px;"></i>
+                        <strong>My Favorites</strong><br>
+                        <small>View your saved restaurants</small>
+                    </a>
+                    
+                    <a href="{% url 'chat:chat' %}" class="action-btn action-success">
+                        <i class="icon-comment" style="margin-right: 10px;"></i>
+                        <strong>AI Assistant</strong><br>
+                        <small>Get personalized recommendations</small>
+                    </a>
+                    
+                    <a href="{% url 'accounts:profile' %}" class="action-btn action-warning">
+                        <i class="icon-settings" style="margin-right: 10px;"></i>
+                        <strong>Profile Settings</strong><br>
+                        <small>Update your preferences</small>
+                    </a>
+                </div>
+
+                <!-- Dining Stats -->
+                <div class="stats-card">
+                    <h5 style="margin-bottom: 20px;">Your Dining Journey</h5>
+                    
+                    <div class="text-center mb-3">
+                        <div style="font-size: 48px; color: #e74c3c;">
+                            <i class="icon-award"></i>
+                        </div>
+                        <h4>{{ dining_level|default:"Explorer" }}</h4>
+                        <p class="text-muted mb-0">Dining Level</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Countries Explored:</span>
+                            <strong>{{ countries_count|default:0 }}</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Cuisine Types Tried:</span>
+                            <strong>{{ cuisines_count|default:0 }}</strong>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Average Rating:</span>
+                            <strong>{{ average_rating|default:"N/A" }}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

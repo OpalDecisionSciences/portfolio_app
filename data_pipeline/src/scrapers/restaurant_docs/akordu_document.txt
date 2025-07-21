@@ -1,15 +1,25 @@
 # akordu
 
 ## Cuisine
-Japanese
+Fusion of Indigenous and Sophisticated Flavors
 
 ## Ambiance & Atmosphere
-A place that transcends regular categories, emphasizing natural elements and seasonal experiences, with a focus on a calm and mindful dining experience.
+A tranquil atmosphere inviting guests to experience a journey of flavors inspired by nature and memory.
 
 ## Location
-Not explicitly mentioned in the text.
+Nara, Japan
+
+## Language
+Original website language: ja
+
+## Location & Time Zone
+
+Country: Japan
+City: Nara
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 06:36:41 JST
 
 ## Document Information
 
-Generated: 2025-07-20 20:27:38 UTC
+Generated: 2025-07-21 21:36:41 UTC
 Source: https://akordu.com/

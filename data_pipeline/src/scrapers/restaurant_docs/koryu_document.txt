@@ -1,0 +1,22 @@
+# Koryu
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+A tranquil and immersive Japanese dining experience focusing on the senses, where every element contributes to the guest's enjoyment.
+
+## Location
+北浜北新地, 大阪市 (Kitahama, Kita Ward, Osaka)
+
+## Location & Time Zone
+
+Country: Japan
+City: Osaka
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 07:31:51 JST
+
+## Document Information
+
+Generated: 2025-07-21 22:31:51 UTC
+Source: https://www.koryu.net/

@@ -1,0 +1,22 @@
+# Kyokaiseki Kichisen
+
+## Cuisine
+Japanese kaiseki
+
+## Ambiance & Atmosphere
+Elegant and serene atmosphere located in the tranquil area of Shimogamo, with a focus on traditional hospitality.
+
+## Location
+下鴨高野川と加茂川が相交わる地, 京都
+
+## Location & Time Zone
+
+Country: Japan
+City: Kyoto
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 07:35:42 JST
+
+## Document Information
+
+Generated: 2025-07-21 22:35:42 UTC
+Source: https://www.kichisen-kyoto.com/

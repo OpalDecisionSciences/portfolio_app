@@ -1,0 +1,22 @@
+# La Scène
+
+## Cuisine
+Gastronomic
+
+## Ambiance & Atmosphere
+Elegant atmosphere with a focus on fine dining service
+
+## Location
+32 Avenue Matignon, 75008 Paris
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:11:49 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:11:49 UTC
+Source: https://www.la-scene.paris/

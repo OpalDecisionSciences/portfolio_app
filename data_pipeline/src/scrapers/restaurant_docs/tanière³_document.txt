@@ -1,15 +1,25 @@
 # Tanière³
 
 ## Cuisine
-Québécoise
+Quebec
 
 ## Ambiance & Atmosphere
-Intimate and immersive atmosphere with a focus on warmth and attentive service, set in a historical vault.
+Elegant and modern, yet warm and welcoming; intimate dining vault experience with exceptional service marked by human warmth and personal attention.
 
 ## Location
-Vieux Carré, Québec
+Vieux Carré, Quebec
+
+## Language
+Original website language: fr
+
+## Location & Time Zone
+
+Country: Canada
+City: Quebec
+Timezone: America/Toronto
+Current local time: 2025-07-21 17:35:51 EDT
 
 ## Document Information
 
-Generated: 2025-07-20 20:27:08 UTC
+Generated: 2025-07-21 21:35:51 UTC
 Source: http://www.taniere3.com

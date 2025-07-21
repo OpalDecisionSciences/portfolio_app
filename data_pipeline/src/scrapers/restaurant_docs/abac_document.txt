@@ -1,10 +1,10 @@
 # ABaC
 
 ## Cuisine
-High Gastronomy
+Haute cuisine
 
 ## Ambiance & Atmosphere
-Intimate and elegant atmosphere in a century-old house surrounded by a garden.
+Intimate and cozy, located in a century-old house surrounded by a garden, ideal for private or corporate events.
 
 ## Location
 Sant Gervasi, Barcelona, Spain
@@ -14,9 +14,9 @@ Sant Gervasi, Barcelona, Spain
 Country: Spain
 City: Barcelona
 Timezone: Europe/Madrid
-Current local time: 2025-07-20 21:58:45 CEST
+Current local time: 2025-07-21 20:51:54 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:58:45 UTC
+Generated: 2025-07-21 18:51:54 UTC
 Source: https://abacrestaurant.com

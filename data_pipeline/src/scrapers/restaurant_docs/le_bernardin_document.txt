@@ -4,12 +4,19 @@
 Seafood
 
 ## Ambiance & Atmosphere
-Elegant and refined atmosphere with a focus on exceptional service, featuring a lounge area with a separate menu.
+Elegant and refined, featuring a redesigned space that includes a lounge.
 
 ## Location
-New York
+155 W 51st St, New York, NY 10019
+
+## Location & Time Zone
+
+Country: United States
+City: New York
+Timezone: America/New_York
+Current local time: 2025-07-21 14:34:44 EDT
 
 ## Document Information
 
-Generated: 2025-07-20 19:54:24 UTC
+Generated: 2025-07-21 18:34:44 UTC
 Source: https://www.le-bernardin.com/

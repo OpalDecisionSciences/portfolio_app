@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Not Found - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .error-container {
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+        
+        .error-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        
+        .error-icon {
+            font-size: 120px;
+            color: #e74c3c;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        .error-code {
+            font-size: 72px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .error-title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .error-message {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-home {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-home:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-back {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-back:hover {
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .suggestions {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .suggestions h4 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .suggestions li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .suggestions li:before {
+            content: "🍽️";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .suggestions a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .suggestions a:hover {
+            text-decoration: underline;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .error-card {
+                margin: 20px;
+                padding: 40px 20px;
+            }
+            
+            .error-code {
+                font-size: 48px;
+            }
+            
+            .error-title {
+                font-size: 24px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="{% url 'home' %}" class="logo d-none d-md-block">
+        <i class="icon-star-full" style="margin-right: 10px;"></i>
+        Michelin Star Service
+    </a>
+    
+    <div class="error-container">
+        <div class="container">
+            <div class="error-card">
+                <a href="{% url 'home' %}" class="logo d-md-none">
+                    <i class="icon-star-full" style="margin-right: 10px;"></i>
+                    Michelin Star Service
+                </a>
+                
+                <i class="icon-search error-icon"></i>
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-message">
+                    We're sorry, but the page you're looking for seems to have wandered off the menu. 
+                    Don't worry - there are plenty of delicious experiences waiting for you!
+                </p>
+                
+                <div class="action-buttons">
+                    <a href="{% url 'home' %}" class="btn-home">
+                        <i class="icon-home"></i>
+                        Return Home
+                    </a>
+                    <button onclick="history.back()" class="btn-back">
+                        <i class="icon-arrow-left"></i>
+                        Go Back
+                    </button>
+                </div>
+                
+                <div class="suggestions">
+                    <h4>Popular Destinations</h4>
+                    <ul>
+                        <li><a href="{% url 'restaurants:restaurant_list' %}">Discover Restaurants</a> - Browse our curated collection of Michelin-starred establishments</li>
+                        <li><a href="{% url 'restaurants:gallery' %}">Photo Gallery</a> - Explore stunning culinary photography</li>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'accounts:dashboard' %}">My Dashboard</a> - View your personalized recommendations</li>
+                            <li><a href="{% url 'accounts:favorites' %}">My Favorites</a> - Manage your saved restaurants</li>
+                        {% else %}
+                            <li><a href="{% url 'accounts:login' %}">Sign In</a> - Access personalized recommendations</li>
+                            <li><a href="{% url 'accounts:register' %}">Create Account</a> - Join our culinary community</li>
+                        {% endif %}
+                        <li><a href="{% url 'chat:chat' %}">AI Assistant</a> - Get personalized dining recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

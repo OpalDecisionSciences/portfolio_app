@@ -1,0 +1,463 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>My Favorite Restaurants - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .favorites-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        .favorite-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .favorite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .restaurant-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .restaurant-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-location {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-stars {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .category-to_visit {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+        }
+        
+        .category-visited {
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+        
+        .category-special_occasion {
+            background: rgba(155, 89, 182, 0.1);
+            color: #9b59b6;
+        }
+        
+        .category-business_dining {
+            background: rgba(52, 73, 94, 0.1);
+            color: #34495e;
+        }
+        
+        .category-romantic {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        .category-family {
+            background: rgba(230, 126, 34, 0.1);
+            color: #e67e22;
+        }
+        
+        .category-quick_bite {
+            background: rgba(241, 196, 15, 0.1);
+            color: #f1c40f;
+        }
+        
+        .personal-rating {
+            margin-bottom: 15px;
+        }
+        
+        .rating-stars {
+            color: #ffd700;
+            font-size: 18px;
+        }
+        
+        .favorite-notes {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .favorite-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-edit {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-edit:hover {
+            background: #2980b9;
+            color: white;
+        }
+        
+        .btn-remove {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-remove:hover {
+            background: #c0392b;
+            color: white;
+        }
+        
+        .btn-view {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-view:hover {
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .filter-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            border-color: #e74c3c;
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: #e74c3c !important;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #e74c3c !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="icon-star-full" style="margin-right: 10px;"></i>
+                Michelin Star Service
+            </a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'accounts:dashboard' %}">Dashboard</a>
+                <a class="nav-link" href="{% url 'accounts:profile' %}">Profile</a>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Favorites Header -->
+    <div class="favorites-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="icon-heart" style="margin-right: 15px;"></i>My Favorite Restaurants</h1>
+                    <p class="mb-0">Your personal collection of favorite dining experiences</p>
+                </div>
+                <div class="col-md-4 text-right">
+                    <div class="text-white">
+                        <h3>{{ favorites.count }}</h3>
+                        <p class="mb-0">Favorite{{ favorites.count|pluralize }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if favorites %}
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <h5 style="margin-bottom: 15px;">Filter by Category</h5>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Categories</button>
+                    <button class="filter-btn" data-category="to_visit">Want to Visit</button>
+                    <button class="filter-btn" data-category="visited">Visited & Loved</button>
+                    <button class="filter-btn" data-category="special_occasion">Special Occasions</button>
+                    <button class="filter-btn" data-category="business_dining">Business Dining</button>
+                    <button class="filter-btn" data-category="romantic">Romantic Dinners</button>
+                    <button class="filter-btn" data-category="family">Family-Friendly</button>
+                    <button class="filter-btn" data-category="quick_bite">Quick Bites</button>
+                </div>
+            </div>
+
+            <!-- Favorites Grid -->
+            <div class="row">
+                {% for favorite in favorites %}
+                    <div class="col-md-6 col-lg-4 favorite-item" data-category="{{ favorite.category }}">
+                        <div class="favorite-card">
+                            <div class="restaurant-image">
+                                <i class="icon-cutlery"></i>
+                            </div>
+                            
+                            <div class="restaurant-name">{{ favorite.restaurant.name }}</div>
+                            
+                            <div class="restaurant-location">
+                                <i class="icon-location" style="margin-right: 5px;"></i>
+                                {{ favorite.restaurant.city }}, {{ favorite.restaurant.country }}
+                            </div>
+                            
+                            <div class="restaurant-stars">
+                                {% for i in "123"|make_list %}
+                                    {% if forloop.counter <= favorite.restaurant.michelin_stars %}
+                                        <i class="icon-star-full"></i>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if favorite.restaurant.michelin_stars > 0 %}
+                                    <span class="ml-2">{{ favorite.restaurant.michelin_stars }} Michelin Star{{ favorite.restaurant.michelin_stars|pluralize }}</span>
+                                {% endif %}
+                            </div>
+                            
+                            <span class="category-badge category-{{ favorite.category }}">
+                                {{ favorite.get_category_display }}
+                            </span>
+                            
+                            {% if favorite.personal_rating %}
+                                <div class="personal-rating">
+                                    <strong>My Rating:</strong>
+                                    <span class="rating-stars">
+                                        {% for i in "12345"|make_list %}
+                                            {% if forloop.counter <= favorite.personal_rating %}
+                                                <i class="icon-star-full"></i>
+                                            {% else %}
+                                                <i class="icon-star-empty"></i>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </span>
+                                </div>
+                            {% endif %}
+                            
+                            {% if favorite.notes %}
+                                <div class="favorite-notes">
+                                    "{{ favorite.notes }}"
+                                </div>
+                            {% endif %}
+                            
+                            {% if favorite.visit_date %}
+                                <div class="text-muted mb-3">
+                                    <i class="icon-calendar" style="margin-right: 5px;"></i>
+                                    Visited: {{ favorite.visit_date|date:"F j, Y" }}
+                                </div>
+                            {% endif %}
+                            
+                            <div class="favorite-actions">
+                                <a href="{% url 'restaurants:restaurant_detail' favorite.restaurant.id %}" class="btn-view">
+                                    <i class="icon-eye" style="margin-right: 5px;"></i>View
+                                </a>
+                                <button class="btn-edit" onclick="editFavorite('{{ favorite.id }}')">
+                                    <i class="icon-edit" style="margin-right: 5px;"></i>Edit
+                                </button>
+                                <button class="btn-remove" onclick="removeFavorite('{{ favorite.id }}', '{{ favorite.restaurant.name }}')">
+                                    <i class="icon-trash" style="margin-right: 5px;"></i>Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <!-- Empty State -->
+            <div class="empty-state">
+                <i class="icon-heart-broken"></i>
+                <h3>No Favorite Restaurants Yet</h3>
+                <p class="text-muted">Start building your personal collection of favorite restaurants by exploring our recommendations.</p>
+                <a href="{% url 'restaurants:restaurant_list' %}" class="btn btn-save">
+                    <i class="icon-search" style="margin-right: 8px;"></i>
+                    Discover Restaurants
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const favoriteItems = document.querySelectorAll('.favorite-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filter items
+                    favoriteItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Edit favorite function
+        function editFavorite(favoriteId) {
+            window.location.href = `/accounts/favorites/${favoriteId}/edit/`;
+        }
+        
+        // Remove favorite function
+        function removeFavorite(favoriteId, restaurantName) {
+            if (confirm(`Are you sure you want to remove "${restaurantName}" from your favorites?`)) {
+                fetch(`/accounts/favorites/${favoriteId}/remove/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('meta[name=csrf-token]').getAttribute('content'),
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Error removing favorite. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error removing favorite. Please try again.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

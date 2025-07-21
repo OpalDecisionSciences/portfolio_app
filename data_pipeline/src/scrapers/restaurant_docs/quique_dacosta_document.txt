@@ -1,22 +1,25 @@
 # Quique Dacosta
 
 ## Cuisine
-Creative Spanish
+Creative and conceptual Spanish
 
 ## Ambiance & Atmosphere
-A unique and artistic culinary experience with a focus on creativity and emotion.
+Acclaimed as one of the best restaurants in the world, it offers a magical and immersive experience.
 
 ## Location
 Dénia, Spain
+
+## Language
+Original website language: es
 
 ## Location & Time Zone
 
 Country: Spain
 City: Dénia
 Timezone: Europe/Madrid
-Current local time: 2025-07-20 21:57:33 CEST
+Current local time: 2025-07-21 20:46:24 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:57:33 UTC
+Generated: 2025-07-21 18:46:24 UTC
 Source: https://www.quiquedacosta.es/

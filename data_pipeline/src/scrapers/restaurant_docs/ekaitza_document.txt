@@ -1,0 +1,22 @@
+# Ekaitza
+
+## Cuisine
+Basque
+
+## Ambiance & Atmosphere
+Authentic and friendly atmosphere of a small coastal village, with a focus on high-quality service and a noble yet simple decor.
+
+## Location
+Quai Ravel, Ciboure, France
+
+## Location & Time Zone
+
+Country: France
+City: Ciboure
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:20:18 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:20:18 UTC
+Source: https://www.restaurant-ekaitza.fr/

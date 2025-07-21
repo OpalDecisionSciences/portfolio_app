@@ -1,0 +1,22 @@
+# Restaurant Le Meurice Alain Ducasse
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Grand Siècle elegance with contemporary materials and exceptional furniture; inspired by the Salon de la Paix in the Chateau de Versailles.
+
+## Location
+Paris, France, overlooking the Jardins des Tuileries
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:05:45 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:05:45 UTC
+Source: https://www.alainducasse-meurice.com

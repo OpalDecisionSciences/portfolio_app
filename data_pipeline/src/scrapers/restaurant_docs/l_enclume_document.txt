@@ -1,15 +1,22 @@
 # L'Enclume
 
 ## Cuisine
-Contemporary European
+British
 
 ## Ambiance & Atmosphere
-Historic building dating back to the 13th century, featuring original elements like blacksmiths furnaces and exposed ceiling beams, offering a unique and rustic dining experience.
+An extraordinary gastronomic vision entwined with a focus on farm-to-table dining.
 
 ## Location
-Cartmel, Lake District, England
+Cavendish Street, Cartmel, Cumbria, LA11 6QA UK
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: Cartmel
+Timezone: Europe/London
+Current local time: 2025-07-21 19:23:00 BST
 
 ## Document Information
 
-Generated: 2025-07-20 19:50:58 UTC
+Generated: 2025-07-21 18:23:00 UTC
 Source: https://www.lenclume.co.uk/

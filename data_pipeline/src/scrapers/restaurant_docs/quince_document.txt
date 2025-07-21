@@ -1,15 +1,22 @@
 # Quince
 
 ## Cuisine
-American
+California Contemporary Cuisine
 
 ## Ambiance & Atmosphere
-Elegant fine dining atmosphere, suitable for both business and festive gatherings.
+Fine dining atmosphere with a focus on exceptional and seasonal ingredients.
 
 ## Location
-Jackson Square Neighborhood, San Francisco, CA
+470 Pacific Avenue, San Francisco, CA
+
+## Location & Time Zone
+
+Country: United States
+City: San Francisco
+Timezone: America/New_York
+Current local time: 2025-07-21 15:37:48 EDT
 
 ## Document Information
 
-Generated: 2025-07-20 20:13:31 UTC
+Generated: 2025-07-21 19:37:48 UTC
 Source: http://www.quincerestaurant.com

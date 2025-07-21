@@ -1,0 +1,22 @@
+# La Côte d'Or
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Fine dining with a focus on culinary art and hospitality.
+
+## Location
+Le Relais Bernard Loiseau, Saulieu, Burgundy, France
+
+## Location & Time Zone
+
+Country: France
+City: Saulieu
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:28:52 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:28:52 UTC
+Source: https://www.bernard-loiseau.com/

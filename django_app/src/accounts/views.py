@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from django.utils.crypto import get_random_string
 from datetime import timedelta
+from django_ratelimit.decorators import ratelimit
+from portfolio_project.constants import LOGIN_RATE_LIMIT, PASSWORD_RESET_RATE_LIMIT
 import json
 import logging
 
@@ -28,6 +30,7 @@ from restaurants.models import Restaurant
 logger = logging.getLogger(__name__)
 
 
+@ratelimit(key='ip', rate=LOGIN_RATE_LIMIT, method='POST', block=True)
 def register_view(request):
     """
     User registration view with enhanced form validation.
@@ -63,6 +66,7 @@ def register_view(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 
+@ratelimit(key='ip', rate=LOGIN_RATE_LIMIT, method='POST', block=True)
 def login_view(request):
     """
     Enhanced login view with remember me functionality.
@@ -279,6 +283,7 @@ def edit_favorite_view(request, favorite_id):
     return render(request, 'accounts/edit_favorite.html', context)
 
 
+@ratelimit(key='ip', rate=PASSWORD_RESET_RATE_LIMIT, method='POST', block=True)
 def password_reset_request_view(request):
     """
     Custom password reset request view.

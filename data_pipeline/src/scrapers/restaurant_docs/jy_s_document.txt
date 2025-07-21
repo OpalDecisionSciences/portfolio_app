@@ -1,0 +1,22 @@
+# JY'S
+
+## Cuisine
+Bistronomique
+
+## Ambiance & Atmosphere
+Contemporary atmosphere in a modern setting.
+
+## Location
+Colmar, France, near the river Lauch in the Petite Venise district.
+
+## Location & Time Zone
+
+Country: France
+City: Colmar
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:07:32 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:07:32 UTC
+Source: https://www.jean-yves-schillinger.com/

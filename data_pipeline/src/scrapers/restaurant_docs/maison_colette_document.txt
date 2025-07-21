@@ -4,12 +4,15 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-A warm and inviting atmosphere with authentic character, where tradition meets innovation.
+A warm home-like atmosphere filled with character, offering ultimate refinement and delightful flavors with warm hospitality.
 
 ## Location
 Belgium
 
+## Language
+Original website language: nl
+
 ## Document Information
 
-Generated: 2025-07-20 20:35:31 UTC
+Generated: 2025-07-21 21:45:35 UTC
 Source: https://maison-colette.be/

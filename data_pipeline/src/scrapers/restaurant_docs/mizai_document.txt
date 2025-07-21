@@ -1,22 +1,22 @@
 # Mizai
 
 ## Cuisine
-Japanese
+Kaiseki
 
 ## Ambiance & Atmosphere
-Refined and serene tea ceremony atmosphere with smart casual dress code and a focus on customer respect and interaction.
+Elegant and respectful; guests are encouraged to dress 'smart casual or above'. Dining occurs in a serene environment with a focus on timing and etiquette.
 
 ## Location
-605-0071 京都府京都市東山区八坂鳥居前東入ル円山町613円山公園内
+Just east past the shidarezakura of Maruyama and Hyotan Pond, Kyoto, Japan.
 
 ## Location & Time Zone
 
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-21 04:44:24 JST
+Current local time: 2025-07-22 03:07:13 JST
 
 ## Document Information
 
-Generated: 2025-07-20 19:44:24 UTC
+Generated: 2025-07-21 18:07:13 UTC
 Source: https://mizai.jp/

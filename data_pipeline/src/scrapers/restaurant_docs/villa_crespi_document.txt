@@ -4,19 +4,22 @@
 Italian
 
 ## Ambiance & Atmosphere
-Luxurious hotel atmosphere with a Middle Eastern charm, elegant and refined environment.
+Luxurious and sophisticated with Middle Eastern charm
 
 ## Location
-Ameno, Lago d'Orta, Piemonte, Italy
+Lake Orta, Piedmont, Italy
+
+## Language
+Original website language: it
 
 ## Location & Time Zone
 
 Country: Italy
-City: Ameno
+City: Lake Orta
 Timezone: Europe/Rome
-Current local time: 2025-07-20 22:01:41 CEST
+Current local time: 2025-07-21 21:00:15 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 20:01:41 UTC
+Generated: 2025-07-21 19:00:15 UTC
 Source: http://www.villacrespi.it

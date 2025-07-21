@@ -1,0 +1,22 @@
+# Humble Chicken
+
+## Cuisine
+Japanese, European
+
+## Ambiance & Atmosphere
+A 13-seat chefs table experience centred around a completely open kitchen in the heart of Soho, focused on creating a seamless and unforgettable dining experience.
+
+## Location
+Soho, UK
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: Soho
+Timezone: Europe/London
+Current local time: 2025-07-22 00:03:05 BST
+
+## Document Information
+
+Generated: 2025-07-21 23:03:05 UTC
+Source: https://www.humblechickenuk.com

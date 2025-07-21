@@ -4,12 +4,15 @@
 Japanese-inspired
 
 ## Ambiance & Atmosphere
-Intimate and serene setting designed by Belgian architect Benoit Viaene
+Intimate and serene setting, designed by renowned Belgian architect Benoit Viaene.
 
 ## Location
-{'address': 'Leopoldstraat 26, 2000 Antwerp, Belgium'}
+{'address': 'Leopoldstraat 26, 2000 Antwerp, Belgium', 'postal_address': 'Lange Gasthuisstraat 51, 2000 Antwerp, Belgium'}
+
+## Language
+Original website language: nl
 
 ## Document Information
 
-Generated: 2025-07-20 20:35:43 UTC
+Generated: 2025-07-21 21:46:06 UTC
 Source: https://hertog-jan.com/

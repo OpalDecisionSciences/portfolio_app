@@ -1,0 +1,22 @@
+# Dinner by Heston Blumenthal
+
+## Cuisine
+Modern British
+
+## Ambiance & Atmosphere
+16th century Tudor architectural style, intimate and comfortable with rich decor.
+
+## Location
+London, Hyde Park Garden
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: London
+Timezone: Europe/London
+Current local time: 2025-07-22 00:11:30 BST
+
+## Document Information
+
+Generated: 2025-07-21 23:11:30 UTC
+Source: https://www.dinnerbyheston.co.uk/

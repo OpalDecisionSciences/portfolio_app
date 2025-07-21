@@ -4,19 +4,38 @@ from pathlib import Path
 from dotenv import load_dotenv
 from decouple import config
 
+# Import security utilities
+from .security import (
+    get_env_variable, 
+    get_env_bool, 
+    get_allowed_hosts,
+    get_cors_allowed_origins,
+    get_database_config,
+    get_security_middleware,
+    get_production_security_settings,
+    get_logging_config,
+    validate_production_settings
+)
+
 # Load environment variables
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Validate production settings if not in debug mode
+if not get_env_bool('DEBUG', False):
+    validation_errors = validate_production_settings()
+    if validation_errors:
+        raise Exception(f"Production configuration errors: {', '.join(validation_errors)}")
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=False)
+DEBUG = get_env_bool('DEBUG', False)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'testserver']
+ALLOWED_HOSTS = get_allowed_hosts()
 
 # Application definition
 INSTALLED_APPS = [
@@ -41,16 +60,7 @@ INSTALLED_APPS = [
     'api',
 ]
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+MIDDLEWARE = get_security_middleware()
 
 ROOT_URLCONF = 'portfolio_project.urls'
 
@@ -73,16 +83,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 
 # Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DATABASE_NAME'),
-        'USER': config('DATABASE_USER'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
-        'PORT': config('DATABASE_PORT', default='5432'),
-    }
-}
+DATABASES = get_database_config()
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -139,37 +140,10 @@ REST_FRAMEWORK = {
 }
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-]
+CORS_ALLOWED_ORIGINS = get_cors_allowed_origins()
 
 # Logging configuration
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs' / 'django.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'restaurants': {
-            'handlers': ['file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-    },
-}
+LOGGING = get_logging_config()
 
 # Create logs directory if it doesn't exist
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)
@@ -182,6 +156,19 @@ RAG_SERVICE_URL = os.getenv('RAG_SERVICE_URL', 'http://localhost:8001')
 
 # Redis Configuration (for chat sessions)
 REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+
+# Cache Configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'portfolio_cache',
+        'TIMEOUT': CACHE_TIMEOUT_MEDIUM,  # Default 1 hour
+    }
+}
 
 # Celery Configuration (for background tasks)
 CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
@@ -219,3 +206,30 @@ ACCOUNT_EMAIL_REQUIRED = True
 # Create necessary directories
 os.makedirs(PORTFOLIO_DATA_DIR, exist_ok=True)
 os.makedirs(PORTFOLIO_TOKEN_MANAGEMENT_DIR, exist_ok=True)
+
+# Production Security Settings
+# Apply security settings if not in debug mode
+if not DEBUG:
+    security_settings = get_production_security_settings()
+    for key, value in security_settings.items():
+        globals()[key] = value
+
+# Additional Security Settings for Production
+if not DEBUG:
+    # Static files serving security
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
+    # Admin security
+    ADMIN_URL = get_env_variable('ADMIN_URL', 'admin')  # Custom admin URL
+    
+    # Cache security
+    if 'default' in CACHES:
+        CACHES['default']['KEY_PREFIX'] = get_env_variable('CACHE_PREFIX', 'portfolio')
+
+# Rate limiting configuration
+RATELIMIT_ENABLE = True
+RATELIMIT_USE_CACHE = 'default'
+
+# Import constants for consistency
+from .constants import *

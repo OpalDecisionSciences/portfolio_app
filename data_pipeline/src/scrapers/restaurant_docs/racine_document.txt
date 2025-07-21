@@ -1,0 +1,22 @@
+# Racine
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+A closed but open space to the city of Reims and the surrounding nature, with a silent kitchen that resembles a quiet film.
+
+## Location
+6 Pl. Godinot, 51100 Reims
+
+## Location & Time Zone
+
+Country: France
+City: Reims
+Timezone: Europe/Paris
+Current local time: 2025-07-22 00:14:32 CEST
+
+## Document Information
+
+Generated: 2025-07-21 22:14:32 UTC
+Source: https://www.racine.re/

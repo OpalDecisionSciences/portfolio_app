@@ -1,22 +1,15 @@
 # Sushi Shikon
 
 ## Cuisine
-Japanese
+Japanese, Sushi
 
 ## Ambiance & Atmosphere
-Refined Japanese atmosphere with a cultural experience, featuring a centuries-old hinoki counter and Japanese art.
+Refined atmosphere with a complete cultural experience featuring Japanese art, antiques, and a hinoki counter.
 
 ## Location
-7th floor, Landmark Mandarin Oriental, Hong Kong
-
-## Location & Time Zone
-
-Country: China
-City: Hong Kong
-Timezone: Asia/Shanghai
-Current local time: 2025-07-21 03:50:19 CST
+7th floor of the Landmark Mandarin Oriental, Hong Kong
 
 ## Document Information
 
-Generated: 2025-07-20 19:50:19 UTC
+Generated: 2025-07-21 18:20:24 UTC
 Source: https://sushi-shikon.com

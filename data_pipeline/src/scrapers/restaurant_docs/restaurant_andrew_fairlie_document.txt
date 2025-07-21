@@ -1,0 +1,22 @@
+# Restaurant Andrew Fairlie
+
+## Cuisine
+Scottish
+
+## Ambiance & Atmosphere
+Thoughtful service and attention to detail, set in the heart of Gleneagles hotel.
+
+## Location
+Gleneagles, Scotland
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: Gleneagles
+Timezone: Europe/London
+Current local time: 2025-07-22 00:06:31 BST
+
+## Document Information
+
+Generated: 2025-07-21 23:06:31 UTC
+Source: https://www.andrewfairlie.co.uk

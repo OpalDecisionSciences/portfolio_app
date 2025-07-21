@@ -1,6 +1,25 @@
 # Azabu Kadowaki
 
+## Cuisine
+Seasonal Japanese
+
+## Ambiance & Atmosphere
+Intimate setting with a focus on personal service; smart casual dress code
+
+## Location
+Rosehouse Azabu-juban 1F, 2-7-2 Azabu-juban, Minato-ku, Tokyo 106-0045, Japan
+
+## Language
+Original website language: ja
+
+## Location & Time Zone
+
+Country: Japan
+City: Tokyo
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 04:16:44 JST
+
 ## Document Information
 
-Generated: 2025-07-20 20:06:07 UTC
+Generated: 2025-07-21 19:16:44 UTC
 Source: https://azabukadowaki.com/

@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Profile - Michelin Star Service</title>
+    
+    <!-- CSS -->
+    <link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin: 0 auto 20px;
+        }
+        
+        .completion-bar {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            height: 8px;
+            margin-top: 15px;
+        }
+        
+        .completion-progress {
+            background: white;
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h4 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #f0f0f0;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-control:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+        }
+        
+        .btn-save {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-save:hover {
+            background: #c0392b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .preferences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .preference-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .preference-item.selected {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+        
+        .preference-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: #e74c3c !important;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #e74c3c !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="icon-star-full" style="margin-right: 10px;"></i>
+                Michelin Star Service
+            </a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'accounts:dashboard' %}">Dashboard</a>
+                <a class="nav-link" href="{% url 'accounts:favorites' %}">Favorites</a>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center">
+                    <div class="profile-avatar">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h1>{{ user.get_full_name|default:user.email }}</h1>
+                    <p class="mb-0">Member since {{ user.date_joined|date:"F Y" }}</p>
+                    <div class="completion-bar">
+                        <div class="completion-progress" style="width: {{ completion_percentage }}%"></div>
+                    </div>
+                    <small>Profile {{ completion_percentage }}% complete</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="profile-card">
+                        <div class="form-section">
+                            <h4><i class="icon-user" style="margin-right: 10px;"></i>Personal Information</h4>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                    {{ form.first_name }}
+                                    {% if form.first_name.errors %}
+                                        <div class="text-danger small">{{ form.first_name.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                    {{ form.last_name }}
+                                    {% if form.last_name.errors %}
+                                        <div class="text-danger small">{{ form.last_name.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                <div class="text-danger small">{{ form.email.errors.0 }}</div>
+                            {% endif %}
+                            
+                            <label for="{{ form.phone_number.id_for_label }}">{{ form.phone_number.label }}</label>
+                            {{ form.phone_number }}
+                            {% if form.phone_number.errors %}
+                                <div class="text-danger small">{{ form.phone_number.errors.0 }}</div>
+                            {% endif %}
+                            
+                            <label for="{{ form.date_of_birth.id_for_label }}">{{ form.date_of_birth.label }}</label>
+                            {{ form.date_of_birth }}
+                            {% if form.date_of_birth.errors %}
+                                <div class="text-danger small">{{ form.date_of_birth.errors.0 }}</div>
+                            {% endif %}
+                            
+                            <label for="{{ form.location.id_for_label }}">{{ form.location.label }}</label>
+                            {{ form.location }}
+                            {% if form.location.errors %}
+                                <div class="text-danger small">{{ form.location.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="profile-card">
+                        <div class="form-section">
+                            <h4><i class="icon-heart" style="margin-right: 10px;"></i>Dining Preferences</h4>
+                            
+                            <label for="{{ form.preferred_cuisines.id_for_label }}">{{ form.preferred_cuisines.label }}</label>
+                            {{ form.preferred_cuisines }}
+                            {% if form.preferred_cuisines.errors %}
+                                <div class="text-danger small">{{ form.preferred_cuisines.errors.0 }}</div>
+                            {% endif %}
+                            
+                            <label for="{{ form.dietary_restrictions.id_for_label }}">{{ form.dietary_restrictions.label }}</label>
+                            {{ form.dietary_restrictions }}
+                            {% if form.dietary_restrictions.errors %}
+                                <div class="text-danger small">{{ form.dietary_restrictions.errors.0 }}</div>
+                            {% endif %}
+                            
+                            <label for="{{ form.price_range_preference.id_for_label }}">{{ form.price_range_preference.label }}</label>
+                            {{ form.price_range_preference }}
+                            {% if form.price_range_preference.errors %}
+                                <div class="text-danger small">{{ form.price_range_preference.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="form-section">
+                            <h4><i class="icon-settings" style="margin-right: 10px;"></i>Account Settings</h4>
+                            
+                            <div class="form-check mb-3">
+                                {{ form.newsletter_subscription }}
+                                <label class="form-check-label" for="{{ form.newsletter_subscription.id_for_label }}">
+                                    {{ form.newsletter_subscription.label }}
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                {{ form.push_notifications }}
+                                <label class="form-check-label" for="{{ form.push_notifications.id_for_label }}">
+                                    {{ form.push_notifications.label }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-save btn-lg">
+                    <i class="icon-check" style="margin-right: 8px;"></i>
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

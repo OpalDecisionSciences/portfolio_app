@@ -1,10 +1,10 @@
 # Noor
 
 ## Cuisine
-Andalusian
+Spanish
 
 ## Ambiance & Atmosphere
-Contemporary and avant-garde atmosphere inspired by Andalusian history and culture
+Contemporary and avant-garde, inspired by Andalusian history and culture.
 
 ## Location
 Córdoba, Spain
@@ -14,9 +14,9 @@ Córdoba, Spain
 Country: Spain
 City: Córdoba
 Timezone: Europe/Madrid
-Current local time: 2025-07-20 21:56:30 CEST
+Current local time: 2025-07-21 20:43:27 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 19:56:30 UTC
+Generated: 2025-07-21 18:43:27 UTC
 Source: https://noorrestaurant.es/

@@ -1,0 +1,22 @@
+# Arbor
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Upscale dining with a modern and elegant atmosphere
+
+## Location
+Hong Kong
+
+## Location & Time Zone
+
+Country: China
+City: Hong Kong
+Timezone: Asia/Shanghai
+Current local time: 2025-07-22 06:45:38 CST
+
+## Document Information
+
+Generated: 2025-07-21 22:45:38 UTC
+Source: http://www.arbor-hk.com
