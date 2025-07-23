@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-Comfortable atmosphere with a characterful universe, focusing on passion and kindness.
+Comfortable atmosphere with a sense of hospitality, offering a sanctuary away from the hustle and bustle.
 
 ## Location
 5, Avenue St Victor, 11360 Fontjoncouse
@@ -14,9 +14,9 @@ Comfortable atmosphere with a characterful universe, focusing on passion and kin
 Country: France
 City: Fontjoncouse
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:57:01 CEST
+Current local time: 2025-07-23 17:36:25 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:57:01 UTC
+Generated: 2025-07-23 15:36:25 UTC
 Source: https://www.aubergeduvieuxpuits.fr/fr/

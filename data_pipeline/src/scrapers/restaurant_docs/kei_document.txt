@@ -1,15 +1,22 @@
 # Kei
 
 ## Cuisine
-French
+Japanese
 
 ## Ambiance & Atmosphere
-Casual Chic dress code with valet service available for dinner.
+Casual Chic atmosphere with a refined service style.
 
 ## Location
-Not specified in the provided text.
+5 Rue Coq Héron, 75001 Paris
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-23 17:38:34 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:09:38 UTC
+Generated: 2025-07-23 15:38:34 UTC
 Source: https://www.restaurant-kei.fr/

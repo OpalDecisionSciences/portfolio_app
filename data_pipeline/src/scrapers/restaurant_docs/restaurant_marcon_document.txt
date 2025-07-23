@@ -1,22 +1,22 @@
 # Restaurant Marcon
 
 ## Cuisine
-Local French Cuisine
+Local French
 
 ## Ambiance & Atmosphere
-Friendly, relaxed, and warm atmosphere in a natural setting
+Relaxed and warm atmosphere, focused on providing privileged moments in nature.
 
 ## Location
-Larsiallas, 43290 Saint-Bonnet-le-Froid, France
+43290 Saint-Bonnet-le-Froid, France
 
 ## Location & Time Zone
 
 Country: France
 City: Saint-Bonnet-le-Froid
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:44:15 CEST
+Current local time: 2025-07-23 17:22:14 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:44:15 UTC
+Generated: 2025-07-23 15:22:14 UTC
 Source: https://www.lesmaisonsmarcon.fr/

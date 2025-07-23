@@ -1,0 +1,49 @@
+{
+  "total_restaurants_processed": 18105,
+  "total_embeddings_created": 18105,
+  "failed_embeddings": 8,
+  "last_updated": "2025-07-23T15:41:51.310243",
+  "current_session": null,
+  "processing_errors": [
+    {
+      "row": 3505,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:40:23.254252"
+    },
+    {
+      "row": 5262,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:40:34.175173"
+    },
+    {
+      "row": 5923,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:40:38.095881"
+    },
+    {
+      "row": 7444,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:40:48.022705"
+    },
+    {
+      "row": 14446,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:41:29.698677"
+    },
+    {
+      "row": 14818,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:41:32.093564"
+    },
+    {
+      "row": 15071,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:41:33.574629"
+    },
+    {
+      "row": 17468,
+      "error": "Failed to create embedding",
+      "timestamp": "2025-07-23T15:41:47.272356"
+    }
+  ]
+}

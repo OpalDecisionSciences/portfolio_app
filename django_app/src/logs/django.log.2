@@ -1,0 +1,396 @@
+INFO 2025-07-23 15:40:55,210 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:40:58,830 unified_restaurant_scraper 258 281473297428512 Translating from ja to English for https://mizai.jp/
+INFO 2025-07-23 15:41:25,027 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:41:25,128 token_manager 258 281473297428512 Model: gpt-4o | Tokens used: 2140 | Total: 134995
+INFO 2025-07-23 15:41:25,128 unified_restaurant_scraper 258 281473297428512 Successfully translated content from ja to English
+INFO 2025-07-23 15:41:26,695 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING 2025-07-23 15:41:28,783 connectionpool 258 281472577630624 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+INFO 2025-07-23 15:41:30,796 unified_restaurant_scraper 258 281472577630624 Translating from ja to English for https://mizai.jp/about/
+WARNING 2025-07-23 15:41:30,797 connectionpool 258 281472470675872 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+INFO 2025-07-23 15:41:30,803 unified_restaurant_scraper 258 281472470675872 Translating from ja to English for https://mizai.jp/御料理について/
+INFO 2025-07-23 15:41:34,469 _client 258 281472577630624 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:41:34,471 token_manager 258 281472577630624 Model: gpt-4o | Tokens used: 421 | Total: 135416
+INFO 2025-07-23 15:41:34,472 unified_restaurant_scraper 258 281472577630624 Successfully translated content from ja to English
+INFO 2025-07-23 15:41:34,638 _client 258 281472470675872 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:41:34,641 token_manager 258 281472470675872 Model: gpt-4o | Tokens used: 417 | Total: 135412
+INFO 2025-07-23 15:41:34,641 unified_restaurant_scraper 258 281472470675872 Successfully translated content from ja to English
+INFO 2025-07-23 15:41:34,641 unified_restaurant_scraper 258 281473297428512 Starting comprehensive LLM analysis for Mizai
+INFO 2025-07-23 15:41:34,641 unified_restaurant_scraper 258 281473297428512 Detecting language for content of length: 4963
+INFO 2025-07-23 15:41:34,644 unified_restaurant_scraper 258 281473297428512 Detected language: en
+INFO 2025-07-23 15:41:34,644 unified_restaurant_scraper 258 281473297428512 Getting restaurant summary for content length: 4963
+INFO 2025-07-23 15:41:34,644 unified_restaurant_scraper 258 281473297428512 Building summary prompt for URL: https://mizai.jp/
+INFO 2025-07-23 15:41:34,645 unified_restaurant_scraper 258 281473297428512 User prompt length: 3028
+INFO 2025-07-23 15:41:34,645 unified_restaurant_scraper 258 281473297428512 Calling LLM for restaurant summary...
+INFO 2025-07-23 15:41:40,789 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:41:40,790 unified_restaurant_scraper 258 281473297428512 LLM response received: {
+  "name": "Mizai",
+  "cuisine": "Japanese (Tea Ceremony Cuisine)",
+  "ambiance": "Elegant and respectful atmosphere, emphasizing traditional customs and leisurely dining experience.",
+  "menu_highlights": [
+    "Mizai-style menu featuring a unique dining experience that aligns with tea ceremony principles.",
+    "Special 'Hachimi' spice blend available for purchase."
+  ],
+  "chef_background": "Jinji Ishihara, Owner of Mizai",
+  "ownership": "Privately owned by Jinji Ishihara",
+  "location": "Maruyama, Kyoto, Japan",
+  "contact": {
+    "phone": "075-551-3310",
+    "website": "https://mizai.jp/",
+    "hours": "Dining begins at 18:00, approximately 3 hours for the meal"
+  },
+  "description": "Mizai is a celebrated Japanese restaurant specializing in tea ceremony cuisine, celebrating its 20th anniversary in June 2025, with a focus on luxurious dining experiences."
+}
+INFO 2025-07-23 15:41:40,791 unified_restaurant_scraper 258 281473297428512 Successfully parsed JSON response: {'name': 'Mizai', 'cuisine': 'Japanese (Tea Ceremony Cuisine)', 'ambiance': 'Elegant and respectful atmosphere, emphasizing traditional customs and leisurely dining experience.', 'menu_highlights': ['Mizai-style menu featuring a unique dining experience that aligns with tea ceremony principles.', "Special 'Hachimi' spice blend available for purchase."], 'chef_background': 'Jinji Ishihara, Owner of Mizai', 'ownership': 'Privately owned by Jinji Ishihara', 'location': 'Maruyama, Kyoto, Japan', 'contact': {'phone': '075-551-3310', 'website': 'https://mizai.jp/', 'hours': 'Dining begins at 18:00, approximately 3 hours for the meal'}, 'description': 'Mizai is a celebrated Japanese restaurant specializing in tea ceremony cuisine, celebrating its 20th anniversary in June 2025, with a focus on luxurious dining experiences.'}
+INFO 2025-07-23 15:41:40,791 unified_restaurant_scraper 258 281473297428512 Restaurant summary result: {'name': 'Mizai', 'cuisine': 'Japanese (Tea Ceremony Cuisine)', 'ambiance': 'Elegant and respectful atmosphere, emphasizing traditional customs and leisurely dining experience.', 'menu_highlights': ['Mizai-style menu featuring a unique dining experience that aligns with tea ceremony principles.', "Special 'Hachimi' spice blend available for purchase."], 'chef_background': 'Jinji Ishihara, Owner of Mizai', 'ownership': 'Privately owned by Jinji Ishihara', 'location': 'Maruyama, Kyoto, Japan', 'contact': {'phone': '075-551-3310', 'website': 'https://mizai.jp/', 'hours': 'Dining begins at 18:00, approximately 3 hours for the meal'}, 'description': 'Mizai is a celebrated Japanese restaurant specializing in tea ceremony cuisine, celebrating its 20th anniversary in June 2025, with a focus on luxurious dining experiences.'}
+INFO 2025-07-23 15:41:49,049 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR 2025-07-23 15:41:49,054 unified_restaurant_scraper 258 281473297428512 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 15:41:49,054 unified_restaurant_scraper 258 281473297428512 Image scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 15:41:49,773 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:41:49,784 unified_restaurant_scraper 258 281473297428512 Document saved: mizai_document.txt
+INFO 2025-07-23 15:41:49,785 unified_restaurant_scraper 258 281473297428512 Complete scraping finished for: Mizai
+INFO 2025-07-23 15:41:49,787 michelin_csv_processor 258 281473297428512 Successfully updated restaurant Mizai with comprehensive data:
+INFO 2025-07-23 15:41:49,788 michelin_csv_processor 258 281473297428512   - Menu sections: 0
+INFO 2025-07-23 15:41:49,788 michelin_csv_processor 258 281473297428512   - Menu items: 0
+INFO 2025-07-23 15:41:49,788 michelin_csv_processor 258 281473297428512   - Images integrated: 0
+INFO 2025-07-23 15:41:49,788 michelin_csv_processor 258 281473297428512   - Atmosphere: Yes
+INFO 2025-07-23 15:41:49,788 michelin_csv_processor 258 281473297428512   - Cuisine type: Yes
+INFO 2025-07-23 15:41:49,789 michelin_csv_processor 258 281473297428512 Successfully scraped comprehensive data for: Mizai
+INFO 2025-07-23 15:41:49,789 michelin_csv_processor 258 281473297428512   - Restaurant summary extracted
+INFO 2025-07-23 15:41:49,790 michelin_csv_processor 258 281473297428512 Processing restaurant 42/18113: Gion Sasaki
+INFO 2025-07-23 15:41:49,792 data_processor 258 281473297428512 Creating new restaurant: Gion Sasaki
+INFO 2025-07-23 15:41:49,794 data_processor 258 281473297428512 Successfully processed restaurant: Gion Sasaki
+INFO 2025-07-23 15:41:49,794 michelin_csv_processor 258 281473297428512 Successfully created restaurant: Gion Sasaki
+INFO 2025-07-23 15:41:49,794 michelin_csv_processor 258 281473297428512 Successfully imported: Gion Sasaki
+INFO 2025-07-23 15:41:49,794 unified_restaurant_scraper 258 281473297428512 Starting complete scraping for: Gion Sasaki
+INFO 2025-07-23 15:42:02,519 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:07,284 unified_restaurant_scraper 258 281473297428512 Translating from ja to English for https://gionsasaki.com/
+INFO 2025-07-23 15:42:18,544 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:18,546 token_manager 258 281473297428512 Model: gpt-4o | Tokens used: 1236 | Total: 141038
+INFO 2025-07-23 15:42:18,547 unified_restaurant_scraper 258 281473297428512 Successfully translated content from ja to English
+INFO 2025-07-23 15:42:21,203 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING 2025-07-23 15:42:37,201 connectionpool 258 281472577630624 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 15:42:37,210 connectionpool 258 281472577630624 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 15:42:37,214 connectionpool 258 281472491647392 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+INFO 2025-07-23 15:42:39,231 unified_restaurant_scraper 258 281472470675872 Translating from ja to English for https://gionsasaki.com/
+INFO 2025-07-23 15:42:39,242 unified_restaurant_scraper 258 281472577630624 Translating from ja to English for https://gionsasaki.com/rakumi.html
+INFO 2025-07-23 15:42:39,254 unified_restaurant_scraper 258 281472491647392 Translating from ja to English for https://gionsasaki.com/sushirakumi.html
+WARNING 2025-07-23 15:42:39,254 connectionpool 258 281472481161632 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+INFO 2025-07-23 15:42:39,267 unified_restaurant_scraper 258 281472481161632 Translating from ja to English for https://gionsasaki.com/shokubarrakumi.html
+INFO 2025-07-23 15:42:46,511 _client 258 281472491647392 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:46,515 token_manager 258 281472491647392 Model: gpt-4o | Tokens used: 922 | Total: 141960
+INFO 2025-07-23 15:42:46,516 unified_restaurant_scraper 258 281472491647392 Successfully translated content from ja to English
+INFO 2025-07-23 15:42:46,670 _client 258 281472470675872 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:46,674 token_manager 258 281472470675872 Model: gpt-4o | Tokens used: 944 | Total: 141982
+INFO 2025-07-23 15:42:46,675 unified_restaurant_scraper 258 281472470675872 Successfully translated content from ja to English
+INFO 2025-07-23 15:42:47,635 _client 258 281472577630624 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:47,648 _client 258 281472481161632 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:47,652 token_manager 258 281472481161632 Model: gpt-4o | Tokens used: 961 | Total: 141999
+INFO 2025-07-23 15:42:47,652 unified_restaurant_scraper 258 281472481161632 Successfully translated content from ja to English
+INFO 2025-07-23 15:42:47,653 token_manager 258 281472577630624 Model: gpt-4o | Tokens used: 947 | Total: 141985
+INFO 2025-07-23 15:42:47,653 unified_restaurant_scraper 258 281472577630624 Successfully translated content from ja to English
+INFO 2025-07-23 15:42:47,653 unified_restaurant_scraper 258 281473297428512 Starting comprehensive LLM analysis for Gion Sasaki
+INFO 2025-07-23 15:42:47,653 unified_restaurant_scraper 258 281473297428512 Detecting language for content of length: 8402
+INFO 2025-07-23 15:42:47,656 unified_restaurant_scraper 258 281473297428512 Detected language: en
+INFO 2025-07-23 15:42:47,657 unified_restaurant_scraper 258 281473297428512 Getting restaurant summary for content length: 8402
+INFO 2025-07-23 15:42:47,657 unified_restaurant_scraper 258 281473297428512 Building summary prompt for URL: https://gionsasaki.com/
+INFO 2025-07-23 15:42:47,657 unified_restaurant_scraper 258 281473297428512 User prompt length: 3034
+INFO 2025-07-23 15:42:47,657 unified_restaurant_scraper 258 281473297428512 Calling LLM for restaurant summary...
+INFO 2025-07-23 15:42:53,400 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:53,402 unified_restaurant_scraper 258 281473297428512 LLM response received: {
+  "name": "Gion Sasaki",
+  "cuisine": "Sushi, Kyoto Cuisine",
+  "ambiance": "Elegant atmosphere with seasonal charm, offering a place for customers to enjoy their meals while the staff also enjoy serving.",
+  "menu_highlights": "Unique sushi created by Chef Kazuya Nomura, a fusion of Kyoto cuisine and Edo-style sushi.",
+  "chef_background": "Chef Kazuya Nomura trained at Sushi Yoshitake in Tokyo and has mastered a variety of sushi techniques.",
+  "ownership": "Owned by Hiroshi Sasaki.",
+  "location": "〒605-0811 Kyoto Prefecture, Kyoto City, Higashiyama Ward, Yasaka Street, Komatsu-cho 566-27",
+  "contact": {
+    "phone": "075-551-5000",
+    "website": "https://gionsasaki.com/",
+    "hours": {
+      "lunch": "Thursday, Friday, Saturday 12:00 PM",
+      "dinner": "Daily at 6:30 PM (two sessions for Sushi Rakumi)"
+    }
+  },
+  "description": "Gion Sasaki is a distinguished restaurant offering a harmonious atmosphere where guests can enjoy exquisitely crafted sushi and Kyoto cuisine, all while being served by a passionate team."
+}
+INFO 2025-07-23 15:42:53,402 unified_restaurant_scraper 258 281473297428512 Successfully parsed JSON response: {'name': 'Gion Sasaki', 'cuisine': 'Sushi, Kyoto Cuisine', 'ambiance': 'Elegant atmosphere with seasonal charm, offering a place for customers to enjoy their meals while the staff also enjoy serving.', 'menu_highlights': 'Unique sushi created by Chef Kazuya Nomura, a fusion of Kyoto cuisine and Edo-style sushi.', 'chef_background': 'Chef Kazuya Nomura trained at Sushi Yoshitake in Tokyo and has mastered a variety of sushi techniques.', 'ownership': 'Owned by Hiroshi Sasaki.', 'location': '〒605-0811 Kyoto Prefecture, Kyoto City, Higashiyama Ward, Yasaka Street, Komatsu-cho 566-27', 'contact': {'phone': '075-551-5000', 'website': 'https://gionsasaki.com/', 'hours': {'lunch': 'Thursday, Friday, Saturday 12:00 PM', 'dinner': 'Daily at 6:30 PM (two sessions for Sushi Rakumi)'}}, 'description': 'Gion Sasaki is a distinguished restaurant offering a harmonious atmosphere where guests can enjoy exquisitely crafted sushi and Kyoto cuisine, all while being served by a passionate team.'}
+INFO 2025-07-23 15:42:53,402 unified_restaurant_scraper 258 281473297428512 Restaurant summary result: {'name': 'Gion Sasaki', 'cuisine': 'Sushi, Kyoto Cuisine', 'ambiance': 'Elegant atmosphere with seasonal charm, offering a place for customers to enjoy their meals while the staff also enjoy serving.', 'menu_highlights': 'Unique sushi created by Chef Kazuya Nomura, a fusion of Kyoto cuisine and Edo-style sushi.', 'chef_background': 'Chef Kazuya Nomura trained at Sushi Yoshitake in Tokyo and has mastered a variety of sushi techniques.', 'ownership': 'Owned by Hiroshi Sasaki.', 'location': '〒605-0811 Kyoto Prefecture, Kyoto City, Higashiyama Ward, Yasaka Street, Komatsu-cho 566-27', 'contact': {'phone': '075-551-5000', 'website': 'https://gionsasaki.com/', 'hours': {'lunch': 'Thursday, Friday, Saturday 12:00 PM', 'dinner': 'Daily at 6:30 PM (two sessions for Sushi Rakumi)'}}, 'description': 'Gion Sasaki is a distinguished restaurant offering a harmonious atmosphere where guests can enjoy exquisitely crafted sushi and Kyoto cuisine, all while being served by a passionate team.'}
+INFO 2025-07-23 15:42:59,215 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR 2025-07-23 15:42:59,219 unified_restaurant_scraper 258 281473297428512 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 15:42:59,220 unified_restaurant_scraper 258 281473297428512 Image scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 15:42:59,954 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:42:59,970 unified_restaurant_scraper 258 281473297428512 Document saved: gion_sasaki_document.txt
+INFO 2025-07-23 15:42:59,971 unified_restaurant_scraper 258 281473297428512 Complete scraping finished for: Gion Sasaki
+INFO 2025-07-23 15:42:59,977 michelin_csv_processor 258 281473297428512 Successfully updated restaurant Gion Sasaki with comprehensive data:
+INFO 2025-07-23 15:42:59,977 michelin_csv_processor 258 281473297428512   - Menu sections: 0
+INFO 2025-07-23 15:42:59,977 michelin_csv_processor 258 281473297428512   - Menu items: 0
+INFO 2025-07-23 15:42:59,978 michelin_csv_processor 258 281473297428512   - Images integrated: 0
+INFO 2025-07-23 15:42:59,979 michelin_csv_processor 258 281473297428512   - Atmosphere: Yes
+INFO 2025-07-23 15:42:59,979 michelin_csv_processor 258 281473297428512   - Cuisine type: Yes
+INFO 2025-07-23 15:42:59,979 michelin_csv_processor 258 281473297428512 Successfully scraped comprehensive data for: Gion Sasaki
+INFO 2025-07-23 15:42:59,980 michelin_csv_processor 258 281473297428512   - Restaurant summary extracted
+INFO 2025-07-23 15:42:59,983 michelin_csv_processor 258 281473297428512 Processing restaurant 43/18113: Isshisoden Nakamura
+INFO 2025-07-23 15:42:59,988 data_processor 258 281473297428512 Creating new restaurant: Isshisoden Nakamura
+INFO 2025-07-23 15:42:59,991 data_processor 258 281473297428512 Successfully processed restaurant: Isshisoden Nakamura
+INFO 2025-07-23 15:42:59,991 michelin_csv_processor 258 281473297428512 Successfully created restaurant: Isshisoden Nakamura
+INFO 2025-07-23 15:42:59,991 michelin_csv_processor 258 281473297428512 Successfully imported: Isshisoden Nakamura
+INFO 2025-07-23 15:42:59,991 unified_restaurant_scraper 258 281473297428512 Starting complete scraping for: Isshisoden Nakamura
+INFO 2025-07-23 15:43:12,635 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:43:16,696 unified_restaurant_scraper 258 281473297428512 Translating from ja to English for http://www.kyoryori-nakamura.com/
+INFO 2025-07-23 15:43:19,682 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:43:19,686 token_manager 258 281473297428512 Model: gpt-4o | Tokens used: 480 | Total: 144561
+INFO 2025-07-23 15:43:19,686 unified_restaurant_scraper 258 281473297428512 Successfully translated content from ja to English
+INFO 2025-07-23 15:43:20,620 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:43:26,945 unified_restaurant_scraper 258 281473297428512 Starting comprehensive LLM analysis for Isshisoden Nakamura
+INFO 2025-07-23 15:43:26,946 unified_restaurant_scraper 258 281473297428512 Detecting language for content of length: 4727
+INFO 2025-07-23 15:43:26,951 unified_restaurant_scraper 258 281473297428512 Detected language: en
+INFO 2025-07-23 15:43:26,951 unified_restaurant_scraper 258 281473297428512 Getting restaurant summary for content length: 4727
+INFO 2025-07-23 15:43:26,951 unified_restaurant_scraper 258 281473297428512 Building summary prompt for URL: http://www.kyoryori-nakamura.com/
+INFO 2025-07-23 15:43:26,951 unified_restaurant_scraper 258 281473297428512 User prompt length: 3044
+INFO 2025-07-23 15:43:26,952 unified_restaurant_scraper 258 281473297428512 Calling LLM for restaurant summary...
+INFO 2025-07-23 15:43:32,499 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:43:32,501 unified_restaurant_scraper 258 281473297428512 LLM response received: {
+  "name": "Isshisoden Nakamura",
+  "cuisine": "Kyo-ryori (Kyoto cuisine)",
+  "ambiance": "A sophisticated atmosphere focused on exceptional hospitality and refined tastes, embodying the essence of the traditional tea ceremony.",
+  "menu_highlights": "Dishes emphasize the natural qualities of ingredients, with a commitment to a mellow yet refined taste. Notable dish: Guji-no-Sakayaki.",
+  "chef_background": "Motokazu Nakamura, the 6th generation owner, has a background in food science and has trained as a monk before continuing the family culinary tradition.",
+  "ownership": "Family-owned, with Motokazu Nakamura as the current head chef and his son Genki expected to succeed him.",
+  "location": "136 Tominokoji Oike Sagaru, Nakagyo-ku, Kyoto 604-8093, Japan",
+  "contact": {
+    "phone": "075-221-5511",
+    "website": "http://www.kyoryori-nakamura.com/",
+    "hours": "Not specified"
+  },
+  "description": "Isshisoden Nakamura is a historic restaurant established in 1827, specializing in Kyoto cuisine with a focus on traditional and innovative dishes prepared with carefully sourced ingredients."
+}
+INFO 2025-07-23 15:43:32,502 unified_restaurant_scraper 258 281473297428512 Successfully parsed JSON response: {'name': 'Isshisoden Nakamura', 'cuisine': 'Kyo-ryori (Kyoto cuisine)', 'ambiance': 'A sophisticated atmosphere focused on exceptional hospitality and refined tastes, embodying the essence of the traditional tea ceremony.', 'menu_highlights': 'Dishes emphasize the natural qualities of ingredients, with a commitment to a mellow yet refined taste. Notable dish: Guji-no-Sakayaki.', 'chef_background': 'Motokazu Nakamura, the 6th generation owner, has a background in food science and has trained as a monk before continuing the family culinary tradition.', 'ownership': 'Family-owned, with Motokazu Nakamura as the current head chef and his son Genki expected to succeed him.', 'location': '136 Tominokoji Oike Sagaru, Nakagyo-ku, Kyoto 604-8093, Japan', 'contact': {'phone': '075-221-5511', 'website': 'http://www.kyoryori-nakamura.com/', 'hours': 'Not specified'}, 'description': 'Isshisoden Nakamura is a historic restaurant established in 1827, specializing in Kyoto cuisine with a focus on traditional and innovative dishes prepared with carefully sourced ingredients.'}
+INFO 2025-07-23 15:43:32,502 unified_restaurant_scraper 258 281473297428512 Restaurant summary result: {'name': 'Isshisoden Nakamura', 'cuisine': 'Kyo-ryori (Kyoto cuisine)', 'ambiance': 'A sophisticated atmosphere focused on exceptional hospitality and refined tastes, embodying the essence of the traditional tea ceremony.', 'menu_highlights': 'Dishes emphasize the natural qualities of ingredients, with a commitment to a mellow yet refined taste. Notable dish: Guji-no-Sakayaki.', 'chef_background': 'Motokazu Nakamura, the 6th generation owner, has a background in food science and has trained as a monk before continuing the family culinary tradition.', 'ownership': 'Family-owned, with Motokazu Nakamura as the current head chef and his son Genki expected to succeed him.', 'location': '136 Tominokoji Oike Sagaru, Nakagyo-ku, Kyoto 604-8093, Japan', 'contact': {'phone': '075-221-5511', 'website': 'http://www.kyoryori-nakamura.com/', 'hours': 'Not specified'}, 'description': 'Isshisoden Nakamura is a historic restaurant established in 1827, specializing in Kyoto cuisine with a focus on traditional and innovative dishes prepared with carefully sourced ingredients.'}
+INFO 2025-07-23 15:43:35,748 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR 2025-07-23 15:43:35,750 unified_restaurant_scraper 258 281473297428512 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 15:43:35,750 unified_restaurant_scraper 258 281473297428512 Image scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 15:43:36,642 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 15:43:36,647 unified_restaurant_scraper 258 281473297428512 Document saved: isshisoden_nakamura_document.txt
+INFO 2025-07-23 15:43:36,647 unified_restaurant_scraper 258 281473297428512 Complete scraping finished for: Isshisoden Nakamura
+INFO 2025-07-23 15:43:36,652 michelin_csv_processor 258 281473297428512 Successfully updated restaurant Isshisoden Nakamura with comprehensive data:
+INFO 2025-07-23 15:43:36,653 michelin_csv_processor 258 281473297428512   - Menu sections: 0
+INFO 2025-07-23 15:43:36,653 michelin_csv_processor 258 281473297428512   - Menu items: 0
+INFO 2025-07-23 15:43:36,654 michelin_csv_processor 258 281473297428512   - Images integrated: 0
+INFO 2025-07-23 15:43:36,654 michelin_csv_processor 258 281473297428512   - Atmosphere: Yes
+INFO 2025-07-23 15:43:36,654 michelin_csv_processor 258 281473297428512   - Cuisine type: Yes
+INFO 2025-07-23 15:43:36,655 michelin_csv_processor 258 281473297428512 Successfully scraped comprehensive data for: Isshisoden Nakamura
+INFO 2025-07-23 15:43:36,655 michelin_csv_processor 258 281473297428512   - Restaurant summary extracted
+INFO 2025-07-23 15:43:36,657 michelin_csv_processor 258 281473297428512 Processing restaurant 44/18113: Kashiwaya Osaka Senriyama
+INFO 2025-07-23 15:43:36,661 data_processor 258 281473297428512 Creating new restaurant: Kashiwaya Osaka Senriyama
+INFO 2025-07-23 15:43:36,665 data_processor 258 281473297428512 Successfully processed restaurant: Kashiwaya Osaka Senriyama
+INFO 2025-07-23 15:43:36,665 michelin_csv_processor 258 281473297428512 Successfully created restaurant: Kashiwaya Osaka Senriyama
+INFO 2025-07-23 15:43:36,665 michelin_csv_processor 258 281473297428512 Successfully imported: Kashiwaya Osaka Senriyama
+INFO 2025-07-23 15:43:36,665 unified_restaurant_scraper 258 281473297428512 Starting complete scraping for: Kashiwaya Osaka Senriyama
+WARNING 2025-07-23 15:43:47,229 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <button type="button" class="global-navigation-menu">...</button> is not clickable at point (108, 70). Other element would receive the click: <div class="loader"></div>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+WARNING 2025-07-23 15:43:48,989 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <button type="button" aria-controls="news" aria-selected="false" class="tab-btn js-tab-btn">...</button> is not clickable at point (1024, 908). Other element would receive the click: <div class="use-cookies" aria-hidden="false">...</div>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+WARNING 2025-07-23 15:43:50,158 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <a href="https://jp-kashiwaya.com/news/1039/" class="information-list__row">...</a> is not clickable at point (1024, 844). Other element would receive the click: <p class="use-cookies__text">...</p>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+WARNING 2025-07-23 15:43:51,227 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <a href="https://jp-kashiwaya.com/news/1029/" class="information-list__row">...</a> is not clickable at point (1024, 857). Other element would receive the click: <p class="use-cookies__text">...</p>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+WARNING 2025-07-23 15:43:52,356 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <a href="https://jp-kashiwaya.com/news/138/" class="information-list__row">...</a> is not clickable at point (1024, 858). Other element would receive the click: <p class="use-cookies__text">...</p>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+WARNING 2025-07-23 15:43:53,807 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <a href="/senriyama/" class="basic-button">...</a> is not clickable at point (952, 905). Other element would receive the click: <div class="use-cookies" aria-hidden="false">...</div>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+INFO 2025-07-23 15:43:56,796 _client 258 281473297428512 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING 2025-07-23 15:43:59,667 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <button type="button" class="global-navigation-menu">...</button> is not clickable at point (108, 70). Other element would receive the click: <div class="loader"></div>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+
+WARNING 2025-07-23 15:44:01,382 llm_web_scraper 258 281473297428512 [WARN] Failed to try button: Message: element click intercepted: Element <button type="button" aria-controls="news" aria-selected="false" class="tab-btn js-tab-btn">...</button> is not clickable at point (1024, 908). Other element would receive the click: <div class="use-cookies" aria-hidden="false">...</div>
+  (Session info: chrome=138.0.7204.157)
+Stacktrace:
+#0 0xaaaac8f6c15c <unknown>
+#1 0xaaaac8a61ba8 <unknown>
+#2 0xaaaac8ab0434 <unknown>
+#3 0xaaaac8aae9c0 <unknown>
+#4 0xaaaac8aac6f0 <unknown>
+#5 0xaaaac8aabeb0 <unknown>
+#6 0xaaaac8aa0fe8 <unknown>
+#7 0xaaaac8aa092c <unknown>
+#8 0xaaaac8ae63e0 <unknown>
+#9 0xaaaac8a9f0f8 <unknown>
+#10 0xaaaac8f38bfc <unknown>
+#11 0xaaaac8f3bbcc <unknown>
+#12 0xaaaac8f3b7a8 <unknown>
+#13 0xaaaac8f23a9c <unknown>
+#14 0xaaaac8f3c244 <unknown>
+#15 0xaaaac8f0d9e4 <unknown>
+#16 0xaaaac8f5a310 <unknown>
+#17 0xaaaac8f5a51c <unknown>
+#18 0xaaaac8f6b59c <unknown>
+#19 0xffffaca2ee9c <unknown>
+#20 0xffffaca97b18 <unknown>
+

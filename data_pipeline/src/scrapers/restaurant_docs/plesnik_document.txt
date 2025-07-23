@@ -1,15 +1,15 @@
 # Plesnik
 
 ## Cuisine
-Culinary creativity inspired by local ingredients
+Alpine
 
 ## Ambiance & Atmosphere
-A boutique hotel offering a connection to nature, luxury, and a commitment to sustainable tourism
+Family-run boutique hotel offering modern alpine architecture with a sense of homeliness and connection to nature.
 
 ## Location
-Logarska dolina 10, 3335 Solčava, Slovenija
+Logar Valley, Slovenian Alps
 
 ## Document Information
 
-Generated: 2025-07-21 17:41:12 UTC
+Generated: 2025-07-23 15:19:00 UTC
 Source: https://www.plesnik.si/en

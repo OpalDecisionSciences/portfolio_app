@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Intimate and accessible; a haven of peace and excellence, modern and elegant setting designed by architect Pierre-Yves Rochon.
+Intimate and accessible haven in the heart of the Bois de Boulogne, with a contemporary decor that respects heritage.
 
 ## Location
-Located at the gates of Paris, in the heart of the Bois de Boulogne.
+Located at the gates of Paris, Bois de Boulogne.
 
 ## Location & Time Zone
 
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:03:37 CEST
+Current local time: 2025-07-23 17:33:49 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:03:37 UTC
+Generated: 2025-07-23 15:33:49 UTC
 Source: https://www.leprecatelan.com/

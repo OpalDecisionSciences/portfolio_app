@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-Refined atmosphere with a rooftop terrace offering breathtaking views of Paris’s iconic landmarks.
+Luxurious, with open-air terrace and breathtaking views of Paris landmarks.
 
 ## Location
 Paris, France
@@ -14,9 +14,9 @@ Paris, France
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:13:01 CEST
+Current local time: 2025-07-23 17:42:12 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:13:01 UTC
+Generated: 2025-07-23 15:42:12 UTC
 Source: https://www.chevalblanc.com/fr/maison/paris/

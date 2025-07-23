@@ -1,22 +1,22 @@
 # Mizai
 
 ## Cuisine
-Kaiseki
+Japanese (Tea Ceremony Cuisine)
 
 ## Ambiance & Atmosphere
-Elegant and respectful; guests are encouraged to dress 'smart casual or above'. Dining occurs in a serene environment with a focus on timing and etiquette.
+Elegant and respectful atmosphere, emphasizing traditional customs and leisurely dining experience.
 
 ## Location
-Just east past the shidarezakura of Maruyama and Hyotan Pond, Kyoto, Japan.
+Maruyama, Kyoto, Japan
 
 ## Location & Time Zone
 
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-22 03:07:13 JST
+Current local time: 2025-07-24 00:41:49 JST
 
 ## Document Information
 
-Generated: 2025-07-21 18:07:13 UTC
+Generated: 2025-07-23 15:41:49 UTC
 Source: https://mizai.jp/

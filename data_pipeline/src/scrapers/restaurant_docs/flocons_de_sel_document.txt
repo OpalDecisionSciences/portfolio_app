@@ -1,25 +1,25 @@
 # Flocons de Sel
 
 ## Cuisine
-French
+Gastronomic French
 
 ## Ambiance & Atmosphere
-Gastronomic and luxurious atmosphere, part of the Relais & Châteaux collection.
+5-star hotel dining experience in a Relais & Château setting, currently under renovation.
 
 ## Location
-1775 Route du Leutaz, 74120 Megève, France
+1775 Route du Leutaz, 74120 Megève, Haute-Savoie, France
 
 ## Language
-Original website language: ca
+Original website language: fr
 
 ## Location & Time Zone
 
 Country: France
 City: Megève
 Timezone: Europe/Paris
-Current local time: 2025-07-23 16:56:34 CEST
+Current local time: 2025-07-23 17:27:42 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 14:56:34 UTC
+Generated: 2025-07-23 15:27:42 UTC
 Source: https://www.floconsdesel.com

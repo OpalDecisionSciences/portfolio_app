@@ -4,19 +4,19 @@
 Kyo-ryori (Kyoto cuisine)
 
 ## Ambiance & Atmosphere
-Traditional and refined atmosphere with a focus on customer experience, embracing the philosophy of the tea ceremony.
+A sophisticated atmosphere focused on exceptional hospitality and refined tastes, embodying the essence of the traditional tea ceremony.
 
 ## Location
-136 Tomikoji Oike-sagaru, Nakagyo-ku, Kyoto 604-8093, Japan
+136 Tominokoji Oike Sagaru, Nakagyo-ku, Kyoto 604-8093, Japan
 
 ## Location & Time Zone
 
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-22 03:10:56 JST
+Current local time: 2025-07-24 00:43:36 JST
 
 ## Document Information
 
-Generated: 2025-07-21 18:10:56 UTC
+Generated: 2025-07-23 15:43:36 UTC
 Source: http://www.kyoryori-nakamura.com/

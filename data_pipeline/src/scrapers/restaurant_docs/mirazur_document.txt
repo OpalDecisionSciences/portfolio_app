@@ -1,22 +1,6 @@
 # Mirazur
 
-## Cuisine
-Mediterranean
-
-## Ambiance & Atmosphere
-Stylish and modern dining with outdoor patio seating
-
-## Location
-Menton, France
-
-## Location & Time Zone
-
-Country: France
-City: Menton
-Timezone: Europe/Paris
-Current local time: 2025-07-21 19:54:27 CEST
-
 ## Document Information
 
-Generated: 2025-07-21 17:54:27 UTC
+Generated: 2025-07-23 15:33:42 UTC
 Source: https://www.mirazur.fr/

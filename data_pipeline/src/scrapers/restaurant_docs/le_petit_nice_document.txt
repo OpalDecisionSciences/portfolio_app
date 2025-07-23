@@ -4,19 +4,19 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-Unique seaside luxury atmosphere in a 5-star hotel setting, designed for tranquility and refined experiences.
+Luxury hotel atmosphere with tranquility, spacious and bright rooms, and a stunning view of the Mediterranean.
 
 ## Location
-Marseille, France
+Marseille, France, with a view of the Mediterranean Sea.
 
 ## Location & Time Zone
 
 Country: France
 City: Marseille
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:07:19 CEST
+Current local time: 2025-07-23 17:36:40 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:07:19 UTC
+Generated: 2025-07-23 15:36:40 UTC
 Source: https://www.passedat.fr

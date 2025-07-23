@@ -1,0 +1,17 @@
+{
+  "michelin_csv": {
+    "last_completed_row": 18112,
+    "total_rows": 18113,
+    "processed_count": 18105,
+    "failed_count": 8,
+    "last_processed_date": "2025-07-23T15:41:51.309778",
+    "processing_status": "completed"
+  },
+  "scraped_docs": {
+    "last_processed_file": null,
+    "processed_files": [],
+    "failed_files": [],
+    "total_files": 0,
+    "last_processed_date": null
+  }
+}

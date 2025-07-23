@@ -123,6 +123,14 @@ class MichelinCSVProcessor:
                         results['successful_imports'] += 1
                         logger.info(f"Successfully imported: {basic_restaurant.name}")
                         
+                        # Queue embedding update for basic restaurant data (will be enhanced if comprehensive scraping succeeds)
+                        try:
+                            from restaurants.tasks import update_restaurant_embeddings
+                            update_restaurant_embeddings.delay(basic_restaurant.id)
+                            logger.info(f"  - Queued basic embedding update for: {basic_restaurant.name}")
+                        except Exception as e:
+                            logger.warning(f"  - Failed to queue basic embedding update: {str(e)}")
+                        
                         # Step 2: Comprehensive scrape with LLM analysis from website if URL exists
                         website_url = restaurant_data.get('WebsiteUrl', '').strip()
                         if website_url and website_url != '':
@@ -140,6 +148,14 @@ class MichelinCSVProcessor:
                                 if updated_restaurant:
                                     results['successful_scrapes'] += 1
                                     logger.info(f"Successfully scraped comprehensive data for: {basic_restaurant.name}")
+                                    
+                                    # Queue embedding update for the restaurant
+                                    try:
+                                        from restaurants.tasks import update_restaurant_embeddings
+                                        update_restaurant_embeddings.delay(updated_restaurant.id)
+                                        logger.info(f"  - Queued embedding update for: {basic_restaurant.name}")
+                                    except Exception as e:
+                                        logger.warning(f"  - Failed to queue embedding update: {str(e)}")
                                     
                                     # Log what was extracted
                                     llm_data = scraped_data.get('llm_analysis', {})

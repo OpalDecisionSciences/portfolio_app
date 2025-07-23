@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-Elegant atmosphere with contemporary culinary artistry and attention to seasonal vegetables
+Elegant atmosphere with a focus on contemporary gastronomic experiences and attention to craftsmanship.
 
 ## Location
 112 rue du Faubourg Saint-Honoré, 75008 Paris
@@ -14,9 +14,9 @@ Elegant atmosphere with contemporary culinary artistry and attention to seasonal
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-23 16:58:14 CEST
+Current local time: 2025-07-23 17:29:52 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 14:58:14 UTC
+Generated: 2025-07-23 15:29:52 UTC
 Source: https://www.oetkercollection.com/fr/hotels/le-bristol-paris/restaurants-et-bar/epicure/

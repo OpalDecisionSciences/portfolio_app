@@ -1,22 +1,25 @@
 # HAJIME
 
 ## Cuisine
-Gastronomy
+Innovative
 
 ## Ambiance & Atmosphere
-An immersive and artistic dining experience focused on the beauty of balance and harmony.
+Delicate harmony with a focus on beauty and nature
 
 ## Location
-1-9-11-1F, Edobori, Nishi-ku, Osaka-City, Osaka 550-0002 JAPAN
+Osaka, Japan
+
+## Language
+Original website language: ja
 
 ## Location & Time Zone
 
 Country: Japan
 City: Osaka
 Timezone: Asia/Tokyo
-Current local time: 2025-07-22 03:06:13 JST
+Current local time: 2025-07-24 00:40:49 JST
 
 ## Document Information
 
-Generated: 2025-07-21 18:06:13 UTC
+Generated: 2025-07-23 15:40:49 UTC
 Source: https://www.hajime-artistes.com/

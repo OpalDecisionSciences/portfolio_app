@@ -4,12 +4,19 @@
 Contemporary French
 
 ## Ambiance & Atmosphere
-A blend of art and craft, focused on unique experiences and moments of life.
+A place of experiences and unexpected encounters where art and craft meet, featuring a sophisticated restaurant and bar atmosphere.
 
 ## Location
-Multiple locations globally, including restaurants and hotels.
+Baccarat, Paris 16e, France
+
+## Location & Time Zone
+
+Country: France
+City: Paris
+Timezone: Europe/Paris
+Current local time: 2025-07-23 17:26:36 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 14:50:54 UTC
+Generated: 2025-07-23 15:26:36 UTC
 Source: https://www.ducasse-paris.com/

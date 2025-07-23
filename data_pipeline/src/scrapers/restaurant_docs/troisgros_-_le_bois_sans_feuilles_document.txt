@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-A family house atmosphere, invoking warmth and comfort, with a focus on hospitality and genuine connections.
+A family house atmosphere where guests feel at home, promoting warmth and comfort.
 
 ## Location
 Ouches and Roanne, France
@@ -14,9 +14,9 @@ Ouches and Roanne, France
 Country: France
 City: Roanne
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:51:20 CEST
+Current local time: 2025-07-23 17:27:29 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:51:20 UTC
+Generated: 2025-07-23 15:27:29 UTC
 Source: https://www.troisgros.fr/

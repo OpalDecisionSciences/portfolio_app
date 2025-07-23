@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-A unique and exceptional setting with a rich history and a focus on gastronomy.
+An exceptional setting, luxurious and refined atmosphere.
 
 ## Location
-Provence, France
+http://www.baumaniere.com (specific address not provided)
 
 ## Location & Time Zone
 
 Country: France
-City: Provence
+City: Baux-de-Provence
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:11:41 CEST
+Current local time: 2025-07-23 17:40:53 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:11:41 UTC
+Generated: 2025-07-23 15:40:53 UTC
 Source: http://www.baumaniere.com

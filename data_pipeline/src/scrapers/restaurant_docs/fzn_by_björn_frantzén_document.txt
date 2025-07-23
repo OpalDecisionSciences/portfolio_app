@@ -1,15 +1,15 @@
 # FZN by Björn Frantzén
 
 ## Cuisine
-Modern European
+Not specified
 
 ## Ambiance & Atmosphere
-Fine dining atmosphere
+Not specified
 
 ## Location
 Atlantis The Palm, Crescent Road, The Palm Jumeirah, Dubai
 
 ## Document Information
 
-Generated: 2025-07-20 13:22:38 UTC
+Generated: 2025-07-23 15:24:40 UTC
 Source: https://www.restaurantfzn.com/
