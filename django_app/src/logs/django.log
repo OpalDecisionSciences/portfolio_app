@@ -1916,6 +1916,7 @@ Watching for file changes with StatReloader
 "GET /restaurants/gallery/ HTTP/1.1" 200 101371
 "GET /chat/ HTTP/1.1" 200 31353
 "GET /chat/ HTTP/1.1" 200 31353
+<<<<<<< Updated upstream
 /Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
 /Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
 Watching for file changes with StatReloader
@@ -1930,3 +1931,1000 @@ Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 /Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
 /Users/iamai/projects/portfolio_app/django_app/src/portfolio_project/settings.py changed, reloading.
+=======
+Watching for file changes with StatReloader
+>>>>>>> Stashed changes
+INFO 2025-07-23 05:48:13,330 autoreload 4552 8705056512 Watching for file changes with StatReloader
+INFO 2025-07-23 05:51:46,754 autoreload 7215 8705056512 Watching for file changes with StatReloader
+INFO 2025-07-23 05:58:01,807 autoreload 12015 8705056512 Watching for file changes with StatReloader
+INFO 2025-07-23 06:07:54,142 autoreload 20895 8705056512 Watching for file changes with StatReloader
+INFO 2025-07-23 06:17:22,277 autoreload 28159 8705056512 Watching for file changes with StatReloader
+INFO 2025-07-23 06:26:23,017 autoreload 34886 8705056512 Watching for file changes with StatReloader
+INFO 2025-07-23 06:28:34,376 autoreload 36626 8705056512 Watching for file changes with StatReloader
+ERROR 2025-07-23 06:35:09,615 signal 1 281473380388896 Signal handler <promise@0xffff9d8fa5d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff9d920a90>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 06:35:09,616 signal 1 281473576464416 Signal handler <promise@0xffffa93fa5d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffffa9424790>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 06:53:58,944 signal 1 281473152749600 Signal handler <promise@0xffff8fffa5d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff90024610>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 06:53:58,961 signal 1 281472995311648 Signal handler <promise@0xffff869ba5d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff869c0ad0>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 07:05:10,186 signal 1 281473834704928 Signal handler <promise@0xffffb8a465d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffffb8a4c710>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 07:05:10,205 signal 1 281472922464288 Signal handler <promise@0xffff824465d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff82448910>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+INFO 2025-07-23 07:05:10,239 autoreload 8 281473373102112 Watching for file changes with StatReloader
+INFO 2025-07-23 07:05:14,581 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:05:44,877 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:06:15,388 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:06:45,895 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:07:16,436 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:07:47,148 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:08:17,843 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:08:48,456 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:09:18,645 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:09:49,089 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:10:19,939 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:10:50,188 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:11:20,455 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:11:50,956 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:12:21,310 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:12:51,698 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:13:22,194 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:13:52,686 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:14:23,812 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:14:54,458 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:15:24,674 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 07:15:55,366 basehttp 8 281472699265440 "GET /health/ HTTP/1.1" 200 195
+ERROR 2025-07-23 10:49:03,342 signal 1 281473085673504 Signal handler <promise@0xffff8c0225d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff8c024650>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 10:49:03,341 signal 1 281473199992864 Signal handler <promise@0xffff92cfa5d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff92d20a10>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+INFO 2025-07-23 10:49:05,208 autoreload 21 281473836503072 Watching for file changes with StatReloader
+ERROR 2025-07-23 10:49:06,762 log 21 281473158541728 Service Unavailable: /health/
+ERROR 2025-07-23 10:49:06,785 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 503 440
+INFO 2025-07-23 10:49:06,794 basehttp 21 281473158541728 - Broken pipe from ('127.0.0.1', 49350)
+INFO 2025-07-23 10:49:37,944 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:49:52,717 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:50:08,458 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+ERROR 2025-07-23 10:50:43,540 log 21 281473158541728 Service Unavailable: /health/
+ERROR 2025-07-23 10:50:43,564 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 503 269
+INFO 2025-07-23 10:51:13,741 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:51:43,992 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:52:14,246 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:52:48,438 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:53:18,746 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:53:49,457 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:54:19,750 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:54:46,554 basehttp 21 281473158541728 "GET / HTTP/1.1" 200 39287
+INFO 2025-07-23 10:54:51,259 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:55:00,560 unified_restaurant_scraper 149 281473885429792 Token manager initialized successfully
+INFO 2025-07-23 10:55:00,560 unified_restaurant_scraper 149 281473885429792 Unified restaurant scraper initialized
+INFO 2025-07-23 10:55:00,560 data_processor 149 281473885429792 Data processor initialized
+INFO 2025-07-23 10:55:00,560 michelin_csv_processor 149 281473885429792 Michelin CSV processor initialized
+INFO 2025-07-23 10:55:00,566 michelin_csv_processor 149 281473885429792 Started scraping job: Michelin CSV Processing - 2025-07-23 10:55
+INFO 2025-07-23 10:55:00,680 michelin_csv_processor 149 281473885429792 Read 18113 restaurants from CSV
+INFO 2025-07-23 10:55:00,686 michelin_csv_processor 149 281473885429792 Processing restaurant 1/18113: Hiša Franko
+ERROR 2025-07-23 10:55:00,688 michelin_csv_processor 149 281473885429792 Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR 2025-07-23 10:55:00,688 michelin_csv_processor 149 281473885429792 Failed to import restaurant: Hiša Franko
+INFO 2025-07-23 10:55:00,689 michelin_csv_processor 149 281473885429792 Processing restaurant 2/18113: Trèsind Studio
+ERROR 2025-07-23 10:55:00,690 michelin_csv_processor 149 281473885429792 Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR 2025-07-23 10:55:00,690 michelin_csv_processor 149 281473885429792 Failed to import restaurant: Trèsind Studio
+INFO 2025-07-23 10:55:00,691 michelin_csv_processor 149 281473885429792 Processing restaurant 3/18113: FZN by Björn Frantzén
+ERROR 2025-07-23 10:55:00,691 michelin_csv_processor 149 281473885429792 Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR 2025-07-23 10:55:00,691 michelin_csv_processor 149 281473885429792 Failed to import restaurant: FZN by Björn Frantzén
+INFO 2025-07-23 10:55:00,692 michelin_csv_processor 149 281473885429792 Processing restaurant 4/18113: Boury
+ERROR 2025-07-23 10:55:00,693 michelin_csv_processor 149 281473885429792 Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR 2025-07-23 10:55:00,693 michelin_csv_processor 149 281473885429792 Failed to import restaurant: Boury
+INFO 2025-07-23 10:55:00,694 michelin_csv_processor 149 281473885429792 Processing restaurant 5/18113: Zilte
+ERROR 2025-07-23 10:55:00,695 michelin_csv_processor 149 281473885429792 Error importing restaurant from CSV: name 'timezone' is not defined
+ERROR 2025-07-23 10:55:00,695 michelin_csv_processor 149 281473885429792 Failed to import restaurant: Zilte
+INFO 2025-07-23 10:55:00,697 michelin_csv_processor 149 281473885429792 Completed processing. Results: {'total_processed': 5, 'successful_imports': 0, 'successful_scrapes': 0, 'failed_imports': 5, 'failed_scrapes': 0, 'errors': []}
+INFO 2025-07-23 10:55:21,557 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:55:51,878 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:56:22,170 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:56:52,816 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:57:23,104 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:57:53,542 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:58:23,833 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:58:54,211 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:59:24,521 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 10:59:54,815 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:00:27,699 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:00:58,071 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:01:28,413 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:01:58,726 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:02:28,985 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:02:59,233 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:03:29,611 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:04:00,156 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:04:30,477 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:05:00,777 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:05:31,129 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:06:04,614 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:21:38,410 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:22:09,256 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:39:20,060 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:39:50,433 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 11:56:35,196 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:13:23,045 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:13:53,295 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:14:23,848 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:14:54,208 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:15:24,728 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:15:55,269 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:16:25,711 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:16:56,039 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:17:26,443 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:17:59,703 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:18:30,343 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:19:00,658 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:19:31,063 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:20:01,349 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:20:31,641 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:21:01,941 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:21:32,612 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:38:54,457 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:55:13,678 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 12:55:44,075 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:01:34,793 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:02:05,125 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:02:35,484 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:03:05,973 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:03:36,286 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:04:06,738 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:04:36,979 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:05:07,300 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:05:37,628 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:06:08,012 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:06:38,357 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:07:08,905 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:07:39,316 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:08:09,591 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:08:39,938 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:09:10,306 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:09:40,594 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:10:10,947 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:10:41,311 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:11:11,633 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:11:41,938 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:12:12,267 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:12:42,667 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:13:12,927 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:13:43,284 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:14:13,542 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:14:43,869 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:15:14,160 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:15:44,591 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:16:15,062 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:16:45,384 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:17:15,683 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:17:46,021 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:18:16,695 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:18:47,242 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:19:17,533 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:19:47,818 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:20:18,185 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:20:48,844 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:21:19,210 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:21:49,869 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:22:20,385 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:22:50,892 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:23:21,241 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:23:51,511 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:24:21,828 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:24:52,176 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:25:22,660 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:25:52,950 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:26:23,309 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:26:53,617 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:27:24,106 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:27:54,409 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:28:24,761 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:28:55,205 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:29:25,448 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:29:55,802 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:30:26,134 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:30:56,761 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:31:27,076 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:31:57,456 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:32:27,900 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:32:58,198 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:33:28,582 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:33:59,062 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:34:29,377 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:34:59,678 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:35:29,960 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:36:00,272 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:36:30,633 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:37:00,989 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:37:31,348 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:38:01,725 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:38:32,116 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:39:02,566 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:39:33,104 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:40:03,450 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:40:33,882 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:41:04,442 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:41:34,759 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:42:05,157 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:42:35,551 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:43:05,985 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:43:36,253 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:44:06,601 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:44:36,941 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:45:07,255 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:45:37,562 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:46:08,586 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:46:38,894 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:47:09,278 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:47:39,621 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:48:09,873 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:48:40,216 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:49:10,534 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:49:40,737 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:50:11,208 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:50:41,612 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:51:11,875 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:51:42,101 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:52:12,333 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:52:43,778 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:53:14,214 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:53:44,552 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:54:14,929 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:54:45,280 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:55:15,632 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:55:45,898 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:56:16,112 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:56:46,300 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:57:16,493 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:57:46,987 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:58:17,239 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:58:47,516 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:59:17,781 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 13:59:48,332 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:00:18,608 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:00:49,897 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:01:20,168 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:03:33,006 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:04:03,261 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:04:05,838 unified_restaurant_scraper 1510 281472980545568 Token manager initialized successfully
+INFO 2025-07-23 14:04:05,839 unified_restaurant_scraper 1510 281472980545568 Unified restaurant scraper initialized
+INFO 2025-07-23 14:04:05,839 data_processor 1510 281472980545568 Data processor initialized
+INFO 2025-07-23 14:04:05,839 michelin_csv_processor 1510 281472980545568 Michelin CSV processor initialized
+INFO 2025-07-23 14:04:05,845 michelin_csv_processor 1510 281472980545568 Started scraping job: Michelin CSV Processing - 2025-07-23 14:04
+INFO 2025-07-23 14:04:05,966 michelin_csv_processor 1510 281472980545568 Read 18113 restaurants from CSV
+INFO 2025-07-23 14:04:05,973 michelin_csv_processor 1510 281472980545568 Processing restaurant 1/18113: Hiša Franko
+INFO 2025-07-23 14:04:05,978 data_processor 1510 281472980545568 Creating new restaurant: Hiša Franko
+ERROR 2025-07-23 14:04:05,995 data_processor 1510 281472980545568 Validation error creating restaurant: {'latitude': ['Ensure that there are no more than 6 decimal places.'], 'longitude': ['Ensure that there are no more than 6 decimal places.']}
+ERROR 2025-07-23 14:04:05,995 data_processor 1510 281472980545568 Failed to create or update restaurant
+ERROR 2025-07-23 14:04:05,995 michelin_csv_processor 1510 281472980545568 Failed to create restaurant: Hiša Franko
+ERROR 2025-07-23 14:04:05,996 michelin_csv_processor 1510 281472980545568 Failed to import restaurant: Hiša Franko
+INFO 2025-07-23 14:04:05,997 michelin_csv_processor 1510 281472980545568 Processing restaurant 2/18113: Trèsind Studio
+INFO 2025-07-23 14:04:05,999 data_processor 1510 281472980545568 Creating new restaurant: Trèsind Studio
+ERROR 2025-07-23 14:04:06,000 data_processor 1510 281472980545568 Validation error creating restaurant: {'country': ['This field cannot be blank.'], 'longitude': ['Ensure that there are no more than 6 decimal places.']}
+ERROR 2025-07-23 14:04:06,000 data_processor 1510 281472980545568 Failed to create or update restaurant
+ERROR 2025-07-23 14:04:06,000 michelin_csv_processor 1510 281472980545568 Failed to create restaurant: Trèsind Studio
+ERROR 2025-07-23 14:04:06,000 michelin_csv_processor 1510 281472980545568 Failed to import restaurant: Trèsind Studio
+INFO 2025-07-23 14:04:06,001 michelin_csv_processor 1510 281472980545568 Processing restaurant 3/18113: FZN by Björn Frantzén
+INFO 2025-07-23 14:04:06,002 data_processor 1510 281472980545568 Creating new restaurant: FZN by Björn Frantzén
+ERROR 2025-07-23 14:04:06,003 data_processor 1510 281472980545568 Validation error creating restaurant: {'country': ['This field cannot be blank.'], 'latitude': ['Ensure that there are no more than 6 decimal places.'], 'longitude': ['Ensure that there are no more than 6 decimal places.']}
+ERROR 2025-07-23 14:04:06,003 data_processor 1510 281472980545568 Failed to create or update restaurant
+ERROR 2025-07-23 14:04:06,003 michelin_csv_processor 1510 281472980545568 Failed to create restaurant: FZN by Björn Frantzén
+ERROR 2025-07-23 14:04:06,004 michelin_csv_processor 1510 281472980545568 Failed to import restaurant: FZN by Björn Frantzén
+INFO 2025-07-23 14:04:06,005 michelin_csv_processor 1510 281472980545568 Completed processing. Results: {'total_processed': 3, 'successful_imports': 0, 'successful_scrapes': 0, 'failed_imports': 3, 'failed_scrapes': 0, 'errors': []}
+INFO 2025-07-23 14:04:33,531 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:04:44,257 unified_restaurant_scraper 1536 281473813737504 Token manager initialized successfully
+INFO 2025-07-23 14:04:44,258 unified_restaurant_scraper 1536 281473813737504 Unified restaurant scraper initialized
+INFO 2025-07-23 14:04:44,258 data_processor 1536 281473813737504 Data processor initialized
+INFO 2025-07-23 14:04:44,258 michelin_csv_processor 1536 281473813737504 Michelin CSV processor initialized
+INFO 2025-07-23 14:04:44,265 michelin_csv_processor 1536 281473813737504 Started scraping job: Michelin CSV Processing - 2025-07-23 14:04
+INFO 2025-07-23 14:04:44,384 michelin_csv_processor 1536 281473813737504 Read 18113 restaurants from CSV
+INFO 2025-07-23 14:04:44,391 michelin_csv_processor 1536 281473813737504 Processing restaurant 1/18113: Hiša Franko
+INFO 2025-07-23 14:04:44,394 data_processor 1536 281473813737504 Creating new restaurant: Hiša Franko
+INFO 2025-07-23 14:04:44,412 data_processor 1536 281473813737504 Successfully processed restaurant: Hiša Franko
+INFO 2025-07-23 14:04:44,413 michelin_csv_processor 1536 281473813737504 Successfully created restaurant: Hiša Franko
+INFO 2025-07-23 14:04:44,413 michelin_csv_processor 1536 281473813737504 Successfully imported: Hiša Franko
+INFO 2025-07-23 14:04:44,413 unified_restaurant_scraper 1536 281473813737504 Starting complete scraping for: Hiša Franko
+ERROR 2025-07-23 14:04:44,413 unified_restaurant_scraper 1536 281473813737504 Error getting filtered links for https://www.hisafranko.com/: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 14:04:45,813 unified_restaurant_scraper 1536 281473813737504 Starting comprehensive LLM analysis for Hiša Franko
+INFO 2025-07-23 14:04:45,813 unified_restaurant_scraper 1536 281473813737504 Detecting language for content of length: 3247
+INFO 2025-07-23 14:04:45,963 unified_restaurant_scraper 1536 281473813737504 Detected language: sl
+INFO 2025-07-23 14:04:45,963 unified_restaurant_scraper 1536 281473813737504 Translating content from sl to English using GPT-4o
+INFO 2025-07-23 14:05:03,476 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:05:03,483 token_manager 1536 281473813737504 Model: gpt-4o | Tokens used: 1890 | Total: 1890
+INFO 2025-07-23 14:05:03,484 unified_restaurant_scraper 1536 281473813737504 Successfully translated content from sl to English
+INFO 2025-07-23 14:05:03,484 unified_restaurant_scraper 1536 281473813737504 Translation completed. Original length: 3247, Translated length: 3400
+INFO 2025-07-23 14:05:03,484 unified_restaurant_scraper 1536 281473813737504 Getting restaurant summary for content length: 3400
+INFO 2025-07-23 14:05:03,484 unified_restaurant_scraper 1536 281473813737504 Building summary prompt for URL: https://www.hisafranko.com/
+INFO 2025-07-23 14:05:03,485 unified_restaurant_scraper 1536 281473813737504 User prompt length: 3038
+INFO 2025-07-23 14:05:03,485 unified_restaurant_scraper 1536 281473813737504 Calling LLM for restaurant summary...
+INFO 2025-07-23 14:05:03,790 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:05:17,123 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:05:17,125 unified_restaurant_scraper 1536 281473813737504 LLM response received: {
+  "name": "Hiša Franko",
+  "cuisine": "Traditional Slovenian",
+  "ambiance": "Located at the foot of the mountains and high-altitude pastures, the atmosphere reflects the stunning natural beauty of the Soča Valley with a close connection to local communities.",
+  "menu_highlights": "Dishes heavily featuring dairy, cheese, and meat products sourced from local farmers, with a focus on seasonal ingredients including trout, game, and wild plants.",
+  "chef_background": "The restaurant is rooted in a legacy of over half a century, recognized in the culinary world with three Michelin stars and a green star as of September 2023.",
+  "ownership": "Owned by the Kramar family, with a legacy founded by Franko Kramar.",
+  "location": "Situated near the Soča River in Kobarid, Slovenia.",
+  "contact": {
+    "phone": "Not provided",
+    "website": "https://www.hisafranko.com/",
+    "hours": {
+      "restaurant": {
+        "Monday": "Closed",
+        "Tuesday": "Closed",
+        "Wednesday": "12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)",
+        "Thursday": "12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)",
+        "Friday": "12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)",
+        "Saturday": "12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)",
+        "Sunday": "12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)"
+      },
+      "shop": {
+        "Monday": "Closed",
+        "Tuesday": "Closed",
+        "Wednesday": "11:00 AM - 11:00 PM",
+        "Thursday": "11:00 AM - 11:00 PM",
+        "Friday": "11:00 AM - 11:00 PM",
+        "Saturday": "11:00 AM - 11:00 PM",
+        "Sunday": "11:00 AM - 11:00 PM"
+      }
+    }
+  },
+  "description": "Hiša Franko is a Michelin-starred restaurant that embodies the rich culinary heritage of the Soča Valley, blending local ingredients and traditions into a fine dining experience."
+}
+INFO 2025-07-23 14:05:17,125 unified_restaurant_scraper 1536 281473813737504 Successfully parsed JSON response: {'name': 'Hiša Franko', 'cuisine': 'Traditional Slovenian', 'ambiance': 'Located at the foot of the mountains and high-altitude pastures, the atmosphere reflects the stunning natural beauty of the Soča Valley with a close connection to local communities.', 'menu_highlights': 'Dishes heavily featuring dairy, cheese, and meat products sourced from local farmers, with a focus on seasonal ingredients including trout, game, and wild plants.', 'chef_background': 'The restaurant is rooted in a legacy of over half a century, recognized in the culinary world with three Michelin stars and a green star as of September 2023.', 'ownership': 'Owned by the Kramar family, with a legacy founded by Franko Kramar.', 'location': 'Situated near the Soča River in Kobarid, Slovenia.', 'contact': {'phone': 'Not provided', 'website': 'https://www.hisafranko.com/', 'hours': {'restaurant': {'Monday': 'Closed', 'Tuesday': 'Closed', 'Wednesday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Thursday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Friday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Saturday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Sunday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)'}, 'shop': {'Monday': 'Closed', 'Tuesday': 'Closed', 'Wednesday': '11:00 AM - 11:00 PM', 'Thursday': '11:00 AM - 11:00 PM', 'Friday': '11:00 AM - 11:00 PM', 'Saturday': '11:00 AM - 11:00 PM', 'Sunday': '11:00 AM - 11:00 PM'}}}, 'description': 'Hiša Franko is a Michelin-starred restaurant that embodies the rich culinary heritage of the Soča Valley, blending local ingredients and traditions into a fine dining experience.'}
+INFO 2025-07-23 14:05:17,126 unified_restaurant_scraper 1536 281473813737504 Restaurant summary result: {'name': 'Hiša Franko', 'cuisine': 'Traditional Slovenian', 'ambiance': 'Located at the foot of the mountains and high-altitude pastures, the atmosphere reflects the stunning natural beauty of the Soča Valley with a close connection to local communities.', 'menu_highlights': 'Dishes heavily featuring dairy, cheese, and meat products sourced from local farmers, with a focus on seasonal ingredients including trout, game, and wild plants.', 'chef_background': 'The restaurant is rooted in a legacy of over half a century, recognized in the culinary world with three Michelin stars and a green star as of September 2023.', 'ownership': 'Owned by the Kramar family, with a legacy founded by Franko Kramar.', 'location': 'Situated near the Soča River in Kobarid, Slovenia.', 'contact': {'phone': 'Not provided', 'website': 'https://www.hisafranko.com/', 'hours': {'restaurant': {'Monday': 'Closed', 'Tuesday': 'Closed', 'Wednesday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Thursday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Friday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Saturday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)', 'Sunday': '12:00 PM - 4:00 PM, 7:00 PM - 11:00 PM (last reservations at 1 PM and 8 PM)'}, 'shop': {'Monday': 'Closed', 'Tuesday': 'Closed', 'Wednesday': '11:00 AM - 11:00 PM', 'Thursday': '11:00 AM - 11:00 PM', 'Friday': '11:00 AM - 11:00 PM', 'Saturday': '11:00 AM - 11:00 PM', 'Sunday': '11:00 AM - 11:00 PM'}}}, 'description': 'Hiša Franko is a Michelin-starred restaurant that embodies the rich culinary heritage of the Soča Valley, blending local ingredients and traditions into a fine dining experience.'}
+INFO 2025-07-23 14:05:17,848 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR 2025-07-23 14:05:17,873 unified_restaurant_scraper 1536 281473813737504 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 14:05:17,874 unified_restaurant_scraper 1536 281473813737504 Image scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 14:05:19,467 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:05:19,492 unified_restaurant_scraper 1536 281473813737504 Document saved: hiša_franko_document.txt
+INFO 2025-07-23 14:05:19,492 unified_restaurant_scraper 1536 281473813737504 Complete scraping finished for: Hiša Franko
+INFO 2025-07-23 14:05:19,527 michelin_csv_processor 1536 281473813737504 Successfully updated restaurant Hiša Franko with comprehensive data:
+INFO 2025-07-23 14:05:19,527 michelin_csv_processor 1536 281473813737504   - Menu sections: 0
+INFO 2025-07-23 14:05:19,527 michelin_csv_processor 1536 281473813737504   - Menu items: 0
+INFO 2025-07-23 14:05:19,527 michelin_csv_processor 1536 281473813737504   - Images integrated: 0
+INFO 2025-07-23 14:05:19,528 michelin_csv_processor 1536 281473813737504   - Atmosphere: Yes
+INFO 2025-07-23 14:05:19,528 michelin_csv_processor 1536 281473813737504   - Cuisine type: Yes
+INFO 2025-07-23 14:05:19,528 michelin_csv_processor 1536 281473813737504 Successfully scraped comprehensive data for: Hiša Franko
+INFO 2025-07-23 14:05:19,528 michelin_csv_processor 1536 281473813737504   - Restaurant summary extracted
+INFO 2025-07-23 14:05:19,532 michelin_csv_processor 1536 281473813737504 Processing restaurant 2/18113: Trèsind Studio
+INFO 2025-07-23 14:05:19,540 data_processor 1536 281473813737504 Creating new restaurant: Trèsind Studio
+INFO 2025-07-23 14:05:19,543 data_processor 1536 281473813737504 Successfully processed restaurant: Trèsind Studio
+INFO 2025-07-23 14:05:19,543 michelin_csv_processor 1536 281473813737504 Successfully created restaurant: Trèsind Studio
+INFO 2025-07-23 14:05:19,543 michelin_csv_processor 1536 281473813737504 Successfully imported: Trèsind Studio
+INFO 2025-07-23 14:05:19,544 unified_restaurant_scraper 1536 281473813737504 Starting complete scraping for: Trèsind Studio
+ERROR 2025-07-23 14:05:19,544 unified_restaurant_scraper 1536 281473813737504 Error getting filtered links for https://tresindstudio.com/: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 14:05:20,932 unified_restaurant_scraper 1536 281473813737504 Starting comprehensive LLM analysis for Trèsind Studio
+INFO 2025-07-23 14:05:20,932 unified_restaurant_scraper 1536 281473813737504 Detecting language for content of length: 3906
+INFO 2025-07-23 14:05:20,935 unified_restaurant_scraper 1536 281473813737504 Detected language: en
+INFO 2025-07-23 14:05:20,936 unified_restaurant_scraper 1536 281473813737504 Getting restaurant summary for content length: 3906
+INFO 2025-07-23 14:05:20,936 unified_restaurant_scraper 1536 281473813737504 Building summary prompt for URL: https://tresindstudio.com/
+INFO 2025-07-23 14:05:20,936 unified_restaurant_scraper 1536 281473813737504 User prompt length: 3037
+INFO 2025-07-23 14:05:20,936 unified_restaurant_scraper 1536 281473813737504 Calling LLM for restaurant summary...
+INFO 2025-07-23 14:05:26,603 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:05:26,675 unified_restaurant_scraper 1536 281473813737504 LLM response received: {
+  "name": "Tresind Studio",
+  "cuisine": "Indian",
+  "ambiance": "Fine dining with an emphasis on guest experience; focuses on transforming humble ingredients into elevated dishes.",
+  "menu_highlights": "Immersive degustation menu highlighting new and familiar Indian flavors; uses locally sourced and sustainable ingredients.",
+  "chef_background": "Chef Himanshu Saini, known as a young tastemaker in Indian cuisine; trained under Chef Manish Mehrotra of Indian Accent in Delhi.",
+  "ownership": "Owned by Chef Himanshu Saini.",
+  "location": "UAE",
+  "contact": {
+    "phone": "971 58895 1272",
+    "website": "https://tresindstudio.com/",
+    "hours": "6:00 PM - 9:15 PM"
+  },
+  "description": "Tresind Studio is a three MICHELIN star restaurant renowned for its innovative take on Indian cuisine, aiming to elevate the dining experience while focusing on sustainability and guest-centric service."
+}
+INFO 2025-07-23 14:05:26,677 unified_restaurant_scraper 1536 281473813737504 Successfully parsed JSON response: {'name': 'Tresind Studio', 'cuisine': 'Indian', 'ambiance': 'Fine dining with an emphasis on guest experience; focuses on transforming humble ingredients into elevated dishes.', 'menu_highlights': 'Immersive degustation menu highlighting new and familiar Indian flavors; uses locally sourced and sustainable ingredients.', 'chef_background': 'Chef Himanshu Saini, known as a young tastemaker in Indian cuisine; trained under Chef Manish Mehrotra of Indian Accent in Delhi.', 'ownership': 'Owned by Chef Himanshu Saini.', 'location': 'UAE', 'contact': {'phone': '971 58895 1272', 'website': 'https://tresindstudio.com/', 'hours': '6:00 PM - 9:15 PM'}, 'description': 'Tresind Studio is a three MICHELIN star restaurant renowned for its innovative take on Indian cuisine, aiming to elevate the dining experience while focusing on sustainability and guest-centric service.'}
+INFO 2025-07-23 14:05:26,677 unified_restaurant_scraper 1536 281473813737504 Restaurant summary result: {'name': 'Tresind Studio', 'cuisine': 'Indian', 'ambiance': 'Fine dining with an emphasis on guest experience; focuses on transforming humble ingredients into elevated dishes.', 'menu_highlights': 'Immersive degustation menu highlighting new and familiar Indian flavors; uses locally sourced and sustainable ingredients.', 'chef_background': 'Chef Himanshu Saini, known as a young tastemaker in Indian cuisine; trained under Chef Manish Mehrotra of Indian Accent in Delhi.', 'ownership': 'Owned by Chef Himanshu Saini.', 'location': 'UAE', 'contact': {'phone': '971 58895 1272', 'website': 'https://tresindstudio.com/', 'hours': '6:00 PM - 9:15 PM'}, 'description': 'Tresind Studio is a three MICHELIN star restaurant renowned for its innovative take on Indian cuisine, aiming to elevate the dining experience while focusing on sustainability and guest-centric service.'}
+INFO 2025-07-23 14:05:30,102 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR 2025-07-23 14:05:30,105 unified_restaurant_scraper 1536 281473813737504 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 14:05:30,106 unified_restaurant_scraper 1536 281473813737504 Image scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 14:05:31,497 _client 1536 281473813737504 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:05:31,585 unified_restaurant_scraper 1536 281473813737504 Document saved: trèsind_studio_document.txt
+INFO 2025-07-23 14:05:31,585 unified_restaurant_scraper 1536 281473813737504 Complete scraping finished for: Trèsind Studio
+INFO 2025-07-23 14:05:31,588 michelin_csv_processor 1536 281473813737504 Successfully updated restaurant Trèsind Studio with comprehensive data:
+INFO 2025-07-23 14:05:31,588 michelin_csv_processor 1536 281473813737504   - Menu sections: 0
+INFO 2025-07-23 14:05:31,588 michelin_csv_processor 1536 281473813737504   - Menu items: 0
+INFO 2025-07-23 14:05:31,588 michelin_csv_processor 1536 281473813737504   - Images integrated: 0
+INFO 2025-07-23 14:05:31,589 michelin_csv_processor 1536 281473813737504   - Atmosphere: Yes
+INFO 2025-07-23 14:05:31,589 michelin_csv_processor 1536 281473813737504   - Cuisine type: Yes
+INFO 2025-07-23 14:05:31,589 michelin_csv_processor 1536 281473813737504 Successfully scraped comprehensive data for: Trèsind Studio
+INFO 2025-07-23 14:05:31,589 michelin_csv_processor 1536 281473813737504   - Restaurant summary extracted
+INFO 2025-07-23 14:05:31,591 michelin_csv_processor 1536 281473813737504 Processing restaurant 3/18113: FZN by Björn Frantzén
+INFO 2025-07-23 14:05:31,594 data_processor 1536 281473813737504 Creating new restaurant: FZN by Björn Frantzén
+INFO 2025-07-23 14:05:31,597 data_processor 1536 281473813737504 Successfully processed restaurant: FZN by Björn Frantzén
+INFO 2025-07-23 14:05:31,597 michelin_csv_processor 1536 281473813737504 Successfully created restaurant: FZN by Björn Frantzén
+INFO 2025-07-23 14:05:31,597 michelin_csv_processor 1536 281473813737504 Successfully imported: FZN by Björn Frantzén
+INFO 2025-07-23 14:05:31,597 unified_restaurant_scraper 1536 281473813737504 Starting complete scraping for: FZN by Björn Frantzén
+ERROR 2025-07-23 14:05:31,598 unified_restaurant_scraper 1536 281473813737504 Error getting filtered links for https://www.restaurantfzn.com/: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 14:05:34,044 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+ERROR 2025-07-23 14:06:02,595 unified_restaurant_scraper 1536 281473813737504 Requests scraping failed: HTTPSConnectionPool(host='www.restaurantfzn.com', port=443): Read timed out. (read timeout=30)
+ERROR 2025-07-23 14:06:02,598 unified_restaurant_scraper 1536 281473813737504 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 14:06:02,599 unified_restaurant_scraper 1536 281473813737504 Selenium scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+WARNING 2025-07-23 14:06:02,599 michelin_csv_processor 1536 281473813737504 Failed to scrape website: https://www.restaurantfzn.com/ - Unknown error
+INFO 2025-07-23 14:06:02,604 michelin_csv_processor 1536 281473813737504 Completed processing. Results: {'total_processed': 3, 'successful_imports': 3, 'successful_scrapes': 2, 'failed_imports': 0, 'failed_scrapes': 1, 'errors': []}
+INFO 2025-07-23 14:06:04,282 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:06:34,666 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:07:04,890 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:07:35,129 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:08:05,440 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:08:35,785 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:09:06,216 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:09:36,546 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:10:06,822 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:10:37,296 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:11:07,941 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:11:38,273 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:12:08,543 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:12:38,862 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:13:09,285 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:13:39,719 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:14:09,991 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:14:40,228 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:15:10,501 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:15:41,890 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:16:12,176 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:16:42,894 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:17:13,142 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:17:43,416 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:18:15,561 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:18:45,831 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:19:16,065 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:19:46,315 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:20:16,521 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:20:46,768 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:21:17,101 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:21:47,335 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:22:17,616 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:22:49,735 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:23:20,026 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:23:50,223 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:24:20,479 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:24:50,775 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:25:21,016 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:25:51,229 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:26:21,621 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:26:51,890 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:27:22,085 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:27:52,315 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:28:25,465 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:28:56,505 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:29:26,716 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:29:41,932 unified_restaurant_scraper 1989 281473177272352 Token manager initialized successfully
+INFO 2025-07-23 14:29:41,932 unified_restaurant_scraper 1989 281473177272352 Unified restaurant scraper initialized
+INFO 2025-07-23 14:29:41,932 data_processor 1989 281473177272352 Data processor initialized
+INFO 2025-07-23 14:29:41,932 michelin_csv_processor 1989 281473177272352 Michelin CSV processor initialized
+INFO 2025-07-23 14:29:41,939 michelin_csv_processor 1989 281473177272352 Started scraping job: Michelin CSV Processing - 2025-07-23 14:29
+INFO 2025-07-23 14:29:42,058 michelin_csv_processor 1989 281473177272352 Read 18113 restaurants from CSV
+INFO 2025-07-23 14:29:42,065 michelin_csv_processor 1989 281473177272352 Processing restaurant 1/18113: Hiša Franko
+INFO 2025-07-23 14:29:42,067 michelin_csv_processor 1989 281473177272352 Restaurant already exists: Hiša Franko
+INFO 2025-07-23 14:29:42,067 michelin_csv_processor 1989 281473177272352 Successfully imported: Hiša Franko
+INFO 2025-07-23 14:29:42,067 unified_restaurant_scraper 1989 281473177272352 Starting complete scraping for: Hiša Franko
+INFO 2025-07-23 14:29:48,673 _client 1989 281473177272352 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:29:48,677 unified_restaurant_scraper 1989 281473177272352 English version detected for https://www.hisafranko.com/ → https://www.hisafranko.com/eng
+INFO 2025-07-23 14:29:53,999 _client 1989 281473177272352 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+WARNING 2025-07-23 14:29:54,698 connectionpool 1989 281472437121440 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 14:29:54,710 connectionpool 1989 281472357429664 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 14:29:54,713 connectionpool 1989 281472447607200 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 14:29:56,874 connectionpool 1989 281472458092960 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 14:29:56,878 connectionpool 1989 281472437121440 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+INFO 2025-07-23 14:29:56,923 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+WARNING 2025-07-23 14:29:57,062 connectionpool 1989 281472437121440 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+WARNING 2025-07-23 14:29:59,074 connectionpool 1989 281472437121440 Connection pool is full, discarding connection: localhost. Connection pool size: 1
+INFO 2025-07-23 14:29:59,078 unified_restaurant_scraper 1989 281473177272352 Starting comprehensive LLM analysis for Hiša Franko
+INFO 2025-07-23 14:29:59,078 unified_restaurant_scraper 1989 281473177272352 Detecting language for content of length: 1924
+INFO 2025-07-23 14:29:59,082 unified_restaurant_scraper 1989 281473177272352 Detected language: en
+INFO 2025-07-23 14:29:59,082 unified_restaurant_scraper 1989 281473177272352 Getting restaurant summary for content length: 1924
+INFO 2025-07-23 14:29:59,082 unified_restaurant_scraper 1989 281473177272352 Building summary prompt for URL: https://www.hisafranko.com/
+INFO 2025-07-23 14:29:59,083 unified_restaurant_scraper 1989 281473177272352 User prompt length: 1962
+INFO 2025-07-23 14:29:59,083 unified_restaurant_scraper 1989 281473177272352 Calling LLM for restaurant summary...
+INFO 2025-07-23 14:30:00,043 _client 1989 281473177272352 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO 2025-07-23 14:30:00,046 unified_restaurant_scraper 1989 281473177272352 LLM response received: {
+  "error": "Needs translation"
+}
+INFO 2025-07-23 14:30:00,047 unified_restaurant_scraper 1989 281473177272352 Successfully parsed JSON response: {'error': 'Needs translation'}
+INFO 2025-07-23 14:30:00,048 unified_restaurant_scraper 1989 281473177272352 Restaurant summary result: {'error': 'Needs translation'}
+INFO 2025-07-23 14:30:01,623 _client 1989 281473177272352 HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ERROR 2025-07-23 14:30:01,645 unified_restaurant_scraper 1989 281473177272352 Failed to initialize Selenium driver: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+ERROR 2025-07-23 14:30:01,646 unified_restaurant_scraper 1989 281473177272352 Image scraping failed: Message: Unable to locate or obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+INFO 2025-07-23 14:30:01,647 unified_restaurant_scraper 1989 281473177272352 Document saved: hiša_franko_document.txt
+INFO 2025-07-23 14:30:01,647 unified_restaurant_scraper 1989 281473177272352 Complete scraping finished for: Hiša Franko
+INFO 2025-07-23 14:30:01,666 michelin_csv_processor 1989 281473177272352 Successfully updated restaurant Hiša Franko with comprehensive data:
+INFO 2025-07-23 14:30:01,666 michelin_csv_processor 1989 281473177272352   - Menu sections: 0
+INFO 2025-07-23 14:30:01,666 michelin_csv_processor 1989 281473177272352   - Menu items: 0
+INFO 2025-07-23 14:30:01,666 michelin_csv_processor 1989 281473177272352   - Images integrated: 0
+INFO 2025-07-23 14:30:01,667 michelin_csv_processor 1989 281473177272352   - Atmosphere: Yes
+INFO 2025-07-23 14:30:01,667 michelin_csv_processor 1989 281473177272352   - Cuisine type: Yes
+INFO 2025-07-23 14:30:01,667 michelin_csv_processor 1989 281473177272352 Successfully scraped comprehensive data for: Hiša Franko
+INFO 2025-07-23 14:30:01,667 michelin_csv_processor 1989 281473177272352   - Restaurant summary extracted
+INFO 2025-07-23 14:30:01,669 michelin_csv_processor 1989 281473177272352 Completed processing. Results: {'total_processed': 1, 'successful_imports': 1, 'successful_scrapes': 1, 'failed_imports': 0, 'failed_scrapes': 0, 'errors': []}
+INFO 2025-07-23 14:30:27,220 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:30:59,058 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:31:29,391 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:31:59,664 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:32:29,874 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:33:00,142 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:33:30,388 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 200 195
+ERROR 2025-07-23 14:34:00,451 log 21 281473158541728 Service Unavailable: /health/
+ERROR 2025-07-23 14:34:00,464 basehttp 21 281473158541728 "GET /health/ HTTP/1.1" 503 437
+ERROR 2025-07-23 14:34:02,583 signal 1 281473889951776 Signal handler <promise@0xffffbbefa5d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffffbbf24a90>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+ERROR 2025-07-23 14:34:02,600 signal 1 281473126076448 Signal handler <promise@0xffff8e6865d0 --> <bound method Celery._autodiscover_tasks of <Celery portfolio_project at 0xffff8e688990>>> raised: ModuleNotFoundError("No module named 'scrapers.restaurant_scraper'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 691, in _autodiscover_tasks
+    return self._autodiscover_tasks_from_fixups(related_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 700, in _autodiscover_tasks_from_fixups
+    return self._autodiscover_tasks_from_names([
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/base.py", line 695, in _autodiscover_tasks_from_names
+    return self.loader.autodiscover_tasks(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 220, in autodiscover_tasks
+    mod.__name__ for mod in autodiscover_tasks(packages or (),
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in autodiscover_tasks
+    return [find_related_module(pkg, related_name) for pkg in packages]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 246, in <listcomp>
+    return [find_related_module(pkg, related_name) for pkg in packages]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 271, in find_related_module
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/celery/loaders/base.py", line 267, in find_related_module
+    return importlib.import_module(module_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/restaurants/tasks.py", line 17, in <module>
+    from scrapers.restaurant_scraper import RestaurantScraper
+ModuleNotFoundError: No module named 'scrapers.restaurant_scraper'
+INFO 2025-07-23 14:34:04,204 autoreload 21 281473670332448 Watching for file changes with StatReloader
+INFO 2025-07-23 14:34:06,833 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:34:37,461 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:35:08,217 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:35:38,643 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:36:08,910 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:36:39,438 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:37:09,687 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:37:39,893 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:38:11,169 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:38:41,478 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:39:12,166 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:39:42,375 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:40:12,794 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:40:43,375 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:41:14,152 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:41:47,128 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:42:17,429 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195
+INFO 2025-07-23 14:42:47,687 basehttp 21 281472999158176 "GET /health/ HTTP/1.1" 200 195

@@ -1,0 +1,22 @@
+# L'Olivo
+
+## Cuisine
+Mediterranean, Italian
+
+## Ambiance & Atmosphere
+Charming setting, two Michelin-starred restaurant
+
+## Location
+Jumeirah Capri Palace, Capri, Italy
+
+## Location & Time Zone
+
+Country: Italy
+City: Capri
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:21:22 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:21:22 UTC
+Source: https://www.jumeirah.com/en/dine/italy/l-olivo

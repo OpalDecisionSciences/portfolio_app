@@ -1,0 +1,25 @@
+# Légende
+
+## Cuisine
+Boreal
+
+## Ambiance & Atmosphere
+A place for meeting and sharing around the table, inspired by historical elements and focused on culinary heritage.
+
+## Location
+Québec
+
+## Language
+Original website language: fr
+
+## Location & Time Zone
+
+Country: Canada
+City: Québec
+Timezone: America/Toronto
+Current local time: 2025-07-22 00:36:30 EDT
+
+## Document Information
+
+Generated: 2025-07-22 04:36:30 UTC
+Source: http://www.restaurantlegende.com

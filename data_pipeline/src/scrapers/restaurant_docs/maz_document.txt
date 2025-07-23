@@ -1,0 +1,25 @@
+# MAZ
+
+## Cuisine
+Peruvian
+
+## Ambiance & Atmosphere
+A gourmet restaurant designed to reflect the cultural and ecological diversity of Peru, with a focus on a unique gastronomic experience.
+
+## Location
+Tokyo, Japan
+
+## Language
+Original website language: ja
+
+## Location & Time Zone
+
+Country: Japan
+City: Tokyo
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 11:05:23 JST
+
+## Document Information
+
+Generated: 2025-07-22 02:05:23 UTC
+Source: https://maztokyo.jp/

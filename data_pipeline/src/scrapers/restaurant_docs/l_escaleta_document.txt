@@ -1,0 +1,25 @@
+# L'Escaleta
+
+## Cuisine
+Spanish
+
+## Ambiance & Atmosphere
+A unique semi-basement setting which creates a distinct personality.
+
+## Location
+Alicante, Spain
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: Alicante
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 03:00:52 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:00:52 UTC
+Source: https://www.lescaleta.com/

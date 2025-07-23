@@ -1,0 +1,25 @@
+# Essigbrätlein
+
+## Cuisine
+Michelin-Starred
+
+## Ambiance & Atmosphere
+Elegant and refined atmosphere
+
+## Location
+Nuremberg, Germany
+
+## Language
+Original website language: de
+
+## Location & Time Zone
+
+Country: Germany
+City: Nuremberg
+Timezone: Europe/Berlin
+Current local time: 2025-07-22 06:01:54 CEST
+
+## Document Information
+
+Generated: 2025-07-22 04:01:54 UTC
+Source: https://essigbraetlein.de/

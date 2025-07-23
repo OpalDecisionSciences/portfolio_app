@@ -1,0 +1,22 @@
+# Chef's Counter at MAASS
+
+## Cuisine
+Contemporary American
+
+## Ambiance & Atmosphere
+Intimate dining with an open-fire hearth and warm hospitality.
+
+## Location
+Fort Lauderdale, FL
+
+## Location & Time Zone
+
+Country: United States
+City: Fort Lauderdale
+Timezone: America/New_York
+Current local time: 2025-07-22 03:48:00 EDT
+
+## Document Information
+
+Generated: 2025-07-22 07:48:00 UTC
+Source: https://www.maassftl.com/

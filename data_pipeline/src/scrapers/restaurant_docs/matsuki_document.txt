@@ -1,0 +1,22 @@
+# Matsuki
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+Quaint space renovated from a classic Japanese style private residence in idyllic Nara-machi.
+
+## Location
+16-1, Higashijoto-cho, Nara city, post code 630-8344, Japan
+
+## Location & Time Zone
+
+Country: Japan
+City: Nara
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 13:45:18 JST
+
+## Document Information
+
+Generated: 2025-07-22 04:45:18 UTC
+Source: https://kappou-matsuki.com/

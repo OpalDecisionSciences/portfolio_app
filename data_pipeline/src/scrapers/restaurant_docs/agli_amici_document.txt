@@ -1,0 +1,25 @@
+# Agli Amici
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Warm and welcoming atmosphere, aiming to make guests feel at ease and part of the home.
+
+## Location
+Istria, Italy; Venice, Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Venice
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:09:50 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:09:50 UTC
+Source: https://www.agliamici.it/

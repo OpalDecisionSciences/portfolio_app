@@ -1,0 +1,25 @@
+# Venta Moncalvillo
+
+## Cuisine
+Not specified
+
+## Ambiance & Atmosphere
+Not specified
+
+## Location
+Ctra. de Medrano, 6, Daroca de Rioja
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: Daroca de Rioja
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 03:01:41 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:01:41 UTC
+Source: https://ventamoncalvillo.com/web/

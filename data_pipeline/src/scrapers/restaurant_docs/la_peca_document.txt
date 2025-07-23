@@ -1,0 +1,25 @@
+# La Peca
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+An experience-focused dining atmosphere with excellent service, making guests feel at home.
+
+## Location
+Small farming town at the foot of the Berici Hills
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Small farming town
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:16:01 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:16:01 UTC
+Source: https://lapeca.it/

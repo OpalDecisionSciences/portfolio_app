@@ -1,0 +1,25 @@
+# Magnolia
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+An ancient villa from the 1930s set in the hills of Longiano, offering a tasting experience between nature and history.
+
+## Location
+Villa Margherita, Longiano (FC), Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Longiano
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:21:48 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:21:48 UTC
+Source: https://www.magnoliaristorante.it/

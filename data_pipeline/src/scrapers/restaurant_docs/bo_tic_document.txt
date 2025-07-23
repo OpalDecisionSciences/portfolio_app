@@ -1,0 +1,25 @@
+# Bo.TiC
+
+## Cuisine
+Catalan
+
+## Ambiance & Atmosphere
+A space to enjoy with exquisite and professional service
+
+## Location
+Empordà, Catalonia
+
+## Language
+Original website language: ca
+
+## Location & Time Zone
+
+Country: Spain
+City: Empordà
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 02:55:51 CEST
+
+## Document Information
+
+Generated: 2025-07-22 00:55:51 UTC
+Source: https://www.bo-tic.com/

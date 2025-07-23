@@ -1,0 +1,25 @@
+# Seta by Antonio Guida
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Timeless design with an elegant atmosphere; indoor spaces feature an open kitchen and large windows for a seamless indoor-outdoor dining experience.
+
+## Location
+Mandarin Oriental, Milan
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Milan
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:11:25 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:11:25 UTC
+Source: https://www.mandarinoriental.com/it/milan/la-scala/dine/seta

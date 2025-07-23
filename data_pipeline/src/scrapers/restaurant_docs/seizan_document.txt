@@ -1,0 +1,25 @@
+# Seizan
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+Formal dining atmosphere with specific dress code requirements and attention to customer requests.
+
+## Location
+108-0073 Tokyo, Minato City, Mita 2-17-29, Grande Mita B1F
+
+## Language
+Original website language: ja
+
+## Location & Time Zone
+
+Country: Japan
+City: Tokyo
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 11:00:05 JST
+
+## Document Information
+
+Generated: 2025-07-22 02:00:05 UTC
+Source: https://seizan-mita.com/

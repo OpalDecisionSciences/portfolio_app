@@ -1,0 +1,22 @@
+# Rosetta
+
+## Cuisine
+Mexican
+
+## Ambiance & Atmosphere
+Located in Colonia Roma, Mexico City
+
+## Location
+Colonia Roma, Mexico City
+
+## Location & Time Zone
+
+Country: Mexico
+City: Mexico City
+Timezone: America/Mexico_City
+Current local time: 2025-07-21 22:27:49 CST
+
+## Document Information
+
+Generated: 2025-07-22 04:27:49 UTC
+Source: https://rosetta.com.mx

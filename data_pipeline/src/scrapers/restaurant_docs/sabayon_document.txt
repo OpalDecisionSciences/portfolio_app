@@ -1,0 +1,25 @@
+# Sabayon
+
+## Cuisine
+Seasonal, Plant-based
+
+## Ambiance & Atmosphere
+A cozy 14-seat micro-restaurant with personalized service that makes you feel at home.
+
+## Location
+Pointe-Saint-Charles, Canada
+
+## Language
+Original website language: fr
+
+## Location & Time Zone
+
+Country: Canada
+City: Pointe-Saint-Charles
+Timezone: America/Toronto
+Current local time: 2025-07-22 00:38:28 EDT
+
+## Document Information
+
+Generated: 2025-07-22 04:38:28 UTC
+Source: https://sabayon.ca

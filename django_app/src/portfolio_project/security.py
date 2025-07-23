@@ -241,16 +241,24 @@ def get_production_security_settings() -> dict:
     }
 
 
-def get_logging_config(log_level: str = 'INFO') -> dict:
+def get_logging_config(log_level: str = 'INFO', base_dir=None) -> dict:
     """
     Get logging configuration for production.
     
     Args:
         log_level: Logging level (DEBUG, INFO, WARNING, ERROR)
+        base_dir: Base directory path for log files
         
     Returns:
         Logging configuration dictionary
     """
+    # Use project logs directory instead of system directory
+    if base_dir:
+        log_file = str(base_dir / 'logs' / 'django.log')
+    else:
+        # Fallback for development - use existing logs directory
+        log_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs', 'django.log')
+    
     return {
         'version': 1,
         'disable_existing_loggers': False,
@@ -268,7 +276,7 @@ def get_logging_config(log_level: str = 'INFO') -> dict:
             'file': {
                 'level': log_level,
                 'class': 'logging.handlers.RotatingFileHandler',
-                'filename': '/var/log/django/django.log',
+                'filename': log_file,
                 'maxBytes': 10 * 1024 * 1024,  # 10MB
                 'backupCount': 5,
                 'formatter': 'verbose',

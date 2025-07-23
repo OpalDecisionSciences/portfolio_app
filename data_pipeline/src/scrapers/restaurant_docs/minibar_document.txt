@@ -1,0 +1,22 @@
+# minibar
+
+## Cuisine
+Fine Dining
+
+## Ambiance & Atmosphere
+Elegant and sophisticated atmosphere focused on innovative culinary experiences.
+
+## Location
+Washington, DC
+
+## Location & Time Zone
+
+Country: United States
+City: Washington
+Timezone: America/New_York
+Current local time: 2025-07-21 20:48:12 EDT
+
+## Document Information
+
+Generated: 2025-07-22 00:48:12 UTC
+Source: https://www.minibarbyjoseandres.com/

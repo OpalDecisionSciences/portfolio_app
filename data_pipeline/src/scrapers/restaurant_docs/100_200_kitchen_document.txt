@@ -1,0 +1,25 @@
+# 100/200 Kitchen
+
+## Cuisine
+Contemporary
+
+## Ambiance & Atmosphere
+Urban, elegant, hospitable with a high, spacious room.
+
+## Location
+Hamburg, Germany, near Elbbrücken.
+
+## Language
+Original website language: de
+
+## Location & Time Zone
+
+Country: Germany
+City: Hamburg
+Timezone: Europe/Berlin
+Current local time: 2025-07-22 04:51:06 CEST
+
+## Document Information
+
+Generated: 2025-07-22 02:51:06 UTC
+Source: https://100200.kitchen/

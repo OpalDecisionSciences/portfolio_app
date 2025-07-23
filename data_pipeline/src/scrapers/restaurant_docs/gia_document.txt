@@ -1,0 +1,22 @@
+# Gia
+
+## Cuisine
+Vietnamese
+
+## Ambiance & Atmosphere
+Fine dining destination, elegant and unique approach to Vietnamese cuisine.
+
+## Location
+61 Van Mieu Str., Dong Da Dist., Hanoi
+
+## Location & Time Zone
+
+Country: Vietnam
+City: Hanoi
+Timezone: Asia/Ho_Chi_Minh
+Current local time: 2025-07-22 11:17:28 +07
+
+## Document Information
+
+Generated: 2025-07-22 04:17:28 UTC
+Source: https://gia-hanoi.com

@@ -60,16 +60,49 @@ class NewWebsite:
             options.add_argument("--disable-gpu")
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
+            options.add_argument("--disable-extensions")
+            options.add_argument("--disable-background-timer-throttling")
+            options.add_argument("--disable-backgrounding-occluded-windows")
+            options.add_argument("--disable-renderer-backgrounding")
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument("--remote-debugging-port=9222")
             options.add_argument(
-                "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/117.0.0.0 Safari/537.36"
+                "Chrome/138.0.0.0 Safari/537.36"
             )
+            
+            # Set binary path to use container's chromium
+            if os.path.exists("/usr/bin/chromium"):
+                options.binary_location = "/usr/bin/chromium"
 
-            # Use ARM64-compatible ChromeDriver binary directly
-            chromedriver_path = "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"
-            service = Service(chromedriver_path)
-            cls.shared_driver = webdriver.Chrome(service=service, options=options)
+            # Configure Chrome service for ARM64 compatibility
+            # Priority: container chromedriver > local ARM64 chromedriver > webdriver-manager
+            chromedriver_paths = [
+                "/usr/bin/chromedriver",  # Docker container path (ARM64 compatible)
+                "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"  # Local ARM64 path
+            ]
+            
+            service = None
+            for path in chromedriver_paths:
+                if os.path.exists(path):
+                    try:
+                        service = Service(path)
+                        cls.shared_driver = webdriver.Chrome(service=service, options=options)
+                        print(f"Successfully initialized Chrome with driver: {path}")
+                        break
+                    except Exception as e:
+                        print(f"Failed to use chromedriver at {path}: {e}")
+                        continue
+            
+            if cls.shared_driver is None:
+                # Fallback to webdriver-manager
+                try:
+                    service = Service(ChromeDriverManager().install())
+                    cls.shared_driver = webdriver.Chrome(service=service, options=options)
+                    print("Successfully initialized Chrome with webdriver-manager")
+                except Exception as e:
+                    raise Exception(f"Failed to initialize Chrome driver with all methods: {e}")
         return cls.shared_driver
 
     @classmethod

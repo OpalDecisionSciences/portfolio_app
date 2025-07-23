@@ -1,0 +1,25 @@
+# Kinoshita
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+Modern Japanese atmosphere with an emphasis on quality and an exclusive dining experience.
+
+## Location
+R. Jacques Félix, 405, Vila Nova Conceição, São Paulo, SP
+
+## Language
+Original website language: pt
+
+## Location & Time Zone
+
+Country: Brazil
+City: São Paulo
+Timezone: America/Sao_Paulo
+Current local time: 2025-07-22 01:50:01 -03
+
+## Document Information
+
+Generated: 2025-07-22 04:50:01 UTC
+Source: https://www.restaurantekinoshita.com.br/

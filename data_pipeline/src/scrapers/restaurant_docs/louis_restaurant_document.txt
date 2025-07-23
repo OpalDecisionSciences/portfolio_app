@@ -1,0 +1,25 @@
+# LOUIS restaurant
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Chic, stylish, yet relaxed; combines tradition with modernity.
+
+## Location
+Prälat-Subtil-Ring 22, 66740 Saarlouis, Germany
+
+## Language
+Original website language: de
+
+## Location & Time Zone
+
+Country: Germany
+City: Saarlouis
+Timezone: Europe/Berlin
+Current local time: 2025-07-22 06:08:24 CEST
+
+## Document Information
+
+Generated: 2025-07-22 04:08:24 UTC
+Source: https://lamaison-hotel.de/

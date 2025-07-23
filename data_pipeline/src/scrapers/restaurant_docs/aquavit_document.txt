@@ -1,0 +1,22 @@
+# Aquavit
+
+## Cuisine
+Nordic
+
+## Ambiance & Atmosphere
+Exquisite seasonal dining in a refined restaurant setting
+
+## Location
+65 East 55th Street, Midtown, New York
+
+## Location & Time Zone
+
+Country: United States
+City: New York
+Timezone: America/New_York
+Current local time: 2025-07-21 20:40:58 EDT
+
+## Document Information
+
+Generated: 2025-07-22 00:40:58 UTC
+Source: https://www.aquavit.org/

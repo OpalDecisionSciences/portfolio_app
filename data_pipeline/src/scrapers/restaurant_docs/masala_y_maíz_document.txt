@@ -1,0 +1,25 @@
+# Masala y Maíz
+
+## Cuisine
+Indian, East African, Mexican
+
+## Ambiance & Atmosphere
+A blend of cultures and culinary traditions exploring migration and social justice.
+
+## Location
+Mexico City, Mexico
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Mexico
+City: Mexico City
+Timezone: America/Mexico_City
+Current local time: 2025-07-21 22:25:16 CST
+
+## Document Information
+
+Generated: 2025-07-22 04:25:16 UTC
+Source: https://www.masalaymaiz.com/

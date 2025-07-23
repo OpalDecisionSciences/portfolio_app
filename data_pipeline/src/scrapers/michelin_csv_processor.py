@@ -32,6 +32,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio_project.settings')
 import django
 django.setup()
 
+from django.utils import timezone
 from restaurants.models import Restaurant, ScrapingJob
 from processors.data_processor import DataProcessor
 
@@ -78,8 +79,6 @@ class MichelinCSVProcessor:
         """
         try:
             # Create scraping job
-            from django.utils import timezone
-            
             job = ScrapingJob.objects.create(
                 job_name=f"Michelin CSV Processing - {timezone.now().strftime('%Y-%m-%d %H:%M')}",
                 status='running',
@@ -187,7 +186,7 @@ class MichelinCSVProcessor:
             
             # Complete the job
             job.status = 'completed'
-            job.completed_at = datetime.now()
+            job.completed_at = timezone.now()
             job.results = results
             job.save()
             
@@ -233,6 +232,10 @@ class MichelinCSVProcessor:
             # Parse location
             location = csv_data.get('Location', '').strip()
             city, country = self._parse_location(location)
+            
+            # Ensure country is not blank (required field)
+            if not country:
+                country = 'Unknown'
             
             # Parse address
             address = csv_data.get('Address', '').strip().strip('"')
@@ -462,12 +465,14 @@ class MichelinCSVProcessor:
             return 0
     
     def _parse_decimal(self, value: str) -> Optional[Decimal]:
-        """Parse string to Decimal."""
+        """Parse string to Decimal with max 6 decimal places."""
         if not value or value.strip() == '':
             return None
         
         try:
-            return Decimal(str(value).strip())
+            decimal_value = Decimal(str(value).strip())
+            # Round to 6 decimal places to match model constraints
+            return decimal_value.quantize(Decimal('0.000001'))
         except (InvalidOperation, ValueError):
             return None
 

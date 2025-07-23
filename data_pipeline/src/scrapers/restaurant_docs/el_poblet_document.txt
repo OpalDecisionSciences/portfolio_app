@@ -1,0 +1,25 @@
+# El Poblet
+
+## Cuisine
+Valencian
+
+## Ambiance & Atmosphere
+Fine dining atmosphere with innovative and locally-sourced market cuisine.
+
+## Location
+Valencia, Spain
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: Valencia
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 02:54:05 CEST
+
+## Document Information
+
+Generated: 2025-07-22 00:54:05 UTC
+Source: http://www.elpobletrestaurante.com

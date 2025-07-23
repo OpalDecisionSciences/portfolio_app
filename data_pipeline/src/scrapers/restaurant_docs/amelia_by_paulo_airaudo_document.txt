@@ -1,0 +1,25 @@
+# Amelia by Paulo Airaudo
+
+## Cuisine
+Italian Omakase
+
+## Ambiance & Atmosphere
+A small, dedicated space that conveys a love for the finest products with a focus on the sea as a central element.
+
+## Location
+San Sebastian, Spain, in front of La Concha Bay.
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: San Sebastian
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 02:53:11 CEST
+
+## Document Information
+
+Generated: 2025-07-22 00:53:11 UTC
+Source: https://www.ameliarestaurant.com/

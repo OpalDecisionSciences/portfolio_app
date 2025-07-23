@@ -1,0 +1,25 @@
+# Antica Osteria Cera
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+A refined atmosphere that emphasizes respect for the primary ingredient and traditional cooking techniques.
+
+## Location
+Venice, Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Venice
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:18:50 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:18:50 UTC
+Source: https://www.osteriacera.it/

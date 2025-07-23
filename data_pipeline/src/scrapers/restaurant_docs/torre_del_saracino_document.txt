@@ -1,0 +1,25 @@
+# Torre del Saracino
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+A two Michelin star restaurant suspended between the sky and the sea, with a focus on luxury and emotional dining experiences.
+
+## Location
+Via Torretta, 9, 80069 Vico Equense NA, Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Vico Equense
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:08:50 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:08:50 UTC
+Source: https://www.torredelsaracino.it/

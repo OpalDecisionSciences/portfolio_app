@@ -1,0 +1,25 @@
+# Alevante
+
+## Cuisine
+Seafood
+
+## Ambiance & Atmosphere
+Elegant atmosphere located in a luxurious hotel, focusing on sustainable and innovative seafood experiences.
+
+## Location
+{'address': 'C/ Amílcar Barca S/N, Chiclana de la Frontera, CÁDIZ', 'country': 'Spain'}
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: Chiclana de la Frontera
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 03:00:13 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:00:13 UTC
+Source: https://alevanteangelleon.com/

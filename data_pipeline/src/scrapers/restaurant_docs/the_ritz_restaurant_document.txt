@@ -1,0 +1,22 @@
+# The Ritz Restaurant
+
+## Cuisine
+Fine Dining
+
+## Ambiance & Atmosphere
+Elegant and luxurious, providing exceptional personalized service in a refined setting.
+
+## Location
+Mayfair, London, UK
+
+## Location & Time Zone
+
+Country: United Kingdom
+City: London
+Timezone: Europe/London
+Current local time: 2025-07-22 00:14:05 BST
+
+## Document Information
+
+Generated: 2025-07-21 23:14:05 UTC
+Source: https://www.theritzlondon.com/the-ritz-restaurant/

@@ -1,0 +1,25 @@
+# Narval
+
+## Cuisine
+Local and seasonal
+
+## Ambiance & Atmosphere
+Michelin-starred
+
+## Location
+144 Av. de la Cathédrale, Rimouski, QC G5L 5H8, Canada
+
+## Language
+Original website language: fr
+
+## Location & Time Zone
+
+Country: Canada
+City: Rimouski
+Timezone: America/Toronto
+Current local time: 2025-07-22 00:36:44 EDT
+
+## Document Information
+
+Generated: 2025-07-22 04:36:44 UTC
+Source: https://restaurantnarval.ca

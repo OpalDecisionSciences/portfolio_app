@@ -1,0 +1,25 @@
+# George Restaurant
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Elegant atmosphere with a view of the Gulf of Naples
+
+## Location
+Naples, Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Naples
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:22:59 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:22:59 UTC
+Source: https://www.georgerestaurant.it/

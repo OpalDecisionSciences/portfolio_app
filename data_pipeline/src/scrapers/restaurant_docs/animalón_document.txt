@@ -1,0 +1,25 @@
+# Animalón
+
+## Cuisine
+Mexican
+
+## Ambiance & Atmosphere
+Nestled under an oak tree in the picturesque Valley of Guadalupe, the restaurant offers a meticulously curated dining experience that delights all the senses.
+
+## Location
+Valle de Guadalupe, Baja California, 30 minutes from the port of Ensenada
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Mexico
+City: Ensenada
+Timezone: America/Mexico_City
+Current local time: 2025-07-21 22:28:41 CST
+
+## Document Information
+
+Generated: 2025-07-22 04:28:41 UTC
+Source: https://www.animalonbaja.com/

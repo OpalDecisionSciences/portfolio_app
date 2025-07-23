@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from django.utils.crypto import get_random_string
 from datetime import timedelta
-from django_ratelimit.decorators import ratelimit
+from ratelimit.decorators import ratelimit
 from portfolio_project.constants import LOGIN_RATE_LIMIT, PASSWORD_RESET_RATE_LIMIT
 import json
 import logging

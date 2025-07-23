@@ -1,0 +1,25 @@
+# El Portal de Echaurren
+
+## Cuisine
+Traditional Riojan, Gastronomic
+
+## Ambiance & Atmosphere
+Rural luxury combined with high gastronomy in a beautiful environment
+
+## Location
+Padre José García, 19, Ezcaray, La Rioja
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: Ezcaray
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 02:52:33 CEST
+
+## Document Information
+
+Generated: 2025-07-22 00:52:33 UTC
+Source: http://www.echaurren.com

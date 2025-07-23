@@ -1,0 +1,25 @@
+# ASAHINA Gastronome
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+A gastronomic venture blending tradition with modern innovation, focusing on creating a joyful dining experience through food.
+
+## Location
+Nihonbashi Kabutocho, Tokyo, Japan
+
+## Language
+Original website language: ja
+
+## Location & Time Zone
+
+Country: Japan
+City: Tokyo
+Timezone: Asia/Tokyo
+Current local time: 2025-07-22 11:01:27 JST
+
+## Document Information
+
+Generated: 2025-07-22 02:01:27 UTC
+Source: https://asahinagastronome.com/

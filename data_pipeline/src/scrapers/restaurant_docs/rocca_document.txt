@@ -1,0 +1,22 @@
+# Rocca
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Michelin Star dining experience
+
+## Location
+323 West Palm Avenue, Tampa, Florida 33602
+
+## Location & Time Zone
+
+Country: United States
+City: Tampa
+Timezone: America/New_York
+Current local time: 2025-07-22 03:48:48 EDT
+
+## Document Information
+
+Generated: 2025-07-22 07:48:48 UTC
+Source: https://roccatampa.com/

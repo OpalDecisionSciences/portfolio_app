@@ -1,0 +1,22 @@
+# Jean-Georges
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Elegant and sophisticated atmosphere with a focus on fine dining.
+
+## Location
+New York, NY
+
+## Location & Time Zone
+
+Country: United States
+City: New York
+Timezone: America/New_York
+Current local time: 2025-07-21 20:47:02 EDT
+
+## Document Information
+
+Generated: 2025-07-22 00:47:02 UTC
+Source: https://www.jean-georgesrestaurant.com/

@@ -1,0 +1,22 @@
+# Terra The Magic Place
+
+## Cuisine
+Modern Organic Italian
+
+## Ambiance & Atmosphere
+A cozy and tranquil atmosphere with a focus on hospitality and personal connection. Features a wellness area and stunning views of the Dolomites.
+
+## Location
+Sarre, South Tyrol, Italy
+
+## Location & Time Zone
+
+Country: Italy
+City: Sarre
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:16:59 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:16:59 UTC
+Source: https://www.terra.place/

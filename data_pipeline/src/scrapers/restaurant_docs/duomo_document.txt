@@ -1,0 +1,25 @@
+# Duomo
+
+## Cuisine
+Sicilian
+
+## Ambiance & Atmosphere
+Modern, yet entirely unique to the chef's vision, reflecting the local land.
+
+## Location
+Duomo, Sicily
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Syracuse
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:07:51 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:07:51 UTC
+Source: https://www.cicciosultano.it/

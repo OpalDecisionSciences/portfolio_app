@@ -1,0 +1,22 @@
+# Oteque
+
+## Cuisine
+Brazilian
+
+## Ambiance & Atmosphere
+Elegant yet casual service inspired by nature's purity
+
+## Location
+Rio de Janeiro, Brazil
+
+## Location & Time Zone
+
+Country: Brazil
+City: Rio de Janeiro
+Timezone: America/Sao_Paulo
+Current local time: 2025-07-22 01:53:29 -03
+
+## Document Information
+
+Generated: 2025-07-22 04:53:29 UTC
+Source: https://www.oteque.com/

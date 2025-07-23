@@ -1,0 +1,25 @@
+# Speisemeisterei
+
+## Cuisine
+Seasonal, Regional, Organic
+
+## Ambiance & Atmosphere
+Where Baroque Meets Modern
+
+## Location
+Schloss Hohenheim, 1B, 70599 Stuttgart
+
+## Language
+Original website language: de
+
+## Location & Time Zone
+
+Country: Germany
+City: Stuttgart
+Timezone: Europe/Berlin
+Current local time: 2025-07-22 06:04:10 CEST
+
+## Document Information
+
+Generated: 2025-07-22 04:04:10 UTC
+Source: https://www.speisemeisterei.de/

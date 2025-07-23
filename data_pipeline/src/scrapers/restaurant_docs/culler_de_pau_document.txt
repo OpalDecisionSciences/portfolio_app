@@ -1,0 +1,25 @@
+# Culler de Pau
+
+## Cuisine
+Gastronomic
+
+## Ambiance & Atmosphere
+A privileged place that integrates the building, kitchen, and dishes with the surrounding landscape.
+
+## Location
+Reboredo, 73, O Grove, Pontevedra
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: O Grove
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 03:03:34 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:03:34 UTC
+Source: https://www.cullerdepau.com/es/

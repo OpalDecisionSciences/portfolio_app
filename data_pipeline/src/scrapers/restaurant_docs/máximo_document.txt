@@ -1,0 +1,25 @@
+# Máximo
+
+## Cuisine
+Mexican
+
+## Ambiance & Atmosphere
+Leisurely Mexican-style dining experience, with a focus on handmade meals
+
+## Location
+Av. Álvaro Obregón 65 Bis, Roma Nte., Cuauhtémoc, 06700, Mexico City, Mexico
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Mexico
+City: Mexico City
+Timezone: America/Mexico_City
+Current local time: 2025-07-21 22:28:58 CST
+
+## Document Information
+
+Generated: 2025-07-22 04:28:58 UTC
+Source: https://www.maximobistrot.com.mx/

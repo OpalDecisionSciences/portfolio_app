@@ -1,0 +1,25 @@
+# Caino
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Refined dining room with eight tables, providing tranquility and safety. Engaging chef-driven atmosphere.
+
+## Location
+Montemerano, Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Montemerano
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:10:57 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:10:57 UTC
+Source: https://www.dacaino.com/

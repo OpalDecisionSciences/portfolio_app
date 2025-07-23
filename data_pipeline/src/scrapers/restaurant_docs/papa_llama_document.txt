@@ -1,0 +1,22 @@
+# Papa Llama
+
+## Cuisine
+Peruvian
+
+## Ambiance & Atmosphere
+Modern and cool, with leather chairs and a view of the gleaming kitchen.
+
+## Location
+Orlando, Florida
+
+## Location & Time Zone
+
+Country: United States
+City: Orlando
+Timezone: America/New_York
+Current local time: 2025-07-22 03:55:36 EDT
+
+## Document Information
+
+Generated: 2025-07-22 07:55:36 UTC
+Source: https://www.papallamaorl.com

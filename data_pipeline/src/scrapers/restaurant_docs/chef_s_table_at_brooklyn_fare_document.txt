@@ -1,0 +1,22 @@
+# Chef's Table at Brooklyn Fare
+
+## Cuisine
+Contemporary American
+
+## Ambiance & Atmosphere
+Elegant with a focus on theatrics, guests are seated at an 18-seat counter or elegantly appointed booths overlooking the kitchen.
+
+## Location
+Hells Kitchen, West 37th Street, New York, NY
+
+## Location & Time Zone
+
+Country: United States
+City: New York
+Timezone: America/New_York
+Current local time: 2025-07-21 19:23:14 EDT
+
+## Document Information
+
+Generated: 2025-07-21 23:23:14 UTC
+Source: https://www.brooklynfare.com/chefs-table/

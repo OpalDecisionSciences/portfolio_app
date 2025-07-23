@@ -1,0 +1,22 @@
+# Meta
+
+## Cuisine
+Michelin Star
+
+## Ambiance & Atmosphere
+Not specified
+
+## Location
+9 Mohamed Sultan Road, Singapore 238959
+
+## Location & Time Zone
+
+Country: Singapore
+City: Singapore
+Timezone: Asia/Singapore
+Current local time: 2025-07-22 10:33:05 +08
+
+## Document Information
+
+Generated: 2025-07-22 02:33:05 UTC
+Source: https://metarestaurant.sg

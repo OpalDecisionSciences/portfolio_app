@@ -17,6 +17,9 @@ from .security import (
     validate_production_settings
 )
 
+# Import constants for consistency
+from .constants import *
+
 # Load environment variables
 load_dotenv()
 
@@ -143,7 +146,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = get_cors_allowed_origins()
 
 # Logging configuration
-LOGGING = get_logging_config()
+LOGGING = get_logging_config(base_dir=BASE_DIR)
 
 # Create logs directory if it doesn't exist
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)
@@ -230,6 +233,3 @@ if not DEBUG:
 # Rate limiting configuration
 RATELIMIT_ENABLE = True
 RATELIMIT_USE_CACHE = 'default'
-
-# Import constants for consistency
-from .constants import *

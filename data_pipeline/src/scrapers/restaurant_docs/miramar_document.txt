@@ -1,0 +1,25 @@
+# Miramar
+
+## Cuisine
+Mediterranean
+
+## Ambiance & Atmosphere
+Elegant and refined atmosphere with a focus on exceptional service.
+
+## Location
+Passeig Marítim, 7, 17490, Llançà, Girona, Spain
+
+## Language
+Original website language: es
+
+## Location & Time Zone
+
+Country: Spain
+City: Llançà
+Timezone: Europe/Madrid
+Current local time: 2025-07-22 02:57:43 CEST
+
+## Document Information
+
+Generated: 2025-07-22 00:57:43 UTC
+Source: http://www.restaurantmiramar.com

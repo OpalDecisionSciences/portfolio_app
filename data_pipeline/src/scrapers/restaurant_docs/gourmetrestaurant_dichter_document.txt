@@ -1,0 +1,25 @@
+# Gourmetrestaurant Dichter
+
+## Cuisine
+Modern European
+
+## Ambiance & Atmosphere
+Quiet luxury with a focus on culinary excellence and modern interpretations of classic flavors and textures.
+
+## Location
+Rottach-Egern, Germany
+
+## Language
+Original website language: de
+
+## Location & Time Zone
+
+Country: Germany
+City: Rottach-Egern
+Timezone: Europe/Berlin
+Current local time: 2025-07-22 06:05:46 CEST
+
+## Document Information
+
+Generated: 2025-07-22 04:05:46 UTC
+Source: https://www.gourmetrestaurant-dichter.de/

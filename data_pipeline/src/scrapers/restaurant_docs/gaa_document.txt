@@ -1,0 +1,22 @@
+# Gaa
+
+## Cuisine
+Modern Indian
+
+## Ambiance & Atmosphere
+Fine dining atmosphere in a traditional Thai house, featuring both intimate private dining spaces and a relaxed lounge for afternoon tea.
+
+## Location
+Heart of Bangkok, Thailand.
+
+## Location & Time Zone
+
+Country: Thailand
+City: Bangkok
+Timezone: Asia/Bangkok
+Current local time: 2025-07-22 07:50:12 +07
+
+## Document Information
+
+Generated: 2025-07-22 00:50:12 UTC
+Source: https://www.gaabkk.com

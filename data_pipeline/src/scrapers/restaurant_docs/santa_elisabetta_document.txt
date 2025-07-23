@@ -1,0 +1,22 @@
+# Santa Elisabetta
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Located in an ancient stone tower, offering a blend of tradition and innovation in a intimate and storytelling atmosphere.
+
+## Location
+Florence, Italy
+
+## Location & Time Zone
+
+Country: Italy
+City: Florence
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:15:19 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:15:19 UTC
+Source: https://www.ristorantesantaelisabetta.it/

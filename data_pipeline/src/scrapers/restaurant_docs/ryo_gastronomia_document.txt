@@ -1,0 +1,25 @@
+# Ryo Gastronomia
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+Authentic Japanese experiences with a focus on history and tradition, featuring a sushi counter and meticulously crafted dishes.
+
+## Location
+São Paulo, Brazil
+
+## Language
+Original website language: pt
+
+## Location & Time Zone
+
+Country: Brazil
+City: São Paulo
+Timezone: America/Sao_Paulo
+Current local time: 2025-07-22 01:49:41 -03
+
+## Document Information
+
+Generated: 2025-07-22 04:49:41 UTC
+Source: https://www.ryogastronomia.com.br/

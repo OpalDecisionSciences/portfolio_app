@@ -1,0 +1,25 @@
+# Murakami
+
+## Cuisine
+Japanese
+
+## Ambiance & Atmosphere
+A minimalist environment where the singular dining experience is eternalized in the ephemerality of a living menu.
+
+## Location
+1186 Alameda Lorena Jardins - São Paulo, SP
+
+## Language
+Original website language: pt
+
+## Location & Time Zone
+
+Country: Brazil
+City: São Paulo
+Timezone: America/Sao_Paulo
+Current local time: 2025-07-22 01:50:43 -03
+
+## Document Information
+
+Generated: 2025-07-22 04:50:43 UTC
+Source: https://www.murakamimu.com

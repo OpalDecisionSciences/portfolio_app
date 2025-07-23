@@ -1,0 +1,25 @@
+# Coeur D'Artichaut
+
+## Cuisine
+French
+
+## Ambiance & Atmosphere
+Casual fine dining in a cozy atmosphere with an open kitchen that resembles a theater stage.
+
+## Location
+Münster, Germany, slightly hidden in a courtyard near the cathedral.
+
+## Language
+Original website language: de
+
+## Location & Time Zone
+
+Country: Germany
+City: Münster
+Timezone: Europe/Berlin
+Current local time: 2025-07-22 04:54:23 CEST
+
+## Document Information
+
+Generated: 2025-07-22 02:54:23 UTC
+Source: https://www.coeur-dartichaut.de/

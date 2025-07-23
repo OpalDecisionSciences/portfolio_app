@@ -1,0 +1,25 @@
+# Taverna Estia
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+Captivating atmosphere with an enchanting aromatic garden.
+
+## Location
+Via G. De Ruggiero, 108 Brusciano (Na) 80031 Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Brusciano
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:17:26 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:17:26 UTC
+Source: https://www.tavernaestia.it/

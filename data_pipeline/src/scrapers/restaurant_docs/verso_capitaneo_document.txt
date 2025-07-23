@@ -1,0 +1,25 @@
+# Verso Capitaneo
+
+## Cuisine
+Italian
+
+## Ambiance & Atmosphere
+An open, expansive, limitless kitchen that merges with the dining area, creating a close and warm relationship with customers.
+
+## Location
+Milan, Italy
+
+## Language
+Original website language: it
+
+## Location & Time Zone
+
+Country: Italy
+City: Milan
+Timezone: Europe/Rome
+Current local time: 2025-07-22 03:18:08 CEST
+
+## Document Information
+
+Generated: 2025-07-22 01:18:08 UTC
+Source: http://www.ristoranteverso.com
