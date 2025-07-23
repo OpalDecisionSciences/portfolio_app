@@ -1,6 +1,22 @@
 # Hiša Franko
 
+## Cuisine
+Gastronomic, Bistronomic
+
+## Ambiance & Atmosphere
+Relais & Châteaux establishment with a focus on fine dining.
+
+## Location
+Megève, Haute-Savoie, France
+
+## Location & Time Zone
+
+Country: France
+City: Megève
+Timezone: Europe/Paris
+Current local time: 2025-07-23 16:52:14 CEST
+
 ## Document Information
 
-Generated: 2025-07-23 14:30:01 UTC
+Generated: 2025-07-23 14:52:14 UTC
 Source: https://www.hisafranko.com/

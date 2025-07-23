@@ -99,7 +99,7 @@ class UserFavoriteRestaurant(models.Model):
     restaurant = models.ForeignKey(
         'restaurants.Restaurant', 
         on_delete=models.CASCADE,
-        related_name='favorited_by'
+        related_name='user_favorites'
     )
     
     # Favorite details

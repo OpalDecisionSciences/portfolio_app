@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-A place to share, conducive to relaxation and disconnection, without pretension.
+A place conducive to relaxation & disconnection, without pretension.
 
 ## Location
-36, place d’Armes – 71150 Chagny Bourgogne France
+36, place d’Armes, 71150 Chagny, Burgundy, France
 
 ## Location & Time Zone
 
 Country: France
 City: Chagny
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:38:14 CEST
+Current local time: 2025-07-23 17:17:11 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:38:14 UTC
+Generated: 2025-07-23 15:17:11 UTC
 Source: https://www.lameloise.fr/

@@ -1,22 +1,22 @@
 # AM par Alexandre Mazzia
 
 ## Cuisine
-French
+Contemporary French
 
 ## Ambiance & Atmosphere
-Modern and creative atmosphere focused on the senses, knowledge, and passion.
+Refined atmosphere with a focus on immersive dining experiences
 
 ## Location
-9 Rue François Rocca, 13008 Marseille, France
+9 Rue François Rocca, 13008 Marseille
 
 ## Location & Time Zone
 
 Country: France
 City: Marseille
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:34:52 CEST
+Current local time: 2025-07-23 17:14:14 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:34:52 UTC
+Generated: 2025-07-23 15:14:14 UTC
 Source: https://www.alexandre-mazzia.com/

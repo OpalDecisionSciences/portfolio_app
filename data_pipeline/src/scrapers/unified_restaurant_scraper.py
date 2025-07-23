@@ -318,13 +318,49 @@ class UnifiedRestaurantScraper:
             options.add_experimental_option("excludeSwitches", ["enable-automation"])
             options.add_experimental_option('useAutomationExtension', False)
             options.add_argument(f"user-agent={random.choice(USER_AGENTS)}")
+            options.add_argument("--disable-extensions")
+            options.add_argument("--disable-background-timer-throttling")
+            options.add_argument("--disable-backgrounding-occluded-windows")
+            options.add_argument("--disable-renderer-backgrounding")
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument("--remote-debugging-port=9222")
             
-            # Use ARM64-compatible ChromeDriver
-            chromedriver_path = os.getenv('CHROMEDRIVER_PATH', 
-                '/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver')
+            # Set binary path to use container's chromium
+            if os.path.exists("/usr/bin/chromium"):
+                options.binary_location = "/usr/bin/chromium"
             
-            service = Service(chromedriver_path)
-            self.driver = webdriver.Chrome(service=service, options=options)
+            # Configure Chrome service for ARM64 compatibility
+            # Priority: container chromedriver > local ARM64 chromedriver > webdriver-manager
+            chromedriver_paths = [
+                "/usr/bin/chromedriver",  # Docker container path (ARM64 compatible)
+                "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"  # Local ARM64 path
+            ]
+            
+            service = None
+            for path in chromedriver_paths:
+                if os.path.exists(path):
+                    try:
+                        service = Service(path)
+                        self.driver = webdriver.Chrome(service=service, options=options)
+                        logger.info(f"Successfully initialized Chrome driver for image scraping: {path}")
+                        break
+                    except Exception as e:
+                        logger.warning(f"Failed to use chromedriver at {path}: {e}")
+                        continue
+            
+            if self.driver is None:
+                # Fallback to webdriver-manager
+                try:
+                    from webdriver_manager.chrome import ChromeDriverManager
+                    service = Service(ChromeDriverManager().install())
+                    self.driver = webdriver.Chrome(service=service, options=options)
+                    logger.info("Successfully initialized Chrome driver with webdriver-manager for image scraping")
+                except Exception as e:
+                    logger.error(f"Failed to initialize Chrome driver with all methods for image scraping: {e}")
+                    # Don't raise exception - let image scraping fail gracefully
+                    self.driver = None
+                    return
+            
             self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
             
         except Exception as e:
@@ -729,67 +765,38 @@ class UnifiedRestaurantScraper:
     
     def _scrape_images(self, url: str, restaurant_name: str, max_images: int) -> Dict[str, Any]:
         """Scrape and categorize images from restaurant website."""
-        # Use the existing image scraping functionality from comprehensive scraper
         try:
-            if not self.driver:
-                self._init_selenium_driver()
+            # Use async scraper manager for image scraping to avoid driver conflicts
+            from .async_scraper_manager import get_scraper_manager
             
-            self.driver.get(url)
-            time.sleep(2)
+            scraper_manager = get_scraper_manager()
+            task_id = scraper_manager.add_task_to_backlog(
+                url=url,
+                restaurant_name=restaurant_name,
+                task_type='images',
+                priority=2
+            )
             
-            soup = BeautifulSoup(self.driver.page_source, 'html.parser')
-            img_elements = soup.find_all('img')
+            logger.info(f"Added image scraping task to backlog: {task_id}")
             
-            image_urls = set()
-            for img in img_elements:
-                if len(image_urls) >= max_images:
-                    break
-                
-                src = img.get('src') or img.get('data-src')
-                if not src:
-                    continue
-                
-                img_url = urljoin(url, src)
-                if self._is_relevant_image_url(img_url):
-                    image_urls.add(img_url)
-            
-            # Download and categorize images
-            results = []
-            clean_name = "".join(c if c.isalnum() or c in "-_" else "_" for c in restaurant_name.lower())[:50]
-            restaurant_dir = self.image_output_dir / clean_name
-            restaurant_dir.mkdir(exist_ok=True)
-            
-            for i, img_url in enumerate(list(image_urls)[:max_images]):
-                try:
-                    filename = f"{clean_name}_{i+1:03d}.jpg"
-                    image_path = self._download_image(img_url, restaurant_dir / filename)
-                    
-                    if image_path:
-                        # AI categorization
-                        ai_result = self._categorize_image_with_ai(image_path)
-                        
-                        results.append({
-                            'source_url': img_url,
-                            'local_path': str(image_path),
-                            'filename': filename,
-                            'ai_category': ai_result.get('category', 'uncategorized'),
-                            'ai_labels': ai_result.get('labels', []),
-                            'ai_description': ai_result.get('description', ''),
-                            'status': 'completed'
-                        })
-                
-                except Exception as e:
-                    logger.error(f"Error processing image {img_url}: {e}")
-            
+            # For now, return empty result and let background processing handle it
             return {
-                'total_images': len(image_urls),
-                'successful_images': len(results),
-                'images': results
+                'images': [],
+                'successful_images': 0,
+                'failed_images': 0,
+                'task_id': task_id,
+                'status': 'queued_for_background_processing'
             }
             
         except Exception as e:
-            logger.error(f"Image scraping failed: {e}")
-            return {'total_images': 0, 'successful_images': 0, 'images': []}
+            logger.error(f"Image scraping task queuing failed: {e}")
+            return {
+                'images': [],
+                'successful_images': 0,
+                'failed_images': 0,
+                'error': str(e),
+                'status': 'failed'
+            }
     
     # Helper methods (extracted from existing scrapers)
     def _rate_limit(self):

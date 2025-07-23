@@ -598,3 +598,90 @@ class ImageScrapingJob(models.Model):
         if self.images_downloaded == 0:
             return 0
         return (self.images_categorized / self.images_downloaded) * 100
+
+
+class ScrapingBacklogTask(models.Model):
+    """PostgreSQL-based scraping backlog task model for async processing."""
+    
+    TASK_TYPE_CHOICES = [
+        ('text', 'Text Scraping'),
+        ('images', 'Image Scraping'),
+        ('comprehensive', 'Comprehensive Scraping'),
+    ]
+    
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('processing', 'Processing'),
+        ('completed', 'Completed'),
+        ('failed', 'Failed'),
+    ]
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    task_id = models.CharField(max_length=255, unique=True, db_index=True)
+    url = models.URLField()
+    restaurant_name = models.CharField(max_length=255)
+    task_type = models.CharField(max_length=20, choices=TASK_TYPE_CHOICES, db_index=True)
+    
+    # Priority and retry logic
+    priority = models.PositiveIntegerField(default=1, db_index=True)
+    max_retries = models.PositiveIntegerField(default=3)
+    retry_count = models.PositiveIntegerField(default=0)
+    
+    # Status and tracking
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending', db_index=True)
+    error_messages = models.JSONField(default=list, blank=True)
+    
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_attempt = models.DateTimeField(null=True, blank=True)
+    completed_at = models.DateTimeField(null=True, blank=True)
+    
+    # Optional restaurant association
+    restaurant = models.ForeignKey(
+        Restaurant, 
+        on_delete=models.CASCADE, 
+        null=True, 
+        blank=True,
+        related_name='backlog_tasks'
+    )
+    
+    class Meta:
+        ordering = ['-priority', 'created_at']
+        indexes = [
+            models.Index(fields=['status', 'priority', 'created_at']),
+            models.Index(fields=['task_type', 'status']),
+            models.Index(fields=['retry_count', 'max_retries', 'status']),
+        ]
+    
+    def __str__(self):
+        return f"{self.task_type} - {self.restaurant_name} ({self.status})"
+    
+    @property
+    def can_retry(self):
+        """Check if task can be retried."""
+        return self.retry_count < self.max_retries and self.status != 'completed'
+    
+    def mark_failed(self, error_message: str):
+        """Mark task as failed and increment retry count."""
+        from django.utils import timezone
+        
+        self.retry_count += 1
+        self.error_messages.append(f"{timezone.now().isoformat()}: {error_message}")
+        self.last_attempt = timezone.now()
+        
+        if self.retry_count >= self.max_retries:
+            self.status = 'failed'
+        else:
+            self.status = 'pending'  # Allow retry
+        
+        self.save()
+    
+    def mark_completed(self):
+        """Mark task as completed."""
+        from django.utils import timezone
+        
+        self.status = 'completed'
+        self.completed_at = timezone.now()
+        self.save()
+
+

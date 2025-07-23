@@ -576,3 +576,147 @@ def cleanup_old_image_scraping_jobs(days_old=30):
     except Exception as e:
         logger.error(f"Error cleaning up old image scraping jobs: {str(e)}")
         raise
+
+
+# New async scraping tasks
+@shared_task(bind=True, retry_kwargs={'max_retries': 3, 'countdown': 60})
+def process_scraping_backlog_task(self, max_tasks=50):
+    """
+    Celery task to process the scraping backlog.
+    
+    Args:
+        max_tasks: Maximum number of tasks to process
+        
+    Returns:
+        dict: Processing results
+    """
+    try:
+        # Add data pipeline to path for async_scraper_manager
+        import sys
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent.parent / "data_pipeline" / "src" / "scrapers"))
+        
+        from async_scraper_manager import get_scraper_manager
+        
+        scraper_manager = get_scraper_manager()
+        results = scraper_manager.process_backlog(max_tasks=max_tasks)
+        
+        logger.info(f"Processed {results['processed']} backlog tasks: {results['successful']} successful, {results['failed']} failed")
+        
+        return {
+            'success': True,
+            'processed': results['processed'],
+            'successful': results['successful'],
+            'failed': results['failed'],
+            'backlog_stats': results.get('backlog_stats', {}),
+            'processed_at': timezone.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Backlog processing task failed: {e}")
+        # Retry the task
+        raise self.retry(exc=e)
+
+
+@shared_task(bind=True)
+def add_scraping_task_to_backlog_task(self, url, restaurant_name, task_type='images', priority=1):
+    """
+    Add a scraping task to the backlog.
+    
+    Args:
+        url: Restaurant website URL
+        restaurant_name: Name of the restaurant
+        task_type: Type of scraping task ('images', 'text', 'comprehensive')
+        priority: Task priority (1-10, higher is more important)
+        
+    Returns:
+        dict: Task creation result
+    """
+    try:
+        # Add data pipeline to path for async_scraper_manager
+        import sys
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent.parent / "data_pipeline" / "src" / "scrapers"))
+        
+        from async_scraper_manager import get_scraper_manager
+        
+        scraper_manager = get_scraper_manager()
+        task_id = scraper_manager.add_task_to_backlog(
+            url=url,
+            restaurant_name=restaurant_name,
+            task_type=task_type,
+            priority=priority
+        )
+        
+        logger.info(f"Added {task_type} scraping task for {restaurant_name}: {task_id}")
+        
+        return {
+            'success': True,
+            'task_id': task_id,
+            'message': f"Added {task_type} scraping task for {restaurant_name}"
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to add scraping task: {e}")
+        return {
+            'success': False,
+            'error': str(e)
+        }
+
+
+@shared_task
+def get_backlog_stats_task():
+    """
+    Get current backlog statistics.
+    
+    Returns:
+        dict: Backlog statistics
+    """
+    try:
+        # Add data pipeline to path for async_scraper_manager
+        import sys
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent.parent / "data_pipeline" / "src" / "scrapers"))
+        
+        from async_scraper_manager import get_scraper_manager
+        
+        scraper_manager = get_scraper_manager()
+        stats = scraper_manager.get_backlog_stats()
+        
+        return {
+            'success': True,
+            'stats': stats,
+            'retrieved_at': timezone.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to get backlog stats: {e}")
+        return {
+            'success': False,
+            'error': str(e)
+        }
+
+
+@shared_task(bind=True, retry_kwargs={'max_retries': 2, 'countdown': 300})
+def periodic_backlog_processing_task(self):
+    """
+    Periodic task to process scraping backlog.
+    This should be scheduled to run every 30 minutes.
+    
+    Returns:
+        dict: Processing results
+    """
+    try:
+        # Process up to 25 tasks every 30 minutes
+        result = process_scraping_backlog_task.delay(max_tasks=25)
+        
+        return {
+            'success': True,
+            'message': 'Periodic backlog processing started',
+            'task_id': result.id,
+            'scheduled_at': timezone.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Periodic backlog processing failed: {e}")
+        raise self.retry(exc=e)

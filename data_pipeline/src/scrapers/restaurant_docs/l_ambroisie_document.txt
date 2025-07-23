@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-The restaurant is located at the historic Place des Vosges, providing an elegant atmosphere.
+Elegant and refined atmosphere located in Place des Vosges.
 
 ## Location
 9 place des Vosges, 75004 PARIS
@@ -14,9 +14,9 @@ The restaurant is located at the historic Place des Vosges, providing an elegant
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:15:10 CEST
+Current local time: 2025-07-23 16:51:45 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:15:10 UTC
+Generated: 2025-07-23 14:51:45 UTC
 Source: https://www.ambroisie-paris.com/

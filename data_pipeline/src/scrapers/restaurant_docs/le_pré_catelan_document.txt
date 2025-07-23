@@ -4,22 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-An iconic place in a bucolic setting with a modern and elegant decor, offering a peaceful atmosphere designed by architect Pierre-Yves Rochon.
+Intimate and accessible; a haven of peace and excellence, modern and elegant setting designed by architect Pierre-Yves Rochon.
 
 ## Location
-1 place, Bois de Boulogne, Paris
-
-## Language
-Original website language: fr
+Located at the gates of Paris, in the heart of the Bois de Boulogne.
 
 ## Location & Time Zone
 
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:21:34 CEST
+Current local time: 2025-07-23 17:03:37 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:21:34 UTC
+Generated: 2025-07-23 15:03:37 UTC
 Source: https://www.leprecatelan.com/

@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Vibrant, casual, with a terrace offering breathtaking panoramic views of iconic Parisian monuments.
+Refined atmosphere with a rooftop terrace offering breathtaking views of Paris’s iconic landmarks.
 
 ## Location
-Cheval Blanc Paris, 8 Cour de la Reine, 75001 Paris, France.
+Paris, France
 
 ## Location & Time Zone
 
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-21 19:33:40 CEST
+Current local time: 2025-07-23 17:13:01 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 17:33:40 UTC
+Generated: 2025-07-23 15:13:01 UTC
 Source: https://www.chevalblanc.com/fr/maison/paris/

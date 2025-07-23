@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-An exceptional setting with a focus on gastronomy and personalized service.
+A unique and exceptional setting with a rich history and a focus on gastronomy.
 
 ## Location
 Provence, France
@@ -14,9 +14,9 @@ Provence, France
 Country: France
 City: Provence
 Timezone: Europe/Paris
-Current local time: 2025-07-20 15:43:28 CEST
+Current local time: 2025-07-23 17:11:41 CEST
 
 ## Document Information
 
-Generated: 2025-07-20 13:43:28 UTC
+Generated: 2025-07-23 15:11:41 UTC
 Source: http://www.baumaniere.com
