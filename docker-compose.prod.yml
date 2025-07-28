@@ -57,21 +57,6 @@ services:
     networks:
       - portfolio_network_prod
     restart: unless-stopped
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py collectstatic --noinput &&
-             gunicorn portfolio_project.wsgi:application 
-             --bind 0.0.0.0:8000 
-             --workers 3 
-             --worker-class gevent 
-             --worker-connections 1000 
-             --max-requests 1000 
-             --max-requests-jitter 100 
-             --timeout 30 
-             --keep-alive 5 
-             --access-logfile /app/logs/gunicorn-access.log 
-             --error-logfile /app/logs/gunicorn-error.log 
-             --log-level info"
 
   # FastAPI RAG service
   rag:

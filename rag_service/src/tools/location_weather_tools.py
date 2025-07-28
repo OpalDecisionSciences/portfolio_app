@@ -5,7 +5,7 @@ import json
 import logging
 import requests
 from typing import Dict, Any, Optional
-from langchain.tools import BaseTool
+from langchain_core.tools import BaseTool
 from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)

@@ -3,8 +3,9 @@ FROM nginx:stable
 # Install dependencies for health checks and wait script
 RUN apt-get update && apt-get install -y curl netcat-openbsd && rm -rf /var/lib/apt/lists/*
 
-# Copy the nginx configuration
-COPY ./nginx.prod.conf /etc/nginx/nginx.conf
+# Copy both nginx configurations
+COPY ./nginx.http.conf /etc/nginx/nginx.conf
+COPY ./nginx.prod.conf /etc/nginx/nginx.prod.conf
 
 # Copy and setup wait script
 COPY ./wait-for-it.sh /wait-for-it.sh

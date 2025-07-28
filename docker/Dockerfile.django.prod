@@ -1,5 +1,5 @@
 # Production Django application Dockerfile
-FROM python:3.11-slim as base
+FROM python:3.11-slim AS base
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -48,8 +48,9 @@ ENV PYTHONPATH="/app:/shared/src:/data_pipeline/src:$PYTHONPATH"
 RUN mkdir -p /app/media /app/staticfiles /app/logs \
     && chown -R appuser:appuser /app /shared /data_pipeline
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Copy entrypoint script for production
+COPY ./docker/entrypoint.prod.sh /app/entrypoint.prod.sh
+RUN chmod +x /app/entrypoint.prod.sh && chown appuser:appuser /app/entrypoint.prod.sh
 
 # Switch to non-root user
 USER appuser
@@ -57,20 +58,9 @@ USER appuser
 # Expose port
 EXPOSE 8000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+# Health check - increased start period for migrations
+HEALTHCHECK --interval=30s --timeout=30s --start-period=120s --retries=3 \
     CMD curl -f http://localhost:8000/health/ || exit 1
 
-# Start gunicorn
-CMD ["gunicorn", "portfolio_project.wsgi:application", \
-     "--bind", "0.0.0.0:8000", \
-     "--workers", "3", \
-     "--worker-class", "gevent", \
-     "--worker-connections", "1000", \
-     "--max-requests", "1000", \
-     "--max-requests-jitter", "100", \
-     "--timeout", "30", \
-     "--keep-alive", "5", \
-     "--access-logfile", "-", \
-     "--error-logfile", "-", \
-     "--log-level", "info"]
+# Use entrypoint script
+CMD ["/app/entrypoint.prod.sh"]

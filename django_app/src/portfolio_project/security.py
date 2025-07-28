@@ -210,35 +210,61 @@ def get_security_middleware() -> list:
 
 def get_production_security_settings() -> dict:
     """
-    Get production security settings.
+    Get production security settings with HTTP-first support.
     
     Returns:
         Dictionary of security settings
     """
-    return {
-        # HTTPS Security
-        'SECURE_HSTS_SECONDS': 31536000,  # 1 year
-        'SECURE_HSTS_INCLUDE_SUBDOMAINS': True,
-        'SECURE_HSTS_PRELOAD': True,
-        'SECURE_SSL_REDIRECT': True,
-        
-        # Cookie Security
-        'SESSION_COOKIE_SECURE': True,
-        'SESSION_COOKIE_HTTPONLY': True,
-        'SESSION_COOKIE_SAMESITE': 'Lax',
-        'CSRF_COOKIE_SECURE': True,
-        'CSRF_COOKIE_HTTPONLY': True,
-        'CSRF_COOKIE_SAMESITE': 'Lax',
-        
-        # Browser Security
+    # Check if SSL certificates exist (indicates HTTPS is ready)
+    ssl_ready = (
+        os.path.exists('/etc/letsencrypt/live/opaldecisionsciences.com/fullchain.pem') or
+        get_env_bool('FORCE_HTTPS', False)
+    )
+    
+    base_settings = {
+        # Browser Security (always enabled)
         'SECURE_BROWSER_XSS_FILTER': True,
         'SECURE_CONTENT_TYPE_NOSNIFF': True,
         'SECURE_REFERRER_POLICY': 'strict-origin-when-cross-origin',
         'X_FRAME_OPTIONS': 'DENY',
         
-        # Additional Security
+        # Proxy header (always set for nginx)
         'SECURE_PROXY_SSL_HEADER': ('HTTP_X_FORWARDED_PROTO', 'https'),
     }
+    
+    if ssl_ready:
+        # Full HTTPS security when certificates exist
+        base_settings.update({
+            # HTTPS Security
+            'SECURE_HSTS_SECONDS': 31536000,  # 1 year
+            'SECURE_HSTS_INCLUDE_SUBDOMAINS': True,
+            'SECURE_HSTS_PRELOAD': True,
+            'SECURE_SSL_REDIRECT': True,
+            
+            # Cookie Security
+            'SESSION_COOKIE_SECURE': True,
+            'SESSION_COOKIE_HTTPONLY': True,
+            'SESSION_COOKIE_SAMESITE': 'Lax',
+            'CSRF_COOKIE_SECURE': True,
+            'CSRF_COOKIE_HTTPONLY': True,
+            'CSRF_COOKIE_SAMESITE': 'Lax',
+        })
+    else:
+        # HTTP-first mode for SSL certificate generation
+        base_settings.update({
+            # No SSL redirect during certificate generation
+            'SECURE_SSL_REDIRECT': False,
+            
+            # HTTP-compatible cookie settings
+            'SESSION_COOKIE_SECURE': False,
+            'SESSION_COOKIE_HTTPONLY': True,
+            'SESSION_COOKIE_SAMESITE': 'Lax',
+            'CSRF_COOKIE_SECURE': False,
+            'CSRF_COOKIE_HTTPONLY': True,
+            'CSRF_COOKIE_SAMESITE': 'Lax',
+        })
+    
+    return base_settings
 
 
 def get_logging_config(log_level: str = 'INFO', base_dir=None) -> dict:
