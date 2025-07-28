@@ -13,8 +13,10 @@ from django.views.generic import ListView, DetailView
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
+from datetime import datetime
+import logging
 
-from .models import Restaurant, Chef, MenuSection, MenuItem, RestaurantReview, ScrapingJob, RestaurantImage
+from .models import Restaurant, Chef, MenuSection, MenuItem, RestaurantReview, ScrapingJob, RestaurantImage, UserCart, CartItem, ChatCartInteraction
 import json
 import os
 from pathlib import Path
@@ -23,6 +25,9 @@ from .recommenders import RestaurantRecommender
 import requests
 from django.conf import settings
 import math
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 
 def home_view(request):
@@ -1129,3 +1134,715 @@ def personalized_recommendations_api(request):
             'error': 'Unable to generate personalized recommendations',
             'details': str(e)
         }, status=500)
+
+
+def get_user_location_from_ip(request):
+    """
+    Get user's approximate location from their IP address using ipapi.co.
+    Returns dictionary with latitude, longitude, city, country.
+    """
+    try:
+        # Get user's IP address
+        user_ip = request.META.get('HTTP_X_FORWARDED_FOR')
+        if user_ip:
+            user_ip = user_ip.split(',')[0].strip()
+        else:
+            user_ip = request.META.get('REMOTE_ADDR')
+        
+        # Skip localhost and private IPs
+        if not user_ip or user_ip in ['127.0.0.1', 'localhost'] or user_ip.startswith('192.168.') or user_ip.startswith('10.'):
+            # Default to New York for development/localhost
+            return {
+                'status': 'default_location',
+                'latitude': 40.7128,
+                'longitude': -74.0060,
+                'city': 'New York',
+                'country': 'United States',
+                'ip': user_ip or 'localhost'
+            }
+        
+        # Use ipapi.co for geolocation (free, no API key needed)
+        import requests
+        response = requests.get(f'https://ipapi.co/{user_ip}/json/', timeout=5)
+        
+        if response.status_code == 200:
+            data = response.json()
+            
+            if data.get('latitude') and data.get('longitude'):
+                return {
+                    'status': 'success',
+                    'latitude': float(data.get('latitude')),
+                    'longitude': float(data.get('longitude')),
+                    'city': data.get('city', 'Unknown'),
+                    'country': data.get('country_name', 'Unknown'),
+                    'ip': user_ip
+                }
+        
+        # Fallback to New York if geolocation fails
+        return {
+            'status': 'fallback',
+            'latitude': 40.7128,
+            'longitude': -74.0060,
+            'city': 'New York',
+            'country': 'United States',
+            'ip': user_ip
+        }
+        
+    except Exception as e:
+        logger.warning(f"IP geolocation failed: {str(e)}")
+        # Fallback to New York on any error
+        return {
+            'status': 'error',
+            'latitude': 40.7128,
+            'longitude': -74.0060,
+            'city': 'New York',
+            'country': 'United States',
+            'ip': 'unknown'
+        }
+
+
+def get_weather_data(lat, lng, restaurant_id=None):
+    """
+    Get weather data for restaurant location using OpenWeatherMap API with Redis caching.
+    Cache results for up to 3 times per day (morning/afternoon/evening).
+    """
+    import redis
+    from datetime import datetime, timezone
+    import hashlib
+    
+    weather_api_key = getattr(settings, 'OPENWEATHER_API_KEY', None)
+    if not weather_api_key or weather_api_key.startswith('your-'):
+        return {
+            'status': 'no_api_key',
+            'message': 'Weather API key not configured'
+        }
+    
+    # Connect to Redis for caching
+    try:
+        redis_client = redis.Redis(
+            host=os.getenv("REDIS_HOST", "localhost"),
+            port=int(os.getenv("REDIS_PORT", 6379)),
+            db=int(os.getenv("REDIS_DB", 1)),  # Use DB 1 for API cache
+            password=os.getenv("REDIS_PASSWORD", None),
+        )
+        
+        # Create cache key based on coordinates and time period
+        now = datetime.now(timezone.utc)
+        hour = now.hour
+        
+        # Determine time period (morning: 0-11, afternoon: 12-17, evening: 18-23)
+        if hour < 12:
+            time_period = "morning"
+        elif hour < 18:
+            time_period = "afternoon"
+        else:
+            time_period = "evening"
+        
+        # Create unique cache key
+        location_hash = hashlib.md5(f"{lat},{lng}".encode()).hexdigest()[:8]
+        cache_key = f"weather:{location_hash}:{now.strftime('%Y-%m-%d')}:{time_period}"
+        
+        # Try to get cached data first
+        cached_data = redis_client.get(cache_key)
+        if cached_data:
+            import json
+            logger.info(f"Weather cache hit for {cache_key}")
+            return json.loads(cached_data.decode('utf-8'))
+        
+    except Exception as redis_error:
+        logger.warning(f"Redis connection failed for weather cache: {redis_error}")
+        redis_client = None
+    
+    # If no cache or Redis unavailable, fetch from API
+    try:
+        # Current weather
+        current_url = "https://api.openweathermap.org/data/2.5/weather"
+        params = {
+            'lat': lat,
+            'lon': lng,
+            'appid': weather_api_key,
+            'units': 'metric'  # Celsius
+        }
+        
+        logger.info(f"Fetching weather data from OpenWeather API for {lat}, {lng}")
+        response = requests.get(current_url, params=params, timeout=5)
+        
+        if response.status_code == 200:
+            data = response.json()
+            
+            # Format weather data
+            weather_info = {
+                'status': 'success',
+                'temperature': round(data['main']['temp']),
+                'feels_like': round(data['main']['feels_like']),
+                'humidity': data['main']['humidity'],
+                'description': data['weather'][0]['description'].title(),
+                'icon': data['weather'][0]['icon'],
+                'wind_speed': data['wind'].get('speed', 0),
+                'visibility': data.get('visibility', 0) / 1000,  # Convert to km
+                'city_name': data.get('name', 'Unknown'),
+                'timestamp': datetime.now().isoformat(),
+                'cached': False,
+                'cache_period': time_period
+            }
+            
+            # Cache the result for current time period (expires at end of day)
+            if redis_client:
+                try:
+                    # Calculate expiration - end of current day
+                    end_of_day = now.replace(hour=23, minute=59, second=59, microsecond=999999)
+                    ttl = int((end_of_day - now).total_seconds())
+                    
+                    import json
+                    redis_client.setex(
+                        cache_key, 
+                        ttl, 
+                        json.dumps(weather_info)
+                    )
+                    logger.info(f"Weather data cached with key {cache_key} for {ttl} seconds")
+                except Exception as cache_error:
+                    logger.warning(f"Failed to cache weather data: {cache_error}")
+            
+            return weather_info
+        else:
+            return {
+                'status': 'api_error',
+                'message': f'Weather API returned {response.status_code}'
+            }
+            
+    except Exception as e:
+        logger.error(f"Weather API error: {str(e)}")
+        return {
+            'status': 'error',
+            'message': 'Failed to fetch weather data'
+        }
+
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def restaurant_location_weather_api(request, restaurant_id):
+    """
+    Get distance and weather information for a restaurant.
+    
+    Optional JSON payload: {"user_lat": float, "user_lng": float}
+    If no coordinates provided, automatically detects user location from IP.
+    """
+    try:
+        restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+        
+        # Try to parse user location from request body
+        user_lat = None
+        user_lng = None
+        user_location_info = None
+        
+        try:
+            if request.body:
+                data = json.loads(request.body)
+                user_lat = data.get('user_lat')
+                user_lng = data.get('user_lng')
+                
+                if user_lat is not None and user_lng is not None:
+                    user_lat = float(user_lat)
+                    user_lng = float(user_lng)
+                    user_location_info = {
+                        'status': 'provided',
+                        'latitude': user_lat,
+                        'longitude': user_lng,
+                        'source': 'manual_coordinates'
+                    }
+        except (json.JSONDecodeError, TypeError, ValueError):
+            # If JSON parsing fails, we'll use IP geolocation
+            pass
+        
+        # If no coordinates provided, use IP geolocation
+        if user_lat is None or user_lng is None:
+            user_location_info = get_user_location_from_ip(request)
+            user_lat = user_location_info['latitude']
+            user_lng = user_location_info['longitude']
+        
+        result = {
+            'restaurant_id': str(restaurant.id),
+            'restaurant_name': restaurant.name,
+            'restaurant_location': {
+                'city': restaurant.city,
+                'country': restaurant.country,
+                'address': restaurant.address,
+                'latitude': float(restaurant.latitude) if restaurant.latitude else None,
+                'longitude': float(restaurant.longitude) if restaurant.longitude else None
+            },
+            'user_location': user_location_info
+        }
+        
+        # Calculate distance if restaurant has coordinates
+        if restaurant.latitude and restaurant.longitude:
+            distance_km = calculate_distance(
+                user_lat, user_lng,
+                float(restaurant.latitude), float(restaurant.longitude)
+            )
+            
+            # Convert to miles for US users (optional)
+            distance_miles = distance_km * 0.621371
+            
+            result['distance'] = {
+                'kilometers': round(distance_km, 2),
+                'miles': round(distance_miles, 2),
+                'status': 'calculated'
+            }
+            
+            # Get weather data for restaurant location (with caching)
+            weather_data = get_weather_data(
+                float(restaurant.latitude), 
+                float(restaurant.longitude),
+                restaurant_id=str(restaurant.id)
+            )
+            result['weather'] = weather_data
+            
+        else:
+            # Try to geocode restaurant address if no coordinates
+            if restaurant.address:
+                geocode_result = geocode_address(f"{restaurant.address}, {restaurant.city}, {restaurant.country}")
+                
+                if geocode_result:
+                    # Update restaurant coordinates for future use
+                    restaurant.latitude = geocode_result['lat']
+                    restaurant.longitude = geocode_result['lng']
+                    restaurant.save(update_fields=['latitude', 'longitude'])
+                    
+                    # Calculate distance with new coordinates
+                    distance_km = calculate_distance(
+                        user_lat, user_lng,
+                        geocode_result['lat'], geocode_result['lng']
+                    )
+                    distance_miles = distance_km * 0.621371
+                    
+                    result['distance'] = {
+                        'kilometers': round(distance_km, 2),
+                        'miles': round(distance_miles, 2),
+                        'status': 'geocoded'
+                    }
+                    
+                    # Get weather data (with caching)
+                    weather_data = get_weather_data(
+                        geocode_result['lat'], 
+                        geocode_result['lng'],
+                        restaurant_id=str(restaurant.id)
+                    )
+                    result['weather'] = weather_data
+                    
+                else:
+                    result['distance'] = {
+                        'status': 'geocoding_failed',
+                        'message': 'Could not determine restaurant location'
+                    }
+                    result['weather'] = {
+                        'status': 'no_coordinates',
+                        'message': 'Cannot get weather without restaurant coordinates'
+                    }
+            else:
+                result['distance'] = {
+                    'status': 'no_address',
+                    'message': 'Restaurant has no address information'
+                }
+                result['weather'] = {
+                    'status': 'no_address',
+                    'message': 'Cannot get weather without restaurant address'
+                }
+        
+        return JsonResponse(result)
+        
+    except Exception as e:
+        logger.error(f"Error in restaurant location/weather API: {str(e)}")
+        return JsonResponse({
+            'error': 'Failed to get location and weather data'
+        }, status=500)
+
+
+# Cart API Views
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def cart_api(request):
+    """Main cart API endpoint - GET to view cart, POST with restaurant_id to get/create cart."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    if request.method == 'GET':
+        # Get all active carts for user
+        carts = UserCart.objects.filter(user=request.user, is_active=True).select_related('restaurant')
+        
+        cart_data = []
+        for cart in carts:
+            cart_items = cart.items.all().select_related('menu_item')
+            items = []
+            
+            for cart_item in cart_items:
+                items.append({
+                    'id': str(cart_item.id),
+                    'menu_item_id': str(cart_item.menu_item.id),
+                    'name': cart_item.menu_item.name,
+                    'description': cart_item.menu_item.description,
+                    'price': cart_item.menu_item.cleaned_price,
+                    'quantity': cart_item.quantity,
+                    'subtotal': cart_item.subtotal,
+                    'special_requests': cart_item.special_requests
+                })
+            
+            cart_data.append({
+                'cart_id': str(cart.id),
+                'restaurant_id': str(cart.restaurant.id),
+                'restaurant_name': cart.restaurant.name,
+                'total_items': cart.total_items,
+                'estimated_total': cart.estimated_total,
+                'items': items,
+                'notes': cart.notes,
+                'created_at': cart.created_at.isoformat(),
+                'updated_at': cart.updated_at.isoformat()
+            })
+        
+        return JsonResponse({
+            'carts': cart_data,
+            'total_carts': len(cart_data)
+        })
+    
+    elif request.method == 'POST':
+        # Get or create cart for specific restaurant
+        try:
+            data = json.loads(request.body)
+            restaurant_id = data.get('restaurant_id')
+            
+            if not restaurant_id:
+                return JsonResponse({'error': 'restaurant_id required'}, status=400)
+            
+            restaurant = Restaurant.objects.get(id=restaurant_id, is_active=True)
+            cart, created = UserCart.objects.get_or_create(
+                user=request.user,
+                restaurant=restaurant,
+                is_active=True,
+                defaults={'notes': data.get('notes', '')}
+            )
+            
+            # Return cart with items
+            cart_items = cart.items.all().select_related('menu_item')
+            items = []
+            
+            for cart_item in cart_items:
+                items.append({
+                    'id': str(cart_item.id),
+                    'menu_item_id': str(cart_item.menu_item.id),
+                    'name': cart_item.menu_item.name,
+                    'price': cart_item.menu_item.cleaned_price,
+                    'quantity': cart_item.quantity,
+                    'subtotal': cart_item.subtotal,
+                    'special_requests': cart_item.special_requests
+                })
+            
+            return JsonResponse({
+                'cart_id': str(cart.id),
+                'restaurant_id': str(restaurant.id),
+                'restaurant_name': restaurant.name,
+                'total_items': cart.total_items,
+                'estimated_total': cart.estimated_total,
+                'items': items,
+                'notes': cart.notes,
+                'created': created
+            })
+            
+        except Restaurant.DoesNotExist:
+            return JsonResponse({'error': 'Restaurant not found'}, status=404)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def add_to_cart_api(request):
+    """Add item to cart API endpoint."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    try:
+        data = json.loads(request.body)
+        restaurant_id = data.get('restaurant_id')
+        menu_item_id = data.get('menu_item_id')
+        quantity = int(data.get('quantity', 1))
+        special_requests = data.get('special_requests', '')
+        
+        if not restaurant_id or not menu_item_id:
+            return JsonResponse({'error': 'restaurant_id and menu_item_id required'}, status=400)
+        
+        if quantity < 1:
+            return JsonResponse({'error': 'quantity must be at least 1'}, status=400)
+        
+        # Get restaurant and menu item
+        restaurant = Restaurant.objects.get(id=restaurant_id, is_active=True)
+        menu_item = MenuItem.objects.get(
+            id=menu_item_id,
+            section__restaurant=restaurant,
+            is_available=True,
+            is_available_for_cart=True
+        )
+        
+        # Get or create cart
+        cart, created = UserCart.objects.get_or_create(
+            user=request.user,
+            restaurant=restaurant,
+            is_active=True,
+            defaults={'notes': ''}
+        )
+        
+        # Add or update cart item
+        cart_item, item_created = CartItem.objects.get_or_create(
+            cart=cart,
+            menu_item=menu_item,
+            defaults={
+                'quantity': quantity,
+                'special_requests': special_requests
+            }
+        )
+        
+        if not item_created:
+            # Update existing item
+            cart_item.quantity += quantity
+            if special_requests:
+                if cart_item.special_requests:
+                    cart_item.special_requests += f"; {special_requests}"
+                else:
+                    cart_item.special_requests = special_requests
+            cart_item.save()
+        
+        return JsonResponse({
+            'success': True,
+            'message': f'Added {quantity}x {menu_item.name} to cart',
+            'cart_item_id': str(cart_item.id),
+            'cart_total_items': cart.total_items,
+            'cart_estimated_total': cart.estimated_total,
+            'item_quantity': cart_item.quantity,
+            'item_subtotal': cart_item.subtotal
+        })
+        
+    except Restaurant.DoesNotExist:
+        return JsonResponse({'error': 'Restaurant not found'}, status=404)
+    except MenuItem.DoesNotExist:
+        return JsonResponse({'error': 'Menu item not found or not available'}, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except ValueError:
+        return JsonResponse({'error': 'Invalid quantity'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def remove_from_cart_api(request):
+    """Remove item from cart API endpoint."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    try:
+        data = json.loads(request.body)
+        cart_item_id = data.get('cart_item_id')
+        quantity = data.get('quantity')  # Optional - if not provided, remove all
+        
+        if not cart_item_id:
+            return JsonResponse({'error': 'cart_item_id required'}, status=400)
+        
+        # Get cart item
+        cart_item = CartItem.objects.get(
+            id=cart_item_id,
+            cart__user=request.user,
+            cart__is_active=True
+        )
+        
+        item_name = cart_item.menu_item.name
+        
+        if quantity is None or quantity >= cart_item.quantity:
+            # Remove item completely
+            cart_item.delete()
+            message = f'Removed {item_name} from cart'
+        else:
+            # Reduce quantity
+            cart_item.quantity -= quantity
+            cart_item.save()
+            message = f'Reduced {item_name} quantity by {quantity}'
+        
+        # Get updated cart totals
+        cart = cart_item.cart
+        
+        return JsonResponse({
+            'success': True,
+            'message': message,
+            'cart_total_items': cart.total_items,
+            'cart_estimated_total': cart.estimated_total
+        })
+        
+    except CartItem.DoesNotExist:
+        return JsonResponse({'error': 'Cart item not found'}, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def update_cart_api(request):
+    """Update cart item quantity API endpoint."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    try:
+        data = json.loads(request.body)
+        cart_item_id = data.get('cart_item_id')
+        new_quantity = int(data.get('quantity'))
+        special_requests = data.get('special_requests')
+        
+        if not cart_item_id or new_quantity < 0:
+            return JsonResponse({'error': 'cart_item_id and valid quantity required'}, status=400)
+        
+        # Get cart item
+        cart_item = CartItem.objects.get(
+            id=cart_item_id,
+            cart__user=request.user,
+            cart__is_active=True
+        )
+        
+        item_name = cart_item.menu_item.name
+        old_quantity = cart_item.quantity
+        
+        if new_quantity == 0:
+            # Remove item
+            cart_item.delete()
+            message = f'Removed {item_name} from cart'
+        else:
+            # Update quantity and special requests
+            cart_item.quantity = new_quantity
+            if special_requests is not None:
+                cart_item.special_requests = special_requests
+            cart_item.save()
+            message = f'Updated {item_name} quantity from {old_quantity} to {new_quantity}'
+        
+        # Get updated cart totals
+        cart = cart_item.cart
+        
+        return JsonResponse({
+            'success': True,
+            'message': message,
+            'cart_total_items': cart.total_items,
+            'cart_estimated_total': cart.estimated_total,
+            'item_subtotal': cart_item.subtotal if new_quantity > 0 else 0
+        })
+        
+    except CartItem.DoesNotExist:
+        return JsonResponse({'error': 'Cart item not found'}, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except ValueError:
+        return JsonResponse({'error': 'Invalid quantity'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def clear_cart_api(request):
+    """Clear cart API endpoint."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    try:
+        data = json.loads(request.body)
+        restaurant_id = data.get('restaurant_id')
+        
+        if not restaurant_id:
+            return JsonResponse({'error': 'restaurant_id required'}, status=400)
+        
+        # Get cart
+        cart = UserCart.objects.get(
+            user=request.user,
+            restaurant_id=restaurant_id,
+            is_active=True
+        )
+        
+        # Clear all items
+        items_count = cart.items.count()
+        cart.clear_cart()
+        
+        return JsonResponse({
+            'success': True,
+            'message': f'Cleared {items_count} items from cart',
+            'cart_total_items': 0,
+            'cart_estimated_total': 0.0
+        })
+        
+    except UserCart.DoesNotExist:
+        return JsonResponse({'error': 'Cart not found'}, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def cart_llm_interaction_api(request):
+    """API endpoint for LLM chatbot cart interactions."""
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    try:
+        data = json.loads(request.body)
+        user_message = data.get('message', '')
+        restaurant_id = data.get('restaurant_id')
+        session_id = data.get('session_id', '')
+        
+        if not user_message:
+            return JsonResponse({'error': 'message required'}, status=400)
+        
+        # This would integrate with your LangChain cart tools
+        # For now, return a basic response
+        
+        restaurant = None
+        if restaurant_id:
+            try:
+                restaurant = Restaurant.objects.get(id=restaurant_id, is_active=True)
+            except Restaurant.DoesNotExist:
+                pass
+        
+        # Mock LLM response - you would replace this with your actual LangChain tool integration
+        response = {
+            'bot_response': f"I understand you want to: '{user_message}'. I'm ready to help you with {restaurant.name if restaurant else 'the menu'}! Use the cart tools to add items.",
+            'action_taken': 'provide_info',
+            'cart_updated': False,
+            'items_affected': []
+        }
+        
+        # Log the interaction
+        if restaurant_id:
+            try:
+                cart = UserCart.objects.get(
+                    user=request.user,
+                    restaurant_id=restaurant_id,
+                    is_active=True
+                )
+                
+                ChatCartInteraction.objects.create(
+                    user=request.user,
+                    cart=cart,
+                    user_message=user_message,
+                    bot_response=response['bot_response'],
+                    action_taken=response['action_taken'],
+                    items_affected=response['items_affected'],
+                    session_id=session_id
+                )
+            except UserCart.DoesNotExist:
+                pass
+        
+        return JsonResponse(response)
+        
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)

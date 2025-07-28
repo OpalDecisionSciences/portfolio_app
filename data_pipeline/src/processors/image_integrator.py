@@ -316,6 +316,138 @@ class ImageIntegrator:
         except Exception as e:
             logger.error(f"Error finding restaurant {name}: {e}")
             return None
+    
+    def _match_folder_to_restaurant(self, folder_name: str) -> Optional[Restaurant]:
+        """Match image folder name to restaurant in database."""
+        try:
+            # Clean folder name for matching
+            clean_name = folder_name.replace("_", " ").replace("-", " ").strip()
+            
+            # Try exact match first
+            restaurant = Restaurant.objects.filter(name__iexact=clean_name).first()
+            if restaurant:
+                return restaurant
+            
+            # Try case-insensitive contains match
+            restaurant = Restaurant.objects.filter(name__icontains=clean_name).first()
+            if restaurant:
+                return restaurant
+            
+            # Try matching individual words
+            words = clean_name.split()
+            if len(words) >= 2:
+                # Try matching with first few words
+                partial_name = " ".join(words[:2])
+                restaurant = Restaurant.objects.filter(name__icontains=partial_name).first()
+                if restaurant:
+                    return restaurant
+            
+            # Special cases for common naming patterns
+            special_cases = {
+                "8_½_otto_e_mezzo_bombana": "8 1/2 Otto e Mezzo - Bombana",
+                "alléno_paris_au_pavillon_ledoyen": "Alléno Paris au Pavillon Ledoyen",
+                "château_de_beaulieu_christophe_dufossé": "Château de Beaulieu - Christophe Dufossé",
+                "fg_françois_geurds": "FG - François Geurds",
+                "victor_s_fine_dining_by_christian_bau": "Victor's Fine Dining by Christian Bau"
+            }
+            
+            for pattern, restaurant_name in special_cases.items():
+                if pattern in folder_name.lower():
+                    restaurant = Restaurant.objects.filter(name__icontains=restaurant_name).first()
+                    if restaurant:
+                        return restaurant
+            
+            return None
+            
+        except Exception as e:
+            logger.error(f"Error matching folder {folder_name}: {e}")
+            return None
+
+
+def integrate_images_from_folders():
+    """Integrate images directly from folder names to restaurants."""
+    integrator = ImageIntegrator()
+    
+    # Get all restaurant image folders
+    images_dir = integrator.scraped_images_dir
+    if not images_dir.exists():
+        logger.error(f"Images directory not found: {images_dir}")
+        return
+    
+    total_results = {
+        'restaurants_processed': 0,
+        'images_integrated': 0,
+        'errors': 0,
+        'folders_without_match': 0
+    }
+    
+    # Get all folders
+    image_folders = [f for f in images_dir.iterdir() if f.is_dir()]
+    logger.info(f"Found {len(image_folders)} image folders")
+    
+    for folder in image_folders:
+        try:
+            # Match folder name to restaurant
+            restaurant = integrator._match_folder_to_restaurant(folder.name)
+            
+            if not restaurant:
+                logger.warning(f"No restaurant match found for folder: {folder.name}")
+                total_results['folders_without_match'] += 1
+                continue
+            
+            # Get all images in folder
+            image_files = list(folder.glob("*.jpg")) + list(folder.glob("*.jpeg")) + list(folder.glob("*.png"))
+            
+            if not image_files:
+                logger.info(f"No images found in folder: {folder.name}")
+                continue
+            
+            logger.info(f"Processing {len(image_files)} images for {restaurant.name}")
+            
+            # Process each image
+            images_integrated = 0
+            for img_file in image_files:
+                try:
+                    # Create image data dict
+                    img_data = {
+                        'filename': img_file.name,
+                        'local_path': str(img_file),
+                        'source_url': f"scraped_from_{folder.name}",
+                        'status': 'completed'
+                    }
+                    
+                    # Check if image already exists
+                    existing = RestaurantImage.objects.filter(
+                        restaurant=restaurant,
+                        source_url=img_data['source_url']
+                    ).first()
+                    
+                    if existing:
+                        logger.debug(f"Image already exists: {img_file.name}")
+                        continue
+                    
+                    # Create restaurant image
+                    restaurant_image = integrator._create_restaurant_image(restaurant, img_data, img_file)
+                    
+                    if restaurant_image:
+                        images_integrated += 1
+                        logger.info(f"✅ Integrated: {img_file.name}")
+                
+                except Exception as e:
+                    logger.error(f"Error processing image {img_file.name}: {e}")
+                    total_results['errors'] += 1
+            
+            total_results['restaurants_processed'] += 1
+            total_results['images_integrated'] += images_integrated
+            
+            logger.info(f"Completed {restaurant.name}: {images_integrated} images integrated")
+            
+        except Exception as e:
+            logger.error(f"Error processing folder {folder.name}: {e}")
+            total_results['errors'] += 1
+    
+    logger.info(f"Integration complete: {total_results}")
+    return total_results
 
 
 def integrate_all_comprehensive_images():
@@ -348,4 +480,13 @@ def integrate_all_comprehensive_images():
 
 
 if __name__ == "__main__":
-    integrate_all_comprehensive_images()
+    # Run both integration methods
+    print("🖼️  Starting image integration from folders...")
+    folder_results = integrate_images_from_folders()
+    
+    print("\n📁 Starting comprehensive image integration...")
+    comprehensive_results = integrate_all_comprehensive_images()
+    
+    print("\n📊 Final Results:")
+    print(f"   Folder integration: {folder_results}")
+    print(f"   Comprehensive integration: {comprehensive_results}")

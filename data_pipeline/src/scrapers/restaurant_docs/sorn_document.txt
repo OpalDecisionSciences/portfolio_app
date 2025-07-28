@@ -4,12 +4,19 @@
 Southern Thai
 
 ## Ambiance & Atmosphere
-Not explicitly mentioned.
+Traditional setting in a meticulously restored house, offering a serene atmosphere in the busy Bangkok city center.
 
 ## Location
-Not explicitly mentioned.
+Quieter part of Bangkok city center, surrounded by high rise buildings.
+
+## Location & Time Zone
+
+Country: Thailand
+City: Bangkok
+Timezone: Asia/Bangkok
+Current local time: 2025-07-23 23:23:07 +07
 
 ## Document Information
 
-Generated: 2025-07-21 18:37:32 UTC
+Generated: 2025-07-23 16:23:07 UTC
 Source: https://www.sornfinesouthern.com

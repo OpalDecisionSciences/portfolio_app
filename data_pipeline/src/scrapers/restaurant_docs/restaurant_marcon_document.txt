@@ -4,19 +4,19 @@
 Local French
 
 ## Ambiance & Atmosphere
-Relaxed and warm atmosphere, focused on providing privileged moments in nature.
+Relaxed and warm atmosphere in a natural setting
 
 ## Location
-43290 Saint-Bonnet-le-Froid, France
+Larsiallas, 43290 Saint-Bonnet-le-Froid, France
 
 ## Location & Time Zone
 
 Country: France
 City: Saint-Bonnet-le-Froid
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:22:14 CEST
+Current local time: 2025-07-23 17:50:05 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:22:14 UTC
+Generated: 2025-07-23 15:50:05 UTC
 Source: https://www.lesmaisonsmarcon.fr/

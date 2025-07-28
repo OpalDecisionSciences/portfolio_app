@@ -7,6 +7,7 @@ services:
     container_name: portfolio_db
     env_file: 
       - .env
+      - .env.prod
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
@@ -21,6 +22,7 @@ services:
     container_name: portfolio_redis
     env_file:
       - .env
+      - .env.prod
     ports:
       - "6379:6379"
     volumes:
@@ -39,10 +41,13 @@ services:
       - redis
     env_file:
       - .env
+      - .env.prod
     volumes:
       - ./django_app/src:/app
       - ./shared:/shared
       - ./data_pipeline:/data_pipeline
+      - ./comprehensive_scraped_images:/comprehensive_scraped_images
+      - ./comprehensive_scraped_data:/comprehensive_scraped_data
       - media_volume:/app/media
       - static_volume:/app/staticfiles
     ports:
@@ -62,6 +67,7 @@ services:
     container_name: portfolio_rag
     env_file:
       - .env
+      - .env.prod
     depends_on:
       - db
       - redis
@@ -85,6 +91,7 @@ services:
       - redis
     env_file: 
       - .env
+      - .env.prod
     volumes:
       - ./django_app/src:/app
       - ./shared:/shared
@@ -105,6 +112,7 @@ services:
       - redis
     env_file: 
       - .env
+      - .env.prod
     volumes:
       - ./django_app/src:/app
       - ./shared:/shared
@@ -123,6 +131,7 @@ services:
       - redis
     env_file: 
       - .env
+      - .env.prod
     ports:
       - "5555:5555"
     networks:

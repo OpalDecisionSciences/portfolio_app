@@ -1,10 +1,10 @@
 # Fat Duck
 
 ## Cuisine
-Contemporary
+British
 
 ## Ambiance & Atmosphere
-An adventurous and surreal dining experience with a focus on creativity and playfulness.
+Gastronomic theatre with an emphasis on nostalgia, emotion, and celebration
 
 ## Location
 High Street, Bray, Berkshire, SL6 2AQ
@@ -14,9 +14,9 @@ High Street, Bray, Berkshire, SL6 2AQ
 Country: United Kingdom
 City: Bray
 Timezone: Europe/London
-Current local time: 2025-07-21 19:28:26 BST
+Current local time: 2025-07-23 17:11:47 BST
 
 ## Document Information
 
-Generated: 2025-07-21 18:28:26 UTC
+Generated: 2025-07-23 16:11:47 UTC
 Source: https://thefatduck.co.uk/

@@ -1,10 +1,10 @@
 # Lasarte
 
 ## Cuisine
-Gastronomic
+Spanish, Contemporary
 
 ## Ambiance & Atmosphere
-Elegant and dedicated to excellence with a focus on high-quality service
+Elegant and refined with a focus on excellent service
 
 ## Location
 C/ Mallorca, 259, 08008 Barcelona, Spain
@@ -14,9 +14,9 @@ C/ Mallorca, 259, 08008 Barcelona, Spain
 Country: Spain
 City: Barcelona
 Timezone: Europe/Madrid
-Current local time: 2025-07-21 20:50:48 CEST
+Current local time: 2025-07-23 18:39:24 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 18:50:48 UTC
+Generated: 2025-07-23 16:39:24 UTC
 Source: https://www.restaurantlasarte.com/

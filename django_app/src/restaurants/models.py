@@ -276,6 +276,10 @@ class MenuItem(models.Model):
     description = models.TextField(blank=True)
     price = models.CharField(max_length=20, blank=True)
     
+    # Cart functionality
+    is_available_for_cart = models.BooleanField(default=True, help_text="Can users add this item to cart?")
+    estimated_prep_time = models.CharField(max_length=50, blank=True, help_text="e.g., '15-20 minutes'")
+    
     # Dietary Information
     is_vegetarian = models.BooleanField(default=False)
     is_vegan = models.BooleanField(default=False)
@@ -295,6 +299,161 @@ class MenuItem(models.Model):
     
     def __str__(self):
         return f"{self.section.name} - {self.name}"
+    
+    @property
+    def cleaned_price(self):
+        """Extract numeric price from price string for calculations."""
+        import re
+        if self.price:
+            # Extract numbers from price string (e.g., "$25" -> 25.00)
+            price_numbers = re.findall(r'[\d.,]+', self.price)
+            if price_numbers:
+                try:
+                    return float(price_numbers[0].replace(',', ''))
+                except ValueError:
+                    pass
+        return 0.0
+    
+    @property
+    def dietary_tags(self):
+        """Get list of dietary restriction tags."""
+        tags = []
+        if self.is_vegetarian:
+            tags.append('Vegetarian')
+        if self.is_vegan:
+            tags.append('Vegan')
+        if self.is_gluten_free:
+            tags.append('Gluten-Free')
+        return tags
+
+
+class UserCart(models.Model):
+    """User's shopping cart for restaurant items."""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='carts')
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='user_carts')
+    
+    # Cart metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    notes = models.TextField(blank=True, help_text="Special requests or notes")
+    
+    class Meta:
+        ordering = ['-updated_at']
+        unique_together = ['user', 'restaurant', 'is_active']  # One active cart per user per restaurant
+        indexes = [
+            models.Index(fields=['user', 'is_active']),
+            models.Index(fields=['restaurant', 'is_active']),
+        ]
+    
+    def __str__(self):
+        return f"{self.user.username}'s cart - {self.restaurant.name}"
+    
+    @property
+    def total_items(self):
+        """Get total number of items in cart."""
+        return self.items.aggregate(total=models.Sum('quantity'))['total'] or 0
+    
+    @property
+    def estimated_total(self):
+        """Calculate estimated total price."""
+        total = 0.0
+        for item in self.items.all():
+            total += item.subtotal
+        return total
+    
+    def clear_cart(self):
+        """Remove all items from cart."""
+        self.items.all().delete()
+    
+    def deactivate(self):
+        """Mark cart as inactive (e.g., after checkout)."""
+        self.is_active = False
+        self.save()
+
+
+class CartItem(models.Model):
+    """Individual item in a user's cart."""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    cart = models.ForeignKey(UserCart, on_delete=models.CASCADE, related_name='items')
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='cart_items')
+    quantity = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
+    special_requests = models.TextField(blank=True, help_text="Customizations or special requests")
+    
+    # Metadata
+    added_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['added_at']
+        unique_together = ['cart', 'menu_item']  # One entry per menu item per cart
+    
+    def __str__(self):
+        return f"{self.quantity}x {self.menu_item.name}"
+    
+    @property
+    def subtotal(self):
+        """Calculate subtotal for this cart item."""
+        return self.menu_item.cleaned_price * self.quantity
+    
+    def increase_quantity(self, amount=1):
+        """Increase quantity by specified amount."""
+        self.quantity += amount
+        self.save()
+    
+    def decrease_quantity(self, amount=1):
+        """Decrease quantity by specified amount."""
+        if self.quantity > amount:
+            self.quantity -= amount
+            self.save()
+        else:
+            self.delete()  # Remove item if quantity would be 0 or negative
+
+
+class ChatCartInteraction(models.Model):
+    """Track LLM chatbot interactions with cart functionality."""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='chat_cart_interactions')
+    cart = models.ForeignKey(UserCart, on_delete=models.CASCADE, related_name='chat_interactions', null=True, blank=True)
+    
+    # Interaction data
+    user_message = models.TextField(help_text="User's message to the chatbot")
+    bot_response = models.TextField(help_text="Chatbot's response")
+    action_taken = models.CharField(
+        max_length=50,
+        choices=[
+            ('add_item', 'Added Item to Cart'),
+            ('remove_item', 'Removed Item from Cart'),
+            ('modify_quantity', 'Modified Item Quantity'),
+            ('show_menu', 'Showed Menu Items'),
+            ('show_cart', 'Showed Cart Contents'),
+            ('clear_cart', 'Cleared Cart'),
+            ('provide_info', 'Provided Information'),
+            ('no_action', 'No Action Taken'),
+        ],
+        default='no_action'
+    )
+    
+    # Items affected by this interaction
+    items_affected = models.JSONField(default=list, help_text="List of menu item IDs affected by this interaction")
+    
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    session_id = models.CharField(max_length=100, blank=True, help_text="Chat session identifier")
+    
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['user', 'created_at']),
+            models.Index(fields=['session_id']),
+        ]
+    
+    def __str__(self):
+        return f"{self.user.username} - {self.action_taken} at {self.created_at}"
 
 
 class RestaurantImage(models.Model):
@@ -683,5 +842,3 @@ class ScrapingBacklogTask(models.Model):
         self.status = 'completed'
         self.completed_at = timezone.now()
         self.save()
-
-

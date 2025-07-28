@@ -214,6 +214,10 @@ class UnifiedRestaurantScraper:
                 results['menu_items_created'] = db_result.get('menu_items_created', 0)
                 results['images_integrated'] = db_result.get('images_integrated', 0)
             
+            # Step 5: Trigger embedding updates for RAG
+            if results.get('document_txt') or results.get('images_integrated', 0) > 0:
+                self._trigger_embedding_updates(restaurant_name, results)
+            
             logger.info(f"Complete scraping finished for: {restaurant_name}")
             return results
             
@@ -580,6 +584,24 @@ class UnifiedRestaurantScraper:
             
         except Exception as e:
             logger.error(f"Failed to save document: {e}")
+
+    def _trigger_embedding_updates(self, restaurant_name: str, scraping_results: Dict[str, Any]):
+        """Trigger embedding updates for RAG after successful scraping."""
+        try:
+            # Import Celery task locally to avoid circular imports
+            from restaurants.tasks import trigger_document_embedding_on_scrape
+            
+            # Trigger document embedding and enhanced RAG updates
+            task_result = trigger_document_embedding_on_scrape.delay(
+                restaurant_name=restaurant_name,
+                scraping_results=scraping_results
+            )
+            
+            logger.info(f"Triggered embedding updates for {restaurant_name}: task_id={task_result.id}")
+            
+        except Exception as e:
+            logger.warning(f"Failed to trigger embedding updates for {restaurant_name}: {e}")
+            # Don't raise exception - embedding updates are supplementary
 
     def _save_to_database(self, scraping_results: Dict[str, Any]) -> Dict[str, Any]:
         """Save complete scraping results to Django database."""

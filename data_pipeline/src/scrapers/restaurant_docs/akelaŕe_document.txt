@@ -1,22 +1,15 @@
 # Akelaŕe
 
 ## Cuisine
-Basque
+Gastronomía de vanguardia
 
 ## Ambiance & Atmosphere
-Avant-garde gastronomy with a luxury experience in a stunning location overlooking the Bay of Biscay.
+Un restaurante de lujo con un enfoque en la experiencia del cliente, situado en un enclave privilegiado frente al mar Cantábrico.
 
 ## Location
-Mount Igeldo, San Sebastián, Spain
-
-## Location & Time Zone
-
-Country: Spain
-City: San Sebastián
-Timezone: Europe/Madrid
-Current local time: 2025-07-20 17:25:46 CEST
+Ladera del monte Igeldo, San Sebastián, País Vasco, España.
 
 ## Document Information
 
-Generated: 2025-07-20 15:25:46 UTC
+Generated: 2025-07-23 16:34:21 UTC
 Source: https://akelarre.net/

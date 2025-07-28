@@ -4,7 +4,7 @@
 French
 
 ## Ambiance & Atmosphere
-Modern, light, and elegantly informal setting with impeccable service.
+Modern, light, and elegantly informal setting with impeccable service, offering a forward-thinking approach to haute cuisine.
 
 ## Location
 Park Lane, London W1K 1QA, United Kingdom
@@ -14,9 +14,9 @@ Park Lane, London W1K 1QA, United Kingdom
 Country: United Kingdom
 City: London
 Timezone: Europe/London
-Current local time: 2025-07-21 19:23:47 BST
+Current local time: 2025-07-23 17:42:16 BST
 
 ## Document Information
 
-Generated: 2025-07-21 18:23:47 UTC
+Generated: 2025-07-23 16:42:16 UTC
 Source: https://www.alainducasse-dorchester.com/

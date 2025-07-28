@@ -267,6 +267,14 @@
 			background: #f8f9fa;
 			border-radius: 8px;
 			border-left: 4px solid #3498db;
+			position: relative;
+			transition: all 0.3s ease;
+		}
+		
+		.menu-item:hover {
+			background: #ffffff;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			transform: translateY(-2px);
 		}
 		
 		.menu-item-header {
@@ -296,6 +304,220 @@
 			color: #666;
 			margin: 0;
 			line-height: 1.6;
+			margin-bottom: 10px;
+		}
+		
+		.menu-item-actions {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-top: 12px;
+		}
+		
+		.add-to-cart-btn {
+			background: #e74c3c;
+			color: white;
+			border: none;
+			padding: 8px 16px;
+			border-radius: 20px;
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+		
+		.add-to-cart-btn:hover {
+			background: #c0392b;
+			transform: scale(1.05);
+		}
+		
+		.add-to-cart-btn:disabled {
+			background: #bdc3c7;
+			cursor: not-allowed;
+			transform: none;
+		}
+		
+		.quantity-controls {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			background: white;
+			border: 1px solid #ddd;
+			border-radius: 15px;
+			padding: 4px 8px;
+		}
+		
+		.quantity-btn {
+			background: none;
+			border: none;
+			font-size: 16px;
+			font-weight: bold;
+			color: #e74c3c;
+			cursor: pointer;
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			transition: background 0.2s ease;
+		}
+		
+		.quantity-btn:hover {
+			background: #f8f9fa;
+		}
+		
+		.quantity-display {
+			font-weight: 600;
+			min-width: 20px;
+			text-align: center;
+		}
+		
+		.dietary-tags {
+			display: flex;
+			gap: 5px;
+			margin-top: 8px;
+		}
+		
+		.dietary-tag {
+			background: #ecf0f1;
+			color: #2c3e50;
+			padding: 2px 8px;
+			border-radius: 10px;
+			font-size: 12px;
+			font-weight: 500;
+		}
+		
+		.dietary-tag.vegetarian {
+			background: #d5f4e6;
+			color: #27ae60;
+		}
+		
+		.dietary-tag.vegan {
+			background: #f8e6cc;
+			color: #f39c12;
+		}
+		
+		.dietary-tag.gluten-free {
+			background: #fadbd8;
+			color: #e74c3c;
+		}
+		
+		/* Cart widget styles */
+		.cart-widget {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			background: white;
+			border-radius: 15px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+			padding: 15px;
+			min-width: 250px;
+			z-index: 1000;
+			border: 2px solid #e74c3c;
+			transform: translateX(100%);
+			transition: transform 0.3s ease;
+		}
+		
+		.cart-widget.show {
+			transform: translateX(0);
+		}
+		
+		.cart-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 15px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #eee;
+		}
+		
+		.cart-title {
+			font-size: 16px;
+			font-weight: 600;
+			color: #2c3e50;
+		}
+		
+		.cart-close {
+			background: none;
+			border: none;
+			font-size: 20px;
+			cursor: pointer;
+			color: #7f8c8d;
+		}
+		
+		.cart-items {
+			max-height: 300px;
+			overflow-y: auto;
+		}
+		
+		.cart-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 8px 0;
+			border-bottom: 1px solid #f8f9fa;
+		}
+		
+		.cart-item-info {
+			flex: 1;
+		}
+		
+		.cart-item-name {
+			font-weight: 600;
+			font-size: 14px;
+			color: #2c3e50;
+		}
+		
+		.cart-item-price {
+			font-size: 12px;
+			color: #7f8c8d;
+		}
+		
+		.cart-total {
+			margin-top: 15px;
+			padding-top: 10px;
+			border-top: 2px solid #e74c3c;
+			text-align: center;
+		}
+		
+		.cart-total-amount {
+			font-size: 18px;
+			font-weight: 700;
+			color: #e74c3c;
+		}
+		
+		.cart-toggle {
+			position: fixed;
+			top: 80px;
+			right: 20px;
+			background: #e74c3c;
+			color: white;
+			border: none;
+			border-radius: 25px;
+			padding: 10px 15px;
+			cursor: pointer;
+			font-weight: 600;
+			box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+			z-index: 999;
+			transition: all 0.3s ease;
+		}
+		
+		.cart-toggle:hover {
+			background: #c0392b;
+			transform: scale(1.05);
+		}
+		
+		.cart-count {
+			background: white;
+			color: #e74c3c;
+			border-radius: 50%;
+			padding: 2px 6px;
+			font-size: 12px;
+			margin-left: 5px;
 		}
 		
 		/* Timezone and metadata styles */
@@ -473,7 +695,7 @@
 									{% endif %}
 									<div class="menu-items">
 										{% for item in section.items.all %}
-										<div class="menu-item">
+										<div class="menu-item" data-item-id="{{ item.id }}" data-item-name="{{ item.name }}" data-item-price="{{ item.cleaned_price }}">
 											<div class="menu-item-header">
 												<h4 class="menu-item-name">{{ item.name }}</h4>
 												{% if item.price %}
@@ -483,6 +705,30 @@
 											{% if item.description %}
 											<p class="menu-item-description">{{ item.description }}</p>
 											{% endif %}
+											
+											<!-- Dietary Tags -->
+											{% if item.is_vegetarian or item.is_vegan or item.is_gluten_free %}
+											<div class="dietary-tags">
+												{% if item.is_vegetarian %}<span class="dietary-tag vegetarian">Vegetarian</span>{% endif %}
+												{% if item.is_vegan %}<span class="dietary-tag vegan">Vegan</span>{% endif %}
+												{% if item.is_gluten_free %}<span class="dietary-tag gluten-free">Gluten-Free</span>{% endif %}
+											</div>
+											{% endif %}
+											
+											<!-- Cart Actions -->
+											{% if item.is_available and item.is_available_for_cart %}
+											<div class="menu-item-actions">
+												<div class="quantity-controls" style="display: none;">
+													<button class="quantity-btn" onclick="changeQuantity('{{ item.id }}', -1)">−</button>
+													<span class="quantity-display" id="quantity-{{ item.id }}">1</span>
+													<button class="quantity-btn" onclick="changeQuantity('{{ item.id }}', 1)">+</button>
+												</div>
+												<button class="add-to-cart-btn" onclick="addToCart('{{ item.id }}')">
+													<i class="icon-cart"></i>
+													Add to Cart
+												</button>
+											</div>
+											{% endif %}
 										</div>
 										{% endfor %}
 									</div>
@@ -491,19 +737,50 @@
 							</div>
 							{% endif %}
 							
-							<!-- LLM Chatbot Engagement -->
+							<!-- Enhanced LLM Chatbot Engagement with Cart Integration -->
 							<div class="restaurant-info-card" style="background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%); color: white; text-align: center;">
 								<div style="padding: 10px;">
 									<h3 style="color: white; margin-bottom: 15px;">
 										<i class="icon-comment" style="margin-right: 10px;"></i>
-										Have Questions?
+										AI Menu Assistant
 									</h3>
 									<p style="font-size: 18px; margin-bottom: 20px; color: #f8f9fa;">
-										Ask me about the menu! I can help you discover {{ restaurant.name }}'s specialties, ingredients, prices, and more.
+										I can help you explore {{ restaurant.name }}'s menu, add items to your cart, and answer questions about ingredients, prices, and recommendations!
 									</p>
-									<button onclick="startChatAboutMenu()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 12px 25px; border-radius: 25px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
-										💬 Ask About This Restaurant
-									</button>
+									
+									<!-- Location & Weather Information Section -->
+									<div id="location-weather-info" style="border-top: 1px solid rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px; margin-bottom: 20px;">
+										<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+											<div id="distance-info" style="display: flex; align-items: center; font-size: 16px;">
+												<span style="margin-right: 8px;">📍</span>
+												<span id="distance-text">Getting your location...</span>
+											</div>
+											<div id="weather-info" style="display: flex; align-items: center; font-size: 16px;">
+												<span id="weather-icon" style="margin-right: 8px;">🌤️</span>
+												<span id="weather-text">Loading weather...</span>
+											</div>
+										</div>
+										<div id="location-permission-prompt" style="display: none; margin-top: 10px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+											<p style="margin: 0; font-size: 14px;">
+												📍 Allow location access to see distance and get personalized recommendations!
+											</p>
+											<button onclick="requestLocation()" style="background: rgba(255,255,255,0.2); border: 1px solid white; color: white; padding: 8px 16px; border-radius: 15px; font-size: 14px; cursor: pointer; margin-top: 8px;">
+												Enable Location
+											</button>
+										</div>
+									</div>
+									
+									<div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+										<button onclick="startChatAboutMenu()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 12px 25px; border-radius: 25px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
+											💬 Chat About Menu
+										</button>
+										<button onclick="showMenuInChat()" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 12px 25px; border-radius: 25px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
+											🍽️ Show Menu via AI
+										</button>
+									</div>
+									<p style="font-size: 14px; margin-top: 15px; color: #f8f9fa; opacity: 0.9;">
+										Try: "Show me vegetarian options" or "What's the weather like there?"
+									</p>
 								</div>
 							</div>
 							
@@ -696,6 +973,29 @@
 		<!-- Footer End -->
 	</div>
 	
+	<!-- Cart Toggle Button -->
+	<button class="cart-toggle" onclick="toggleCart()">
+		🛒 Cart
+		<span class="cart-count" id="cartCount">0</span>
+	</button>
+	
+	<!-- Cart Widget -->
+	<div class="cart-widget" id="cartWidget">
+		<div class="cart-header">
+			<div class="cart-title">🛒 Your Order</div>
+			<button class="cart-close" onclick="toggleCart()">&times;</button>
+		</div>
+		<div class="cart-items" id="cartItems">
+			<p style="text-align: center; color: #7f8c8d; margin: 20px 0;">Your cart is empty</p>
+		</div>
+		<div class="cart-total" id="cartTotal" style="display: none;">
+			<div class="cart-total-amount" id="cartTotalAmount">$0.00</div>
+			<button style="background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 20px; margin-top: 10px; cursor: pointer; font-weight: 600;" onclick="proceedToCheckout()">
+				Proceed to Checkout
+			</button>
+		</div>
+	</div>
+	
 	<!-- Image Modal -->
 	<div id="imageModal" class="image-modal">
 		<span class="close">&times;</span>
@@ -757,18 +1057,387 @@
 		setInterval(updateLocalTime, 60000);
 		{% endif %}
 		
-		// LLM Chatbot engagement
+		// Cart functionality
+		let cart = JSON.parse(localStorage.getItem('cart_{{ restaurant.id }}')) || [];
+		let quantities = {};
+		
+		// Initialize quantities from cart
+		cart.forEach(item => {
+			quantities[item.id] = item.quantity;
+		});
+		
+		function addToCart(itemId) {
+			const menuItem = document.querySelector(`[data-item-id="${itemId}"]`);
+			if (!menuItem) return;
+			
+			const itemName = menuItem.dataset.itemName;
+			const itemPrice = parseFloat(menuItem.dataset.itemPrice) || 0;
+			const quantity = quantities[itemId] || 1;
+			
+			// Check if item already in cart
+			const existingItemIndex = cart.findIndex(item => item.id === itemId);
+			
+			if (existingItemIndex > -1) {
+				cart[existingItemIndex].quantity += quantity;
+			} else {
+				cart.push({
+					id: itemId,
+					name: itemName,
+					price: itemPrice,
+					quantity: quantity
+				});
+			}
+			
+			// Save to localStorage and update UI
+			localStorage.setItem('cart_{{ restaurant.id }}', JSON.stringify(cart));
+			updateCartUI();
+			
+			// Show success message
+			showCartMessage(`✅ Added ${quantity}x ${itemName} to cart!`);
+			
+			// Send to external cart API (your original tool approach)
+			sendToExternalCart(itemName, itemPrice);
+		}
+		
+		function removeFromCart(itemId) {
+			cart = cart.filter(item => item.id !== itemId);
+			localStorage.setItem('cart_{{ restaurant.id }}', JSON.stringify(cart));
+			updateCartUI();
+		}
+		
+		function changeQuantity(itemId, delta) {
+			if (!quantities[itemId]) quantities[itemId] = 1;
+			quantities[itemId] = Math.max(1, quantities[itemId] + delta);
+			
+			const quantityDisplay = document.getElementById(`quantity-${itemId}`);
+			if (quantityDisplay) {
+				quantityDisplay.textContent = quantities[itemId];
+			}
+		}
+		
+		function updateCartUI() {
+			const cartItems = document.getElementById('cartItems');
+			const cartCount = document.getElementById('cartCount');
+			const cartTotal = document.getElementById('cartTotal');
+			const cartTotalAmount = document.getElementById('cartTotalAmount');
+			
+			// Update cart count
+			const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+			cartCount.textContent = totalItems;
+			
+			if (cart.length === 0) {
+				cartItems.innerHTML = '<p style="text-align: center; color: #7f8c8d; margin: 20px 0;">Your cart is empty</p>';
+				cartTotal.style.display = 'none';
+				return;
+			}
+			
+			// Build cart items HTML
+			let cartHTML = '';
+			let total = 0;
+			
+			cart.forEach(item => {
+				const subtotal = item.price * item.quantity;
+				total += subtotal;
+				
+				cartHTML += `
+					<div class="cart-item">
+						<div class="cart-item-info">
+							<div class="cart-item-name">${item.quantity}x ${item.name}</div>
+							<div class="cart-item-price">$${subtotal.toFixed(2)}</div>
+						</div>
+						<button onclick="removeFromCart('${item.id}')" style="background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 16px;">🗑️</button>
+					</div>
+				`;
+			});
+			
+			cartItems.innerHTML = cartHTML;
+			cartTotalAmount.textContent = `$${total.toFixed(2)}`;
+			cartTotal.style.display = 'block';
+		}
+		
+		function toggleCart() {
+			const cartWidget = document.getElementById('cartWidget');
+			cartWidget.classList.toggle('show');
+		}
+		
+		function showCartMessage(message) {
+			// Create temporary message element
+			const messageEl = document.createElement('div');
+			messageEl.textContent = message;
+			messageEl.style.cssText = `
+				position: fixed;
+				top: 150px;
+				right: 20px;
+				background: #27ae60;
+				color: white;
+				padding: 10px 15px;
+				border-radius: 5px;
+				z-index: 1001;
+				animation: slideIn 0.3s ease;
+			`;
+			
+			document.body.appendChild(messageEl);
+			
+			// Remove after 3 seconds
+			setTimeout(() => {
+				messageEl.remove();
+			}, 3000);
+		}
+		
+		function proceedToCheckout() {
+			if (cart.length === 0) {
+				alert('Your cart is empty!');
+				return;
+			}
+			
+			// This would integrate with your checkout system
+			alert('Checkout functionality coming soon! Cart contents:\n' + 
+				cart.map(item => `${item.quantity}x ${item.name} - $${(item.price * item.quantity).toFixed(2)}`).join('\n'));
+		}
+		
+		// Send to external cart API (your original approach)
+		function sendToExternalCart(itemName, itemPrice) {
+			fetch('http://localhost:3000/cart', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					name: itemName,
+					price: itemPrice
+				})
+			})
+			.then(response => {
+				if (response.ok) {
+					console.log(`Item '${itemName}' added to external cart successfully.`);
+				} else {
+					console.log(`Failed to add item '${itemName}' to external cart.`);
+				}
+			})
+			.catch(error => {
+				console.log(`Error connecting to external cart service: ${error}`);
+			});
+		}
+		
+		// Enhanced LLM Chatbot engagement with cart context
 		function startChatAboutMenu() {
 			// Navigate to chat page with restaurant-specific pre-filled message
 			const chatUrl = '/chat/';
-			const message = "Tell me about {{ restaurant.name|escapejs }}'s menu, specialties, and dining experience!";
+			const message = `Help me explore {{ restaurant.name|escapejs }}'s menu! I want to learn about their specialties and add items to my cart.`;
 			
-			// Store the pre-filled message in localStorage for the chat page to use
+			// Store context for the chat
 			localStorage.setItem('chatPrefilledMessage', message);
+			localStorage.setItem('chatRestaurantId', '{{ restaurant.id }}');
+			localStorage.setItem('chatRestaurantName', '{{ restaurant.name|escapejs }}');
 			
 			// Navigate to chat page
 			window.location.href = chatUrl;
 		}
+		
+		function showMenuInChat() {
+			const chatUrl = '/chat/';
+			const message = `Show me the full menu for {{ restaurant.name|escapejs }} with prices and help me choose what to order.`;
+			
+			localStorage.setItem('chatPrefilledMessage', message);
+			localStorage.setItem('chatRestaurantId', '{{ restaurant.id }}');
+			localStorage.setItem('chatRestaurantName', '{{ restaurant.name|escapejs }}');
+			
+			window.location.href = chatUrl;
+		}
+
+		// Location and Weather Functionality
+		let userLocation = null;
+		let locationRequested = false;
+
+		function requestLocationAutomatically() {
+			if (navigator.geolocation && !locationRequested) {
+				locationRequested = true;
+				navigator.geolocation.getCurrentPosition(
+					handleLocationSuccess,
+					handleLocationError,
+					{
+						timeout: 10000,
+						maximumAge: 300000, // Cache for 5 minutes
+						enableHighAccuracy: false
+					}
+				);
+			} else {
+				showLocationPrompt();
+			}
+		}
+
+		function requestLocation() {
+			if (navigator.geolocation) {
+				document.getElementById('location-permission-prompt').style.display = 'none';
+				document.getElementById('distance-text').textContent = 'Getting your location...';
+				
+				navigator.geolocation.getCurrentPosition(
+					handleLocationSuccess,
+					handleLocationError,
+					{
+						timeout: 15000,
+						enableHighAccuracy: true
+					}
+				);
+			} else {
+				document.getElementById('distance-text').textContent = 'Location not supported by browser';
+			}
+		}
+
+		function handleLocationSuccess(position) {
+			userLocation = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
+
+			// Hide permission prompt
+			document.getElementById('location-permission-prompt').style.display = 'none';
+			
+			// Update UI to show loading
+			document.getElementById('distance-text').textContent = 'Calculating distance...';
+			document.getElementById('weather-text').textContent = 'Getting weather...';
+
+			// Call API to get distance and weather
+			fetchLocationWeatherData();
+		}
+
+		function handleLocationError(error) {
+			console.log('Location error:', error);
+			
+			let errorMessage = 'Location access denied';
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+					errorMessage = 'Location access denied';
+					showLocationPrompt();
+					break;
+				case error.POSITION_UNAVAILABLE:
+					errorMessage = 'Location unavailable';
+					break;
+				case error.TIMEOUT:
+					errorMessage = 'Location request timed out';
+					showLocationPrompt();
+					break;
+			}
+			
+			document.getElementById('distance-text').textContent = errorMessage;
+			document.getElementById('weather-text').textContent = 'Weather unavailable';
+		}
+
+		function showLocationPrompt() {
+			document.getElementById('location-permission-prompt').style.display = 'block';
+			document.getElementById('distance-text').textContent = 'Location needed for distance';
+			document.getElementById('weather-text').textContent = 'Getting weather...';
+			
+			// Still try to get weather without user location
+			fetchLocationWeatherData(true);
+		}
+
+		function fetchLocationWeatherData(weatherOnly = false) {
+			const restaurantId = '{{ restaurant.id }}';
+			const url = `/restaurants/api/${restaurantId}/location-weather/`;
+			
+			let payload = {};
+			if (userLocation && !weatherOnly) {
+				payload = {
+					user_lat: userLocation.lat,
+					user_lng: userLocation.lng
+				};
+			} else {
+				// Use restaurant location for weather only
+				payload = {
+					user_lat: {% if restaurant.latitude %}{{ restaurant.latitude }}{% else %}0{% endif %},
+					user_lng: {% if restaurant.longitude %}{{ restaurant.longitude }}{% else %}0{% endif %}
+				};
+			}
+
+			fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]')?.value || ''
+				},
+				body: JSON.stringify(payload)
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log('Location/Weather data:', data);
+				updateLocationWeatherUI(data, weatherOnly);
+			})
+			.catch(error => {
+				console.error('Error fetching location/weather:', error);
+				document.getElementById('distance-text').textContent = 'Distance unavailable';
+				document.getElementById('weather-text').textContent = 'Weather unavailable';
+			});
+		}
+
+		function updateLocationWeatherUI(data, weatherOnly = false) {
+			// Update distance
+			if (!weatherOnly && data.distance) {
+				const distance = data.distance;
+				if (distance.status === 'calculated' || distance.status === 'geocoded') {
+					const km = distance.kilometers;
+					const miles = distance.miles;
+					
+					let distanceText = '';
+					if (km < 1) {
+						distanceText = `${km} km away (very close!)`;
+					} else if (km < 5) {
+						distanceText = `${km} km (${miles} mi) away`;
+					} else {
+						distanceText = `${km} km (${miles} mi) away`;
+					}
+					
+					document.getElementById('distance-text').textContent = distanceText;
+				} else {
+					document.getElementById('distance-text').textContent = 'Distance unavailable';
+				}
+			}
+
+			// Update weather
+			if (data.weather && data.weather.status === 'success') {
+				const weather = data.weather;
+				const temp = weather.temperature;
+				const description = weather.description;
+				const icon = weather.icon;
+				
+				// Update weather icon based on conditions
+				let weatherEmoji = '🌤️';
+				if (icon) {
+					if (icon.includes('01')) weatherEmoji = '☀️'; // clear sky
+					else if (icon.includes('02')) weatherEmoji = '⛅'; // few clouds
+					else if (icon.includes('03') || icon.includes('04')) weatherEmoji = '☁️'; // clouds
+					else if (icon.includes('09') || icon.includes('10')) weatherEmoji = '🌧️'; // rain
+					else if (icon.includes('11')) weatherEmoji = '⛈️'; // thunderstorm
+					else if (icon.includes('13')) weatherEmoji = '❄️'; // snow
+					else if (icon.includes('50')) weatherEmoji = '🌫️'; // mist
+				}
+				
+				document.getElementById('weather-icon').textContent = weatherEmoji;
+				document.getElementById('weather-text').textContent = `${temp}°C, ${description}`;
+				
+			} else if (data.weather && data.weather.status === 'no_api_key') {
+				document.getElementById('weather-text').textContent = 'Weather API not configured';
+			} else {
+				document.getElementById('weather-text').textContent = 'Weather unavailable';
+			}
+		}
+
+		// Store location data for chat context
+		function getLocationWeatherContext() {
+			return {
+				userLocation: userLocation,
+				restaurantId: '{{ restaurant.id }}',
+				restaurantName: '{{ restaurant.name|escapejs }}',
+				restaurantCity: '{{ restaurant.city|escapejs }}',
+				restaurantCountry: '{{ restaurant.country|escapejs }}'
+			};
+		}
+		
+		// Initialize cart UI and location on page load
+		document.addEventListener('DOMContentLoaded', function() {
+			updateCartUI();
+			setTimeout(requestLocationAutomatically, 1000);
+		});
 	</script>
 </body>
 </html>

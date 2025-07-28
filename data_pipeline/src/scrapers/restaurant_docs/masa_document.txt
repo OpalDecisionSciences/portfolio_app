@@ -4,12 +4,19 @@
 Japanese
 
 ## Ambiance & Atmosphere
-Refined beauty in a simple and sparse decor, emphasizing a blank canvas for the food to shine.
+Refined beauty with a minimalist decor designed to enhance the dining experience. The atmosphere is intimate and serene, focusing on the purity of the dining experience.
 
 ## Location
-Time Warner Center, Manhattan, NY
+Time Warner Center, Manhattan, New York City, NY.
+
+## Location & Time Zone
+
+Country: United States
+City: New York City
+Timezone: America/New_York
+Current local time: 2025-07-23 12:20:27 EDT
 
 ## Document Information
 
-Generated: 2025-07-21 18:36:17 UTC
+Generated: 2025-07-23 16:20:27 UTC
 Source: https://www.masanyc.com/

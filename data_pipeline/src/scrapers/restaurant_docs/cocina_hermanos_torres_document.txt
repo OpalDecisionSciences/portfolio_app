@@ -1,22 +1,22 @@
 # Cocina Hermanos Torres
 
 ## Cuisine
-Gastronomic
+Spanish
 
 ## Ambiance & Atmosphere
-Comfortable, calm, and pleasant environment with an educational and cultural kitchen where diners can interact with the chefs.
+A comfortable, tranquil environment that allows for interaction between the chef and diners in an open kitchen setting.
 
 ## Location
-Barcelona, Spain
+Spain
 
 ## Location & Time Zone
 
 Country: Spain
-City: Barcelona
+City: 
 Timezone: Europe/Madrid
-Current local time: 2025-07-21 20:54:18 CEST
+Current local time: 2025-07-23 18:42:38 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 18:54:18 UTC
+Generated: 2025-07-23 16:42:38 UTC
 Source: http://www.cocinahermanostorres.com

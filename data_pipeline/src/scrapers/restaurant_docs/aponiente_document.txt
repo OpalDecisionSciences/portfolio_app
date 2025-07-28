@@ -4,7 +4,7 @@
 Seafood
 
 ## Ambiance & Atmosphere
-A fantasy inspiration and play
+A creative and playful atmosphere inspired by the sea.
 
 ## Location
 C/ Francisco Cossi Ochoa, s/n, El Puerto de Santa María, Cádiz
@@ -14,9 +14,9 @@ C/ Francisco Cossi Ochoa, s/n, El Puerto de Santa María, Cádiz
 Country: Spain
 City: El Puerto de Santa María
 Timezone: Europe/Madrid
-Current local time: 2025-07-21 20:41:15 CEST
+Current local time: 2025-07-23 18:26:11 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 18:41:15 UTC
+Generated: 2025-07-23 16:26:11 UTC
 Source: https://www.aponiente.com/

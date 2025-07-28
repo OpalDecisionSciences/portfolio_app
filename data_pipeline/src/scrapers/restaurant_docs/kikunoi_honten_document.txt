@@ -1,22 +1,22 @@
 # Kikunoi Honten
 
 ## Cuisine
-Traditional Japanese
+Japanese
 
 ## Ambiance & Atmosphere
-Traditional Japanese spaces with a focus on the finest hospitality.
+Calm atmosphere with traditional Japanese aesthetics, designed after a traditional mountain cottage combined with modern architecture.
 
 ## Location
-['Kikunoi Main Branch, Kyoto Higashiyama', 'Rokan, Kyoto Kiyamachi', 'Akasaka Kikunoi, Tokyo Akasaka', 'Muromachi Hall, Kyoto Higashiyama']
+459 Shimokawarmachi, Higashiyama-Ku, Kyoto 605-0825 Kyoto Prefecture
 
 ## Location & Time Zone
 
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-22 03:17:46 JST
+Current local time: 2025-07-24 01:19:05 JST
 
 ## Document Information
 
-Generated: 2025-07-21 18:17:46 UTC
+Generated: 2025-07-23 16:19:05 UTC
 Source: https://kikunoi.jp/

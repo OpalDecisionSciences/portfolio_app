@@ -1,22 +1,25 @@
 # La Vague d'Or - Cheval Blanc St-Tropez
 
 ## Cuisine
-Provençal
+French
 
 ## Ambiance & Atmosphere
-Contemporary spirit on the Riviera with a vibrant tribute to the village's history.
+Contemporary spirit on the Riviera with a vibrant tribute to the village's history
 
 ## Location
-St-Tropez, Côte d'Azur
+Saint-Tropez, France
+
+## Language
+Original website language: fr
 
 ## Location & Time Zone
 
 Country: France
-City: St-Tropez
+City: Saint-Tropez
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:24:32 CEST
+Current local time: 2025-07-23 17:51:37 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:24:32 UTC
+Generated: 2025-07-23 15:51:37 UTC
 Source: https://www.chevalblanc.com/fr/maison/st-tropez/

@@ -157,7 +157,9 @@ services:
 
   # Nginx reverse proxy
   nginx:
-    image: nginx:alpine
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.nginx
     container_name: portfolio_nginx_prod
     depends_on:
       - web
@@ -166,16 +168,16 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./docker/nginx.prod.conf:/etc/nginx/nginx.conf:ro
       - static_volume_prod:/staticfiles:ro
       - media_volume_prod:/media:ro
       - ./ssl:/etc/letsencrypt:ro
+      - ./ssl-challenges:/var/www/certbot:ro
       - ./logs/nginx:/var/log/nginx
     networks:
       - portfolio_network_prod
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health/"]
+      test: ["CMD", "curl", "-f", "http://localhost/health/"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -187,7 +189,7 @@ services:
     volumes:
       - ./ssl:/etc/letsencrypt
       - ./ssl-challenges:/var/www/certbot
-    command: certonly --webroot --webroot-path=/var/www/certbot --email your-email@domain.com --agree-tos --no-eff-email --staging -d your-domain.com -d www.your-domain.com
+    command: certonly --webroot --webroot-path=/var/www/certbot --email opaldecisionsciences@gmail.com --agree-tos --no-eff-email --staging -d opaldecisionsciences.com -d www.opaldecisionsciences.com
     profiles:
       - ssl-setup
 

@@ -1,15 +1,15 @@
 # Hiša Raduha
 
 ## Cuisine
-Slovenian
+Not specified
 
 ## Ambiance & Atmosphere
-Cozy and inviting atmosphere focused on good taste and leisure.
+Cozy lodging with a focus on good taste and leisure.
 
 ## Location
 Luče 67, 3334 Luče, Slovenija
 
 ## Document Information
 
-Generated: 2025-07-23 15:21:01 UTC
+Generated: 2025-07-23 15:48:36 UTC
 Source: https://raduha.com/en/

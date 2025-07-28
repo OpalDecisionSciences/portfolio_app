@@ -1,13 +1,13 @@
 # Le Coquillage
 
 ## Cuisine
-French
+Seafood
 
 ## Ambiance & Atmosphere
-Elegant and refined atmosphere with a focus on quality service.
+Fine dining atmosphere with a focus on high-quality service.
 
 ## Location
-Maisons de Bricourt, Cancale, France
+Les Maisons de Bricourt, Cancale, France
 
 ## Language
 Original website language: fr
@@ -17,9 +17,9 @@ Original website language: fr
 Country: France
 City: Cancale
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:18:20 CEST
+Current local time: 2025-07-23 17:46:18 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:18:20 UTC
+Generated: 2025-07-23 15:46:18 UTC
 Source: https://www.maisons-de-bricourt.com/fr/page/le-coquillage

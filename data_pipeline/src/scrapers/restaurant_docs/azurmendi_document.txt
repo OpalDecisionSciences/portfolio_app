@@ -1,22 +1,22 @@
 # Azurmendi
 
 ## Cuisine
-Contemporary Basque
+Basque
 
 ## Ambiance & Atmosphere
-A sea of authenticity where tradition and avant-garde meet in a modern architectural setting, blending with nature.
+A blend of tradition and avant-garde, with a focus on sustainability and modern architecture integrated with nature.
 
 ## Location
-Barrio Legina s/n 48195 Larrabetzu (Bizkaia), Spain
+Barrio Legina s/n 48195 Larrabetzu (Bizkaia)
 
 ## Location & Time Zone
 
 Country: Spain
 City: Larrabetzu
 Timezone: Europe/Madrid
-Current local time: 2025-07-21 20:40:05 CEST
+Current local time: 2025-07-23 18:24:57 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 18:40:05 UTC
+Generated: 2025-07-23 16:24:57 UTC
 Source: http://www.azurmendi.restaurant

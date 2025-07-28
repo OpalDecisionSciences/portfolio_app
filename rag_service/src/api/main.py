@@ -43,6 +43,11 @@ setup_portfolio_paths()
 
 from token_management.token_manager import init_token_manager, call_openai_chat, get_token_usage_summary
 
+# Import hybrid retrieval system
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from retrieval.hybrid_retriever import HybridRetriever
+from tools.location_weather_tools import get_location_weather_tools
+
 load_dotenv(find_dotenv())
 
 # Database configuration - Using Django-compatible environment variables
@@ -91,6 +96,8 @@ class RestaurantQuery(BaseModel):
 embeddings = None
 vectorstore = None
 retriever = None
+hybrid_retriever = None
+location_weather_tools = None
 
 # Initialize Redis for conversation history
 redis_client = redis.Redis(
@@ -146,7 +153,7 @@ def generate_response(context: str, question: str) -> str:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager."""
-    global embeddings, vectorstore, retriever
+    global embeddings, vectorstore, retriever, hybrid_retriever
     
     try:
         # Test Redis connection first (doesn't use OpenAI)
@@ -174,7 +181,37 @@ async def lifespan(app: FastAPI):
                     use_jsonb=True,
                 )
                 
-                retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+                # Initialize hybrid retriever
+                try:
+                    hybrid_retriever = HybridRetriever(
+                        vector_store=vectorstore,
+                        bm25_index_path="/app/data/bm25_index.pkl",
+                        alpha=0.7  # 70% dense, 30% sparse
+                    )
+                    
+                    # Check if BM25 index needs to be built
+                    if hybrid_retriever.bm25_index is None:
+                        logger.info("Building BM25 index from existing documents...")
+                        hybrid_retriever.rebuild_index()
+                    
+                    retriever = hybrid_retriever  # Use hybrid retriever as main retriever
+                    logger.info("Hybrid retrieval system initialized successfully")
+                    
+                except Exception as hybrid_error:
+                    logger.warning(f"Hybrid retriever initialization failed: {hybrid_error}")
+                    # Fallback to basic vector retriever
+                    retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+                    logger.info("Using fallback vector retriever")
+                
+                # Initialize location and weather tools
+                try:
+                    django_base_url = os.getenv("DJANGO_BASE_URL", "http://web:8000")
+                    location_weather_tools = get_location_weather_tools(django_base_url)
+                    logger.info("Location and weather tools initialized")
+                except Exception as tools_error:
+                    logger.warning(f"Location/weather tools initialization failed: {tools_error}")
+                    location_weather_tools = []
+                
                 logger.info("Vector store connection established")
             else:
                 logger.warning("OpenAI token limits reached - running in fallback mode")
@@ -230,6 +267,12 @@ async def health_check():
             vectorstore.similarity_search("test", k=1)
             services.append("vectorstore")
             services.append("openai")
+            
+            # Check hybrid retriever status
+            if hybrid_retriever is not None:
+                services.append("hybrid_retrieval")
+                if hybrid_retriever.bm25_index is not None:
+                    services.append("bm25_index")
         
         return {
             "status": "healthy", 
@@ -479,6 +522,112 @@ async def get_token_usage():
     
     except Exception as e:
         logger.error(f"Error getting token usage: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/retrieval/stats")
+async def get_retrieval_stats():
+    """Get statistics about the retrieval system."""
+    try:
+        stats = {
+            "retriever_type": "hybrid" if hybrid_retriever is not None else "vector_only",
+            "vector_store_available": vectorstore is not None,
+            "services_available": []
+        }
+        
+        if hybrid_retriever is not None:
+            hybrid_stats = hybrid_retriever.get_index_stats()
+            stats.update(hybrid_stats)
+            stats["services_available"].append("hybrid_retrieval")
+            
+            if hybrid_stats["bm25_available"]:
+                stats["services_available"].append("bm25_sparse")
+        
+        if vectorstore is not None:
+            stats["services_available"].append("vector_dense")
+        
+        return stats
+    
+    except Exception as e:
+        logger.error(f"Error getting retrieval stats: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/retrieval/rebuild-index")
+async def rebuild_bm25_index():
+    """Rebuild the BM25 index from current vector store data."""
+    try:
+        if hybrid_retriever is None:
+            raise HTTPException(status_code=503, detail="Hybrid retriever not available")
+        
+        # Rebuild index in background (this could take time)
+        hybrid_retriever.rebuild_index()
+        
+        return {
+            "message": "BM25 index rebuilt successfully",
+            "stats": hybrid_retriever.get_index_stats()
+        }
+    
+    except Exception as e:
+        logger.error(f"Error rebuilding BM25 index: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/query/hybrid")
+async def query_restaurants_hybrid(request: RestaurantQuery):
+    """Query restaurants using hybrid retrieval with detailed result breakdown."""
+    try:
+        if hybrid_retriever is None:
+            raise HTTPException(status_code=503, detail="Hybrid retriever not available")
+        
+        # Perform hybrid search with detailed results
+        hybrid_results = hybrid_retriever.hybrid_search(
+            query=request.query,
+            k=request.limit or 10,
+            filters=request.filters
+        )
+        
+        if not hybrid_results:
+            return {
+                "response": "No relevant restaurants found for your query.",
+                "sources": [],
+                "mode": "hybrid",
+                "retrieval_stats": {
+                    "total_results": 0,
+                    "dense_results": 0,
+                    "sparse_results": 0
+                }
+            }
+        
+        # Generate response using token manager
+        context = "\n\n".join([doc.page_content for doc, score in hybrid_results])
+        response = generate_response(context, request.query)
+        
+        if not response:
+            response = "I apologize, but I'm unable to process your request at the moment due to token limits. Please try again later."
+        
+        # Prepare detailed sources with scores
+        sources = []
+        for doc, score in hybrid_results[:5]:  # Top 5 sources
+            sources.append({
+                "content": doc.page_content[:200] + "..." if len(doc.page_content) > 200 else doc.page_content,
+                "metadata": doc.metadata,
+                "hybrid_score": float(score)
+            })
+        
+        return {
+            "response": response,
+            "sources": sources,
+            "mode": "hybrid",
+            "retrieval_stats": {
+                "total_results": len(hybrid_results),
+                "query_method": "hybrid_dense_sparse",
+                "alpha": hybrid_retriever.alpha
+            }
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in hybrid query: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

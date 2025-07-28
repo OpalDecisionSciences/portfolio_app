@@ -1,1 +1,10 @@
+# Environment files
 .env
+.env.local
+.env.production
+.env.prod
+
+# Don't ignore example files (they should have placeholders only)
+# .env.example
+# .env.prod.example
+.env.prod

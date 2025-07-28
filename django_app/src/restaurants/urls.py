@@ -27,6 +27,17 @@ urlpatterns = [
     path('api/<uuid:restaurant_id>/timezone-status/', views.restaurant_timezone_status_api, name='restaurant_timezone_status_api'),
     path('api/open-now/', views.restaurants_open_now_api, name='restaurants_open_now_api'),
     
+    # Cart API endpoints
+    path('api/cart/', views.cart_api, name='cart_api'),
+    path('api/cart/add/', views.add_to_cart_api, name='add_to_cart_api'),
+    path('api/cart/remove/', views.remove_from_cart_api, name='remove_from_cart_api'),
+    path('api/cart/update/', views.update_cart_api, name='update_cart_api'),
+    path('api/cart/clear/', views.clear_cart_api, name='clear_cart_api'),
+    path('api/cart/llm-interaction/', views.cart_llm_interaction_api, name='cart_llm_interaction_api'),
+    
+    # Location and Weather API
+    path('api/<uuid:restaurant_id>/location-weather/', views.restaurant_location_weather_api, name='restaurant_location_weather_api'),
+    
     # Scraping management
     path('admin/scraping/', views.scraping_jobs, name='scraping_jobs'),
     path('admin/scraping/<uuid:job_id>/', views.scraping_job_detail, name='scraping_job_detail'),

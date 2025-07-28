@@ -4,7 +4,7 @@
 Asian
 
 ## Ambiance & Atmosphere
-Refined atmosphere with a focus on seasonal ingredients and natural flavors.
+Modern, highlighting Asian heritage with a focus on seasonal ingredients.
 
 ## Location
 Hong Kong
@@ -14,9 +14,9 @@ Hong Kong
 Country: China
 City: Hong Kong
 Timezone: Asia/Shanghai
-Current local time: 2025-07-22 02:18:15 CST
+Current local time: 2025-07-24 00:19:30 CST
 
 ## Document Information
 
-Generated: 2025-07-21 18:18:15 UTC
+Generated: 2025-07-23 16:19:30 UTC
 Source: https://www.tavie.com.hk

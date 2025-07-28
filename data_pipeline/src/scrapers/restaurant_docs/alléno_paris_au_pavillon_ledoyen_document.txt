@@ -4,19 +4,19 @@
 Haute Cuisine
 
 ## Ambiance & Atmosphere
-Neoclassical jewel in the heart of Paris with a focus on warmth, timeless moments, and service excellence.
+Neoclassical jewel at the heart of Paris with a warm and timeless atmosphere, featuring precision, elegance, and conviviality.
 
 ## Location
-Paris, France
+Paris, France.
 
 ## Location & Time Zone
 
 Country: France
 City: Paris
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:39:25 CEST
+Current local time: 2025-07-23 18:08:31 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:39:25 UTC
+Generated: 2025-07-23 16:08:31 UTC
 Source: https://www.yannick-alleno.com

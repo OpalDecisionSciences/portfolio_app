@@ -4,19 +4,12 @@
 French
 
 ## Ambiance & Atmosphere
-Smart casual atmosphere with an elegant dining experience, welcoming families with children ages 8 and above.
+Elegant with a stunning view of Victoria Harbour
 
 ## Location
-6/F, Four Seasons Hotel, Hong Kong
-
-## Location & Time Zone
-
-Country: China
-City: Hong Kong
-Timezone: Asia/Shanghai
-Current local time: 2025-07-20 22:37:17 CST
+Four Seasons Hotel Hong Kong, 8 Finance Street, Central, Hong Kong
 
 ## Document Information
 
-Generated: 2025-07-20 14:37:17 UTC
+Generated: 2025-07-23 16:20:27 UTC
 Source: https://www.fourseasons.com/hongkong/dining/restaurants/caprice/

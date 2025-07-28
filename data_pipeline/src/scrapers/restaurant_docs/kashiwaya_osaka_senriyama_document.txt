@@ -4,19 +4,19 @@
 Japanese
 
 ## Ambiance & Atmosphere
-A space reflecting the beautiful changes of the four seasons, offering an experience to step out of the everyday norm.
+Traditional Japanese with innovative dishes reflecting the beauty of the seasons.
 
 ## Location
-{'Senriyama': '2-5-18 Senriyama-nishi, Suita, Osaka 565-0851, Japan', 'Kitashinchi': 'YAMANA K-2 BLDG. 5F 1-7-4 Sonezaki Shinchi, Kita-ku, Osaka City, Osaka 530-0002, Japan'}
+[{'name': 'Senriyama', 'address': '2-5-18 Senriyama-nishi, Suita, Osaka 565-0851, Japan'}, {'name': 'Kitashinchi', 'address': 'YAMANA K-2 BLDG. 5F 1-7-4 Sonezaki Shinchi, Kita-ku, Osaka City, Osaka 530-0002, Japan'}]
 
 ## Location & Time Zone
 
 Country: Japan
 City: Osaka
 Timezone: Asia/Tokyo
-Current local time: 2025-07-22 03:13:58 JST
+Current local time: 2025-07-24 01:16:38 JST
 
 ## Document Information
 
-Generated: 2025-07-21 18:13:58 UTC
+Generated: 2025-07-23 16:16:38 UTC
 Source: https://jp-kashiwaya.com/

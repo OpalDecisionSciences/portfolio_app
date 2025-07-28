@@ -4,22 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Elegant surroundings with refined service
+Family home atmosphere focused on hospitality with a commitment to tradition.
 
 ## Location
 Champagne, France
-
-## Language
-Original website language: fr
 
 ## Location & Time Zone
 
 Country: France
 City: Champagne
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:32:59 CEST
+Current local time: 2025-07-23 18:02:06 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:32:59 UTC
+Generated: 2025-07-23 16:02:06 UTC
 Source: https://www.assiettechampenoise.com/

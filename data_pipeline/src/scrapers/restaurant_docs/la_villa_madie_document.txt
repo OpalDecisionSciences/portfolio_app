@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-A gourmet escape between Land and Sea with a focus on authenticity and excellence.
+Gastronomic getaway with a view of the Mediterranean; service in harmony with cuisine.
 
 ## Location
-Cassis, Anse de Corton, facing the Mediterranean.
+Cassis, Anse de Corton, France
 
 ## Location & Time Zone
 
 Country: France
 City: Cassis
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:32:31 CEST
+Current local time: 2025-07-23 18:00:30 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:32:31 UTC
+Generated: 2025-07-23 16:00:30 UTC
 Source: http://www.lavillamadie.com

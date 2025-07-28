@@ -1,22 +1,22 @@
 # Gion Sasaki
 
 ## Cuisine
-Sushi, Kyoto Cuisine
+Japanese
 
 ## Ambiance & Atmosphere
-Elegant atmosphere with seasonal charm, offering a place for customers to enjoy their meals while the staff also enjoy serving.
+An 'adult kappo izakaya' style with a focus on customer engagement and a fun dining experience.
 
 ## Location
-〒605-0811 Kyoto Prefecture, Kyoto City, Higashiyama Ward, Yasaka Street, Komatsu-cho 566-27
+566-27 Komatsucho Yasaka-dori, Higashiyama-ku, Kyoto-shi, Kyoto 605-0811, Japan
 
 ## Location & Time Zone
 
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-24 00:42:59 JST
+Current local time: 2025-07-24 01:13:49 JST
 
 ## Document Information
 
-Generated: 2025-07-23 15:42:59 UTC
+Generated: 2025-07-23 16:13:49 UTC
 Source: https://gionsasaki.com/

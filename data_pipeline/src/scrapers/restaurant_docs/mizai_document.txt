@@ -1,22 +1,22 @@
 # Mizai
 
 ## Cuisine
-Japanese (Tea Ceremony Cuisine)
+Japanese (Tea Kaiseki)
 
 ## Ambiance & Atmosphere
-Elegant and respectful atmosphere, emphasizing traditional customs and leisurely dining experience.
+Refined, respectful dining atmosphere focusing on harmony and etiquette among guests.
 
 ## Location
-Maruyama, Kyoto, Japan
+Kyoto, Japan
 
 ## Location & Time Zone
 
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-24 00:41:49 JST
+Current local time: 2025-07-24 01:12:35 JST
 
 ## Document Information
 
-Generated: 2025-07-23 15:41:49 UTC
+Generated: 2025-07-23 16:12:35 UTC
 Source: https://mizai.jp/

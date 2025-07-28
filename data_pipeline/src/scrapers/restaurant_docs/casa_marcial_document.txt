@@ -1,22 +1,22 @@
 # Casa Marcial
 
 ## Cuisine
-Spanish
+Asturian
 
 ## Ambiance & Atmosphere
-Warm and welcoming atmosphere focused on hospitality, inspired by family traditions.
+Homely and inviting atmosphere with a focus on hospitality and service.
 
 ## Location
-La Salgar, s/n, 33549 Arriondas, Parres, Asturias, Spain
+La Salgar, s/n, 33549 Arriondas, Parres, Asturias
 
 ## Location & Time Zone
 
 Country: Spain
 City: Arriondas
 Timezone: Europe/Madrid
-Current local time: 2025-07-21 20:47:50 CEST
+Current local time: 2025-07-23 18:32:18 CEST
 
 ## Document Information
 
-Generated: 2025-07-21 18:47:50 UTC
+Generated: 2025-07-23 16:32:18 UTC
 Source: http://www.casamarcial.com

@@ -1,10 +1,10 @@
 # La Marine
 
 ## Cuisine
-Seafood
+Local seafood
 
 ## Ambiance & Atmosphere
-Elegant and modern, the restaurant room awakens the spirit of an exceptional cruise, creating unforgettable memories.
+Elegant and modern, awakening the spirit of an exceptional cruise
 
 ## Location
 3 Rue Marie Lemonnier, 85330 Noirmoutier-en-l'Île, France
@@ -14,9 +14,9 @@ Elegant and modern, the restaurant room awakens the spirit of an exceptional cru
 Country: France
 City: Noirmoutier-en-l'Île
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:29:11 CEST
+Current local time: 2025-07-23 17:56:44 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:29:11 UTC
+Generated: 2025-07-23 15:56:44 UTC
 Source: https://www.alexandrecouillon.com/fr/

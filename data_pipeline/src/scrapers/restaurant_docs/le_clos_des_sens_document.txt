@@ -4,7 +4,7 @@
 Gastronomic
 
 ## Ambiance & Atmosphere
-Elegant and high-end dining experience with a focus on relaxation and fresh flavors.
+Elegant and relaxing with a fresh approach to dining
 
 ## Location
 13 rue Jean Mermoz, 74940 Annecy-le-Vieux, FRANCE
@@ -14,9 +14,9 @@ Elegant and high-end dining experience with a focus on relaxation and fresh flav
 Country: FRANCE
 City: Annecy-le-Vieux
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:30:39 CEST
+Current local time: 2025-07-23 17:58:36 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:30:39 UTC
+Generated: 2025-07-23 15:58:36 UTC
 Source: https://www.closdessens.com/

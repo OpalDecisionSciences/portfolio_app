@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-Comfortable atmosphere with a sense of hospitality, offering a sanctuary away from the hustle and bustle.
+Comfortable atmosphere with a focus on kindness and hospitality.
 
 ## Location
-5, Avenue St Victor, 11360 Fontjoncouse
+{'address': '5, Avenue St Victor, 11360 Fontjoncouse', 'region': 'Corbières, Aude, France'}
 
 ## Location & Time Zone
 
 Country: France
 City: Fontjoncouse
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:36:25 CEST
+Current local time: 2025-07-23 18:05:38 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:36:25 UTC
+Generated: 2025-07-23 16:05:38 UTC
 Source: https://www.aubergeduvieuxpuits.fr/fr/

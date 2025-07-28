@@ -484,6 +484,13 @@ def process_image_ai_categorization(image_id):
                 
                 logger.info(f"AI categorization completed for image {image_id}: {image.ai_category}")
                 
+                # Trigger enhanced embedding update with new AI image classification
+                try:
+                    update_restaurant_embeddings_with_images.delay(image.restaurant.id)
+                    logger.info(f"Queued enhanced embedding update for {image.restaurant.name} after AI classification")
+                except Exception as e:
+                    logger.warning(f"Failed to queue enhanced embedding update: {e}")
+                
                 return {
                     'status': 'completed',
                     'category': image.ai_category,
@@ -720,3 +727,321 @@ def periodic_backlog_processing_task(self):
     except Exception as e:
         logger.error(f"Periodic backlog processing failed: {e}")
         raise self.retry(exc=e)
+
+
+@shared_task
+def update_document_embeddings(restaurant_name, document_file_path=None):
+    """
+    Update document embeddings for a restaurant when new document is created.
+    
+    Args:
+        restaurant_name: Name of the restaurant
+        document_file_path: Optional path to specific document file
+    """
+    try:
+        import requests
+        rag_service_url = getattr(settings, 'RAG_SERVICE_URL', 'http://localhost:8001')
+        
+        # If no specific file path, construct it from restaurant name
+        if not document_file_path:
+            from pathlib import Path
+            # Clean restaurant name for filename matching
+            clean_name = "".join(c if c.isalnum() or c in "-_" else "_" for c in restaurant_name.lower())[:50]
+            docs_dir = Path(__file__).parent.parent.parent.parent.parent / "data_pipeline" / "src" / "scrapers" / "restaurant_docs"
+            document_file_path = docs_dir / f"{clean_name}_document.txt"
+        
+        # Check if document file exists
+        from pathlib import Path
+        doc_path = Path(document_file_path)
+        if not doc_path.exists():
+            logger.warning(f"Document file not found: {document_file_path}")
+            return {'success': False, 'error': 'Document file not found'}
+        
+        # Read document content
+        with open(doc_path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+        
+        if not content:
+            logger.warning(f"Empty document content: {document_file_path}")
+            return {'success': False, 'error': 'Empty document content'}
+        
+        # Enhance content with restaurant name context
+        enhanced_content = f"Restaurant: {restaurant_name}\n\n{content}"
+        
+        # Try to find matching restaurant in database for metadata
+        restaurant = None
+        try:
+            restaurant = Restaurant.objects.filter(
+                name__iexact=restaurant_name.strip(),
+                is_active=True
+            ).first()
+            
+            if not restaurant:
+                # Try partial name match
+                restaurant = Restaurant.objects.filter(
+                    name__icontains=restaurant_name.split()[0],
+                    is_active=True
+                ).first()
+        except Exception as e:
+            logger.warning(f"Could not find restaurant in database: {e}")
+        
+        # Create metadata
+        metadata = {
+            'source': 'scraped_document',
+            'document_file': str(doc_path.name),
+            'restaurant_name': restaurant_name,
+            'restaurant_id': str(restaurant.id) if restaurant else None,
+            'city': restaurant.city if restaurant else None,
+            'country': restaurant.country if restaurant else None,
+            'michelin_stars': restaurant.michelin_stars if restaurant else 0,
+            'cuisine_type': restaurant.cuisine_type if restaurant else None,
+            'processed_at': timezone.now().isoformat()
+        }
+        
+        # Call RAG service to generate and store embeddings
+        response = requests.post(
+            f"{rag_service_url}/embeddings/generate",
+            data={
+                'content': enhanced_content,
+                'metadata': json.dumps(metadata)
+            },
+            timeout=60
+        )
+        response.raise_for_status()
+        
+        logger.info(f"Updated document embeddings for restaurant: {restaurant_name}")
+        
+        return {
+            'success': True,
+            'restaurant_name': restaurant_name,
+            'document_file': str(doc_path.name),
+            'content_length': len(enhanced_content)
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to update document embeddings for {restaurant_name}: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e),
+            'restaurant_name': restaurant_name
+        }
+
+
+@shared_task
+def update_restaurant_embeddings_with_images(restaurant_id):
+    """
+    Enhanced version of update_restaurant_embeddings that includes AI image classifications.
+    
+    Args:
+        restaurant_id: UUID of the restaurant
+    """
+    try:
+        import requests
+        rag_service_url = getattr(settings, 'RAG_SERVICE_URL', 'http://localhost:8001')
+        
+        restaurant = Restaurant.objects.get(id=restaurant_id)
+        
+        # Generate enhanced content including AI image classifications
+        content_parts = [
+            f"Restaurant Name: {restaurant.name}",
+            f"Description: {restaurant.description}" if restaurant.description else "",
+            f"Location: {restaurant.city}, {restaurant.country}",
+            f"Cuisine Type: {restaurant.cuisine_type}" if restaurant.cuisine_type else "",
+            f"Michelin Stars: {restaurant.michelin_stars}" if restaurant.michelin_stars > 0 else "",
+            f"Price Range: {restaurant.price_range}" if restaurant.price_range else "",
+            f"Atmosphere: {restaurant.atmosphere}" if restaurant.atmosphere else ""
+        ]
+        
+        # Add menu content
+        menu_content = []
+        for section in restaurant.menu_sections.all():
+            menu_content.append(f"{section.name}: {section.description}")
+            for item in section.items.all():
+                menu_content.append(f"{item.name} - {item.description}")
+        
+        if menu_content:
+            content_parts.append(f"Menu:\n" + "\n".join(menu_content))
+        
+        # Add AI image classifications and descriptions
+        image_descriptions = []
+        
+        # Get menu item images with AI classifications
+        menu_images = restaurant.images.filter(
+            ai_category='menu_item',
+            processing_status='completed'
+        ).exclude(ai_description__isnull=True).exclude(ai_description__exact='')
+        
+        if menu_images.exists():
+            menu_descriptions = [img.ai_description for img in menu_images[:5]]  # Top 5 menu images
+            image_descriptions.append(f"Menu Items: {'; '.join(menu_descriptions)}")
+        
+        # Get ambiance/scenery images with AI classifications
+        ambiance_images = restaurant.images.filter(
+            ai_category='scenery_ambiance',
+            processing_status='completed'
+        ).exclude(ai_description__isnull=True).exclude(ai_description__exact='')
+        
+        if ambiance_images.exists():
+            ambiance_descriptions = [img.ai_description for img in ambiance_images[:3]]  # Top 3 ambiance images
+            image_descriptions.append(f"Ambiance and Setting: {'; '.join(ambiance_descriptions)}")
+        
+        # Add AI-generated image insights
+        if image_descriptions:
+            content_parts.append(f"Visual Elements:\n" + "\n".join(image_descriptions))
+        
+        # Filter out empty parts
+        content = "\n\n".join([part for part in content_parts if part.strip()])
+        
+        # Enhanced metadata including image information
+        metadata = {
+            'restaurant_name': restaurant.name,
+            'city': restaurant.city,
+            'country': restaurant.country,
+            'cuisine_type': restaurant.cuisine_type,
+            'michelin_stars': restaurant.michelin_stars,
+            'price_range': restaurant.price_range,
+            'has_menu_images': menu_images.exists(),
+            'has_ambiance_images': ambiance_images.exists(),
+            'total_ai_classified_images': restaurant.images.filter(
+                processing_status='completed'
+            ).exclude(ai_category='uncategorized').count(),
+            'updated_at': timezone.now().isoformat()
+        }
+        
+        # Call RAG service to generate and store embeddings
+        response = requests.post(
+            f"{rag_service_url}/embeddings/generate",
+            data={
+                'content': content,
+                'metadata': json.dumps(metadata)
+            },
+            timeout=60
+        )
+        response.raise_for_status()
+        
+        logger.info(f"Updated enhanced embeddings with AI image data for restaurant: {restaurant.name}")
+        
+        return {
+            'success': True,
+            'restaurant_id': str(restaurant_id),
+            'restaurant_name': restaurant.name,
+            'content_length': len(content),
+            'ai_classified_images': metadata['total_ai_classified_images']
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to update enhanced embeddings for restaurant {restaurant_id}: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e),
+            'restaurant_id': str(restaurant_id)
+        }
+
+
+@shared_task
+def batch_process_document_embeddings(max_docs=50):
+    """
+    Batch process document embeddings for restaurants that have document files but no embeddings.
+    
+    Args:
+        max_docs: Maximum number of documents to process in this batch
+    """
+    try:
+        from pathlib import Path
+        
+        # Get all document files
+        docs_dir = Path(__file__).parent.parent.parent.parent.parent / "data_pipeline" / "src" / "scrapers" / "restaurant_docs"
+        doc_files = list(docs_dir.glob("*_document.txt"))
+        
+        processed = 0
+        successful = 0
+        failed = 0
+        
+        for doc_file in doc_files[:max_docs]:
+            # Extract restaurant name from filename
+            restaurant_name = doc_file.stem.replace('_document', '').replace('_', ' ').title()
+            
+            try:
+                result = update_document_embeddings.delay(restaurant_name, str(doc_file))
+                processed += 1
+                
+                # Add small delay to avoid overwhelming the system
+                import time
+                time.sleep(1)
+                
+            except Exception as e:
+                logger.error(f"Error queuing document {doc_file.name} for embedding: {e}")
+                failed += 1
+        
+        logger.info(f"Queued {processed} documents for embedding processing, {failed} failed")
+        
+        return {
+            'success': True,
+            'queued': processed,
+            'failed': failed,
+            'total_docs_available': len(doc_files)
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in batch document processing: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e)
+        }
+
+
+@shared_task
+def trigger_document_embedding_on_scrape(restaurant_name, scraping_results=None):
+    """
+    Trigger document embedding when new scraped data includes document generation.
+    This should be called after successful scraping with document.txt generation.
+    
+    Args:
+        restaurant_name: Name of the restaurant
+        scraping_results: Optional scraping results dict with document info
+    """
+    try:
+        # Check if document was generated in scraping results
+        if scraping_results and scraping_results.get('document_txt'):
+            logger.info(f"Document generated for {restaurant_name}, triggering embedding...")
+            
+            # Queue document embedding task
+            update_document_embeddings.delay(restaurant_name)
+            
+            # Also update restaurant embeddings with any new AI image classifications
+            # Try to find the restaurant in database
+            try:
+                restaurant = Restaurant.objects.filter(
+                    name__icontains=restaurant_name.split()[0],
+                    is_active=True
+                ).first()
+                
+                if restaurant:
+                    update_restaurant_embeddings_with_images.delay(restaurant.id)
+                    logger.info(f"Queued enhanced embedding update for {restaurant.name}")
+                
+            except Exception as e:
+                logger.warning(f"Could not find restaurant for enhanced embedding: {e}")
+            
+            return {
+                'success': True,
+                'restaurant_name': restaurant_name,
+                'document_embedding_queued': True,
+                'enhanced_embedding_queued': restaurant is not None
+            }
+        else:
+            logger.info(f"No document generated for {restaurant_name}, skipping document embedding")
+            return {
+                'success': True,
+                'restaurant_name': restaurant_name,
+                'document_embedding_queued': False,
+                'reason': 'No document generated'
+            }
+            
+    except Exception as e:
+        logger.error(f"Error triggering document embedding for {restaurant_name}: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e),
+            'restaurant_name': restaurant_name
+        }

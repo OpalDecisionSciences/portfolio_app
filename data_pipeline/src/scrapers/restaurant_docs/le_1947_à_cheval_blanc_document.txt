@@ -4,19 +4,19 @@
 French
 
 ## Ambiance & Atmosphere
-A luxurious and alpine atmosphere with fine dining options.
+Refined and luxurious mountain retreat atmosphere.
 
 ## Location
-Courchevel, France
+Courchevel
 
 ## Location & Time Zone
 
 Country: France
 City: Courchevel
 Timezone: Europe/Paris
-Current local time: 2025-07-23 17:40:18 CEST
+Current local time: 2025-07-23 18:09:37 CEST
 
 ## Document Information
 
-Generated: 2025-07-23 15:40:18 UTC
+Generated: 2025-07-23 16:09:37 UTC
 Source: https://www.chevalblanc.com/fr/maison/courchevel/

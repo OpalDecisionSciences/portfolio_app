@@ -33,7 +33,7 @@ if not get_env_bool('DEBUG', False):
         raise Exception(f"Production configuration errors: {', '.join(validation_errors)}")
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = get_env_bool('DEBUG', False)
@@ -154,6 +154,12 @@ os.makedirs(BASE_DIR / 'logs', exist_ok=True)
 # OpenAI Configuration
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
+# Google Maps API Configuration
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+
+# OpenWeather API Configuration
+OPENWEATHER_API_KEY = os.getenv('OPENWEATHER_API_KEY')
+
 # RAG Service Configuration
 RAG_SERVICE_URL = os.getenv('RAG_SERVICE_URL', 'http://localhost:8001')
 
@@ -197,7 +203,7 @@ EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'Michelin Star Service <noreply@example.com>')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'Opal Decision Sciences <noreply@opaldecisionsciences.com>')
 
 # Account Settings
 LOGIN_URL = '/accounts/login/'

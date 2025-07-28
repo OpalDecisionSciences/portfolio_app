@@ -1,15 +1,15 @@
 # Amador
 
 ## Cuisine
-Not specified
+European
 
 ## Ambiance & Atmosphere
-Not specified
+Down-to-earth yet surprising atmosphere with an open kitchen where guests can view the culinary preparation.
 
 ## Location
-Vienna
+Vienna, Austria
 
 ## Document Information
 
-Generated: 2025-07-21 18:32:47 UTC
+Generated: 2025-07-23 16:16:25 UTC
 Source: https://www.restaurant-amador.com/

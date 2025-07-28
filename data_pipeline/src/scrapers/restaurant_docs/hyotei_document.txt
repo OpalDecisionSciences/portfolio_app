@@ -4,10 +4,10 @@
 Kaiseki
 
 ## Ambiance & Atmosphere
-Traditional atmosphere with individually set tearooms featuring a thatched roof and a rustic teahouse experience, reflecting seasonal charms.
+Traditional tea rooms with seasonal decor, featuring straw-thatched roofs and unique charm. The Annex offers a relaxing dining space surrounded by a garden.
 
 ## Location
-Kyoto, Japan
+Nanzen-ji, Kyoto, Japan
 
 ## Language
 Original website language: ja
@@ -17,9 +17,9 @@ Original website language: ja
 Country: Japan
 City: Kyoto
 Timezone: Asia/Tokyo
-Current local time: 2025-07-22 03:15:47 JST
+Current local time: 2025-07-24 01:18:15 JST
 
 ## Document Information
 
-Generated: 2025-07-21 18:15:47 UTC
+Generated: 2025-07-23 16:18:15 UTC
 Source: http://hyotei.co.jp/
