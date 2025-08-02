@@ -92,10 +92,10 @@ class Migration(migrations.Migration):
             "DROP INDEX IF EXISTS restaurants_review_content_search;"
         ),
         
-        # Menu item search optimization (idempotent) - skip is_active until BaseModel migration applied
+        # Menu item search optimization (idempotent) - use correct field name section_id
         migrations.RunSQL(
             "CREATE INDEX CONCURRENTLY IF NOT EXISTS restaurants_menuitem_section_price_idx "
-            "ON restaurants_menuitem (menu_section_id, price);",
+            "ON restaurants_menuitem (section_id, price);",
             
             "DROP INDEX IF EXISTS restaurants_menuitem_section_price_idx;"
         ),
