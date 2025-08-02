@@ -75,10 +75,10 @@ class Migration(migrations.Migration):
             "DROP INDEX IF EXISTS restaurants_restaurant_geo_idx;"
         ),
         
-        # Review search optimization (idempotent)
+        # Review search optimization (idempotent) - skip is_active until BaseModel migration applied
         migrations.RunSQL(
             "CREATE INDEX CONCURRENTLY IF NOT EXISTS restaurants_review_restaurant_rating_idx "
-            "ON restaurants_restaurantreview (restaurant_id, is_active, rating DESC);",
+            "ON restaurants_restaurantreview (restaurant_id, rating DESC);",
             
             "DROP INDEX IF EXISTS restaurants_review_restaurant_rating_idx;"
         ),
@@ -92,10 +92,10 @@ class Migration(migrations.Migration):
             "DROP INDEX IF EXISTS restaurants_review_content_search;"
         ),
         
-        # Menu item search optimization (idempotent)
+        # Menu item search optimization (idempotent) - skip is_active until BaseModel migration applied
         migrations.RunSQL(
             "CREATE INDEX CONCURRENTLY IF NOT EXISTS restaurants_menuitem_section_price_idx "
-            "ON restaurants_menuitem (menu_section_id, is_active, price);",
+            "ON restaurants_menuitem (menu_section_id, price);",
             
             "DROP INDEX IF EXISTS restaurants_menuitem_section_price_idx;"
         ),
