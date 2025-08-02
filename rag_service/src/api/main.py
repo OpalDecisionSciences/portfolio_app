@@ -7,21 +7,25 @@ import json
 import logging
 import os
 import uuid
+import re
 from contextlib import asynccontextmanager
 from typing import List, Optional
 from pathlib import Path
 
 import redis
-from dotenv import find_dotenv, load_dotenv
-from fastapi import FastAPI, HTTPException, Depends
+from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 from langchain_postgres import PGVector
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 import openai
 
 # Get OpenAI API Key from environment variable
@@ -30,11 +34,10 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # Get API key from environment variable
 api_key = os.getenv("OPENAI_API_KEY")
 
-# API Key validation
-if api_key and api_key.startswith('sk-proj-') and len(api_key) > 10:
-    print("API key looks good.")
-else:
-    print("There might be a problem with your API key. Please check!")
+# API Key validation - removed logging for security
+if not api_key:
+    print("WARNING: OPENAI_API_KEY environment variable is required - running in fallback mode")
+    # Allow service to start in fallback mode rather than crashing
 
 # Setup portfolio paths for cross-component imports
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent / "shared" / "src"))
@@ -48,7 +51,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from retrieval.hybrid_retriever import HybridRetriever
 from tools.location_weather_tools import get_location_weather_tools
 
-load_dotenv(find_dotenv())
+# Import unified endpoints
+from unified_search_endpoints import router as unified_search_router
+from unified_embedding_endpoints import router as unified_embedding_router
+
+load_dotenv()
 
 # Database configuration - Using Django-compatible environment variables
 # Support both Django naming (DATABASE_*) and legacy Docker naming (POSTGRES_*) for compatibility
@@ -71,25 +78,94 @@ TOKEN_DIR = Path(__file__).parent.parent.parent.parent / "shared" / "token_manag
 init_token_manager(TOKEN_DIR)
 
 
+def sanitize_input(text: str) -> str:
+    """Sanitize user input to prevent prompt injection and XSS."""
+    if not text:
+        return ""
+    
+    # Remove potential prompt injection patterns
+    text = re.sub(r'(?i)(ignore|forget|disregard)\s+(previous|above|all|earlier)\s+(instructions?|prompts?|context)', '', text)
+    text = re.sub(r'(?i)(act\s+as|pretend\s+to\s+be|you\s+are\s+now)', '', text)
+    text = re.sub(r'(?i)(system|assistant|user)\s*:', '', text)
+    
+    # Remove excessive whitespace and limit length
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    # Limit length to prevent abuse
+    max_length = int(os.getenv('MAX_INPUT_LENGTH', '2000'))
+    if len(text) > max_length:
+        text = text[:max_length]
+    
+    return text
+
+
 class Question(BaseModel):
     question: str
     context: Optional[str] = None
+    
+    @validator('question')
+    def sanitize_question(cls, v):
+        if not v or len(v.strip()) == 0:
+            raise ValueError('Question cannot be empty')
+        return sanitize_input(v)
+    
+    @validator('context')
+    def sanitize_context(cls, v):
+        if v:
+            return sanitize_input(v)
+        return v
 
 
 class ChatMessage(BaseModel):
     role: str
     content: str
+    
+    @validator('role')
+    def validate_role(cls, v):
+        if v not in ['user', 'assistant', 'system']:
+            raise ValueError('Role must be user, assistant, or system')
+        return v
+    
+    @validator('content')
+    def sanitize_content(cls, v):
+        if not v or len(v.strip()) == 0:
+            raise ValueError('Content cannot be empty')
+        return sanitize_input(v)
 
 
 class ConversationRequest(BaseModel):
     message: str
     conversation_id: Optional[str] = None
+    
+    @validator('message')
+    def sanitize_message(cls, v):
+        if not v or len(v.strip()) == 0:
+            raise ValueError('Message cannot be empty')
+        return sanitize_input(v)
+    
+    @validator('conversation_id')
+    def validate_conversation_id(cls, v):
+        if v and not re.match(r'^[a-fA-F0-9-]{36}$', v):
+            raise ValueError('Invalid conversation ID format')
+        return v
 
 
 class RestaurantQuery(BaseModel):
     query: str
     filters: Optional[dict] = None
     limit: Optional[int] = 10
+    
+    @validator('query')
+    def sanitize_query(cls, v):
+        if not v or len(v.strip()) == 0:
+            raise ValueError('Query cannot be empty')
+        return sanitize_input(v)
+    
+    @validator('limit')
+    def validate_limit(cls, v):
+        if v and (v < 1 or v > 50):
+            raise ValueError('Limit must be between 1 and 50')
+        return v or 10
 
 
 # Initialize OpenAI components - will be set up in lifespan
@@ -106,6 +182,9 @@ redis_client = redis.Redis(
     db=int(os.getenv("REDIS_DB", 0)),
     password=os.getenv("REDIS_PASSWORD", None),
 )
+
+# Initialize rate limiter
+limiter = Limiter(key_func=get_remote_address, storage_uri=f"redis://{os.getenv('REDIS_HOST', 'localhost')}:{os.getenv('REDIS_PORT', 6379)}/1")
 
 # Prompt templates for token manager integration
 rephrase_template = """Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question about restaurants, in its original language.
@@ -237,14 +316,32 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware
+# Add rate limiter to app
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# CORS middleware - more secure configuration
+allowed_origins = os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+if not allowed_origins or allowed_origins == [""]:
+    # Development fallback
+    allowed_origins = [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+    ]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=allowed_origins,
+    allow_credentials=False,  # More secure - no credentials with CORS
+    allow_methods=["GET", "POST", "DELETE"],  # Only needed methods
+    allow_headers=["Content-Type", "Authorization"],  # Only needed headers
 )
+
+# Include unified API routers
+app.include_router(unified_search_router)
+app.include_router(unified_embedding_router)
 
 
 @app.get("/")
@@ -289,7 +386,8 @@ async def health_check():
 
 
 @app.post("/query")
-async def query_restaurants(request: RestaurantQuery):
+@limiter.limit("10/minute")
+async def query_restaurants(request: Request, query: RestaurantQuery):
     """Query restaurants using RAG with token manager."""
     try:
         # Check if full RAG is available
@@ -315,16 +413,16 @@ Is there something specific about restaurants or dining I can help you with?"""
             }
         
         # Apply filters if provided
-        if request.filters:
+        if query.filters:
             # TODO: Implement metadata filtering
             pass
         
         # Get relevant documents
-        docs = retriever.get_relevant_documents(request.query)
+        docs = retriever.get_relevant_documents(query.query)
         
         # Generate response using token manager
         context = "\n\n".join([doc.page_content for doc in docs])
-        response = generate_response(context, request.query)
+        response = generate_response(context, query.query)
         
         if not response:
             response = "I apologize, but I'm unable to process your request at the moment due to token limits. Please try again later."
@@ -347,7 +445,8 @@ Is there something specific about restaurants or dining I can help you with?"""
 
 
 @app.post("/conversation/start")
-async def start_conversation():
+@limiter.limit("5/minute")
+async def start_conversation(request: Request):
     """Start a new conversation."""
     try:
         conversation_id = str(uuid.uuid4())
@@ -365,7 +464,8 @@ async def start_conversation():
 
 
 @app.post("/conversation/{conversation_id}")
-async def conversation(conversation_id: str, request: ConversationRequest):
+@limiter.limit("20/minute")
+async def conversation(request: Request, conversation_id: str, conversation_request: ConversationRequest):
     """Continue a conversation using token manager."""
     try:
         # Get conversation history
@@ -377,7 +477,7 @@ async def conversation(conversation_id: str, request: ConversationRequest):
         
         chat_history = json.loads(conversation_history_json.decode("utf-8"))
         
-        logger.info(f"Conversation ID: {conversation_id}, Input: {request.message}")
+        logger.info(f"Conversation ID: {conversation_id}, Input: {conversation_request.message}")
         
         # Check if full RAG is available
         if retriever is None:
@@ -389,13 +489,13 @@ async def conversation(conversation_id: str, request: ConversationRequest):
             ]
             
             # Simple response selection based on message length
-            response_idx = len(request.message) % len(fallback_responses)
+            response_idx = len(conversation_request.message) % len(fallback_responses)
             response = fallback_responses[response_idx]
             
             # Add specific context if possible
-            if any(word in request.message.lower() for word in ["michelin", "star", "fine dining"]):
+            if any(word in conversation_request.message.lower() for word in ["michelin", "star", "fine dining"]):
                 response += " For Michelin-starred restaurants, I'd recommend checking the official Michelin Guide for the most current information."
-            elif any(word in request.message.lower() for word in ["location", "near", "close"]):
+            elif any(word in conversation_request.message.lower() for word in ["location", "near", "close"]):
                 response += " For location-specific recommendations, local review sites and maps can be very helpful."
         else:
             # Full RAG mode
@@ -407,12 +507,12 @@ async def conversation(conversation_id: str, request: ConversationRequest):
             
             # Step 1: Rephrase question if there's conversation history
             if chat_history:
-                rephrased_question = rephrase_question(chat_history_text, request.message)
+                rephrased_question = rephrase_question(chat_history_text, conversation_request.message)
                 if not rephrased_question:
                     # Fallback to original question if rephrasing fails
-                    rephrased_question = request.message
+                    rephrased_question = conversation_request.message
             else:
-                rephrased_question = request.message
+                rephrased_question = conversation_request.message
             
             # Step 2: Get relevant documents
             docs = retriever.get_relevant_documents(rephrased_question)
@@ -425,7 +525,7 @@ async def conversation(conversation_id: str, request: ConversationRequest):
                 response = "I apologize, but I'm unable to process your request at the moment due to token limits. Please try again later."
         
         # Update conversation history
-        chat_history.append({"role": "human", "content": request.message})
+        chat_history.append({"role": "human", "content": conversation_request.message})
         chat_history.append({"role": "assistant", "content": response})
         
         # Save updated history
@@ -574,7 +674,8 @@ async def rebuild_bm25_index():
 
 
 @app.post("/query/hybrid")
-async def query_restaurants_hybrid(request: RestaurantQuery):
+@limiter.limit("10/minute")
+async def query_restaurants_hybrid(request: Request, query: RestaurantQuery):
     """Query restaurants using hybrid retrieval with detailed result breakdown."""
     try:
         if hybrid_retriever is None:
@@ -582,9 +683,9 @@ async def query_restaurants_hybrid(request: RestaurantQuery):
         
         # Perform hybrid search with detailed results
         hybrid_results = hybrid_retriever.hybrid_search(
-            query=request.query,
-            k=request.limit or 10,
-            filters=request.filters
+            query=query.query,
+            k=query.limit or 10,
+            filters=query.filters
         )
         
         if not hybrid_results:
@@ -601,7 +702,7 @@ async def query_restaurants_hybrid(request: RestaurantQuery):
         
         # Generate response using token manager
         context = "\n\n".join([doc.page_content for doc, score in hybrid_results])
-        response = generate_response(context, request.query)
+        response = generate_response(context, query.query)
         
         if not response:
             response = "I apologize, but I'm unable to process your request at the moment due to token limits. Please try again later."

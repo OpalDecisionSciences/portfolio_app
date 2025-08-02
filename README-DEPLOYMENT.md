@@ -21,16 +21,16 @@ ssh -i your-key.pem ubuntu@your-ec2-ip
 sudo apt update && sudo apt upgrade -y
 
 # Clone your repository
-git clone https://github.com/your-username/portfolio_app.git
-cd portfolio_app
+git clone https://github.com/your-username/portfolio_app_production.git
+cd portfolio_app_production
 ```
 
 ### 2. Configure Environment
 
 ```bash
 # Copy and edit production environment file
-cp .env.prod.example .env.prod
-nano .env.prod  # Edit with your production values
+cp .env.example .env
+nano .env  # Edit with your production values
 ```
 
 **Important environment variables to update:**
@@ -94,7 +94,7 @@ docker-compose -f docker-compose.prod.yml restart nginx
 ## 📁 File Structure
 
 ```
-portfolio_app/
+portfolio_app_production/
 ├── docker/
 │   ├── Dockerfile.django.prod      # Production Django container
 │   ├── nginx.prod.conf            # Production Nginx config
@@ -105,7 +105,7 @@ portfolio_app/
 │   ├── restore.sh                 # Database restore script
 │   └── ssl-renew.sh              # SSL renewal script
 ├── docker-compose.prod.yml        # Production services
-├── .env.prod.example             # Environment template
+├── .env.example             # Environment template
 ├── deploy.sh                     # Automated deployment
 └── README-DEPLOYMENT.md          # This file
 ```
@@ -270,7 +270,7 @@ For issues or questions:
 1. Check the logs first: `docker-compose -f docker-compose.prod.yml logs`
 2. Review this documentation
 3. Check service status: `docker-compose -f docker-compose.prod.yml ps`
-4. Ensure environment variables are correctly set in `.env.prod`
+4. Ensure environment variables are correctly set in `.env`
 
 ## 🔄 CI/CD Integration
 
@@ -293,7 +293,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
-            cd /home/ubuntu/portfolio_app
+            cd /home/ubuntu/portfolio_app_production
             git pull origin main
             docker-compose -f docker-compose.prod.yml build
             docker-compose -f docker-compose.prod.yml up -d

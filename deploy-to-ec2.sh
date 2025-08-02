@@ -1,60 +1,217 @@
 #!/bin/bash
 
-# AWS EC2 Deployment Script for Opal Decision Sciences
-# Replace YOUR_EC2_IP and YOUR_KEY_FILE.pem with actual values
-
+# AWS EC2 Production Deployment Script for Portfolio App Production
+# Complete deployment with SSL automation
 set -e
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
 # Configuration
 EC2_IP="13.223.94.223"
 KEY_FILE="~/.ssh/opal-decision-sciences-prod-kp.pem"
 EC2_USER="ubuntu"
-APP_DIR="/home/ubuntu/portfolio_app"
+APP_DIR="/home/ubuntu/portfolio_app_production"
+DOMAIN_NAME="opaldecisionsciences.com"
+EMAIL="opaldecisionsciences@gmail.com"
 
-echo "🚀 Deploying Opal Decision Sciences to AWS EC2..."
+echo -e "${BLUE}🚀 Deploying Portfolio App Production to AWS EC2...${NC}"
+echo -e "${YELLOW}Domain: $DOMAIN_NAME${NC}"
+echo -e "${YELLOW}Email: $EMAIL${NC}"
+
+# Function to print status
+print_status() {
+    echo -e "${GREEN}[INFO]${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
 
 # 1. Copy application files to EC2
-echo "📁 Copying application files..."
+print_status "📁 Copying application files..."
 rsync -avz --exclude='.git' --exclude='__pycache__' --exclude='.venv' --exclude='*.pyc' \
     -e "ssh -i $KEY_FILE -o StrictHostKeyChecking=no" \
     ./ $EC2_USER@$EC2_IP:$APP_DIR/
 
 # 2. Run setup commands on EC2
-echo "⚙️ Setting up application on EC2..."
-ssh -i $KEY_FILE -o StrictHostKeyChecking=no $EC2_USER@$EC2_IP << 'EOF'
+print_status "⚙️ Setting up application on EC2..."
+ssh -i $KEY_FILE -o StrictHostKeyChecking=no $EC2_USER@$EC2_IP << EOF
+    set -e
+    
+    # Colors for remote output
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    NC='\033[0m'
+    
+    print_status() {
+        echo -e "\${GREEN}[INFO]\${NC} \$1"
+    }
+    
+    print_warning() {
+        echo -e "\${YELLOW}[WARNING]\${NC} \$1"
+    }
+    
+    print_error() {
+        echo -e "\${RED}[ERROR]\${NC} \$1"
+    }
+    
     # Update system
+    print_status "Updating system packages..."
     sudo apt update && sudo apt upgrade -y
     
-    # Install Docker
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
-    sudo usermod -aG docker ubuntu
+    # Install Docker if not present
+    if ! command -v docker &> /dev/null; then
+        print_status "Installing Docker..."
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+        sudo usermod -aG docker ubuntu
+        rm get-docker.sh
+    fi
     
-    # Install Docker Compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
+    # Install Docker Compose if not present
+    if ! command -v docker-compose &> /dev/null; then
+        print_status "Installing Docker Compose..."
+        sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-\$(uname -s)-\$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    fi
     
     # Navigate to app directory
-    cd /home/ubuntu/portfolio_app
+    cd $APP_DIR
     
     # Create necessary directories
-    mkdir -p logs ssl ssl-challenges
+    print_status "Creating directories..."
+    mkdir -p logs ssl ssl-challenges production_logs/nginx
     
     # Set permissions
-    sudo chown -R ubuntu:ubuntu /home/ubuntu/portfolio_app
+    sudo chown -R ubuntu:ubuntu $APP_DIR
     
-    # Start application
+    # Install system monitoring tools
+    print_status "Installing system monitoring..."
+    sudo apt-get install -y htop iotop nethogs curl
+    
+    # Set up UFW firewall
+    print_status "Configuring firewall..."
+    sudo ufw --force enable
+    sudo ufw allow ssh
+    sudo ufw allow 80/tcp
+    sudo ufw allow 443/tcp
+    
+    # Build and start services (HTTP first for SSL verification)
+    print_status "Building Docker images..."
+    docker-compose -f docker-compose.prod.yml build
+    
+    print_status "Starting services..."
     docker-compose -f docker-compose.prod.yml up -d
     
-    echo "✅ Application deployed successfully!"
-    echo "🌐 Your app should be accessible at: http://13.223.94.223"
-    echo "🔒 Set up SSL with: docker-compose -f docker-compose.prod.yml --profile ssl-setup up certbot"
+    # Wait for services to be ready
+    print_status "Waiting for services to start..."
+    sleep 30
+    
+    # Check if services are running
+    print_status "Checking service health..."
+    docker-compose -f docker-compose.prod.yml ps
+    
+    # Setup SSL with Let's Encrypt
+    print_status "Setting up SSL certificates..."
+    
+    # First try staging certificate
+    print_status "Requesting staging SSL certificate..."
+    docker-compose -f docker-compose.prod.yml --profile ssl-setup run --rm certbot certonly \
+        --webroot \
+        --webroot-path=/var/www/certbot \
+        --email $EMAIL \
+        --agree-tos \
+        --no-eff-email \
+        --staging \
+        -d $DOMAIN_NAME \
+        -d www.$DOMAIN_NAME || {
+        print_warning "Staging SSL failed, continuing with production cert..."
+    }
+    
+    # Then production certificate
+    print_status "Requesting production SSL certificate..."
+    docker-compose -f docker-compose.prod.yml --profile ssl-setup run --rm certbot certonly \
+        --webroot \
+        --webroot-path=/var/www/certbot \
+        --email $EMAIL \
+        --agree-tos \
+        --no-eff-email \
+        --force-renewal \
+        -d $DOMAIN_NAME \
+        -d www.$DOMAIN_NAME
+    
+    # Restart nginx with SSL
+    print_status "Restarting services with SSL..."
+    docker-compose -f docker-compose.prod.yml restart nginx
+    
+    # Set up SSL certificate auto-renewal
+    print_status "Setting up SSL certificate auto-renewal..."
+    sudo tee /etc/cron.d/certbot-renewal > /dev/null <<CRONEOF
+0 12 * * * root cd $APP_DIR && docker-compose -f docker-compose.prod.yml run --rm certbot renew --quiet && docker-compose -f docker-compose.prod.yml exec nginx nginx -s reload
+CRONEOF
+    
+    # Set up database backups
+    print_status "Setting up database backups..."
+    mkdir -p backups
+    
+    sudo tee /etc/cron.d/portfolio-backup > /dev/null <<CRONEOF
+0 2 * * * root cd $APP_DIR && docker-compose -f docker-compose.prod.yml exec -T db pg_dump -U \\\$POSTGRES_USER \\\$POSTGRES_DB > backups/backup_\\\$(date +\\%Y\\%m\\%d_\\%H\\%M\\%S).sql
+0 3 * * 0 root find $APP_DIR/backups -name "*.sql" -type f -mtime +30 -delete
+CRONEOF
+    
+    # Set up log rotation
+    print_status "Setting up log rotation..."
+    sudo tee /etc/logrotate.d/portfolio-app > /dev/null <<LOGEOF
+$APP_DIR/logs/*.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 644 ubuntu ubuntu
+    postrotate
+        docker-compose -f $APP_DIR/docker-compose.prod.yml exec nginx nginx -s reload
+    endscript
+}
+LOGEOF
+    
+    # Final health check
+    print_status "Performing final health check..."
+    sleep 10
+    
+    # Check HTTPS
+    if curl -f -s https://$DOMAIN_NAME/health/ > /dev/null; then
+        print_status "✅ HTTPS Application is running successfully!"
+    elif curl -f -s http://$DOMAIN_NAME/health/ > /dev/null; then
+        print_warning "⚠️ HTTP Application is running (SSL may need time to propagate)"
+    else
+        print_error "❌ Health check failed. Check logs with: docker-compose -f docker-compose.prod.yml logs"
+    fi
+    
+    print_status "🎉 Deployment completed!"
 EOF
 
-echo "🎉 Deployment complete!"
-echo ""
-echo "Next steps:"
-echo "1. Replace YOUR_EC2_IP in .env.prod with actual IP"
-echo "2. Update DNS to point to your EC2 IP"
-echo "3. Run SSL setup: ssh into server and run SSL command above"
-echo "4. Test at: http://YOUR_EC2_IP"
+echo -e "${GREEN}=== Deployment Complete! ===${NC}"
+echo -e "${YELLOW}Next steps:${NC}"
+echo -e "${YELLOW}1. Your application should be accessible at: https://$DOMAIN_NAME${NC}"
+echo -e "${YELLOW}2. Admin panel: https://$DOMAIN_NAME/admin/${NC}"
+echo -e "${YELLOW}3. Monitor logs: ssh -i $KEY_FILE $EC2_USER@$EC2_IP 'cd $APP_DIR && docker-compose -f docker-compose.prod.yml logs -f'${NC}"
+echo -e "${YELLOW}4. Check service status: ssh -i $KEY_FILE $EC2_USER@$EC2_IP 'cd $APP_DIR && docker-compose -f docker-compose.prod.yml ps'${NC}"
+
+print_warning "Important:"
+echo "- SSL certificates are automatically renewed"
+echo "- Database backups run daily at 2 AM"
+echo "- Log rotation is configured"
+echo "- Firewall is configured for HTTP/HTTPS/SSH only"

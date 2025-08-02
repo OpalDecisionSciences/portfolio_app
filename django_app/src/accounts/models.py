@@ -2,7 +2,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import EmailValidator
 from django.utils import timezone
+from datetime import datetime
 import uuid
+
+# Import zero-CASCADE, zero-NULL architecture components
+from restaurants.base_models import (
+    BaseModel, get_system_user, get_deleted_restaurant_placeholder,
+    DELETED_USER_ID, DELETED_RESTAURANT_ID
+)
 
 
 class User(AbstractUser):
@@ -90,16 +97,21 @@ class User(AbstractUser):
         )
 
 
-class UserFavoriteRestaurant(models.Model):
+class UserFavoriteRestaurant(BaseModel):
     """
     User's favorite restaurants with notes and categories.
     """
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favorite_restaurants')
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.PROTECT, 
+        related_name='favorite_restaurants',
+        default=lambda: DELETED_USER_ID
+    )
     restaurant = models.ForeignKey(
         'restaurants.Restaurant', 
-        on_delete=models.CASCADE,
-        related_name='user_favorites'
+        on_delete=models.PROTECT,
+        related_name='user_favorites',
+        default=get_deleted_restaurant_placeholder
     )
     
     # Favorite details
@@ -155,17 +167,20 @@ class UserFavoriteRestaurant(models.Model):
         return f"{self.user.get_short_name()}'s favorite: {self.restaurant.name}"
 
 
-class UserChatHistory(models.Model):
+class UserChatHistory(BaseModel):
     """
     Store user's chat conversation history for better recommendations.
     """
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chat_history')
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.PROTECT, 
+        related_name='chat_history',
+        default=lambda: DELETED_USER_ID
+    )
     
     # Chat session info
     conversation_id = models.CharField(max_length=100, db_index=True)
-    session_start = models.DateTimeField(auto_now_add=True)
-    session_end = models.DateTimeField(null=True, blank=True)
+    session_end = models.DateTimeField(default=timezone.make_aware(datetime.min))
     
     # Conversation summary
     topics_discussed = models.JSONField(
@@ -201,17 +216,19 @@ class UserChatHistory(models.Model):
         return f"{self.user.get_short_name()}'s chat on {self.session_start.date()}"
 
 
-class PasswordResetToken(models.Model):
+class PasswordResetToken(BaseModel):
     """
     Custom password reset tokens with enhanced security.
     """
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.PROTECT,
+        default=lambda: DELETED_USER_ID
+    )
     token = models.CharField(max_length=100, unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
     used = models.BooleanField(default=False)
-    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    ip_address = models.GenericIPAddressField(default='127.0.0.1')
     
     class Meta:
         ordering = ['-created_at']

@@ -2,6 +2,7 @@
 # Adapted from ~/projects/token_mng/open_ai_token_manager.py
 
 import json
+import os
 import time
 import logging
 from pathlib import Path
@@ -62,12 +63,68 @@ def init_token_manager(project_dir: Path):
     global _path_refs
     _path_refs = setup_paths(project_dir)
 
-    # Initialize logging
-    logging.basicConfig(
-        filename=_path_refs["LOG_FILE"],
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(message)s"
-    )
+    # Initialize S3 logging for production
+    import boto3
+    from botocore.exceptions import ClientError
+    from datetime import datetime
+    
+    log_storage = os.getenv('LOG_STORAGE', 'LOCAL')
+    
+    if log_storage == 'S3':
+        # Configure S3 logging
+        s3_client = boto3.client('s3')
+        log_bucket = os.getenv('LOG_S3_BUCKET', 'michelin-production-logs')
+        log_prefix = os.getenv('LOG_S3_PREFIX', 'logs/')
+        
+        # Setup logging with S3 handler
+        logger = logging.getLogger('token_manager')
+        logger.setLevel(logging.INFO)
+        
+        # Create custom S3 handler
+        class S3LogHandler(logging.Handler):
+            def __init__(self, bucket, prefix):
+                super().__init__()
+                self.bucket = bucket
+                self.prefix = prefix
+                self.s3_client = boto3.client('s3')
+                
+            def emit(self, record):
+                try:
+                    log_entry = self.format(record)
+                    timestamp = datetime.now().strftime('%Y-%m-%d-%H')
+                    key = f"{self.prefix}token_manager/{timestamp}.log"
+                    
+                    # Append to existing log or create new
+                    try:
+                        existing = self.s3_client.get_object(Bucket=self.bucket, Key=key)['Body'].read().decode('utf-8')
+                        log_content = existing + '\n' + log_entry
+                    except ClientError:
+                        log_content = log_entry
+                        
+                    self.s3_client.put_object(
+                        Bucket=self.bucket,
+                        Key=key,
+                        Body=log_content.encode('utf-8')
+                    )
+                except Exception:
+                    pass  # Fail silently to avoid breaking application
+        
+        s3_handler = S3LogHandler(log_bucket, log_prefix)
+        s3_handler.setFormatter(logging.Formatter("%(asctime)s | %(levelname)s | %(message)s"))
+        logger.addHandler(s3_handler)
+        
+        # Also log to stdout for Docker logs
+        if os.getenv('LOG_TO_STDOUT', 'True').lower() == 'true':
+            console_handler = logging.StreamHandler()
+            console_handler.setFormatter(logging.Formatter("%(asctime)s | %(levelname)s | %(message)s"))
+            logger.addHandler(console_handler)
+    else:
+        # Fallback to local file logging
+        logging.basicConfig(
+            filename=_path_refs["LOG_FILE"],
+            level=logging.INFO,
+            format="%(asctime)s | %(levelname)s | %(message)s"
+        )
 
 def load_token_state():
     """Load current token state or initialize new one"""

@@ -1,0 +1,111 @@
+# Docker Compose override for Celery background task processing
+# Use with: docker-compose -f docker-compose.yml -f docker-compose.celery.yml up
+
+version: '3.8'
+
+services:
+  # Celery Worker - Processes background tasks
+  celery-worker:
+    build:
+      context: ./django_app
+      dockerfile: Dockerfile
+    container_name: celery_worker
+    command: celery -A portfolio_project worker --loglevel=info --concurrency=4 --queues=embeddings,ai_processing,scraping,maintenance,celery
+    volumes:
+      - ./django_app/src:/app
+      - ./shared:/app/shared
+      - ./data_pipeline:/app/data_pipeline
+      - celery_logs:/app/logs
+    environment:
+      - DJANGO_SETTINGS_MODULE=portfolio_project.settings
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - POSTGRES_DB=portfolio_db
+      - POSTGRES_USER=portfolio_user
+      - POSTGRES_PASSWORD=portfolio_pass
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - RAG_SERVICE_URL=http://rag:8001
+    depends_on:
+      - db
+      - redis
+      - rag
+    networks:
+      - portfolio_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "celery", "-A", "portfolio_project", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Celery Beat - Schedules periodic tasks
+  celery-beat:
+    build:
+      context: ./django_app
+      dockerfile: Dockerfile
+    container_name: celery_beat
+    command: celery -A portfolio_project beat --loglevel=info --scheduler=django_celery_beat.schedulers:DatabaseScheduler
+    volumes:
+      - ./django_app/src:/app
+      - ./shared:/app/shared
+      - celery_logs:/app/logs
+    environment:
+      - DJANGO_SETTINGS_MODULE=portfolio_project.settings
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - POSTGRES_DB=portfolio_db
+      - POSTGRES_USER=portfolio_user
+      - POSTGRES_PASSWORD=portfolio_pass
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - db
+      - redis
+      - celery-worker
+    networks:
+      - portfolio_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "ps aux | grep 'celery.*beat' | grep -v grep || exit 1"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Celery Flower - Task monitoring (optional, for development/monitoring)
+  celery-flower:
+    build:
+      context: ./django_app
+      dockerfile: Dockerfile
+    container_name: celery_flower
+    command: celery -A portfolio_project flower --port=5555 --basic_auth=admin:flower_pass
+    ports:
+      - "5555:5555"
+    volumes:
+      - celery_logs:/app/logs
+    environment:
+      - DJANGO_SETTINGS_MODULE=portfolio_project.settings
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+      - celery-worker
+    networks:
+      - portfolio_network
+    restart: unless-stopped
+    profiles:
+      - monitoring  # Only start with --profile monitoring
+
+volumes:
+  celery_logs:
+    driver: local
+
+networks:
+  portfolio_network:
+    external: true

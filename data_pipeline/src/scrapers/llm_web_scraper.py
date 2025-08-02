@@ -23,25 +23,84 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 # Load environment variables
-load_dotenv(override=True)
+load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 
-# API Key validation
-if api_key and api_key.startswith('sk-proj-') and len(api_key) > 10:
-    print("API key looks good.")
-else:
-    print("There might be a problem with your API key. Please check!")
+# API Key validation - removed logging for security
+if not api_key:
+    raise ValueError("OPENAI_API_KEY environment variable is required")
 
 # Model configuration
 MODEL = 'gpt-4o-mini'
 openai = OpenAI()
 
-# Logging configuration
-logging.basicConfig(filename="scrape_errors.log", level=logging.ERROR)
+# Initialize S3 logging for production web scraping
+log_storage = os.getenv('LOG_STORAGE', 'LOCAL')
+
+if log_storage == 'S3':
+    import boto3
+    from botocore.exceptions import ClientError
+    from datetime import datetime
+    
+    # Configure S3 logging for web scraping
+    s3_client = boto3.client('s3')
+    log_bucket = os.getenv('LOG_S3_BUCKET', 'michelin-production-logs')
+    log_prefix = os.getenv('LOG_S3_PREFIX', 'logs/')
+    
+    # Setup logging with S3 handler
+    web_scraper_logger = logging.getLogger('web_scraper')
+    web_scraper_logger.setLevel(logging.INFO)
+    
+    # Create custom S3 handler
+    class S3LogHandler(logging.Handler):
+        def __init__(self, bucket, prefix, service_name):
+            super().__init__()
+            self.bucket = bucket
+            self.prefix = prefix
+            self.service_name = service_name
+            self.s3_client = boto3.client('s3')
+            
+        def emit(self, record):
+            try:
+                log_entry = self.format(record)
+                timestamp = datetime.now().strftime('%Y-%m-%d-%H')
+                key = f"{self.prefix}{self.service_name}/{timestamp}.log"
+                
+                # Append to existing log or create new
+                try:
+                    existing = self.s3_client.get_object(Bucket=self.bucket, Key=key)['Body'].read().decode('utf-8')
+                    log_content = existing + '\n' + log_entry
+                except ClientError:
+                    log_content = log_entry
+                    
+                self.s3_client.put_object(
+                    Bucket=self.bucket,
+                    Key=key,
+                    Body=log_content.encode('utf-8')
+                )
+            except Exception:
+                pass  # Fail silently to avoid breaking application
+    
+    s3_handler = S3LogHandler(log_bucket, log_prefix, 'web_scraper')
+    s3_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    web_scraper_logger.addHandler(s3_handler)
+    
+    # Also log to stdout for Docker logs
+    if os.getenv('LOG_TO_STDOUT', 'True').lower() == 'true':
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        web_scraper_logger.addHandler(console_handler)
+else:
+    # Fallback to local file logging
+    logging.basicConfig(filename="scraping.log", level=logging.INFO, 
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+    web_scraper_logger = logging.getLogger('web_scraper')
 
 
 class NewWebsite:
     shared_driver = None  # Shared browser instance across calls
+    _driver_usage_count = 0  # Track usage for cleanup
+    _max_usage_before_restart = 50  # Restart driver after this many uses
 
     def __init__(self, url, driver=None, timeout=20, lang="auto"):
         self.url = url
@@ -51,6 +110,12 @@ class NewWebsite:
         self.driver = driver or NewWebsite._get_shared_driver()
         raw_text, self.title, self.links = self._scrape_content()
         self.text = self._clean_text(raw_text)
+        
+        # Increment usage counter and restart driver if needed
+        NewWebsite._driver_usage_count += 1
+        if NewWebsite._driver_usage_count >= NewWebsite._max_usage_before_restart:
+            web_scraper_logger.info("Restarting Chrome driver after maximum usage reached")
+            NewWebsite._restart_driver()
 
     @classmethod
     def _get_shared_driver(cls):
@@ -76,31 +141,32 @@ class NewWebsite:
             if os.path.exists("/usr/bin/chromium"):
                 options.binary_location = "/usr/bin/chromium"
 
-            # Configure Chrome service for ARM64 compatibility
-            # Priority: container chromedriver > local ARM64 chromedriver > webdriver-manager
+            # Configure Chrome service with proper Docker/container support
+            # Priority: system chromedriver > webdriver-manager
             chromedriver_paths = [
-                "/usr/bin/chromedriver",  # Docker container path (ARM64 compatible)
-                "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"  # Local ARM64 path
+                "/usr/bin/chromedriver",  # Docker container path
+                "/usr/local/bin/chromedriver",  # Common system install path
             ]
             
             service = None
+            # Try system-installed chromedrivers first (for containers)
             for path in chromedriver_paths:
                 if os.path.exists(path):
                     try:
                         service = Service(path)
                         cls.shared_driver = webdriver.Chrome(service=service, options=options)
-                        print(f"Successfully initialized Chrome with driver: {path}")
+                        web_scraper_logger.info(f"Successfully initialized Chrome with system driver: {path}")
                         break
                     except Exception as e:
-                        print(f"Failed to use chromedriver at {path}: {e}")
+                        web_scraper_logger.warning(f"Failed to use chromedriver at {path}: {e}")
                         continue
             
+            # Fallback to webdriver-manager if no system driver found
             if cls.shared_driver is None:
-                # Fallback to webdriver-manager
                 try:
                     service = Service(ChromeDriverManager().install())
                     cls.shared_driver = webdriver.Chrome(service=service, options=options)
-                    print("Successfully initialized Chrome with webdriver-manager")
+                    web_scraper_logger.info("Successfully initialized Chrome with webdriver-manager")
                 except Exception as e:
                     raise Exception(f"Failed to initialize Chrome driver with all methods: {e}")
         return cls.shared_driver
@@ -127,9 +193,9 @@ class NewWebsite:
                             el.click()
                             time.sleep(1)
                         except Exception as e:
-                            logging.warning(f"[WARN] Could not click popup close button: {e}")
+                            web_scraper_logger.warning(f"[WARN] Could not click popup close button: {e}")
         except Exception as e:
-            logging.warning(f"[WARN] Failed to dismiss popup/modals: {e}")
+            web_scraper_logger.warning(f"[WARN] Failed to dismiss popup/modals: {e}")
 
     def _scrape_content(self):
         try:
@@ -233,14 +299,14 @@ class NewWebsite:
                             print(f"[DEBUG] Final URL after language switch: {self.driver.current_url}")
                             return True
                 except Exception as inner_click_error:
-                    logging.warning(f"[WARN] Failed to try button: {inner_click_error}")
+                    web_scraper_logger.warning(f"[WARN] Failed to try button: {inner_click_error}")
                     continue
 
             print("[INFO] No English language switch button clicked.")
             return False
 
         except Exception as e:
-            logging.warning(f"[WARN] Language switching failed: {e}")
+            web_scraper_logger.warning(f"[WARN] Language switching failed: {e}")
             return False
 
 
@@ -271,12 +337,66 @@ class NewWebsite:
         return f"Webpage Title:\n{self.title}\nWebpage Contents:\n{self.text}\n\n"
 
     @classmethod
+    def _restart_driver(cls):
+        """Restart the shared driver to prevent memory leaks."""
+        cls.close_driver()
+        cls._driver_usage_count = 0
+        # Driver will be recreated on next request
+    
+    @classmethod
     def close_driver(cls):
+        """Safely close the shared driver and clean up resources."""
         if cls.shared_driver:
-            cls.shared_driver.quit()
-            cls.shared_driver = None
+            try:
+                # Clear cache and cookies to free memory
+                cls.shared_driver.delete_all_cookies()
+                cls.shared_driver.execute_script("window.localStorage.clear();")
+                cls.shared_driver.execute_script("window.sessionStorage.clear();")
+                
+                # Close all windows
+                for handle in cls.shared_driver.window_handles:
+                    cls.shared_driver.switch_to.window(handle)
+                    cls.shared_driver.close()
+                
+                # Quit driver
+                cls.shared_driver.quit()
+            except Exception as e:
+                web_scraper_logger.warning(f"Error during driver cleanup: {e}")
+            finally:
+                cls.shared_driver = None
+                cls._driver_usage_count = 0
 
     @classmethod
     def initialize_driver(cls):
+        """Initialize the driver if not already initialized."""
         if cls.shared_driver is None:
             cls._get_shared_driver()
+    
+    @classmethod
+    def get_driver_stats(cls):
+        """Get driver usage statistics for monitoring."""
+        return {
+            "is_active": cls.shared_driver is not None,
+            "usage_count": cls._driver_usage_count,
+            "max_usage": cls._max_usage_before_restart,
+            "remaining_uses": cls._max_usage_before_restart - cls._driver_usage_count
+        }
+    
+    @classmethod
+    def set_batch_size(cls, batch_size):
+        """
+        Set the driver restart frequency based on batch size.
+        For batch processing, restart driver after each batch to prevent memory accumulation.
+        """
+        # Set restart frequency to batch size or minimum of 10 for small batches
+        cls._max_usage_before_restart = max(batch_size, 10)
+        web_scraper_logger.info(f"Set driver restart frequency to {cls._max_usage_before_restart} based on batch size {batch_size}")
+    
+    @classmethod
+    def cleanup_for_batch_end(cls):
+        """
+        Perform cleanup at the end of a batch processing session.
+        Forces driver restart to ensure clean state for next batch.
+        """
+        web_scraper_logger.info("Performing batch end cleanup - restarting driver")
+        cls._restart_driver()

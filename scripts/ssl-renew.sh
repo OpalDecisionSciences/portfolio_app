@@ -22,7 +22,7 @@ print_warning() {
 }
 
 # Change to app directory
-cd /home/$(whoami)/portfolio_app
+cd /home/$(whoami)/portfolio_app_production
 
 print_status "Starting SSL certificate renewal..."
 

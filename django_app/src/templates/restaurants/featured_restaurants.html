@@ -1,0 +1,262 @@
+{% load static %}
+{% load restaurant_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title }} - Michelin Star Service</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		.featured-header {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			padding: 60px 0;
+			margin-bottom: 40px;
+		}
+		
+		.featured-header h1 {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-bottom: 15px;
+		}
+		
+		.featured-header p {
+			font-size: 1.1rem;
+			opacity: 0.9;
+			color: white !important;
+		}
+		
+		.restaurant-card {
+			background: white;
+			border-radius: 12px;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+			overflow: hidden;
+			margin-bottom: 30px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+		
+		.restaurant-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+		}
+		
+		.restaurant-image {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+		}
+		
+		.restaurant-content {
+			padding: 25px;
+		}
+		
+		.restaurant-title {
+			font-size: 1.4rem;
+			font-weight: 700;
+			color: #333;
+			margin-bottom: 10px;
+		}
+		
+		.restaurant-cuisine {
+			color: #667eea;
+			font-weight: 600;
+			font-size: 0.9rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 10px;
+		}
+		
+		.restaurant-location {
+			color: #888;
+			font-size: 0.9rem;
+			margin-bottom: 15px;
+		}
+		
+		.restaurant-description {
+			color: #666;
+			line-height: 1.6;
+			margin-bottom: 20px;
+		}
+		
+		.restaurant-features {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			margin-bottom: 20px;
+		}
+		
+		.feature-badge {
+			background: #f8f9ff;
+			color: #667eea;
+			padding: 4px 12px;
+			border-radius: 20px;
+			font-size: 0.8rem;
+			font-weight: 600;
+		}
+		
+		.michelin-stars {
+			color: #ffd700;
+			font-size: 1.2rem;
+		}
+		
+		.view-restaurant-btn {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			border: none;
+			padding: 12px 25px;
+			border-radius: 25px;
+			font-weight: 600;
+			text-decoration: none;
+			display: inline-block;
+			transition: all 0.3s ease;
+		}
+		
+		.view-restaurant-btn:hover {
+			color: white;
+			text-decoration: none;
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+		}
+		
+		.no-restaurants {
+			text-align: center;
+			padding: 80px 20px;
+			color: #888;
+		}
+		
+		.no-restaurants h3 {
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Featured Header -->
+		<div class="featured-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h1>{{ title }}</h1>
+						<p>Discover our carefully curated selection of exceptional dining establishments</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main Content -->
+		<div class="main-section">
+			<div class="page-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							{% if restaurants %}
+								<div class="row">
+									{% for restaurant in restaurants %}
+									<div class="col-lg-6 col-md-12">
+										<div class="restaurant-card">
+											{% if restaurant.featured_image %}
+												<img src="{{ restaurant.featured_image.url }}" alt="{{ restaurant.name }}" class="restaurant-image">
+											{% else %}
+												<div class="restaurant-image" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); display: flex; align-items: center; justify-content: center;">
+													<span style="color: #888; font-size: 1.1rem;">{{ restaurant.name|first }}</span>
+												</div>
+											{% endif %}
+											
+											<div class="restaurant-content">
+												<h3 class="restaurant-title">{{ restaurant.name }}</h3>
+												
+												{% if restaurant.cuisine_type %}
+													<div class="restaurant-cuisine">{{ restaurant.cuisine_type }}</div>
+												{% endif %}
+												
+												{% if restaurant.address %}
+													<div class="restaurant-location">
+														<i class="icon-location"></i> {{ restaurant.address }}
+													</div>
+												{% endif %}
+												
+												{% if restaurant.michelin_stars %}
+													<div class="michelin-stars" title="Michelin Stars">
+														{% for i in restaurant.michelin_stars|get_range %}
+															⭐
+														{% endfor %}
+														<span style="color: #333; font-size: 0.9rem; margin-left: 5px;">
+															{{ restaurant.michelin_stars }} Michelin Star{{ restaurant.michelin_stars|pluralize }}
+														</span>
+													</div>
+												{% endif %}
+												
+												{% if restaurant.description %}
+													<div class="restaurant-description">
+														{{ restaurant.description|truncatewords:25 }}
+													</div>
+												{% endif %}
+												
+												<div class="restaurant-features">
+													{% if restaurant.price_level %}
+														<span class="feature-badge">{{ restaurant.get_price_level_display }}</span>
+													{% endif %}
+													{% if restaurant.is_featured %}
+														<span class="feature-badge">Featured</span>
+													{% endif %}
+													{% if restaurant.accepts_reservations %}
+														<span class="feature-badge">Reservations</span>
+													{% endif %}
+												</div>
+												
+												<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}" class="view-restaurant-btn">
+													View Restaurant
+												</a>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+							{% else %}
+								<div class="no-restaurants">
+									<h3>No Featured Restaurants Found</h3>
+									<p>We're currently updating our featured restaurant selection. Please check back soon!</p>
+									<a href="{% url 'restaurants:restaurant_list' %}" class="view-restaurant-btn" style="margin-top: 20px;">
+										Browse All Restaurants
+									</a>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/bootstrap-slider.js' %}"></script>
+	<script src="{% static 'js/scripts.js' %}"></script>
+</body>
+
+</html>

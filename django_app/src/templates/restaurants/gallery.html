@@ -269,27 +269,23 @@
 									<select name="category" class="form-control">
 										<option value="">All Categories</option>
 										
-										<!-- Traditional AI Categories -->
+										<!-- AI Categories -->
 										{% for category in categories %}
-											{% if category == 'scenery_ambiance' or category == 'menu_item' or category == 'uncategorized' %}
-												<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
-													{% if category == 'scenery_ambiance' %}🏛️ Scenery & Ambiance{% elif category == 'menu_item' %}🍽️ Menu Items{% else %}📷 Uncategorized{% endif %}
-												</option>
-											{% endif %}
-										{% endfor %}
-										
-										<!-- AI Labels Separator -->
-										{% if categories|length > 3 %}
-											<option disabled>──── AI Labels ────</option>
-										{% endif %}
-										
-										<!-- AI Labels for granular filtering -->
-										{% for category in categories %}
-											{% if category != 'scenery_ambiance' and category != 'menu_item' and category != 'uncategorized' %}
-												<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
-													✨ {{ category|title }}
-												</option>
-											{% endif %}
+											<option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>
+												{% if category == 'food' %}🍽️ Food/Dish
+												{% elif category == 'interior' %}🏛️ Interior
+												{% elif category == 'exterior' %}🏢 Exterior
+												{% elif category == 'chef' %}👨‍🍳 Chef
+												{% elif category == 'staff' %}👥 Staff
+												{% elif category == 'ambiance' %}🌟 Ambiance
+												{% elif category == 'presentation' %}🎨 Presentation
+												{% elif category == 'ingredients' %}🥘 Ingredients
+												{% elif category == 'bar' %}🍸 Bar/Drinks
+												{% elif category == 'menu_item' %}🍽️ Menu Items
+												{% elif category == 'scenery_ambiance' %}🏛️ Scenery & Ambiance
+												{% else %}📷 {{ category|title }}
+												{% endif %}
+											</option>
 										{% endfor %}
 									</select>
 									

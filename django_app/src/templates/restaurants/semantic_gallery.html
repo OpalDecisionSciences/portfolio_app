@@ -1,0 +1,1002 @@
+{% load static %}
+{% load restaurant_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Semantic Image Gallery - Michelin Star Service</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		/* Semantic Gallery Styles */
+		.semantic-search-header {
+			background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+			padding: 40px 0;
+			color: white;
+		}
+		
+		.semantic-search-hero {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		
+		.semantic-search-hero h1 {
+			font-size: 36px;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+		
+		.semantic-search-hero p {
+			font-size: 18px;
+			opacity: 0.9;
+			color: white !important;
+		}
+		
+		.semantic-search-bar {
+			background: white;
+			border-radius: 15px;
+			padding: 20px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		
+		.semantic-input {
+			width: 100%;
+			padding: 15px 20px 15px 50px;
+			border: 2px solid #e0e0e0;
+			border-radius: 10px;
+			font-size: 16px;
+			position: relative;
+		}
+		
+		.search-icon-semantic {
+			position: absolute;
+			left: 18px;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #2c3e50;
+			font-size: 18px;
+		}
+		
+		.semantic-filters {
+			margin-top: 15px;
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		
+		.semantic-filter-btn {
+			padding: 6px 12px;
+			border: 1px solid #ddd;
+			border-radius: 20px;
+			background: white;
+			color: #666;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-size: 13px;
+		}
+		
+		.semantic-filter-btn.active {
+			background: #2c3e50;
+			color: white;
+			border-color: #2c3e50;
+		}
+		
+		.semantic-filter-btn:hover {
+			border-color: #2c3e50;
+		}
+		
+		/* Gallery Grid */
+		.semantic-gallery-container {
+			padding: 40px 0;
+		}
+		
+		.gallery-controls {
+			background: white;
+			padding: 20px;
+			border-radius: 12px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			margin-bottom: 30px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 15px;
+		}
+		
+		.gallery-info {
+			color: #666;
+		}
+		
+		.gallery-info h3 {
+			color: #2c3e50;
+			margin-bottom: 5px;
+		}
+		
+		.view-toggle {
+			display: flex;
+			gap: 10px;
+		}
+		
+		.view-btn {
+			padding: 8px 12px;
+			border: 2px solid #e0e0e0;
+			background: white;
+			color: #666;
+			cursor: pointer;
+			border-radius: 6px;
+			transition: all 0.3s ease;
+		}
+		
+		.view-btn.active {
+			border-color: #2c3e50;
+			background: #2c3e50;
+			color: white;
+		}
+		
+		.masonry-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 20px;
+			padding: 0;
+		}
+		
+		.grid-layout {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			gap: 15px;
+		}
+		
+		.list-layout {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+		
+		.image-card {
+			background: white;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			transition: all 0.3s ease;
+			position: relative;
+		}
+		
+		.image-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+		}
+		
+		.image-card.list-style {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		
+		.image-card.list-style .image-container {
+			width: 200px;
+			height: 150px;
+			flex-shrink: 0;
+		}
+		
+		.image-card.list-style .image-info {
+			padding: 20px;
+			flex: 1;
+		}
+		
+		.image-container {
+			position: relative;
+			width: 100%;
+			height: 250px;
+			overflow: hidden;
+		}
+		
+		.image-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+		
+		.image-card:hover .image-container img {
+			transform: scale(1.05);
+		}
+		
+		.image-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 20px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		
+		.image-card:hover .image-overlay {
+			opacity: 1;
+		}
+		
+		.overlay-title {
+			color: white;
+			font-size: 16px;
+			font-weight: 600;
+			margin-bottom: 5px;
+		}
+		
+		.overlay-restaurant {
+			color: rgba(255,255,255,0.9);
+			font-size: 14px;
+		}
+		
+		.image-info {
+			padding: 20px;
+		}
+		
+		.image-title {
+			font-size: 16px;
+			font-weight: 600;
+			color: #2c3e50;
+			margin-bottom: 8px;
+		}
+		
+		.image-restaurant {
+			color: #666;
+			font-size: 14px;
+			margin-bottom: 12px;
+		}
+		
+		.image-restaurant a {
+			color: #2c3e50;
+			text-decoration: none;
+		}
+		
+		.image-restaurant a:hover {
+			text-decoration: underline;
+		}
+		
+		.image-tags {
+			display: flex;
+			gap: 6px;
+			flex-wrap: wrap;
+			margin-bottom: 12px;
+		}
+		
+		.image-tag {
+			background: #f8f9fa;
+			color: #666;
+			padding: 4px 8px;
+			border-radius: 12px;
+			font-size: 11px;
+			border: 1px solid #e9ecef;
+		}
+		
+		.ai-category-badge {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			background: rgba(44, 62, 80, 0.9);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 12px;
+			font-size: 11px;
+			font-weight: 600;
+		}
+		
+		.confidence-badge {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: rgba(46, 204, 113, 0.9);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 12px;
+			font-size: 11px;
+			font-weight: 600;
+		}
+		
+		.confidence-low {
+			background: rgba(231, 76, 60, 0.9) !important;
+		}
+		
+		.confidence-medium {
+			background: rgba(241, 196, 15, 0.9) !important;
+		}
+		
+		.image-description {
+			color: #666;
+			font-size: 13px;
+			line-height: 1.4;
+			margin-bottom: 12px;
+		}
+		
+		.image-meta {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 12px;
+			color: #999;
+		}
+		
+		.michelin-stars {
+			color: #f39c12;
+		}
+		
+		/* Loading States */
+		.gallery-loading {
+			text-align: center;
+			padding: 60px 20px;
+			color: #666;
+		}
+		
+		.loading-spinner {
+			width: 40px;
+			height: 40px;
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #2c3e50;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+			margin: 0 auto 20px;
+		}
+		
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+		
+		.no-results {
+			text-align: center;
+			padding: 80px 20px;
+			color: #666;
+		}
+		
+		.no-results i {
+			font-size: 72px;
+			color: #ddd;
+			margin-bottom: 20px;
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.semantic-search-bar {
+				margin: 0 15px;
+				padding: 15px;
+			}
+			
+			.semantic-search-hero h1 {
+				font-size: 28px;
+			}
+			
+			.gallery-controls {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			
+			.masonry-grid {
+				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				gap: 15px;
+			}
+			
+			.image-card.list-style {
+				flex-direction: column;
+			}
+			
+			.image-card.list-style .image-container {
+				width: 100%;
+				height: 200px;
+			}
+		}
+		
+		/* Lightbox Modal */
+		.image-lightbox {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0,0,0,0.9);
+			z-index: 9999;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+		
+		.lightbox-content {
+			max-width: 90vw;
+			max-height: 90vh;
+			position: relative;
+		}
+		
+		.lightbox-image {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+		}
+		
+		.lightbox-close {
+			position: absolute;
+			top: -40px;
+			right: 0;
+			color: white;
+			font-size: 30px;
+			cursor: pointer;
+			background: none;
+			border: none;
+		}
+		
+		.lightbox-info {
+			position: absolute;
+			bottom: -60px;
+			left: 0;
+			right: 0;
+			color: white;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<!--Main Wrapper-->
+	<div class="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<div class="main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div class="logo">
+								<figure>
+									<a href="{% url 'home' %}" class="light-logo">
+										<div style="display: flex; align-items: center; font-size: 24px; color: #e74c3c;">
+											<i class="icon-star-full" style="font-size: 32px; margin-right: 10px;"></i>
+											<span style="font-weight: bold;">Michelin Star Service</span>
+										</div>
+									</a>
+								</figure>
+							</div>
+							<div class="main-nav">
+								<nav id="site-navigation" class="main-navigation">
+									<ul>
+										<li><a href="{% url 'home' %}">Home</a></li>
+										<li><a href="{% url 'restaurants:restaurant_list' %}">Restaurants</a></li>
+										<li><a href="{% url 'restaurants:gallery' %}">Gallery</a></li>
+										<li><a href="{% url 'restaurants:unified_search' %}">Search</a></li>
+										<li><a href="#" class="active">AI Gallery</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="login-option">
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="#">Login / Register</a>
+								<a class="get-start-btn" href="#">Register Restaurant</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header End -->
+		
+		<!-- Semantic Search Header -->
+		<div class="semantic-search-header">
+			<div class="container">
+				<div class="semantic-search-hero">
+					<h1><i class="icon-camera"></i> AI-Powered Image Gallery</h1>
+					<p>Discover restaurant images through intelligent semantic search and AI categorization</p>
+				</div>
+				
+				<div class="semantic-search-bar">
+					<div style="position: relative;">
+						<i class="icon-search search-icon-semantic"></i>
+						<input type="text" 
+							   id="semanticSearchInput" 
+							   class="semantic-input" 
+							   placeholder="Search images by description, mood, or style... (e.g., 'romantic dining', 'sushi presentation', 'outdoor terrace')"
+							   autocomplete="off">
+					</div>
+					
+					<div class="semantic-filters">
+						<button class="semantic-filter-btn active" data-category="all">All Images</button>
+						<button class="semantic-filter-btn" data-category="food">Food/Dish</button>
+						<button class="semantic-filter-btn" data-category="interior">Interior</button>
+						<button class="semantic-filter-btn" data-category="exterior">Exterior</button>
+						<button class="semantic-filter-btn" data-category="chef">Chef</button>
+						<button class="semantic-filter-btn" data-category="staff">Staff</button>
+						<button class="semantic-filter-btn" data-category="ambiance">Ambiance</button>
+						<button class="semantic-filter-btn" data-category="presentation">Presentation</button>
+						<button class="semantic-filter-btn" data-category="ingredients">Ingredients</button>
+						<button class="semantic-filter-btn" data-category="bar">Bar/Drinks</button>
+						<button class="semantic-filter-btn" data-category="menu_item">Menu Item</button>
+						<button class="semantic-filter-btn" data-category="scenery_ambiance">Scenery/Ambiance</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Gallery Container -->
+		<div class="main-section semantic-gallery-container">
+			<div class="container">
+				<!-- Gallery Controls -->
+				<div class="gallery-controls">
+					<div class="gallery-info">
+						<h3 id="galleryTitle">Restaurant Images</h3>
+						<p id="galleryCount">Loading images...</p>
+					</div>
+					
+					<div class="view-toggle">
+						<button class="view-btn active" data-view="masonry">
+							<i class="icon-grid"></i> Masonry
+						</button>
+						<button class="view-btn" data-view="grid">
+							<i class="icon-grid2"></i> Grid
+						</button>
+						<button class="view-btn" data-view="list">
+							<i class="icon-list"></i> List
+						</button>
+					</div>
+				</div>
+				
+				<!-- Loading State -->
+				<div class="gallery-loading" id="galleryLoading">
+					<div class="loading-spinner"></div>
+					<p>Searching images with AI intelligence...</p>
+				</div>
+				
+				<!-- Image Gallery -->
+				<div class="masonry-grid" id="imageGallery" style="display: none;"></div>
+				
+				<!-- No Results -->
+				<div class="no-results" id="noResults" style="display: none;">
+					<i class="icon-camera"></i>
+					<h3>No images found</h3>
+					<p>Try adjusting your search terms or browse all images</p>
+					<button onclick="clearSemanticSearch()" class="btn btn-primary" style="margin-top: 15px;">
+						Show All Images
+					</button>
+				</div>
+				
+				<!-- Load More Button -->
+				<div style="text-align: center; margin-top: 40px;">
+					<button id="loadMoreBtn" class="btn btn-primary" style="display: none; padding: 12px 30px;">
+						Load More Images
+					</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Image Lightbox -->
+		<div class="image-lightbox" id="imageLightbox">
+			<div class="lightbox-content">
+				<button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+				<img class="lightbox-image" id="lightboxImage" src="" alt="">
+				<div class="lightbox-info" id="lightboxInfo"></div>
+			</div>
+		</div>
+		
+		<!-- Footer Start -->
+		<footer id="footer" class="footer-style-2">
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="widget widget-newsletter">
+								<div class="widget-title">
+									<h5>Subscribe to our Newsletter</h5>
+								</div>
+								<div class="fieldset">
+									<form action="#">
+										<div class="field-holder">
+											<label>
+												<i class="icon-envelope3"></i>
+												<input type="text" class="field-input" placeholder="Enter Your Email Address...">
+											</label>
+										</div>
+										<div class="field-holder btn-holder">
+											<input class="subscribe-btn bgcolor" type="submit" value="Sign Up">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-sec">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="copyright-inner">
+								<div class="copy-right">
+									<p>© 2020 Foodbakery. All Rights Reserved. Developed By <a href="#">Rathan Kumar</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer End -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+	
+	<!-- Semantic Gallery JavaScript -->
+	<script>
+		// Semantic Gallery Application
+		class SemanticGallery {
+			constructor() {
+				this.currentImages = [];
+				this.currentView = 'masonry';
+				this.currentQuery = '';
+				this.currentCategory = 'all';
+				this.isLoading = false;
+				this.hasMoreImages = true;
+				this.offset = 0;
+				this.ragServiceUrl = '{{ rag_service_url|default:"http://localhost:8001" }}';
+				
+				this.initializeEventListeners();
+				this.loadInitialImages();
+			}
+			
+			initializeEventListeners() {
+				// Search input with debounced search
+				let searchTimeout;
+				document.getElementById('semanticSearchInput').addEventListener('input', (e) => {
+					clearTimeout(searchTimeout);
+					searchTimeout = setTimeout(() => {
+						this.performSemanticSearch(e.target.value);
+					}, 500);
+				});
+				
+				// Category filter buttons
+				document.querySelectorAll('.semantic-filter-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						document.querySelectorAll('.semantic-filter-btn').forEach(b => b.classList.remove('active'));
+						btn.classList.add('active');
+						this.currentCategory = btn.dataset.category;
+						this.performSemanticSearch(this.currentQuery);
+					});
+				});
+				
+				// View toggle buttons
+				document.querySelectorAll('.view-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+						btn.classList.add('active');
+						this.currentView = btn.dataset.view;
+						this.updateGalleryView();
+					});
+				});
+				
+				// Load more button
+				document.getElementById('loadMoreBtn').addEventListener('click', () => {
+					this.loadMoreImages();
+				});
+				
+				// Lightbox close on background click
+				document.getElementById('imageLightbox').addEventListener('click', (e) => {
+					if (e.target === e.currentTarget) {
+						this.closeLightbox();
+					}
+				});
+			}
+			
+			async loadInitialImages() {
+				try {
+					// Load featured images initially
+					this.showLoading();
+					await this.loadImagesByCategory('all');
+				} catch (error) {
+					console.error('Failed to load initial images:', error);
+					this.showError('Failed to load images');
+				}
+			}
+			
+			async performSemanticSearch(query) {
+				if (this.isLoading) return;
+				
+				this.currentQuery = query.trim();
+				this.offset = 0;
+				this.currentImages = [];
+				
+				this.showLoading();
+				
+				try {
+					if (this.currentQuery.length === 0) {
+						// Load by category only
+						await this.loadImagesByCategory(this.currentCategory);
+					} else {
+						// Perform semantic search
+						await this.performUnifiedImageSearch(this.currentQuery, this.currentCategory);
+					}
+				} catch (error) {
+					console.error('Semantic search failed:', error);
+					this.showError('Search failed. Please try again.');
+				}
+			}
+			
+			async performUnifiedImageSearch(query, category) {
+				try {
+					const searchData = {
+						query: query,
+						content_types: ['images'],
+						ai_category: category !== 'all' ? category : undefined,
+						limit: 24,
+						offset: this.offset
+					};
+					
+					// Use Django proxy endpoint for enhanced results
+					const response = await fetch('/restaurants/api/unified-search/', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': this.getCSRFToken()
+						},
+						body: JSON.stringify(searchData)
+					});
+					
+					if (!response.ok) {
+						throw new Error(`Search failed: ${response.status}`);
+					}
+					
+					const data = await response.json();
+					
+					// Convert unified search results to image format
+					const images = data.results.filter(result => result.content_type === 'image').map(result => ({
+						id: result.content_id,
+						url: result.image_url || result.thumbnail_url,
+						caption: result.title,
+						restaurant_name: result.django_restaurant_data?.name || 'Unknown Restaurant',
+						restaurant_url: result.django_restaurant_data?.url || '#',
+						ai_category: result.metadata?.ai_category || 'uncategorized',
+						ai_labels: result.metadata?.ai_labels || [],
+						ai_description: result.description,
+						confidence: result.metadata?.category_confidence || 0,
+						michelin_stars: result.django_restaurant_data?.michelin_stars || 0,
+						city: result.django_restaurant_data?.city || '',
+						country: result.django_restaurant_data?.country || '',
+						relevance_score: result.relevance_score || 0
+					}));
+					
+					this.currentImages = images;
+					this.displayImages();
+					this.updateGalleryInfo(query, images.length);
+					
+				} catch (error) {
+					console.error('Unified image search failed:', error);
+					throw error;
+				}
+			}
+			
+			async loadImagesByCategory(category) {
+				try {
+					// Use Django API to load images by category
+					let url = '/restaurants/api/images-by-category/';
+					const params = new URLSearchParams({
+						category: category,
+						limit: 24,
+						offset: this.offset
+					});
+					
+					const response = await fetch(`${url}?${params}`);
+					
+					if (!response.ok) {
+						throw new Error(`Failed to load images: ${response.status}`);
+					}
+					
+					const data = await response.json();
+					this.currentImages = data.images || [];
+					this.displayImages();
+					this.updateGalleryInfo(category === 'all' ? 'All Images' : category, this.currentImages.length);
+					
+				} catch (error) {
+					console.error('Failed to load images by category:', error);
+					// Fallback to showing placeholder
+					this.currentImages = [];
+					this.displayImages();
+				}
+			}
+			
+			displayImages() {
+				const gallery = document.getElementById('imageGallery');
+				const loading = document.getElementById('galleryLoading');
+				const noResults = document.getElementById('noResults');
+				
+				loading.style.display = 'none';
+				
+				if (this.currentImages.length === 0) {
+					gallery.style.display = 'none';
+					noResults.style.display = 'block';
+					return;
+				}
+				
+				noResults.style.display = 'none';
+				gallery.style.display = 'grid';
+				
+				// Generate HTML for images
+				const imagesHTML = this.currentImages.map(image => this.generateImageHTML(image)).join('');
+				gallery.innerHTML = imagesHTML;
+				
+				// Apply current view
+				this.updateGalleryView();
+				
+				// Show load more button if there might be more images
+				document.getElementById('loadMoreBtn').style.display = 
+					this.currentImages.length >= 24 ? 'block' : 'none';
+			}
+			
+			generateImageHTML(image) {
+				const confidenceClass = image.confidence > 0.8 ? '' : 
+									   image.confidence > 0.5 ? 'confidence-medium' : 'confidence-low';
+				
+				const stars = image.michelin_stars > 0 ? '⭐'.repeat(image.michelin_stars) : '';
+				
+				return `
+					<div class="image-card" onclick="openLightbox('${image.id}', '${image.url}', '${image.caption}', '${image.restaurant_name}')">
+						<div class="image-container">
+							<img src="${image.url}" alt="${image.caption}" onerror="this.parentElement.parentElement.style.display='none'">
+							<div class="ai-category-badge">${this.formatCategory(image.ai_category)}</div>
+							${image.confidence > 0 ? `<div class="confidence-badge ${confidenceClass}">${Math.round(image.confidence * 100)}%</div>` : ''}
+							<div class="image-overlay">
+								<div class="overlay-title">${image.caption}</div>
+								<div class="overlay-restaurant">${image.restaurant_name}</div>
+							</div>
+						</div>
+						<div class="image-info">
+							<div class="image-title">${image.caption}</div>
+							<div class="image-restaurant">
+								<a href="${image.restaurant_url}" target="_blank">${image.restaurant_name}</a>
+								${image.city ? ` • ${image.city}` : ''}
+								${stars ? ` • <span class="michelin-stars">${stars}</span>` : ''}
+							</div>
+							${image.ai_labels && image.ai_labels.length > 0 ? `
+								<div class="image-tags">
+									${image.ai_labels.slice(0, 4).map(label => `<span class="image-tag">${label}</span>`).join('')}
+								</div>
+							` : ''}
+							${image.ai_description ? `
+								<div class="image-description">${image.ai_description.substring(0, 100)}${image.ai_description.length > 100 ? '...' : ''}</div>
+							` : ''}
+							<div class="image-meta">
+								<span>AI Classified</span>
+								${image.relevance_score ? `<span>Match: ${Math.round(image.relevance_score * 100)}%</span>` : ''}
+							</div>
+						</div>
+					</div>
+				`;
+			}
+			
+			formatCategory(category) {
+				return category.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+			}
+			
+			updateGalleryView() {
+				const gallery = document.getElementById('imageGallery');
+				const cards = gallery.querySelectorAll('.image-card');
+				
+				// Remove all view classes
+				gallery.classList.remove('masonry-grid', 'grid-layout', 'list-layout');
+				cards.forEach(card => card.classList.remove('list-style'));
+				
+				// Apply current view
+				switch (this.currentView) {
+					case 'masonry':
+						gallery.classList.add('masonry-grid');
+						break;
+					case 'grid':
+						gallery.classList.add('grid-layout');
+						break;
+					case 'list':
+						gallery.classList.add('list-layout');
+						cards.forEach(card => card.classList.add('list-style'));
+						break;
+				}
+			}
+			
+			updateGalleryInfo(query, count) {
+				document.getElementById('galleryTitle').textContent = 
+					query === 'all' || !query ? 'Restaurant Images' : `Search: "${query}"`;
+				document.getElementById('galleryCount').textContent = 
+					`${count} image${count !== 1 ? 's' : ''} found`;
+			}
+			
+			showLoading() {
+				document.getElementById('galleryLoading').style.display = 'block';
+				document.getElementById('imageGallery').style.display = 'none';
+				document.getElementById('noResults').style.display = 'none';
+				this.isLoading = true;
+			}
+			
+			showError(message) {
+				document.getElementById('galleryLoading').style.display = 'none';
+				document.getElementById('imageGallery').style.display = 'none';
+				document.getElementById('noResults').style.display = 'block';
+				document.querySelector('#noResults h3').textContent = 'Error';
+				document.querySelector('#noResults p').textContent = message;
+				this.isLoading = false;
+			}
+			
+			openLightbox(imageId, imageUrl, caption, restaurantName) {
+				document.getElementById('lightboxImage').src = imageUrl;
+				document.getElementById('lightboxInfo').innerHTML = `
+					<h4>${caption}</h4>
+					<p>${restaurantName}</p>
+				`;
+				document.getElementById('imageLightbox').style.display = 'flex';
+				document.body.style.overflow = 'hidden';
+			}
+			
+			closeLightbox() {
+				document.getElementById('imageLightbox').style.display = 'none';
+				document.body.style.overflow = 'auto';
+			}
+			
+			async loadMoreImages() {
+				// Implementation for loading more images
+				console.log('Load more images - to be implemented');
+			}
+			
+			getCSRFToken() {
+				return document.querySelector('[name=csrfmiddlewaretoken]')?.value || 
+					   document.querySelector('input[name="csrfmiddlewaretoken"]')?.value || '';
+			}
+		}
+		
+		// Global functions
+		function clearSemanticSearch() {
+			document.getElementById('semanticSearchInput').value = '';
+			document.querySelectorAll('.semantic-filter-btn').forEach(btn => btn.classList.remove('active'));
+			document.querySelector('.semantic-filter-btn[data-category="all"]').classList.add('active');
+			gallery.currentCategory = 'all';
+			gallery.currentQuery = '';
+			gallery.performSemanticSearch('');
+		}
+		
+		function openLightbox(imageId, imageUrl, caption, restaurantName) {
+			gallery.openLightbox(imageId, imageUrl, caption, restaurantName);
+		}
+		
+		function closeLightbox() {
+			gallery.closeLightbox();
+		}
+		
+		// Initialize the gallery
+		let gallery;
+		document.addEventListener('DOMContentLoaded', function() {
+			gallery = new SemanticGallery();
+		});
+	</script>
+</body>
+</html>

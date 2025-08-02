@@ -1,0 +1,452 @@
+{% load static %}
+{% load restaurant_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title }} - Michelin Star Service</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		.michelin-header {
+			background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+			color: white;
+			padding: 60px 0;
+			margin-bottom: 40px;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.michelin-header::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="60" fill="rgba(255,255,255,0.1)">⭐</text></svg>') repeat;
+			opacity: 0.3;
+		}
+		
+		.michelin-header .content {
+			position: relative;
+			z-index: 2;
+		}
+		
+		.michelin-header h1 {
+			font-size: 2.8rem;
+			font-weight: 700;
+			margin-bottom: 15px;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+		}
+		
+		.michelin-header p {
+			font-size: 1.2rem;
+			opacity: 0.95;
+			color: white !important;
+			text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+		}
+		
+		.star-filter {
+			background: white;
+			border-radius: 12px;
+			padding: 20px;
+			margin-bottom: 30px;
+			box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+		}
+		
+		.star-filter-btn {
+			background: #f8f9fa;
+			border: 2px solid #e9ecef;
+			color: #666;
+			padding: 10px 20px;
+			border-radius: 25px;
+			margin: 5px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.3s ease;
+			display: inline-block;
+		}
+		
+		.star-filter-btn:hover,
+		.star-filter-btn.active {
+			background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+			border-color: #d4af37;
+			color: white;
+			text-decoration: none;
+			transform: translateY(-2px);
+		}
+		
+		.restaurant-card {
+			background: white;
+			border-radius: 15px;
+			box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+			overflow: hidden;
+			margin-bottom: 30px;
+			transition: all 0.3s ease;
+			border: 1px solid #f0f0f0;
+		}
+		
+		.restaurant-card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+		}
+		
+		.restaurant-image {
+			width: 100%;
+			height: 280px;
+			object-fit: cover;
+			position: relative;
+		}
+		
+		.star-overlay {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background: rgba(212, 175, 55, 0.95);
+			color: white;
+			padding: 8px 15px;
+			border-radius: 20px;
+			font-weight: 700;
+			font-size: 0.9rem;
+			backdrop-filter: blur(10px);
+		}
+		
+		.restaurant-content {
+			padding: 30px;
+		}
+		
+		.restaurant-title {
+			font-size: 1.6rem;
+			font-weight: 700;
+			color: #333;
+			margin-bottom: 12px;
+		}
+		
+		.restaurant-cuisine {
+			color: #d4af37;
+			font-weight: 600;
+			font-size: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 15px;
+		}
+		
+		.restaurant-location {
+			color: #888;
+			font-size: 1rem;
+			margin-bottom: 15px;
+			display: flex;
+			align-items: center;
+		}
+		
+		.restaurant-location i {
+			margin-right: 8px;
+			color: #d4af37;
+		}
+		
+		.michelin-stars {
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+			display: flex;
+			align-items: center;
+		}
+		
+		.stars {
+			color: #ffd700;
+			margin-right: 10px;
+		}
+		
+		.star-text {
+			color: #d4af37;
+			font-weight: 700;
+			font-size: 1rem;
+		}
+		
+		.restaurant-description {
+			color: #666;
+			line-height: 1.7;
+			margin-bottom: 25px;
+			font-size: 1rem;
+		}
+		
+		.restaurant-features {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			margin-bottom: 25px;
+		}
+		
+		.feature-badge {
+			background: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+			color: #d4af37;
+			padding: 6px 15px;
+			border-radius: 20px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			border: 1px solid #f0f0f0;
+		}
+		
+		.price-badge {
+			background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+			color: white;
+			padding: 6px 15px;
+			border-radius: 20px;
+			font-size: 0.85rem;
+			font-weight: 700;
+		}
+		
+		.view-restaurant-btn {
+			background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+			color: white;
+			border: none;
+			padding: 15px 30px;
+			border-radius: 30px;
+			font-weight: 700;
+			text-decoration: none;
+			display: inline-block;
+			transition: all 0.3s ease;
+			font-size: 1rem;
+		}
+		
+		.view-restaurant-btn:hover {
+			color: white;
+			text-decoration: none;
+			transform: translateY(-3px);
+			box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+		}
+		
+		.no-restaurants {
+			text-align: center;
+			padding: 100px 20px;
+			color: #888;
+		}
+		
+		.no-restaurants h3 {
+			font-size: 2rem;
+			margin-bottom: 20px;
+			color: #d4af37;
+		}
+		
+		.stats-section {
+			background: #f8f9fa;
+			padding: 30px 0;
+			margin-bottom: 30px;
+		}
+		
+		.stat-item {
+			text-align: center;
+			padding: 20px;
+		}
+		
+		.stat-number {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #d4af37;
+			display: block;
+		}
+		
+		.stat-label {
+			color: #666;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 0.9rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Michelin Header -->
+		<div class="michelin-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="content">
+							<h1>{{ title }}</h1>
+							<p>Experience the pinnacle of culinary excellence with our Michelin-starred establishments</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Stats Section -->
+		{% if restaurants %}
+		<div class="stats-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="stat-item">
+							<span class="stat-number">{{ restaurants|length }}</span>
+							<span class="stat-label">Starred Restaurants</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="stat-item">
+							<span class="stat-number">
+								{% with total_stars=restaurants|sum_michelin_stars %}{{ total_stars }}{% endwith %}
+							</span>
+							<span class="stat-label">Total Stars</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="stat-item">
+							<span class="stat-number">
+								{{ restaurants|filter_by_stars:3|length }}
+							</span>
+							<span class="stat-label">3-Star Restaurants</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
+		<!-- Main Content -->
+		<div class="main-section">
+			<div class="page-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<!-- Star Filter -->
+							<div class="star-filter text-center">
+								<h4 style="margin-bottom: 20px; color: #333;">Filter by Stars</h4>
+								<a href="?stars=all" class="star-filter-btn {% if not request.GET.stars or request.GET.stars == 'all' %}active{% endif %}">
+									All Stars
+								</a>
+								<a href="?stars=3" class="star-filter-btn {% if request.GET.stars == '3' %}active{% endif %}">
+									⭐⭐⭐ 3 Stars
+								</a>
+								<a href="?stars=2" class="star-filter-btn {% if request.GET.stars == '2' %}active{% endif %}">
+									⭐⭐ 2 Stars
+								</a>
+								<a href="?stars=1" class="star-filter-btn {% if request.GET.stars == '1' %}active{% endif %}">
+									⭐ 1 Star
+								</a>
+							</div>
+
+							{% if restaurants %}
+								<div class="row">
+									{% for restaurant in restaurants %}
+									<div class="col-lg-6 col-md-12">
+										<div class="restaurant-card">
+											<div style="position: relative;">
+												{% if restaurant.featured_image %}
+													<img src="{{ restaurant.featured_image.url }}" alt="{{ restaurant.name }}" class="restaurant-image">
+												{% else %}
+													<div class="restaurant-image" style="background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%); display: flex; align-items: center; justify-content: center;">
+														<span style="color: white; font-size: 3rem; font-weight: 700;">{{ restaurant.name|first }}</span>
+													</div>
+												{% endif %}
+												
+												<div class="star-overlay">
+													{% for i in restaurant.michelin_stars|get_range %}⭐{% endfor %}
+													{{ restaurant.michelin_stars }} Star{{ restaurant.michelin_stars|pluralize }}
+												</div>
+											</div>
+											
+											<div class="restaurant-content">
+												<h3 class="restaurant-title">{{ restaurant.name }}</h3>
+												
+												{% if restaurant.cuisine_type %}
+													<div class="restaurant-cuisine">{{ restaurant.cuisine_type }}</div>
+												{% endif %}
+												
+												{% if restaurant.address %}
+													<div class="restaurant-location">
+														<i class="icon-location"></i> {{ restaurant.address }}
+													</div>
+												{% endif %}
+												
+												<div class="michelin-stars">
+													<span class="stars">
+														{% for i in restaurant.michelin_stars|get_range %}⭐{% endfor %}
+													</span>
+													<span class="star-text">
+														{{ restaurant.michelin_stars }} Michelin Star{{ restaurant.michelin_stars|pluralize }}
+													</span>
+												</div>
+												
+												{% if restaurant.description %}
+													<div class="restaurant-description">
+														{{ restaurant.description|truncatewords:30 }}
+													</div>
+												{% endif %}
+												
+												<div class="restaurant-features">
+													{% if restaurant.price_level %}
+														<span class="price-badge">{{ restaurant.get_price_level_display }}</span>
+													{% endif %}
+													{% if restaurant.accepts_reservations %}
+														<span class="feature-badge">Reservations Available</span>
+													{% endif %}
+													{% if restaurant.is_featured %}
+														<span class="feature-badge">Featured</span>
+													{% endif %}
+												</div>
+												
+												<a href="{% url 'restaurants:restaurant_detail' restaurant.slug %}" class="view-restaurant-btn">
+													Discover Excellence
+												</a>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+							{% else %}
+								<div class="no-restaurants">
+									<h3>No Michelin Starred Restaurants Found</h3>
+									<p>We're currently building our collection of Michelin-starred establishments. Please check back soon for exceptional dining experiences!</p>
+									<a href="{% url 'restaurants:restaurant_list' %}" class="view-restaurant-btn" style="margin-top: 30px;">
+										Browse All Restaurants
+									</a>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/bootstrap-slider.js' %}"></script>
+	<script src="{% static 'js/scripts.js' %}"></script>
+	
+	<script>
+		// Star filter functionality
+		$(document).ready(function() {
+			$('.star-filter-btn').click(function(e) {
+				$('.star-filter-btn').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+	</script>
+</body>
+
+</html>

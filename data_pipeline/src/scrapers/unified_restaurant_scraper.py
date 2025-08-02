@@ -19,7 +19,7 @@ import concurrent.futures
 from urllib.robotparser import RobotFileParser
 from datetime import datetime, timedelta
 import hashlib
-import base64
+# base64 no longer needed - handled by ImageAI service
 from io import BytesIO
 import pytz
 
@@ -83,11 +83,11 @@ try:
 except ImportError:
     from .llm_web_scraper import NewWebsite
 
-from openai import OpenAI
+# OpenAI integration now via ImageAI service
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(override=True)
+load_dotenv()
 
 # Configuration
 SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.webp', '.gif']
@@ -102,7 +102,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Initialize OpenAI client
-openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+# OpenAI client now handled by ImageAI service
 
 
 class UnifiedRestaurantScraper:
@@ -333,11 +333,10 @@ class UnifiedRestaurantScraper:
             if os.path.exists("/usr/bin/chromium"):
                 options.binary_location = "/usr/bin/chromium"
             
-            # Configure Chrome service for ARM64 compatibility
-            # Priority: container chromedriver > local ARM64 chromedriver > webdriver-manager
+            # Configure Chrome service for production deployment
+            # Priority: container chromedriver > webdriver-manager fallback
             chromedriver_paths = [
-                "/usr/bin/chromedriver",  # Docker container path (ARM64 compatible)
-                "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"  # Local ARM64 path
+                "/usr/bin/chromedriver",  # Docker container path (production)
             ]
             
             service = None
@@ -1046,69 +1045,8 @@ class UnifiedRestaurantScraper:
             logger.debug(f"Image download failed for {img_url}: {e}")
             return None
     
-    def _categorize_image_with_ai(self, image_path: Path) -> Dict[str, Any]:
-        """Categorize image using OpenAI Vision API."""
-        try:
-            with open(image_path, 'rb') as img_file:
-                image_data = img_file.read()
-            
-            base64_image = base64.b64encode(image_data).decode('utf-8')
-            
-            categorization_prompt = """
-            You are an expert at analyzing restaurant images. Please categorize this image and provide detailed labels.
-            
-            Respond with a JSON object containing:
-            {
-                "category": "scenery_ambiance" or "menu_item",
-                "category_confidence": 0.0-1.0,
-                "labels": ["label1", "label2", "label3"],
-                "description": "detailed description of what's in the image",
-                "description_confidence": 0.0-1.0
-            }
-            
-            Category definitions:
-            - "scenery_ambiance": Restaurant exterior, interior, dining rooms, views, atmosphere, ambiance, seating areas, decor
-            - "menu_item": Food dishes, beverages, plated items, cooking process, ingredients
-            
-            Labels should be specific descriptors like:
-            - For scenery_ambiance: "mountain views", "outdoor terrace", "romantic lighting", "modern interior", "rustic decor"
-            - For menu_item: "pasta dish", "wine glass", "dessert plate", "seafood entree", "artisanal bread"
-            
-            Be confident in your categorization and provide 3-5 relevant labels.
-            """
-            
-            response = openai_client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": categorization_prompt},
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": f"data:image/jpeg;base64,{base64_image}"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                response_format={"type": "json_object"},
-                max_tokens=300
-            )
-            
-            result = json.loads(response.choices[0].message.content)
-            return result
-            
-        except Exception as e:
-            logger.error(f"AI image categorization failed: {e}")
-            return {
-                'category': 'uncategorized',
-                'labels': [],
-                'description': 'AI categorization failed',
-                'category_confidence': 0.0,
-                'description_confidence': 0.0
-            }
+    # Image categorization is now handled by the ImageIntegrator in processors/
+    # This method has been removed as it was dead code - not called in current workflow
     
     def _extract_json_from_response(self, response: str) -> Optional[str]:
         """Extract JSON from LLM response that may contain extra text."""

@@ -222,10 +222,9 @@ class ChromeDriverPool:
             if Path("/usr/bin/chromium").exists():
                 options.binary_location = "/usr/bin/chromium"
             
-            # Configure Chrome service for ARM64 compatibility
+            # Configure Chrome service for production deployment
             chromedriver_paths = [
                 "/usr/bin/chromedriver",  # Docker container path
-                "/Users/iamai/.wdm/drivers/chromedriver/mac64/138.0.7204.157/chromedriver-mac-arm64/chromedriver"
             ]
             
             for path in chromedriver_paths:
@@ -313,12 +312,26 @@ class ChromeDriverPool:
 class AsyncScraperManager:
     """Asynchronous scraper manager with multi-threading and retry logic."""
     
-    def __init__(self, max_workers: int = 3, max_driver_instances: int = 3):
+    def __init__(self, max_workers: int = 3, max_driver_instances: int = 3, batch_size: int = 10):
         self.max_workers = max_workers
+        self.batch_size = batch_size
         self.driver_pool = ChromeDriverPool(max_driver_instances)
         self.backlog = ScrapingBacklog()
         self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=max_workers)
         self._shutdown = False
+        
+        # Configure NewWebsite memory management based on batch size
+        self._setup_memory_management()
+    
+    def _setup_memory_management(self):
+        """Configure NewWebsite memory management based on batch processing requirements."""
+        try:
+            from .llm_web_scraper import NewWebsite
+            # Set driver restart frequency based on batch size to prevent memory leaks
+            NewWebsite.set_batch_size(self.batch_size)
+            logger.info(f"Configured NewWebsite memory management for batch size: {self.batch_size}")
+        except ImportError:
+            logger.warning("Could not configure NewWebsite memory management - module not available")
     
     async def scrape_async(self, tasks: List[ScrapingTask]) -> List[Dict[str, Any]]:
         """Scrape multiple tasks asynchronously."""
@@ -455,6 +468,9 @@ class AsyncScraperManager:
             results = loop.run_until_complete(self.scrape_async(pending_tasks))
             successful = sum(1 for r in results if isinstance(r, dict) and r.get('success'))
             
+            # Perform batch end cleanup to prevent memory leaks
+            self._cleanup_batch_end()
+            
             return {
                 'processed': len(pending_tasks),
                 'successful': successful,
@@ -476,6 +492,15 @@ class AsyncScraperManager:
         self.backlog.add_task(task)
         return task.id
     
+    def _cleanup_batch_end(self):
+        """Perform cleanup at the end of batch processing to prevent memory leaks."""
+        try:
+            from .llm_web_scraper import NewWebsite
+            NewWebsite.cleanup_for_batch_end()
+            logger.info("Performed batch end cleanup for memory leak prevention")
+        except ImportError:
+            logger.warning("Could not perform NewWebsite batch cleanup - module not available")
+    
     def get_backlog_stats(self) -> Dict[str, Any]:
         """Get comprehensive backlog statistics."""
         return self.backlog.get_stats()
@@ -491,8 +516,19 @@ class AsyncScraperManager:
 _scraper_manager = None
 
 def get_scraper_manager() -> AsyncScraperManager:
-    """Get the global scraper manager instance."""
+    """Get the global scraper manager instance with Django batch size configuration."""
     global _scraper_manager
     if _scraper_manager is None:
-        _scraper_manager = AsyncScraperManager()
+        # Try to get batch size from Django settings
+        batch_size = 10  # Default fallback
+        try:
+            import django
+            from django.conf import settings
+            if hasattr(settings, 'PORTFOLIO_SCRAPING_BATCH_SIZE'):
+                batch_size = settings.PORTFOLIO_SCRAPING_BATCH_SIZE
+        except (ImportError, Exception):
+            logger.info(f"Using default batch size: {batch_size}")
+        
+        _scraper_manager = AsyncScraperManager(batch_size=batch_size)
+        logger.info(f"Created AsyncScraperManager with batch size: {batch_size}")
     return _scraper_manager

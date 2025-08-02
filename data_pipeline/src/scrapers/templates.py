@@ -91,15 +91,51 @@ If the text is not in English and hard to understand, respond with: "Needs trans
 Return only content directly related to the restaurant, its team, menu, philosophy, and dining experience.
 """
 
+# Prompt for multi-restaurant site summary
+multi_restaurant_summary_prompt = """You are a helpful assistant summarizing a hospitality group's multiple restaurant venues.
+
+The following content is from {title} with more than one dining concept.
+
+Create a brief, structured summary for each distinct restaurant or venue, including:
+
+- Venue name
+- Cuisine type or focus
+- Dining concept or ambiance
+- Menu highlights
+- Head chef or notable team (if available)
+
+Use headings for each venue and keep summaries factual based on the source content.
+
+Website: {title}
+---
+{full_text}
+"""
+
+# Add the missing function for multi-restaurant summaries
+def get_multi_restaurant_summary_prompt(title, full_text):
+    """
+    Generate user prompt for multi-restaurant summary.
+    
+    Args:
+        title: Website title/name
+        full_text: Full scraped content
+        
+    Returns:
+        Formatted prompt string
+    """
+    return multi_restaurant_summary_prompt.format(title=title, full_text=full_text)
+
 # Prompt for multi-restaurant site detection
 multi_restaurant_check_prompt = """You are an assistant analyzing a restaurant website. Determine if it contains information about multiple distinct restaurants or dining venues.
 
 Indicators:
 - Multiple menus for different locations
 - Multiple brand names under the domain
-- Phrases like “our restaurants”, “venues”, “branches”, “locations”
+- Phrases like "our restaurants", "venues", "branches", "locations"
+- Different cuisine types or concepts under one brand
+- Multiple chef names or restaurant concepts
 
-Respond YES or NO.
+Respond YES or NO only.
 """
 
 # Prompt for multi-restaurant site summary
@@ -201,3 +237,57 @@ def get_multi_restaurant_summary_prompt(title, full_text):
         str: Prompt string formatted for multi-restaurant summary
     """
     return multi_restaurant_summary_prompt.format(title=title, full_text=full_text)
+
+def get_multi_restaurant_individual_summary_prompt(restaurant_data, full_text):
+    """Generate prompt for individual restaurant within a group."""
+    return f"""You are analyzing an individual restaurant that is part of a larger hospitality group.
+    
+Restaurant Name: {restaurant_data.get('name')}
+Group Website: {restaurant_data.get('source_url')}
+Individual Restaurant URL: {restaurant_data.get('individual_url')}
+
+Cuisine Type: {restaurant_data.get('cuisine', 'Unknown')}
+Location: {restaurant_data.get('location', 'Same as group')}
+
+Create a comprehensive summary focusing specifically on this individual restaurant:
+
+Response format (JSON):
+{{
+  "name": "{restaurant_data.get('name')}",
+  "cuisine": "Specific cuisine style and culinary philosophy", 
+  "ambiance": "Dining atmosphere and experience",
+  "menu_highlights": "Signature dishes and specialties",
+  "chef_background": "Head chef information if available",
+  "ownership": "Restaurant ownership or management details",
+  "location": "Specific location details",
+  "contact": "Phone, hours, or contact info if available",
+  "description": "Brief overall description focusing on this individual restaurant"
+}}
+
+Content to analyze:
+{full_text}
+"""
+
+# Enhanced multi-restaurant parsing prompt
+multi_restaurant_parsing_prompt = """You are an expert at extracting individual restaurant information from hospitality group websites.
+
+Analyze the provided website content and identify each distinct restaurant or dining venue operated by this hospitality group.
+
+For each individual restaurant/venue found, extract:
+- name: Clean, URL-friendly restaurant name (not the group name)
+- cuisine: Primary cuisine type or style
+- description: Brief description of the restaurant concept
+- menu_text: Any menu content or food descriptions specific to this restaurant
+- location: Specific location if different from main address
+- specialties: Key dishes, signature items, or unique features
+- atmosphere: Dining style, ambiance, or service approach
+
+Important guidelines:
+- Only extract actual restaurants/dining venues (not bars, lounges, or non-dining services)
+- Ensure restaurant names are clean and suitable for URL generation
+- Be specific about each restaurant's unique identity within the group
+- If a restaurant has multiple concepts (lunch/dinner), treat as one restaurant
+- Focus on distinct dining experiences rather than just different menus
+
+Return a JSON array of restaurants with the exact structure specified.
+"""

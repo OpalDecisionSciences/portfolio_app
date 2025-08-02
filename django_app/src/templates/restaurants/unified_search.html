@@ -1,0 +1,1161 @@
+{% load static %}
+{% load restaurant_extras %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Unified Search - Michelin Star Service</title>
+	<!-- Google Font Family Link Start -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
+	<!-- Google Font Family Link End -->
+
+	<!-- CSS -->
+	<link href="{% static 'css/iconmoon.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/cs-foodbakery-plugin.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
+	
+	<!-- JAVASCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/bootstrap.js' %}"></script>
+
+	<style>
+		body, .main-section p, .mce-content-body p{
+			font:Normal  14px/24px "Open Sans", sans-serif;letter-spacing: 0px;text-transform: none;color: #515151 !important;
+		}
+		
+		/* Unified Search Styles */
+		.unified-search-container {
+			background: linear-gradient(135deg, #e74c3c 0%, #ffd700 100%);
+			padding: 40px 0;
+			margin-bottom: 30px;
+		}
+		
+		.search-hero {
+			text-align: center;
+			color: white;
+			margin-bottom: 30px;
+		}
+		
+		.search-hero h1 {
+			font-size: 36px;
+			font-weight: bold;
+			margin-bottom: 15px;
+			color: white;
+		}
+		
+		.search-hero p {
+			font-size: 18px;
+			opacity: 0.9;
+			color: white !important;
+		}
+		
+		.unified-search-box {
+			background: white;
+			border-radius: 15px;
+			padding: 30px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		
+		.search-input-container {
+			position: relative;
+			margin-bottom: 20px;
+		}
+		
+		.search-input {
+			width: 100%;
+			padding: 15px 20px 15px 50px;
+			border: 2px solid #e0e0e0;
+			border-radius: 10px;
+			font-size: 16px;
+			transition: all 0.3s ease;
+			box-shadow: none;
+		}
+		
+		.search-input:focus {
+			border-color: #e74c3c;
+			outline: none;
+			box-shadow: 0 0 10px rgba(231, 76, 60, 0.2);
+		}
+		
+		.search-icon {
+			position: absolute;
+			left: 18px;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #999;
+			font-size: 18px;
+		}
+		
+		.search-suggestions {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: white;
+			border: 1px solid #e0e0e0;
+			border-top: none;
+			border-radius: 0 0 10px 10px;
+			max-height: 300px;
+			overflow-y: auto;
+			z-index: 1000;
+			display: none;
+		}
+		
+		.suggestion-item {
+			padding: 12px 20px;
+			cursor: pointer;
+			border-bottom: 1px solid #f5f5f5;
+			transition: background 0.2s ease;
+		}
+		
+		.suggestion-item:hover {
+			background: #f8f9fa;
+		}
+		
+		.suggestion-item:last-child {
+			border-bottom: none;
+		}
+		
+		.suggestion-category {
+			font-size: 12px;
+			color: #666;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		
+		.suggestion-text {
+			font-size: 14px;
+			color: #333;
+		}
+		
+		.content-type-filters {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+			flex-wrap: wrap;
+		}
+		
+		.content-type-btn {
+			padding: 8px 16px;
+			border: 2px solid #e0e0e0;
+			border-radius: 25px;
+			background: white;
+			color: #666;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+		
+		.content-type-btn.active {
+			border-color: #e74c3c;
+			background: #e74c3c;
+			color: white;
+		}
+		
+		.content-type-btn:hover {
+			border-color: #e74c3c;
+		}
+		
+		.advanced-filters {
+			background: #f8f9fa;
+			border-radius: 10px;
+			padding: 20px;
+			margin-top: 20px;
+			display: none;
+		}
+		
+		.advanced-filters.show {
+			display: block;
+		}
+		
+		.filter-row {
+			display: flex;
+			gap: 15px;
+			margin-bottom: 15px;
+			flex-wrap: wrap;
+		}
+		
+		.filter-group {
+			flex: 1;
+			min-width: 200px;
+		}
+		
+		.filter-group label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: 600;
+			color: #333;
+			font-size: 14px;
+		}
+		
+		.filter-group select,
+		.filter-group input {
+			width: 100%;
+			padding: 8px 12px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			font-size: 14px;
+		}
+		
+		.toggle-advanced {
+			background: none;
+			border: none;
+			color: #e74c3c;
+			font-size: 14px;
+			cursor: pointer;
+			padding: 0;
+			text-decoration: underline;
+		}
+		
+		.search-btn {
+			background: #e74c3c;
+			color: white;
+			border: none;
+			padding: 12px 30px;
+			border-radius: 8px;
+			font-size: 16px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			width: 100%;
+		}
+		
+		.search-btn:hover {
+			background: #c0392b;
+			transform: translateY(-1px);
+		}
+		
+		.search-btn:disabled {
+			background: #ccc;
+			cursor: not-allowed;
+			transform: none;
+		}
+		
+		/* Results Styles */
+		.results-container {
+			margin-top: 30px;
+		}
+		
+		.results-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+			padding-bottom: 15px;
+			border-bottom: 2px solid #f0f0f0;
+		}
+		
+		.results-info {
+			color: #666;
+		}
+		
+		.results-stats {
+			font-size: 14px;
+			color: #999;
+		}
+		
+		.results-grid {
+			display: grid;
+			gap: 20px;
+		}
+		
+		.result-item {
+			background: white;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			transition: all 0.3s ease;
+		}
+		
+		.result-item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+		}
+		
+		.result-image {
+			width: 100%;
+			height: 200px;
+			background: #f8f9fa;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.result-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		
+		.result-type-badge {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			background: rgba(231, 76, 60, 0.9);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 12px;
+			font-size: 12px;
+			font-weight: 600;
+		}
+		
+		.result-content {
+			padding: 20px;
+		}
+		
+		.result-title {
+			font-size: 18px;
+			font-weight: 700;
+			color: #2c3e50;
+			margin-bottom: 10px;
+			line-height: 1.3;
+		}
+		
+		.result-title a {
+			color: inherit;
+			text-decoration: none;
+		}
+		
+		.result-title a:hover {
+			color: #e74c3c;
+		}
+		
+		.result-description {
+			color: #666;
+			line-height: 1.6;
+			margin-bottom: 15px;
+		}
+		
+		.result-meta {
+			display: flex;
+			gap: 15px;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		
+		.result-tag {
+			background: #f8f9fa;
+			color: #666;
+			padding: 4px 8px;
+			border-radius: 12px;
+			font-size: 12px;
+		}
+		
+		.result-rating {
+			color: #ffd700;
+			font-size: 14px;
+		}
+		
+		.relevance-score {
+			background: linear-gradient(135deg, #e74c3c, #ffd700);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 8px;
+			font-size: 11px;
+			font-weight: 600;
+		}
+		
+		/* Faceted Filters Sidebar */
+		.facets-sidebar {
+			background: white;
+			border-radius: 12px;
+			padding: 20px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			height: fit-content;
+			position: sticky;
+			top: 20px;
+		}
+		
+		.facet-group {
+			margin-bottom: 25px;
+		}
+		
+		.facet-title {
+			font-size: 16px;
+			font-weight: 700;
+			color: #2c3e50;
+			margin-bottom: 12px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		
+		.facet-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 8px 0;
+			cursor: pointer;
+			border-bottom: 1px solid #f5f5f5;
+			transition: color 0.2s ease;
+		}
+		
+		.facet-item:hover {
+			color: #e74c3c;
+		}
+		
+		.facet-item:last-child {
+			border-bottom: none;
+		}
+		
+		.facet-count {
+			background: #e9ecef;
+			color: #666;
+			padding: 2px 6px;
+			border-radius: 10px;
+			font-size: 11px;
+		}
+		
+		.loading-spinner {
+			display: none;
+			text-align: center;
+			padding: 40px;
+		}
+		
+		.spinner {
+			width: 40px;
+			height: 40px;
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #e74c3c;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+			margin: 0 auto 20px;
+		}
+		
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+		
+		.no-results {
+			text-align: center;
+			padding: 60px 20px;
+			color: #666;
+		}
+		
+		.no-results i {
+			font-size: 64px;
+			color: #ddd;
+			margin-bottom: 20px;
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.unified-search-box {
+				margin: 0 15px;
+				padding: 20px;
+			}
+			
+			.search-hero h1 {
+				font-size: 28px;
+			}
+			
+			.content-type-filters {
+				justify-content: center;
+			}
+			
+			.filter-row {
+				flex-direction: column;
+			}
+			
+			.results-header {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 10px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!--Main Wrapper-->
+	<div class="wrapper">
+		<!-- Header Start -->
+		<header id="header">
+			<div class="main-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div class="logo">
+								<figure>
+									<a href="{% url 'home' %}" class="light-logo">
+										<div style="display: flex; align-items: center; font-size: 24px; color: #e74c3c;">
+											<i class="icon-star-full" style="font-size: 32px; margin-right: 10px;"></i>
+											<span style="font-weight: bold;">Michelin Star Service</span>
+										</div>
+									</a>
+								</figure>
+							</div>
+							<div class="main-nav">
+								<nav id="site-navigation" class="main-navigation">
+									<ul>
+										<li><a href="{% url 'home' %}">Home</a></li>
+										<li><a href="{% url 'restaurants:restaurant_list' %}">Restaurants</a></li>
+										<li><a href="{% url 'restaurants:gallery' %}">Gallery</a></li>
+										<li><a href="#" class="active">Unified Search</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="login-option">
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="#">Login / Register</a>
+								<a class="get-start-btn" href="#">Register Restaurant</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header End -->
+		
+		<!-- Unified Search Hero Section -->
+		<div class="unified-search-container">
+			<div class="container">
+				<div class="search-hero">
+					<h1><i class="icon-search"></i> Discover Everything</h1>
+					<p>Search restaurants, images, menu items, and reviews all in one place with AI-powered intelligence</p>
+				</div>
+				
+				<div class="unified-search-box">
+					<form id="unifiedSearchForm">
+						<!-- Main Search Input -->
+						<div class="search-input-container">
+							<i class="icon-search search-icon"></i>
+							<input type="text" 
+								   id="searchQuery" 
+								   class="search-input" 
+								   placeholder="Search for restaurants, dishes, cuisines, or experiences..."
+								   autocomplete="off">
+							<div class="search-suggestions" id="searchSuggestions"></div>
+						</div>
+						
+						<!-- Content Type Filters -->
+						<div class="content-type-filters">
+							<button type="button" class="content-type-btn active" data-type="all">
+								<i class="icon-globe"></i> All Content
+							</button>
+							<button type="button" class="content-type-btn" data-type="restaurants">
+								<i class="icon-location"></i> Restaurants
+							</button>
+							<button type="button" class="content-type-btn" data-type="images">
+								<i class="icon-camera"></i> Images
+							</button>
+							<button type="button" class="content-type-btn" data-type="menu_items">
+								<i class="icon-knife-fork"></i> Menu Items
+							</button>
+							<button type="button" class="content-type-btn" data-type="documents">
+								<i class="icon-file-text"></i> Reviews
+							</button>
+						</div>
+						
+						<!-- Advanced Filters Toggle -->
+						<div style="text-align: center; margin-bottom: 15px;">
+							<button type="button" class="toggle-advanced" onclick="toggleAdvancedFilters()">
+								<i class="icon-cog"></i> Advanced Filters
+							</button>
+						</div>
+						
+						<!-- Advanced Filters -->
+						<div class="advanced-filters" id="advancedFilters">
+							<div class="filter-row">
+								<div class="filter-group">
+									<label>Location</label>
+									<select id="cityFilter">
+										<option value="">Any City</option>
+									</select>
+								</div>
+								<div class="filter-group">
+									<label>Cuisine Type</label>
+									<select id="cuisineFilter">
+										<option value="">Any Cuisine</option>
+									</select>
+								</div>
+								<div class="filter-group">
+									<label>Michelin Stars</label>
+									<select id="starsFilter">
+										<option value="">Any Stars</option>
+										<option value="1">1 Star</option>
+										<option value="2">2 Stars</option>
+										<option value="3">3 Stars</option>
+									</select>
+								</div>
+							</div>
+							<div class="filter-row">
+								<div class="filter-group">
+									<label>Image Category</label>
+									<select id="aiCategoryFilter">
+										<option value="">Any Category</option>
+										<option value="scenery_ambiance">Scenery & Ambiance</option>
+										<option value="menu_item">Food & Menu</option>
+									</select>
+								</div>
+								<div class="filter-group">
+									<label>Minimum Rating</label>
+									<input type="number" id="ratingFilter" min="1" max="5" step="0.1" placeholder="1.0 - 5.0">
+								</div>
+								<div class="filter-group">
+									<label>Results per page</label>
+									<select id="limitFilter">
+										<option value="20">20 results</option>
+										<option value="50">50 results</option>
+										<option value="100">100 results</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Search Button -->
+						<button type="submit" class="search-btn" id="searchBtn">
+							<i class="icon-search"></i> Search Everything
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Main Results Section -->
+		<div class="main-section">
+			<div class="page-section">
+				<div class="container">
+					<div class="row">
+						<!-- Faceted Filters Sidebar -->
+						<div class="col-lg-3 col-md-4">
+							<div class="facets-sidebar" id="facetsSidebar" style="display: none;">
+								<div class="facet-group">
+									<div class="facet-title">
+										<i class="icon-funnel"></i> Content Types
+									</div>
+									<div id="contentTypeFacets"></div>
+								</div>
+								
+								<div class="facet-group">
+									<div class="facet-title">
+										<i class="icon-location"></i> Locations
+									</div>
+									<div id="locationFacets"></div>
+								</div>
+								
+								<div class="facet-group">
+									<div class="facet-title">
+										<i class="icon-knife-fork"></i> Cuisines
+									</div>
+									<div id="cuisineFacets"></div>
+								</div>
+								
+								<div class="facet-group">
+									<div class="facet-title">
+										<i class="icon-star"></i> Michelin Stars
+									</div>
+									<div id="starFacets"></div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Search Results -->
+						<div class="col-lg-9 col-md-8">
+							<!-- Loading Spinner -->
+							<div class="loading-spinner" id="loadingSpinner">
+								<div class="spinner"></div>
+								<p>Searching with AI intelligence...</p>
+							</div>
+							
+							<!-- Results Container -->
+							<div class="results-container" id="resultsContainer" style="display: none;">
+								<!-- Results Header -->
+								<div class="results-header">
+									<div class="results-info">
+										<h3 id="resultsTitle">Search Results</h3>
+										<p id="resultsCount">0 results found</p>
+									</div>
+									<div class="results-stats" id="resultsStats"></div>
+								</div>
+								
+								<!-- Results Grid -->
+								<div class="results-grid" id="resultsGrid"></div>
+								
+								<!-- Load More Button -->
+								<div style="text-align: center; margin-top: 30px;">
+									<button id="loadMoreBtn" class="search-btn" style="width: auto; display: none;">
+										Load More Results
+									</button>
+								</div>
+							</div>
+							
+							<!-- No Results -->
+							<div class="no-results" id="noResults" style="display: none;">
+								<i class="icon-search"></i>
+								<h3>No results found</h3>
+								<p>Try adjusting your search terms or filters</p>
+							</div>
+							
+							<!-- Welcome Message -->
+							<div id="welcomeMessage" style="text-align: center; padding: 60px 20px; color: #666;">
+								<i class="icon-search" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
+								<h3>Ready to Search</h3>
+								<p>Enter your search query above to discover restaurants, images, menu items, and reviews with AI-powered intelligence.</p>
+								<div style="margin-top: 30px;">
+									<button onclick="exampleSearch('michelin star sushi tokyo')" class="btn btn-outline-primary" style="margin: 5px;">
+										Try: "michelin star sushi tokyo"
+									</button>
+									<button onclick="exampleSearch('romantic dinner ambiance')" class="btn btn-outline-primary" style="margin: 5px;">
+										Try: "romantic dinner ambiance"
+									</button>
+									<button onclick="exampleSearch('truffle pasta')" class="btn btn-outline-primary" style="margin: 5px;">
+										Try: "truffle pasta"
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
+		
+		<!-- Footer Start -->
+		<footer id="footer" class="footer-style-2">
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="widget widget-newsletter">
+								<div class="widget-title">
+									<h5>Subscribe to our Newsletter</h5>
+								</div>
+								<div class="fieldset">
+									<form action="#">
+										<div class="field-holder">
+											<label>
+												<i class="icon-envelope3"></i>
+												<input type="text" class="field-input" placeholder="Enter Your Email Address...">
+											</label>
+										</div>
+										<div class="field-holder btn-holder">
+											<input class="subscribe-btn bgcolor" type="submit" value="Sign Up">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-sec">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="copyright-inner">
+								<div class="copy-right">
+									<p>© 2020 Foodbakery. All Rights Reserved. Developed By <a href="#">Rathan Kumar</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer End -->
+	</div>
+	
+	<!-- Scripts -->
+	<script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+	
+	<!-- Unified Search JavaScript -->
+	<script>
+		// Unified Search Application
+		class UnifiedSearchApp {
+			constructor() {
+				this.currentResults = [];
+				this.currentOffset = 0;
+				this.currentQuery = '';
+				this.currentFilters = {};
+				this.isLoading = false;
+				this.ragServiceUrl = '{{ rag_service_url|default:"http://localhost:8001" }}';
+				
+				this.initializeEventListeners();
+				this.loadInitialData();
+			}
+			
+			initializeEventListeners() {
+				// Search form submission
+				document.getElementById('unifiedSearchForm').addEventListener('submit', (e) => {
+					e.preventDefault();
+					this.performSearch();
+				});
+				
+				// Content type button clicks
+				document.querySelectorAll('.content-type-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						document.querySelectorAll('.content-type-btn').forEach(b => b.classList.remove('active'));
+						btn.classList.add('active');
+					});
+				});
+				
+				// Search input with debounced suggestions
+				let suggestionTimeout;
+				document.getElementById('searchQuery').addEventListener('input', (e) => {
+					clearTimeout(suggestionTimeout);
+					suggestionTimeout = setTimeout(() => {
+						this.loadSuggestions(e.target.value);
+					}, 300);
+				});
+				
+				// Hide suggestions when clicking outside
+				document.addEventListener('click', (e) => {
+					if (!e.target.closest('.search-input-container')) {
+						document.getElementById('searchSuggestions').style.display = 'none';
+					}
+				});
+				
+				// Load more button
+				document.getElementById('loadMoreBtn').addEventListener('click', () => {
+					this.loadMoreResults();
+				});
+			}
+			
+			async loadInitialData() {
+				try {
+					// Load facets and suggestions data
+					const response = await fetch(`${this.ragServiceUrl}/unified-search/search/facets`);
+					if (response.ok) {
+						const facets = await response.json();
+						this.populateAdvancedFilters(facets);
+					}
+				} catch (error) {
+					console.warn('Could not load initial facets data:', error);
+				}
+			}
+			
+			async loadSuggestions(query) {
+				if (query.length < 2) {
+					document.getElementById('searchSuggestions').style.display = 'none';
+					return;
+				}
+				
+				try {
+					const response = await fetch(`${this.ragServiceUrl}/unified-search/search/suggestions?query=${encodeURIComponent(query)}&limit=8`);
+					if (response.ok) {
+						const suggestions = await response.json();
+						this.displaySuggestions(suggestions);
+					}
+				} catch (error) {
+					console.warn('Could not load suggestions:', error);
+				}
+			}
+			
+			displaySuggestions(suggestions) {
+				const container = document.getElementById('searchSuggestions');
+				let html = '';
+				
+				// Add restaurant suggestions
+				if (suggestions.restaurants && suggestions.restaurants.length > 0) {
+					html += suggestions.restaurants.map(restaurant => `
+						<div class="suggestion-item" onclick="selectSuggestion('${restaurant}')">
+							<div class="suggestion-category">Restaurant</div>
+							<div class="suggestion-text">${restaurant}</div>
+						</div>
+					`).join('');
+				}
+				
+				// Add cuisine suggestions
+				if (suggestions.cuisines && suggestions.cuisines.length > 0) {
+					html += suggestions.cuisines.map(cuisine => `
+						<div class="suggestion-item" onclick="selectSuggestion('${cuisine}')">
+							<div class="suggestion-category">Cuisine</div>
+							<div class="suggestion-text">${cuisine}</div>
+						</div>
+					`).join('');
+				}
+				
+				// Add location suggestions
+				if (suggestions.locations && suggestions.locations.length > 0) {
+					html += suggestions.locations.map(location => `
+						<div class="suggestion-item" onclick="selectSuggestion('${location}')">
+							<div class="suggestion-category">Location</div>
+							<div class="suggestion-text">${location}</div>
+						</div>
+					`).join('');
+				}
+				
+				// Add category suggestions
+				if (suggestions.categories && suggestions.categories.length > 0) {
+					html += suggestions.categories.map(category => `
+						<div class="suggestion-item" onclick="selectSuggestion('${category.replace('_', ' ')}')">
+							<div class="suggestion-category">Category</div>
+							<div class="suggestion-text">${category.replace('_', ' ')}</div>
+						</div>
+					`).join('');
+				}
+				
+				container.innerHTML = html;
+				container.style.display = html ? 'block' : 'none';
+			}
+			
+			async performSearch(loadMore = false) {
+				if (this.isLoading) return;
+				
+				const query = document.getElementById('searchQuery').value.trim();
+				if (!query && !loadMore) {
+					alert('Please enter a search query');
+					return;
+				}
+				
+				this.isLoading = true;
+				document.getElementById('searchBtn').disabled = true;
+				
+				if (!loadMore) {
+					this.currentOffset = 0;
+					this.currentQuery = query;
+					this.currentFilters = this.buildFilters();
+					document.getElementById('welcomeMessage').style.display = 'none';
+					document.getElementById('loadingSpinner').style.display = 'block';
+					document.getElementById('resultsContainer').style.display = 'none';
+					document.getElementById('noResults').style.display = 'none';
+				}
+				
+				try {
+					const searchData = {
+						query: this.currentQuery,
+						...this.currentFilters,
+						limit: 20,
+						offset: this.currentOffset
+					};
+					
+					const response = await fetch(`${this.ragServiceUrl}/unified-search/search`, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(searchData)
+					});
+					
+					if (response.ok) {
+						const data = await response.json();
+						
+						if (!loadMore) {
+							this.currentResults = data.results;
+							this.displayResults(data);
+						} else {
+							this.currentResults = [...this.currentResults, ...data.results];
+							this.appendResults(data.results);
+						}
+						
+						this.currentOffset += data.results.length;
+						document.getElementById('loadMoreBtn').style.display = data.results.length === 20 ? 'block' : 'none';
+						
+						// Update facets
+						if (data.facets) {
+							this.updateFacets(data.facets);
+						}
+						
+					} else {
+						throw new Error(`Search failed: ${response.status}`);
+					}
+					
+				} catch (error) {
+					console.error('Search error:', error);
+					this.showError('Search failed. Please try again.');
+				} finally {
+					this.isLoading = false;
+					document.getElementById('searchBtn').disabled = false;
+					document.getElementById('loadingSpinner').style.display = 'none';
+				}
+			}
+			
+			buildFilters() {
+				const activeContentType = document.querySelector('.content-type-btn.active').dataset.type;
+				const filters = {};
+				
+				// Content type filter
+				if (activeContentType !== 'all') {
+					filters.content_types = [activeContentType];
+				}
+				
+				// Advanced filters
+				const city = document.getElementById('cityFilter').value;
+				if (city) filters.city = city;
+				
+				const cuisine = document.getElementById('cuisineFilter').value;
+				if (cuisine) filters.cuisine_type = cuisine;
+				
+				const stars = document.getElementById('starsFilter').value;
+				if (stars) filters.michelin_stars = [parseInt(stars)];
+				
+				const aiCategory = document.getElementById('aiCategoryFilter').value;
+				if (aiCategory) filters.ai_category = aiCategory;
+				
+				const rating = document.getElementById('ratingFilter').value;
+				if (rating) filters.rating_min = parseFloat(rating);
+				
+				const limit = document.getElementById('limitFilter').value;
+				if (limit) filters.limit = parseInt(limit);
+				
+				return filters;
+			}
+			
+			displayResults(data) {
+				document.getElementById('resultsContainer').style.display = 'block';
+				document.getElementById('facetsSidebar').style.display = 'block';
+				
+				// Update results header
+				document.getElementById('resultsTitle').textContent = `Search Results for "${this.currentQuery}"`;
+				document.getElementById('resultsCount').textContent = `${data.total_count} results found`;
+				document.getElementById('resultsStats').textContent = `Search completed in ${data.performance_metrics.search_time_seconds}s`;
+				
+				// Display results
+				this.renderResults(data.results);
+				
+				if (data.results.length === 0) {
+					document.getElementById('noResults').style.display = 'block';
+					document.getElementById('resultsContainer').style.display = 'none';
+				}
+			}
+			
+			appendResults(results) {
+				const existingGrid = document.getElementById('resultsGrid');
+				const additionalHTML = this.generateResultsHTML(results);
+				existingGrid.innerHTML += additionalHTML;
+			}
+			
+			renderResults(results) {
+				const grid = document.getElementById('resultsGrid');
+				grid.innerHTML = this.generateResultsHTML(results);
+			}
+			
+			generateResultsHTML(results) {
+				return results.map(result => {
+					const imageUrl = result.image_url || result.thumbnail_url || '';
+					const contentTypeIcon = this.getContentTypeIcon(result.content_type);
+					
+					return `
+						<div class="result-item">
+							${imageUrl ? `
+								<div class="result-image">
+									<img src="${imageUrl}" alt="${result.title}" onerror="this.parentElement.innerHTML='<div style=\'height:200px;background:#f8f9fa;display:flex;align-items:center;justify-content:center;color:#999;font-size:48px;\'>${contentTypeIcon}</div>'">
+									<div class="result-type-badge">${result.display_category}</div>
+								</div>
+							` : `
+								<div class="result-image">
+									<div style="height:200px;background:#f8f9fa;display:flex;align-items:center;justify-content:center;color:#999;font-size:48px;">
+										${contentTypeIcon}
+									</div>
+									<div class="result-type-badge">${result.display_category}</div>
+								</div>
+							`}
+							<div class="result-content">
+								<h4 class="result-title">
+									${result.metadata.restaurant_name ? `<a href="/restaurants/detail/${result.restaurant_id}/">${result.title}</a>` : result.title}
+								</h4>
+								<p class="result-description">${result.description}</p>
+								<div class="result-meta">
+									${result.display_tags.map(tag => `<span class="result-tag">${tag}</span>`).join('')}
+									${result.relevance_score ? `<span class="relevance-score">${Math.round(result.relevance_score * 100)}% match</span>` : ''}
+									${result.restaurant_context.michelin_stars ? `<span class="result-rating">${'⭐'.repeat(result.restaurant_context.michelin_stars)}</span>` : ''}
+								</div>
+							</div>
+						</div>
+					`;
+				}).join('');
+			}
+			
+			getContentTypeIcon(contentType) {
+				const icons = {
+					'restaurant': '<i class="icon-location"></i>',
+					'image': '<i class="icon-camera"></i>',
+					'menu_item': '<i class="icon-knife-fork"></i>',
+					'document': '<i class="icon-file-text"></i>'
+				};
+				return icons[contentType] || '<i class="icon-question"></i>';
+			}
+			
+			updateFacets(facets) {
+				// Update content type facets
+				this.renderFacetGroup('contentTypeFacets', facets.content_types);
+				this.renderFacetGroup('locationFacets', facets.cities);
+				this.renderFacetGroup('cuisineFacets', facets.cuisines);
+				this.renderFacetGroup('starFacets', facets.michelin_stars);
+			}
+			
+			renderFacetGroup(containerId, facetData) {
+				const container = document.getElementById(containerId);
+				if (!facetData || Object.keys(facetData).length === 0) {
+					container.innerHTML = '<p style="color: #999; font-size: 12px;">No data available</p>';
+					return;
+				}
+				
+				const html = Object.entries(facetData)
+					.sort(([,a], [,b]) => b - a)
+					.slice(0, 8)
+					.map(([key, count]) => `
+						<div class="facet-item" onclick="applyFacetFilter('${containerId}', '${key}')">
+							<span>${key.replace('_', ' ')}</span>
+							<span class="facet-count">${count}</span>
+						</div>
+					`).join('');
+				
+				container.innerHTML = html;
+			}
+			
+			populateAdvancedFilters(facets) {
+				// This would populate the select dropdowns with available options
+				// For now, we'll leave them as is since they're already populated server-side
+			}
+			
+			showError(message) {
+				document.getElementById('loadingSpinner').style.display = 'none';
+				document.getElementById('welcomeMessage').innerHTML = `
+					<i class="icon-warning" style="font-size: 64px; color: #e74c3c; margin-bottom: 20px;"></i>
+					<h3>Search Error</h3>
+					<p>${message}</p>
+				`;
+				document.getElementById('welcomeMessage').style.display = 'block';
+			}
+			
+			async loadMoreResults() {
+				await this.performSearch(true);
+			}
+		}
+		
+		// Global functions
+		function toggleAdvancedFilters() {
+			const filters = document.getElementById('advancedFilters');
+			filters.classList.toggle('show');
+		}
+		
+		function selectSuggestion(suggestion) {
+			document.getElementById('searchQuery').value = suggestion;
+			document.getElementById('searchSuggestions').style.display = 'none';
+			searchApp.performSearch();
+		}
+		
+		function exampleSearch(query) {
+			document.getElementById('searchQuery').value = query;
+			searchApp.performSearch();
+		}
+		
+		function applyFacetFilter(containerId, value) {
+			// This would apply the facet filter and re-run the search
+			console.log('Applying facet filter:', containerId, value);
+		}
+		
+		// Initialize the search application
+		let searchApp;
+		document.addEventListener('DOMContentLoaded', function() {
+			searchApp = new UnifiedSearchApp();
+		});
+	</script>
+</body>
+</html>

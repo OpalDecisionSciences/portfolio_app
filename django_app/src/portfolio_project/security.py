@@ -85,7 +85,7 @@ def validate_production_settings() -> list:
     
     # Required environment variables for production
     required_vars = [
-        'DJANGO_SECRET_KEY',
+        'SECRET_KEY',
         'DATABASE_NAME',
         'DATABASE_USER', 
         'DATABASE_PASSWORD',
@@ -103,9 +103,9 @@ def validate_production_settings() -> list:
     
     # Validate SECRET_KEY length
     try:
-        secret_key = get_env_variable('DJANGO_SECRET_KEY')
+        secret_key = get_env_variable('SECRET_KEY')
         if len(secret_key) < 50:
-            errors.append("DJANGO_SECRET_KEY should be at least 50 characters long")
+            errors.append("SECRET_KEY should be at least 50 characters long")
     except ImproperlyConfigured:
         pass  # Already caught above
     

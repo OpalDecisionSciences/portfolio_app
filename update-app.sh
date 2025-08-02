@@ -9,7 +9,7 @@ set -e
 EC2_IP="13.223.94.223"
 KEY_FILE="~/.ssh/opal-decision-sciences-prod-kp.pem"
 EC2_USER="ubuntu"
-APP_DIR="/home/ubuntu/portfolio_app"
+APP_DIR="/home/ubuntu/portfolio_app_production"
 
 echo "🔄 Updating Opal Decision Sciences app..."
 

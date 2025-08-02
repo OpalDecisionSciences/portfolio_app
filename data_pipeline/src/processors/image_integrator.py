@@ -8,7 +8,7 @@ local storage to Django's RestaurantImage model with proper categorization.
 import os
 import shutil
 import logging
-import base64
+# base64 no longer needed - handled by ImageAI service
 from pathlib import Path
 from typing import Dict, List, Optional
 from datetime import datetime
@@ -28,14 +28,14 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.utils import timezone
 from restaurants.models import Restaurant, RestaurantImage
-from openai import OpenAI
+# OpenAI integration now via ImageAI service
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(override=True)
+load_dotenv()
 
 logger = logging.getLogger(__name__)
-openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+# OpenAI client now handled by ImageAI service
 
 
 class ImageIntegrator:
@@ -175,63 +175,18 @@ class ImageIntegrator:
             return None
     
     def _categorize_image_with_openai(self, image_path: Path) -> Optional[Dict]:
-        """Re-categorize image using OpenAI Vision API."""
+        """Re-categorize image using ImageAI service."""
         try:
-            # Encode image as base64
-            with open(image_path, 'rb') as img_file:
-                image_data = img_file.read()
+            # Use the new ImageAI service instead of direct OpenAI calls
+            from services.image_ai_service import get_image_ai_service
+            ai_service = get_image_ai_service()
             
-            base64_image = base64.b64encode(image_data).decode('utf-8')
-            
-            categorization_prompt = """
-            You are an expert at analyzing restaurant images. Please categorize this image and provide detailed labels.
-            
-            Respond with a JSON object containing:
-            {
-                "category": "scenery_ambiance" or "menu_item",
-                "category_confidence": 0.0-1.0,
-                "labels": ["label1", "label2", "label3"],
-                "description": "detailed description of what's in the image",
-                "description_confidence": 0.0-1.0
-            }
-            
-            Category definitions:
-            - "scenery_ambiance": Restaurant exterior, interior, dining rooms, views, atmosphere, ambiance, seating areas, decor
-            - "menu_item": Food dishes, beverages, plated items, cooking process, ingredients
-            
-            Labels should be specific descriptors like:
-            - For scenery_ambiance: "mountain views", "outdoor terrace", "romantic lighting", "modern interior", "rustic decor"
-            - For menu_item: "pasta dish", "wine glass", "dessert plate", "seafood entree", "artisanal bread"
-            
-            Be confident in your categorization and provide 3-5 relevant labels.
-            """
-            
-            response = openai_client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": categorization_prompt},
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": f"data:image/jpeg;base64,{base64_image}"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                response_format={"type": "json_object"},
-                max_tokens=300
-            )
-            
-            result = json.loads(response.choices[0].message.content)
+            result = ai_service.categorize_image_with_ai(str(image_path))
             logger.info(f"AI categorization result: {result.get('category')} - {result.get('description', '')[:50]}...")
             return result
             
         except Exception as e:
-            logger.error(f"OpenAI Vision categorization failed: {e}")
+            logger.error(f"ImageAI service categorization failed: {e}")
             return None
     
     def _map_to_legacy_type(self, ai_category: str, ai_labels: List[str]) -> str:

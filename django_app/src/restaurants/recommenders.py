@@ -67,8 +67,12 @@ class RestaurantRecommender:
         if cached_result:
             return cached_result
         
-        # Get base queryset
-        restaurants = Restaurant.objects.filter(is_active=True).select_related().prefetch_related('images')
+        # Optimized base queryset to prevent N+1 queries in templates
+        # Prefetch images with select_related for better performance
+        from django.db.models import Prefetch
+        restaurants = Restaurant.objects.filter(is_active=True).select_related().prefetch_related(
+            Prefetch('images', queryset=RestaurantImage.objects.select_related())
+        )
         
         if restaurant_id:
             # Similar restaurant recommendations
@@ -188,10 +192,13 @@ class RestaurantRecommender:
         except Restaurant.DoesNotExist:
             return []
         
-        # Get all other restaurants
+        # Get all other restaurants with optimized prefetching to prevent N+1 queries
+        from django.db.models import Prefetch
         candidates = Restaurant.objects.filter(
             is_active=True
-        ).exclude(id=restaurant_id).select_related().prefetch_related('images')
+        ).exclude(id=restaurant_id).select_related().prefetch_related(
+            Prefetch('images', queryset=RestaurantImage.objects.select_related())
+        )
         
         similarities = []
         for candidate in candidates:

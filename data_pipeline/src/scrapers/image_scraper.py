@@ -21,7 +21,7 @@ from typing import List, Dict, Tuple, Optional
 import json
 
 from PIL import Image
-from openai import OpenAI
+# OpenAI integration now via ImageAI service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -43,10 +43,9 @@ from token_management.token_manager import call_openai_chat
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(override=True)
+load_dotenv()
 
-# Initialize OpenAI client
-openai_client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+# OpenAI client now handled by ImageAI service
 
 # Configuration
 SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.webp', '.gif']
@@ -76,28 +75,7 @@ class RestaurantImageScraper:
         self.save_directory.mkdir(exist_ok=True)
         
         # Image categorization prompts
-        self.categorization_prompt = """
-        You are an expert at analyzing restaurant images. Please categorize this image and provide detailed labels.
-        
-        Respond with a JSON object containing:
-        {
-            "category": "scenery_ambiance" or "menu_item",
-            "category_confidence": 0.0-1.0,
-            "labels": ["label1", "label2", "label3"],
-            "description": "detailed description of what's in the image",
-            "description_confidence": 0.0-1.0
-        }
-        
-        Category definitions:
-        - "scenery_ambiance": Restaurant exterior, interior, dining rooms, views, atmosphere, ambiance, seating areas, decor
-        - "menu_item": Food dishes, beverages, plated items, cooking process, ingredients
-        
-        Labels should be specific descriptors like:
-        - For scenery_ambiance: "mountain views", "outdoor terrace", "romantic lighting", "modern interior", "rustic decor"
-        - For menu_item: "pasta dish", "wine glass", "dessert plate", "seafood entree", "artisanal bread"
-        
-        Be confident in your categorization and provide 3-5 relevant labels.
-        """
+        # AI categorization now handled by ImageAI service
     
     def get_image_urls_from_website(self, url: str, max_images: int = 20) -> List[str]:
         """
@@ -236,61 +214,109 @@ class RestaurantImageScraper:
             logger.error(f"Error downloading image from {img_url}: {e}")
             return None
     
-    def categorize_image_with_ai(self, image_path: Path) -> Dict:
+    def check_image_duplicate(self, image_path: Path, restaurant_id: str = None) -> Optional[Dict]:
         """
-        Use OpenAI Vision API to categorize and label an image.
+        Check if an image is a duplicate before processing with AI.
         
         Args:
             image_path: Path to the image file
+            restaurant_id: Optional restaurant ID for context
+            
+        Returns:
+            Existing image data if duplicate found, None otherwise
+        """
+        try:
+            import hashlib
+            import sys
+            import os
+            
+            # Add Django app to path for model access
+            django_path = Path(__file__).parent.parent.parent.parent / 'django_app' / 'src'
+            if str(django_path) not in sys.path:
+                sys.path.insert(0, str(django_path))
+            
+            # Configure Django settings
+            import django
+            from django.conf import settings
+            if not settings.configured:
+                os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio_project.settings')
+                django.setup()
+            
+            # Import after Django setup
+            from restaurants.models import RestaurantImage
+            
+            # Calculate content hash
+            with open(image_path, 'rb') as img_file:
+                content_hash = hashlib.sha256(img_file.read()).hexdigest()
+            
+            # Check for exact duplicate
+            existing_image = RestaurantImage.objects.filter(content_hash=content_hash).first()
+            
+            if existing_image:
+                logger.info(f"🔄 Duplicate image detected: {image_path.name} matches existing image {existing_image.id}")
+                return {
+                    'duplicate': True,
+                    'existing_image_id': str(existing_image.id),
+                    'existing_restaurant': existing_image.restaurant.name,
+                    'ai_category': existing_image.ai_category,
+                    'ai_labels': existing_image.ai_labels,
+                    'ai_description': existing_image.ai_description,
+                    'category_confidence': existing_image.category_confidence,
+                    'description_confidence': existing_image.description_confidence
+                }
+            
+            return None
+            
+        except Exception as e:
+            logger.warning(f"Error checking duplicate for {image_path}: {e}")
+            return None
+    
+    def categorize_image_with_ai(self, image_path_or_url, skip_duplicate_check: bool = False) -> Dict:
+        """
+        Use ImageAI service to categorize and label an image.
+        Supports both local paths and URLs. Includes duplicate detection.
+        
+        Args:
+            image_path_or_url: Path to image file or URL string
+            skip_duplicate_check: Skip duplicate checking (for forced re-processing)
             
         Returns:
             Dictionary with categorization results
         """
         try:
-            # Read and encode image
-            with open(image_path, 'rb') as img_file:
-                image_data = base64.b64encode(img_file.read()).decode('utf-8')
+            # Import the shared ImageAI service
+            from services.image_ai_service import get_image_ai_service
+            ai_service = get_image_ai_service()
             
-            # Prepare the vision API request
-            response = openai_client.chat.completions.create(
-                model="gpt-4o-mini",  # Use mini for cost efficiency
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "text",
-                                "text": self.categorization_prompt
-                            },
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": f"data:image/jpeg;base64,{image_data}",
-                                    "detail": "low"  # Use low detail for cost efficiency
-                                }
-                            }
-                        ]
-                    }
-                ],
-                max_tokens=500,
-                response_format={"type": "json_object"}
-            )
+            # Handle both Path objects and strings
+            if isinstance(image_path_or_url, Path):
+                image_input = str(image_path_or_url)
+                image_path = image_path_or_url
+            else:
+                image_input = image_path_or_url
+                image_path = Path(image_path_or_url) if not image_path_or_url.startswith(('http://', 'https://')) else None
             
-            # Parse the response
-            result_text = response.choices[0].message.content
-            result = json.loads(result_text)
+            # Check for duplicates first (MAJOR TOKEN SAVER!)
+            if not skip_duplicate_check and image_path and image_path.exists():
+                duplicate_result = self.check_image_duplicate(image_path)
+                if duplicate_result:
+                    logger.info(f"💰 Token savings: Skipping AI call for duplicate image {image_path.name}")
+                    return duplicate_result
             
-            # Validate the result structure
-            required_fields = ['category', 'category_confidence', 'labels', 'description', 'description_confidence']
-            for field in required_fields:
-                if field not in result:
-                    result[field] = None if field in ['category', 'description'] else 0.0 if 'confidence' in field else []
+            # Use the ImageAI service for categorization
+            result = ai_service.categorize_image_with_ai(image_input)
             
-            logger.info(f"AI categorization for {image_path.name}: {result['category']} ({result['category_confidence']:.2f})")
+            # Log the result
+            if image_path:
+                logger.info(f"AI categorization for {image_path.name}: {result['category']} ({result['category_confidence']:.2f})")
+            else:
+                logger.info(f"AI categorization for URL: {result['category']} ({result['category_confidence']:.2f})")
+            
             return result
             
         except Exception as e:
-            logger.error(f"Error categorizing image {image_path}: {e}")
+            error_msg = f"Error categorizing image {image_path_or_url}: {e}"
+            logger.error(error_msg)
             return {
                 'category': 'uncategorized',
                 'category_confidence': 0.0,

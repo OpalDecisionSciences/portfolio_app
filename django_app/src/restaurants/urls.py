@@ -10,6 +10,8 @@ urlpatterns = [
     # Main restaurant views
     path('', views.RestaurantListView.as_view(), name='restaurant_list'),
     path('gallery/', views.gallery_view, name='gallery'),
+    path('gallery/semantic/', views.semantic_gallery_view, name='semantic_gallery'),
+    path('search/', views.unified_search_view, name='unified_search'),
     path('<slug:slug>/', views.RestaurantDetailView.as_view(), name='restaurant_detail'),
     path('<slug:slug>/review/', views.add_review, name='add_review'),
     
@@ -37,6 +39,16 @@ urlpatterns = [
     
     # Location and Weather API
     path('api/<uuid:restaurant_id>/location-weather/', views.restaurant_location_weather_api, name='restaurant_location_weather_api'),
+    
+    # Unified Search API endpoints
+    path('api/unified-search/', views.unified_search_proxy_api, name='unified_search_proxy_api'),
+    path('api/unified-search/suggestions/', views.unified_search_suggestions_api, name='unified_search_suggestions_api'),
+    path('api/images-by-category/', views.images_by_category_api, name='images_by_category_api'),
+    
+    # Cache monitoring and management endpoints
+    path('api/cache/stats/', views.cache_stats_api, name='cache_stats_api'),
+    path('api/cache/invalidate/', views.cache_invalidate_api, name='cache_invalidate_api'),
+    path('api/cache/health/', views.cache_health_api, name='cache_health_api'),
     
     # Scraping management
     path('admin/scraping/', views.scraping_jobs, name='scraping_jobs'),

@@ -5,7 +5,7 @@ services:
     image: pgvector/pgvector:pg15
     container_name: portfolio_db_prod
     env_file: 
-      - .env.prod
+      - .env
     volumes:
       - postgres_data_prod:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
@@ -23,7 +23,7 @@ services:
     image: redis:7-alpine
     container_name: portfolio_redis_prod
     env_file:
-      - .env.prod
+      - .env
     volumes:
       - redis_data_prod:/data
       - ./docker/config/redis.conf:/usr/local/etc/redis/redis.conf
@@ -41,7 +41,7 @@ services:
   web:
     build: 
       context: .
-      dockerfile: ./docker/Dockerfile.django.prod
+      dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_web_prod
     depends_on:
       db:
@@ -49,11 +49,11 @@ services:
       redis:
         condition: service_healthy
     env_file:
-      - .env.prod
+      - .env
     volumes:
       - media_volume_prod:/app/media
       - static_volume_prod:/app/staticfiles
-      - ./logs:/app/logs
+      - ./production_logs:/app/logs
     networks:
       - portfolio_network_prod
     restart: unless-stopped
@@ -65,7 +65,7 @@ services:
       dockerfile: ./docker/Dockerfile.rag
     container_name: portfolio_rag_prod
     env_file:
-      - .env.prod
+      - .env
     depends_on:
       db:
         condition: service_healthy
@@ -74,7 +74,7 @@ services:
     volumes:
       - ./rag_service/src:/app
       - ./shared:/shared
-      - ./logs:/app/logs
+      - ./production_logs:/app/logs
     networks:
       - portfolio_network_prod
     restart: unless-stopped
@@ -89,7 +89,7 @@ services:
   celery:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.django.prod
+      dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_celery_prod
     depends_on:
       db:
@@ -97,10 +97,10 @@ services:
       redis:
         condition: service_healthy
     env_file: 
-      - .env.prod
+      - .env
     volumes:
       - media_volume_prod:/app/media
-      - ./logs:/app/logs
+      - ./production_logs:/app/logs
     networks:
       - portfolio_network_prod
     restart: unless-stopped
@@ -110,7 +110,7 @@ services:
   celery-beat:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.django.prod
+      dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_celery_beat_prod
     depends_on:
       db:
@@ -118,9 +118,9 @@ services:
       redis:
         condition: service_healthy
     env_file: 
-      - .env.prod
+      - .env
     volumes:
-      - ./logs:/app/logs
+      - ./production_logs:/app/logs
     networks:
       - portfolio_network_prod
     restart: unless-stopped
@@ -130,13 +130,13 @@ services:
   flower:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.django.prod
+      dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_flower_prod
     depends_on:
       redis:
         condition: service_healthy
     env_file: 
-      - .env.prod
+      - .env
     ports:
       - "127.0.0.1:5555:5555"  # Only accessible from localhost
     networks:
@@ -163,7 +163,7 @@ services:
       - media_volume_prod:/media:ro
       - ./ssl:/etc/letsencrypt:ro
       - ./ssl-challenges:/var/www/certbot:ro
-      - ./logs/nginx:/var/log/nginx
+      - ./production_logs/nginx:/var/log/nginx
     networks:
       - portfolio_network_prod
     restart: unless-stopped

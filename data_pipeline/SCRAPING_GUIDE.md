@@ -29,7 +29,7 @@ Start with a quick import to verify everything works:
 
 ```bash
 # Navigate to the data pipeline directory
-cd /Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers
+cd /Users/iamai/projects/portfolio_app_production/data_pipeline/src/scrapers
 
 # Run quick import (no web scraping)
 python quick_csv_import.py
@@ -47,7 +47,7 @@ Check your Django admin to see the imported restaurants:
 
 ```bash
 # Navigate to Django directory
-cd /Users/iamai/projects/portfolio_app/django_app/src
+cd /Users/iamai/projects/portfolio_app_production/django_app/src
 
 # Start Django server
 python manage.py runserver
@@ -61,7 +61,7 @@ Once basic import works, run the full scraper for additional data:
 
 ```bash
 # Navigate to data pipeline directory
-cd /Users/iamai/projects/portfolio_app/data_pipeline/src/scrapers
+cd /Users/iamai/projects/portfolio_app_production/data_pipeline/src/scrapers
 
 # Run full processor with web scraping
 python michelin_csv_processor.py
@@ -71,7 +71,7 @@ Or use the Django management command:
 
 ```bash
 # Navigate to Django directory
-cd /Users/iamai/projects/portfolio_app/django_app/src
+cd /Users/iamai/projects/portfolio_app_production/django_app/src
 
 # Run via Django management command
 python manage.py process_michelin_csv
@@ -178,13 +178,13 @@ data_pipeline/
 **1. CSV File Not Found**
 ```bash
 # Check if file exists
-ls /Users/iamai/projects/portfolio_app/data_pipeline/src/ingestion/michelin_my_maps.csv
+ls /Users/iamai/projects/portfolio_app_production/data_pipeline/src/ingestion/michelin_my_maps.csv
 ```
 
 **2. Django Import Errors**
 ```bash
 # Make sure Django environment is set up
-cd /Users/iamai/projects/portfolio_app/django_app/src
+cd /Users/iamai/projects/portfolio_app_production/django_app/src
 python manage.py check
 ```
 

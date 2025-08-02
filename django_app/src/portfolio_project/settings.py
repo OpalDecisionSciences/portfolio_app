@@ -166,22 +166,123 @@ RAG_SERVICE_URL = os.getenv('RAG_SERVICE_URL', 'http://localhost:8001')
 # Redis Configuration (for chat sessions)
 REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
-# Cache Configuration
+# Consolidated Cache Configuration
+# Multi-tier caching strategy:
+# - DB 0: Django default cache (sessions, view fragments, templates)
+# - DB 1: Weather API cache (managed separately) 
+# - DB 2: Unified search cache primary (handled by UnifiedCacheManager)
+# - DB 3: Unified search cache secondary (handled by UnifiedCacheManager)
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': REDIS_URL,
+        'LOCATION': REDIS_URL,  # Uses DB 0
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'CONNECTION_POOL_KWARGS': {
+                'max_connections': 50,
+                'retry_on_timeout': True,
+            },
+            'PARSER_CLASS': 'redis.connection.HiredisParser',
+            'PICKLE_VERSION': -1,
+        },
+        'KEY_PREFIX': 'portfolio_django',
+        'TIMEOUT': CACHE_TIMEOUT_MEDIUM,  # Default 1 hour
+    },
+    'session': {
+        'BACKEND': 'django_redis.cache.RedisCache', 
+        'LOCATION': REDIS_URL,  # Uses DB 0
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         },
-        'KEY_PREFIX': 'portfolio_cache',
-        'TIMEOUT': CACHE_TIMEOUT_MEDIUM,  # Default 1 hour
+        'KEY_PREFIX': 'portfolio_session',
+        'TIMEOUT': 86400,  # 24 hours for session data
     }
 }
+
+# Cache middleware settings for view caching
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = CACHE_TIMEOUT_MEDIUM
+CACHE_MIDDLEWARE_KEY_PREFIX = 'portfolio_middleware'
+
+# Session engine configuration to use Redis
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'session'
+SESSION_COOKIE_AGE = 86400  # 24 hours
 
 # Celery Configuration (for background tasks)
 CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
 CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
+
+# Celery configuration settings
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_ENABLE_UTC = True
+
+# Task routing configuration
+CELERY_TASK_ROUTES = {
+    'restaurants.tasks.update_restaurant_embeddings': {'queue': 'embeddings'},
+    'restaurants.tasks.process_image_ai_categorization': {'queue': 'ai_processing'},
+    'restaurants.tasks.scrape_restaurant_images_task': {'queue': 'scraping'},
+    'restaurants.tasks.cleanup_old_images': {'queue': 'maintenance'},
+}
+
+# Task execution settings
+CELERY_TASK_SOFT_TIME_LIMIT = 300  # 5 minutes
+CELERY_TASK_TIME_LIMIT = 600  # 10 minutes
+CELERY_WORKER_MAX_TASKS_PER_CHILD = 50
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1
+
+# Result backend settings
+CELERY_RESULT_EXPIRES = 3600  # 1 hour
+CELERY_TASK_IGNORE_RESULT = False
+
+# Redis broker settings
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_BROKER_CONNECTION_RETRY = True
+CELERY_BROKER_CONNECTION_MAX_RETRIES = 10
+
+# Beat scheduler configuration for periodic tasks
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    # Clean up old failed images every day at 2 AM
+    'cleanup-old-images': {
+        'task': 'restaurants.tasks.cleanup_old_images',
+        'schedule': crontab(hour=2, minute=0),
+        'kwargs': {'days_old': 90},
+        'options': {'queue': 'maintenance'}
+    },
+    
+    # Process pending AI image categorization every 4 hours
+    'process-pending-ai-images': {
+        'task': 'restaurants.tasks.batch_process_pending_images',
+        'schedule': crontab(minute=0, hour='*/4'),
+        'options': {'queue': 'ai_processing'}
+    },
+    
+    # Update embeddings for recently modified restaurants every 6 hours
+    'update-recent-embeddings': {
+        'task': 'restaurants.tasks.batch_update_recent_embeddings',
+        'schedule': crontab(minute=30, hour='*/6'),
+        'options': {'queue': 'embeddings'}
+    },
+    
+    # Cache warming for popular restaurants every hour
+    'warm-restaurant-cache': {
+        'task': 'restaurants.tasks.warm_popular_restaurant_cache',
+        'schedule': crontab(minute=15, hour='*'),
+        'options': {'queue': 'maintenance'}
+    },
+    
+    # Health check for all background services every 30 minutes
+    'system-health-check': {
+        'task': 'restaurants.tasks.system_health_check',
+        'schedule': crontab(minute='*/30'),
+        'options': {'queue': 'maintenance'}
+    },
+}
 
 # Custom settings
 PORTFOLIO_DATA_DIR = BASE_DIR / 'data'

@@ -69,3 +69,31 @@ def restaurant_timezone(restaurant):
         return restaurant.get_timezone_display()
     except Exception:
         return "Unknown timezone"
+
+
+@register.filter
+def get_range(value):
+    """Create a range for template iteration."""
+    try:
+        return range(int(value))
+    except (ValueError, TypeError):
+        return range(0)
+
+
+@register.filter
+def sum_michelin_stars(restaurants):
+    """Sum up all Michelin stars from a queryset of restaurants."""
+    try:
+        return sum(restaurant.michelin_stars for restaurant in restaurants if restaurant.michelin_stars)
+    except (ValueError, TypeError):
+        return 0
+
+
+@register.filter
+def filter_by_stars(restaurants, stars):
+    """Filter restaurants by number of Michelin stars."""
+    try:
+        star_count = int(stars)
+        return [r for r in restaurants if r.michelin_stars == star_count]
+    except (ValueError, TypeError):
+        return []

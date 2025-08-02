@@ -1,0 +1,3 @@
+# Production Vector Population Log - All Operations Consolidated
+# Format: TIMESTAMP - LEVEL - MESSAGE  
+# Covers: vector_population, vector_docs_population

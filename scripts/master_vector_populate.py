@@ -29,16 +29,73 @@ django.setup()
 
 from vector_management.vector_state_manager import VectorStateManager
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(project_root / 'logs' / 'master_vector_populate.log'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+# Initialize S3 logging for production vector population
+log_storage = os.getenv('LOG_STORAGE', 'LOCAL')
+
+if log_storage == 'S3':
+    import boto3
+    from botocore.exceptions import ClientError
+    from datetime import datetime
+    
+    # Configure S3 logging for vector population
+    s3_client = boto3.client('s3')
+    log_bucket = os.getenv('LOG_S3_BUCKET', 'michelin-production-logs')
+    log_prefix = os.getenv('LOG_S3_PREFIX', 'logs/')
+    
+    # Setup logging with S3 handler
+    logger = logging.getLogger('vector_population')
+    logger.setLevel(logging.INFO)
+    
+    # Create custom S3 handler
+    class S3LogHandler(logging.Handler):
+        def __init__(self, bucket, prefix, service_name):
+            super().__init__()
+            self.bucket = bucket
+            self.prefix = prefix
+            self.service_name = service_name
+            self.s3_client = boto3.client('s3')
+            
+        def emit(self, record):
+            try:
+                log_entry = self.format(record)
+                timestamp = datetime.now().strftime('%Y-%m-%d-%H')
+                key = f"{self.prefix}{self.service_name}/{timestamp}.log"
+                
+                # Append to existing log or create new
+                try:
+                    existing = self.s3_client.get_object(Bucket=self.bucket, Key=key)['Body'].read().decode('utf-8')
+                    log_content = existing + '\n' + log_entry
+                except ClientError:
+                    log_content = log_entry
+                    
+                self.s3_client.put_object(
+                    Bucket=self.bucket,
+                    Key=key,
+                    Body=log_content.encode('utf-8')
+                )
+            except Exception:
+                pass  # Fail silently to avoid breaking application
+    
+    s3_handler = S3LogHandler(log_bucket, log_prefix, 'vector_population')
+    s3_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(s3_handler)
+    
+    # Also log to stdout for Docker logs
+    if os.getenv('LOG_TO_STDOUT', 'True').lower() == 'true':
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        logger.addHandler(console_handler)
+else:
+    # Fallback to local file logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(project_root / 'production_logs' / 'vector_population.log'),
+            logging.StreamHandler()
+        ]
+    )
+    logger = logging.getLogger(__name__)
 
 # Ensure logs directory exists
 (project_root / 'logs').mkdir(exist_ok=True)

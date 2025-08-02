@@ -4,7 +4,7 @@
 set -e
 
 # Configuration
-BACKUP_DIR="/home/$(whoami)/portfolio_app/backups"
+BACKUP_DIR="/home/$(whoami)/portfolio_app_production/backups"
 BACKUP_FILE=$1
 
 # Colors for output
@@ -40,10 +40,10 @@ if [ ! -f "$BACKUP_DIR/$BACKUP_FILE" ]; then
 fi
 
 # Load environment variables
-if [ -f ".env.prod" ]; then
-    source .env.prod
+if [ -f ".env" ]; then
+    source .env
 else
-    print_error ".env.prod file not found!"
+    print_error ".env file not found!"
     exit 1
 fi
 

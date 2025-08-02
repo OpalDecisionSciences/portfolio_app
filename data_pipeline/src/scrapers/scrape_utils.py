@@ -79,7 +79,7 @@ else:
 OUTPUT_CSV = "scraped_output.csv"
 
 # Load environment variables
-load_dotenv(override=True)
+load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 
 # Initialize OpenAI client
@@ -98,7 +98,67 @@ BATCH_SIZE = 10 # Num websites per batch
 PAUSE_BETWEEN_BATCHES = 5 # Seconds
 
 # Logging
-logging.basicConfig(filename="scrape_errors.log", level=logging.ERROR)
+# Initialize S3 logging for production scraping
+import boto3
+from botocore.exceptions import ClientError
+from datetime import datetime
+
+log_storage = os.getenv('LOG_STORAGE', 'LOCAL')
+
+if log_storage == 'S3':
+    # Configure S3 logging for scraping
+    s3_client = boto3.client('s3')
+    log_bucket = os.getenv('LOG_S3_BUCKET', 'michelin-production-logs')
+    log_prefix = os.getenv('LOG_S3_PREFIX', 'logs/')
+    
+    # Setup logging with S3 handler
+    scraping_logger = logging.getLogger('scraping')
+    scraping_logger.setLevel(logging.INFO)
+    
+    # Create custom S3 handler
+    class S3LogHandler(logging.Handler):
+        def __init__(self, bucket, prefix, service_name):
+            super().__init__()
+            self.bucket = bucket
+            self.prefix = prefix
+            self.service_name = service_name
+            self.s3_client = boto3.client('s3')
+            
+        def emit(self, record):
+            try:
+                log_entry = self.format(record)
+                timestamp = datetime.now().strftime('%Y-%m-%d-%H')
+                key = f"{self.prefix}{self.service_name}/{timestamp}.log"
+                
+                # Append to existing log or create new
+                try:
+                    existing = self.s3_client.get_object(Bucket=self.bucket, Key=key)['Body'].read().decode('utf-8')
+                    log_content = existing + '\n' + log_entry
+                except ClientError:
+                    log_content = log_entry
+                    
+                self.s3_client.put_object(
+                    Bucket=self.bucket,
+                    Key=key,
+                    Body=log_content.encode('utf-8')
+                )
+            except Exception:
+                pass  # Fail silently to avoid breaking application
+    
+    s3_handler = S3LogHandler(log_bucket, log_prefix, 'scraping')
+    s3_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    scraping_logger.addHandler(s3_handler)
+    
+    # Also log to stdout for Docker logs
+    if os.getenv('LOG_TO_STDOUT', 'True').lower() == 'true':
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        scraping_logger.addHandler(console_handler)
+else:
+    # Fallback to local file logging
+    logging.basicConfig(filename="scraping.log", level=logging.INFO, 
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+    scraping_logger = logging.getLogger('scraping')
 
 # Translation cache placeholder
 translation_cache = {}
@@ -123,9 +183,9 @@ MENU_KEYWORDS = [
 def log_and_print(level, message):
     print(message)
     if level == "info":
-        logging.info(message)
+        scraping_logger.info(message)
     elif level == "warning":
-        logging.warning(message)
+        scraping_logger.warning(message)
     elif level == "error":
         logging.error(message)
     else:
@@ -138,9 +198,30 @@ def detect_language(text):
     except LangDetectException:
         return "unknown"
 
-# Detect if website has multiple restaurant sections
+# Enhanced multi-restaurant detection with cost optimization
 def has_multiple_restaurants(text):
-    return any(kw in text.lower() for kw in MULTIRESTAURANT_KEYWORDS)
+    """Enhanced multi-restaurant detection with cost optimization."""
+    # Cost optimization: Quick heuristic check first
+    multi_indicators = ['restaurants', 'locations', 'venues', 'brands', 'concepts', 'establishments']
+    text_lower = text[:1000].lower()  # Check first 1000 chars only
+    indicator_count = sum(1 for indicator in multi_indicators if indicator in text_lower)
+    
+    if indicator_count == 0:
+        log_and_print("info", "Single restaurant detected via heuristics (token-saving)")
+        return False
+    
+    # Use API for ambiguous cases
+    sample_text = text[:1500]  # Reduced from 2000 to save tokens
+    response = call_openai_chat(
+        system_prompt="You are an assistant analyzing restaurant websites. Determine if the website contains information about multiple distinct restaurants or dining venues. Respond with YES or NO only.",
+        user_prompt=f"Does this website contain multiple restaurants or dining venues? Analyze: {sample_text}",
+        force_model="gpt-4o-mini"
+    )
+    
+    if response and "yes" in response.lower():
+        log_and_print("info", "Multi-restaurant site detected")
+        return True
+    return False
 
 # Filter irrelevant links based on type
 def is_relevant_link(link_type):
@@ -173,7 +254,7 @@ def get_filtered_links_and_landing(url):
         original_content = (original_website.text or "").strip()
 
         if not original_content or original_content.lower().startswith("error"):
-            logging.warning(f"[WARN] Scraped landing page is empty or error for {url}: title='{original_website.title}'")
+            scraping_logger.warning(f"[WARN] Scraped landing page is empty or error for {url}: title='{original_website.title}'")
             return [], None
 
         english_url = url  # default fallback
@@ -185,26 +266,26 @@ def get_filtered_links_and_landing(url):
             )
             if english_response and english_response.strip().lower() != "no english version":
                 english_url = english_response.strip()
-                logging.info(f"[INFO] English version detected for {url} → {english_url}")
+                scraping_logger.info(f"[INFO] English version detected for {url} → {english_url}")
         except Exception as e:
-            logging.warning(f"[WARN] Failed to detect English version for {url}: {e}")
+            scraping_logger.warning(f"[WARN] Failed to detect English version for {url}: {e}")
 
         # Step 2: Load the appropriate website (original or English version)
         website = NewWebsite(english_url)
         content = (website.text or "").strip()
 
         if not content or content.lower().startswith("error"):
-            logging.warning(f"[WARN] Scraped landing page is empty or error for {english_url}: title='{website.title}'")
+            scraping_logger.warning(f"[WARN] Scraped landing page is empty or error for {english_url}: title='{website.title}'")
             return [], None
 
         # Step 2.5: Detect language and translate if needed
         try:
             detected_lang = detect(content)
             if detected_lang != "en":
-                logging.info(f"[INFO] Translating from {detected_lang} to English for {english_url}")
+                scraping_logger.info(f"[INFO] Translating from {detected_lang} to English for {english_url}")
                 website.text = translate_text(content, detected_lang, target_lang="en")
         except Exception as e:
-            logging.warning(f"[WARN] Language detection or translation failed for {english_url}: {e}")
+            scraping_logger.warning(f"[WARN] Language detection or translation failed for {english_url}: {e}")
 
         # Step 3: Extract relevant links using LLM
         response_content = call_openai_chat(
@@ -237,10 +318,10 @@ def scrape_link(link_obj):
         try:
             detected_lang = detect(text)
             if detected_lang != "en":
-                logging.info(f"[INFO] Translating from {detected_lang} to English for {link_obj['url']}")
+                scraping_logger.info(f"[INFO] Translating from {detected_lang} to English for {link_obj['url']}")
                 text = translate_text(text, detected_lang, target_lang="en")
         except Exception as e:
-            logging.warning(f"[WARN] Language detection or translation failed for {link_obj['url']}: {e}")
+            scraping_logger.warning(f"[WARN] Language detection or translation failed for {link_obj['url']}: {e}")
 
         return {
             "type": link_obj["type"],
@@ -259,6 +340,154 @@ def scrape_link(link_obj):
 
 def clean_filename(name):
     return"".join(c if c.isalnum() or c in "-_" else "_" for c in name.lower())[:60].strip("_")
+
+def clean_restaurant_name(name):
+    """Clean restaurant name for URL generation."""
+    import re
+    if not name:
+        return "restaurant"
+    # Remove special characters, convert to lowercase, replace spaces with hyphens
+    clean = re.sub(r'[^\w\s-]', '', name.lower())
+    clean = re.sub(r'\s+', '-', clean.strip())
+    clean = re.sub(r'-+', '-', clean)  # Remove multiple consecutive hyphens
+    return clean[:50].strip('-')  # Limit length and remove trailing hyphens
+
+def parse_individual_restaurants_with_urls(title, text, source_url):
+    """Parse individual restaurants and generate unique URLs for each."""
+    try:
+        parsing_prompt = f"""
+        Analyze this hospitality group website and extract each individual restaurant.
+        
+        Website: {title}
+        Source URL: {source_url}
+        
+        For each distinct restaurant/venue, provide:
+        - name: Restaurant name (clean, URL-friendly)
+        - cuisine: Cuisine type
+        - description: Brief description
+        - menu_text: Menu content specific to this restaurant
+        - location: Location if different from main
+        - specialties: Key dishes/features
+        - atmosphere: Dining style/ambiance
+        
+        Return JSON array with clean restaurant names for URL generation.
+        
+        Content to analyze:
+        {text[:4000]}
+        """
+        
+        response = call_openai_chat(
+            system_prompt="Extract individual restaurant information. Ensure names are clean and URL-friendly. Return only valid JSON.",
+            user_prompt=parsing_prompt,
+            force_model="gpt-4o-mini",
+            response_format="json"
+        )
+        
+        if response:
+            import json
+            try:
+                restaurants_data = json.loads(response)
+                if isinstance(restaurants_data, list):
+                    # Generate unique URLs for each restaurant
+                    for i, restaurant in enumerate(restaurants_data, 1):
+                        clean_name = clean_restaurant_name(restaurant.get('name', f'restaurant_{i}'))
+                        restaurant['individual_url'] = f"{source_url.rstrip('/')}/{clean_name}"
+                        restaurant['source_url'] = source_url
+                        restaurant['restaurant_index'] = i
+                    
+                    log_and_print("info", f"Successfully parsed {len(restaurants_data)} individual restaurants with URLs from {title}")
+                    return restaurants_data
+                else:
+                    log_and_print("warning", f"Expected array but got: {type(restaurants_data)}")
+                    return []
+            except json.JSONDecodeError as e:
+                log_and_print("error", f"JSON parsing failed for multi-restaurant data: {e}")
+                return []
+        return []
+    except Exception as e:
+        log_and_print("error", f"Multi-restaurant parsing failed: {e}")
+        return []
+
+def process_multiple_restaurants(restaurants_list, filtered_links, writer):
+    """Process each restaurant in the list through the existing pipeline."""
+    for restaurant_data in restaurants_list:
+        try:
+            # Write individual restaurant data to CSV
+            writer.writerow([
+                restaurant_data['source_url'],
+                restaurant_data['name'],
+                "multi_restaurant_individual",
+                restaurant_data['individual_url'],
+                restaurant_data['name'],
+                restaurant_data.get('description', '') + "\n" + restaurant_data.get('menu_text', '')
+            ])
+            
+            # Use existing summarization with individual URL
+            summary_success = summarize_and_save(
+                restaurant_data['name'], 
+                restaurant_data['individual_url'], 
+                restaurant_data.get('description', '') + "\n" + restaurant_data.get('menu_text', ''),
+                lang="en", 
+                is_multi=True  # Use multi-restaurant prompt
+            )
+            
+            if summary_success:
+                # Process menus for individual restaurant
+                extract_and_save_menu(
+                    restaurant_data['name'], 
+                    restaurant_data['individual_url'], 
+                    filtered_links, 
+                    lang="en"
+                )
+            
+            log_and_print("info", f"Successfully processed individual restaurant: {restaurant_data['name']}")
+            
+        except Exception as e:
+            log_and_print("error", f"Failed to process individual restaurant {restaurant_data.get('name')}: {e}")
+    
+    return True
+
+def process_multiple_restaurants_fallback(filtered_links, writer, url):
+    """Fallback processing for multi-restaurant sites when parsing fails."""
+    try:
+        # For each restaurant-specific link, scrape and summarize with is_multi=True
+        restaurant_links = [link for link in filtered_links if "restaurant" in link["type"].lower()]
+        for link in restaurant_links:
+            subpage = scrape_link(link)
+            if not subpage:
+                continue
+
+            lang_sub = detect_language(subpage["text"])
+
+            # Translate subpage text if needed
+            subpage_text_translated = subpage["text"]
+            if lang_sub != "en" and subpage["text"].strip():
+                if subpage["text"] in translation_cache:
+                    subpage_text_translated = translation_cache[subpage["text"]]
+                else:
+                    subpage_text_translated = translate_text(subpage["text"], source_lang=lang_sub, force_model="gpt-4o")
+                    translation_cache[subpage["text"]] = subpage_text_translated
+
+            # Write fallback restaurant data to CSV
+            writer.writerow([
+                url,
+                subpage["title"],
+                "multi_restaurant_fallback",
+                link["url"],
+                subpage["title"],
+                subpage_text_translated
+            ])
+
+            # Pass is_multi=True so summarization uses multi-restaurant prompt
+            summarize_and_save(
+                subpage["title"], link["url"], subpage_text_translated, lang="en", is_multi=True
+            )
+            extract_and_save_menu(subpage["title"], link["url"], filtered_links, lang="en")
+
+        return True
+    except Exception as e:
+        log_and_print("error", f"Fallback multi-restaurant processing failed for {url}: {e}")
+        return True
 
 # Summarize_and_save to optionally fallback to gpt-4o
 def summarize_and_save(title, url, full_text, lang="en", is_multi=False, force_model=None):
@@ -451,32 +680,18 @@ def scrape_website_and_save(url, writer):
         # Detect if this website has multiple restaurant venues
         if has_multiple_restaurants(translated_text):
             print(f"[INFO] Detected multiple restaurants on {url}")
-
-            # For each restaurant-specific link, scrape and summarize with is_multi=True
-            restaurant_links = [link for link in filtered_links if "restaurant" in link["type"].lower()]
-            for link in restaurant_links:
-                subpage = scrape_link(link)
-                if not subpage:
-                    continue
-
-                lang_sub = detect_language(subpage["text"])
-
-                # Translate subpage text if needed
-                subpage_text_translated = subpage["text"]
-                if lang_sub != "en" and subpage["text"].strip():
-                    if subpage["text"] in translation_cache:
-                        subpage_text_translated = translation_cache[subpage["text"]]
-                    else:
-                        subpage_text_translated = translate_text(subpage["text"], source_lang=lang_sub, force_model="gpt-4o")
-                        translation_cache[subpage["text"]] = subpage_text_translated
-
-                # Pass is_multi=True so summarization uses multi-restaurant prompt
-                summarize_and_save(
-                    subpage["title"], link["url"], subpage_text_translated, lang="en", is_multi=True
-                )
-                extract_and_save_menu(subpage["title"], link["url"], filtered_links, lang="en")
-
-            return True
+            
+            # Parse individual restaurants with URL mapping
+            individual_restaurants = parse_individual_restaurants_with_urls(
+                landing_page.title, translated_text, url
+            )
+            
+            if individual_restaurants:
+                return process_multiple_restaurants(individual_restaurants, filtered_links, writer)
+            else:
+                # Fallback to original multi-restaurant processing
+                print(f"[WARN] Multi-restaurant parsing failed, falling back to original method for {url}")
+                return process_multiple_restaurants_fallback(filtered_links, writer, url)
 
         # Single-restaurant website flow
         writer.writerow([

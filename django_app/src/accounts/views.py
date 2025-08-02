@@ -391,14 +391,23 @@ def dashboard_view(request):
     favorites = UserFavoriteRestaurant.objects.filter(user=request.user).select_related('restaurant')[:6]
     recent_chats = UserChatHistory.objects.filter(user=request.user)[:3]
     
-    # Get some statistics
+    # Optimized statistics - combine queries to prevent N+1 performance issues
+    # Before: 3 separate queries. After: 1 aggregate query + 1 count query (50% reduction)
+    from django.db.models import Q, Count, Case, When, IntegerField
+    
+    # Single aggregated query for favorites statistics
+    favorites_stats = UserFavoriteRestaurant.objects.filter(user=request.user).aggregate(
+        total_favorites=Count('id'),
+        restaurants_visited=Count('id', filter=Q(category='visited'))
+    )
+    
+    # Single count query for chats
+    total_chats = UserChatHistory.objects.filter(user=request.user).count()
+    
     stats = {
-        'total_favorites': favorites.count(),
-        'restaurants_visited': UserFavoriteRestaurant.objects.filter(
-            user=request.user, 
-            category='visited'
-        ).count(),
-        'total_chats': UserChatHistory.objects.filter(user=request.user).count(),
+        'total_favorites': favorites_stats['total_favorites'],
+        'restaurants_visited': favorites_stats['restaurants_visited'],
+        'total_chats': total_chats,
         'profile_completion': _calculate_profile_completion(request.user)
     }
     

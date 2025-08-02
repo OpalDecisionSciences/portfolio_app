@@ -1,23 +1,47 @@
 """
 Restaurant models for the portfolio application.
+Zero-CASCADE, Zero-NULL architecture implementation.
 """
-from django.db import models
+from django.db import models, transaction
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from django.urls import reverse
 from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 import uuid
+from datetime import datetime, time
+import datetime as dt
+import json
+import hashlib
+import re
+import pytz
+
+from .base_models import (
+    BaseModel, EntityStatus, EmploymentStatus, MenuStatus, CartStatus,
+    CartItemStatus, ReviewStatus, EntityEvent, get_system_user,
+    get_deleted_restaurant_placeholder, DELETED_RESTAURANT_ID,
+    DISCONTINUED_ITEM_ID, DELETED_USER_ID, DELETED_CART_ID, NEVER_DATE
+)
 
 
-class Restaurant(models.Model):
+class Restaurant(BaseModel):
     """Main restaurant model with comprehensive information."""
     
     # Basic Information
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     description = models.TextField(blank=True)
+    
+    # Restaurant status - replaces simple is_active
+    status = models.CharField(
+        max_length=20,
+        choices=EntityStatus.choices,
+        default=EntityStatus.ACTIVE,
+        db_index=True,
+        help_text="Current operational status of the restaurant"
+    )
     
     # Location
     country = models.CharField(max_length=100)
@@ -77,10 +101,27 @@ class Restaurant(models.Model):
     scraped_content = models.TextField(blank=True)
     timezone_info = models.JSONField(null=True, blank=True, help_text="JSON containing timezone and location details")
     
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+    # Multi-restaurant support - NO CASCADE, NO NULL
+    parent_group = models.ForeignKey(
+        'self', 
+        on_delete=models.PROTECT,
+        related_name='child_restaurants',
+        default=get_deleted_restaurant_placeholder,
+        help_text="Parent restaurant group if this is an individual restaurant"
+    )
+    is_restaurant_group = models.BooleanField(default=False, help_text="True if this represents a restaurant group")
+    group_source_url = models.URLField(blank=True, help_text="Original multi-restaurant URL")
+    individual_restaurant_index = models.IntegerField(null=True, blank=True,
+                                                     help_text="Index of this restaurant within the group")
+    
+    # Additional metadata beyond BaseModel
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.PROTECT,
+        default=get_system_user,
+        related_name='restaurants_created',
+        help_text="User who created this restaurant record"
+    )
     
     class Meta:
         ordering = ['-michelin_stars', '-rating', 'name']
@@ -89,6 +130,15 @@ class Restaurant(models.Model):
             models.Index(fields=['michelin_stars']),
             models.Index(fields=['cuisine_type']),
             models.Index(fields=['is_active', 'is_featured']),
+            models.Index(fields=['parent_group', 'individual_restaurant_index']),
+            models.Index(fields=['is_restaurant_group']),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=['group_source_url', 'individual_restaurant_index'],
+                condition=models.Q(individual_restaurant_index__isnull=False),
+                name='unique_restaurant_in_group'
+            )
         ]
     
     def __str__(self):
@@ -121,17 +171,14 @@ class Restaurant(models.Model):
     
     def get_current_local_time(self):
         """Get current time in restaurant's local timezone."""
-        import pytz
-        from django.utils import timezone as django_timezone
-        
         if self.timezone_info and self.timezone_info.get('local_timezone'):
             try:
                 restaurant_tz = pytz.timezone(self.timezone_info['local_timezone'])
-                utc_now = django_timezone.now()
+                utc_now = timezone.now()
                 return utc_now.astimezone(restaurant_tz)
             except Exception:
                 pass
-        return django_timezone.now()
+        return timezone.now()
     
     def is_currently_open(self):
         """
@@ -141,52 +188,62 @@ class Restaurant(models.Model):
         if not self.opening_hours:
             return {'is_open': None, 'status': 'Hours not available', 'next_change': None}
         
-        try:
-            import json
-            from datetime import datetime, time
-            
-            local_time = self.get_current_local_time()
-            current_day = local_time.strftime('%A').lower()
-            current_time = local_time.time()
-            
-            # Parse opening hours (assuming JSON format like {"monday": "09:00-22:00", ...})
-            if self.opening_hours.startswith('{'):
+        local_time = self.get_current_local_time()
+        current_day = local_time.strftime('%A').lower()
+        current_time = local_time.time()
+        
+        # Parse opening hours with proper JSON validation
+        if self.opening_hours.startswith('{'):
+            try:
                 hours_data = json.loads(self.opening_hours)
-            else:
-                # Parse simple text format if needed
-                return {'is_open': None, 'status': 'Hours format not supported', 'next_change': None}
-            
-            day_hours = hours_data.get(current_day, '')
-            
-            if not day_hours or day_hours.lower() in ['closed', 'fermé', 'cerrado']:
-                return {'is_open': False, 'status': 'Closed today', 'next_change': None}
-            
-            # Parse time ranges (e.g., "09:00-14:00,19:00-23:00" or "09:00-22:00")
-            time_ranges = day_hours.split(',')
-            
-            for time_range in time_ranges:
-                if '-' in time_range:
-                    try:
-                        start_str, end_str = time_range.strip().split('-')
-                        start_time = datetime.strptime(start_str.strip(), '%H:%M').time()
-                        end_time = datetime.strptime(end_str.strip(), '%H:%M').time()
-                        
-                        # Handle overnight hours (e.g., 22:00-02:00)
-                        if start_time <= end_time:
-                            if start_time <= current_time <= end_time:
-                                return {'is_open': True, 'status': f'Open until {end_str}', 'next_change': None}
-                        else:
-                            # Overnight service
-                            if current_time >= start_time or current_time <= end_time:
-                                next_close = end_str if current_time >= start_time else end_str
-                                return {'is_open': True, 'status': f'Open until {next_close}', 'next_change': None}
-                    except ValueError:
-                        continue
-            
-            return {'is_open': False, 'status': 'Currently closed', 'next_change': None}
-            
-        except Exception as e:
-            return {'is_open': None, 'status': 'Unable to determine hours', 'next_change': None}
+                # Validate that it's a proper dictionary with string keys
+                if not isinstance(hours_data, dict):
+                    return {'is_open': None, 'status': 'Invalid hours format', 'next_change': None}
+                
+                # Sanitize keys to prevent injection
+                sanitized_hours = {}
+                valid_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+                for key, value in hours_data.items():
+                    if isinstance(key, str) and key.lower() in valid_days and isinstance(value, str):
+                        # Limit value length and sanitize
+                        sanitized_value = str(value)[:50]  # Reasonable limit for hours string
+                        sanitized_hours[key.lower()] = sanitized_value
+                
+                hours_data = sanitized_hours
+            except (json.JSONDecodeError, ValueError, TypeError) as e:
+                return {'is_open': None, 'status': 'Invalid JSON in hours data', 'next_change': None}
+        else:
+            # Parse simple text format if needed
+            return {'is_open': None, 'status': 'Hours format not supported', 'next_change': None}
+        
+        day_hours = hours_data.get(current_day, '')
+        
+        if not day_hours or day_hours.lower() in ['closed', 'fermé', 'cerrado']:
+            return {'is_open': False, 'status': 'Closed today', 'next_change': None}
+        
+        # Parse time ranges (e.g., "09:00-14:00,19:00-23:00" or "09:00-22:00")
+        time_ranges = day_hours.split(',')
+        
+        for time_range in time_ranges:
+            if '-' in time_range:
+                try:
+                    start_str, end_str = time_range.strip().split('-')
+                    start_time = datetime.strptime(start_str.strip(), '%H:%M').time()
+                    end_time = datetime.strptime(end_str.strip(), '%H:%M').time()
+                    
+                    # Handle overnight hours (e.g., 22:00-02:00)
+                    if start_time <= end_time:
+                        if start_time <= current_time <= end_time:
+                            return {'is_open': True, 'status': f'Open until {end_str}', 'next_change': None}
+                    else:
+                        # Overnight service
+                        if current_time >= start_time or current_time <= end_time:
+                            next_close = end_str if current_time >= start_time else end_str
+                            return {'is_open': True, 'status': f'Open until {next_close}', 'next_change': None}
+                except ValueError:
+                    continue
+        
+        return {'is_open': False, 'status': 'Currently closed', 'next_change': None}
     
     def get_absolute_url(self):
         return reverse('restaurants:restaurant_detail', kwargs={'slug': self.slug})
@@ -198,13 +255,97 @@ class Restaurant(models.Model):
     @property
     def is_michelin_starred(self):
         return self.michelin_stars > 0
+    
+    @property
+    def is_individual_restaurant(self):
+        """Check if this is an individual restaurant within a group."""
+        return self.parent_group is not None
+    
+    @property
+    def group_restaurants_count(self):
+        """Get count of child restaurants if this is a group."""
+        if self.is_restaurant_group:
+            return self.child_restaurants.count()
+        return 0
+    
+    def get_group_restaurants(self):
+        """Get all restaurants in this group."""
+        if self.is_restaurant_group:
+            return self.child_restaurants.filter(is_active=True).order_by('individual_restaurant_index')
+        elif self.parent_group:
+            return self.parent_group.child_restaurants.filter(is_active=True).order_by('individual_restaurant_index')
+        return Restaurant.objects.none()
+    
+    @classmethod
+    def create_restaurant_group(cls, group_name, source_url, **kwargs):
+        """Create a restaurant group."""
+        return cls.objects.create(
+            name=group_name,
+            website=source_url,
+            group_source_url=source_url,
+            is_restaurant_group=True,
+            **kwargs
+        )
+    
+    @classmethod
+    def create_individual_restaurant_in_group(cls, parent_group, restaurant_data, index):
+        """Create an individual restaurant within a group."""
+        return cls.objects.create(
+            parent_group=parent_group,
+            group_source_url=parent_group.group_source_url,
+            individual_restaurant_index=index,
+            **restaurant_data
+        )
+    
+    def _handle_dependent_records(self):
+        """
+        Handle dependent records when restaurant is deactivated.
+        This replaces CASCADE behavior with explicit business logic.
+        """
+        # Mark all chefs as former employees
+        for chef in self.chefs.filter(is_active=True):
+            chef.employment_status = EmploymentStatus.FORMER
+            chef.employment_ended_date = timezone.now().date()
+            chef.deactivate(f"Restaurant {self.name} was deactivated")
+        
+        # Mark menu sections as archived
+        for section in self.menu_sections.filter(is_active=True): 
+            section.menu_status = MenuStatus.ARCHIVED
+            section.deactivate(f"Restaurant {self.name} was deactivated")
+        
+        # Handle user carts - mark as restaurant unavailable
+        for cart in self.user_carts.filter(cart_status=CartStatus.ACTIVE):
+            cart.cart_status = CartStatus.RESTAURANT_UNAVAILABLE
+            cart.deactivate(f"Restaurant {self.name} no longer available")
+        
+        # Handle reviews - mark with restaurant closed status
+        for review in self.reviews.filter(is_active=True):
+            review.review_status = ReviewStatus.RESTAURANT_CLOSED
+            review.deactivate(f"Restaurant {self.name} was closed")
+        
+        # Handle child restaurants if this is a group
+        if self.is_restaurant_group:
+            for child in self.child_restaurants.filter(is_active=True):
+                child.deactivate(f"Parent group {self.name} was deactivated")
+        
+        # Create audit event
+        EntityEvent.objects.create(
+            entity_type='restaurant',
+            entity_id=self.id,
+            event_type='deactivated',
+            event_data={
+                'name': self.name,
+                'status': self.status,
+                'reason': self.deactivation_reason
+            },
+            created_by_id=self.deactivated_by_id
+        )
 
 
-class Chef(models.Model):
+class Chef(BaseModel):
     """Chef model for restaurant staff."""
     
-    # Basic Information
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    # Basic Information  
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     biography = models.TextField(blank=True)
@@ -222,18 +363,31 @@ class Chef(models.Model):
     )
     
     # Experience
-    years_experience = models.IntegerField(null=True, blank=True)
+    years_experience = models.IntegerField(default=0)
     awards = models.TextField(blank=True)
+    
+    # Employment status - NO NULL values
+    employment_status = models.CharField(
+        max_length=50,
+        choices=EmploymentStatus.choices,
+        default=EmploymentStatus.ACTIVE,
+        db_index=True
+    )
+    employment_ended_date = models.DateField(
+        default=NEVER_DATE,
+        help_text="Date employment ended. Uses date.max for current employees."
+    )
     
     # Media
     photo = models.ImageField(upload_to='chefs/', blank=True)
     
-    # Relationships
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='chefs')
-    
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    # Relationships - NO CASCADE, NO NULL
+    restaurant = models.ForeignKey(
+        Restaurant, 
+        on_delete=models.PROTECT, 
+        related_name='chefs',
+        default=get_deleted_restaurant_placeholder
+    )
     
     class Meta:
         ordering = ['restaurant', 'position', 'last_name']
@@ -246,18 +400,26 @@ class Chef(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class MenuSection(models.Model):
+class MenuSection(BaseModel):
     """Menu section model."""
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='menu_sections')
+    restaurant = models.ForeignKey(
+        Restaurant, 
+        on_delete=models.PROTECT, 
+        related_name='menu_sections',
+        default=get_deleted_restaurant_placeholder
+    )
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     order = models.IntegerField(default=0)
     
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    # Menu status - NO NULL values
+    menu_status = models.CharField(
+        max_length=50,
+        choices=MenuStatus.choices,
+        default=MenuStatus.CURRENT,
+        db_index=True
+    )
     
     class Meta:
         ordering = ['restaurant', 'order', 'name']
@@ -267,17 +429,31 @@ class MenuSection(models.Model):
         return f"{self.restaurant.name} - {self.name}"
 
 
-class MenuItem(models.Model):
+class MenuItem(BaseModel):
     """Menu item model."""
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    section = models.ForeignKey(MenuSection, on_delete=models.CASCADE, related_name='items')
+    section = models.ForeignKey(
+        MenuSection, 
+        on_delete=models.PROTECT, 
+        related_name='items',
+        default=lambda: None  # Will need special handling for deleted sections
+    )
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     price = models.CharField(max_length=20, blank=True)
     
-    # Cart functionality
-    is_available_for_cart = models.BooleanField(default=True, help_text="Can users add this item to cart?")
+    # Availability status - replaces is_available_for_cart
+    availability_status = models.CharField(
+        max_length=50,
+        choices=[
+            ('available', 'Available'),
+            ('sold_out', 'Sold Out'),
+            ('seasonal', 'Seasonal'),
+            ('discontinued', 'Discontinued')
+        ],
+        default='available',
+        db_index=True
+    )
     estimated_prep_time = models.CharField(max_length=50, blank=True, help_text="e.g., '15-20 minutes'")
     
     # Dietary Information
@@ -303,7 +479,6 @@ class MenuItem(models.Model):
     @property
     def cleaned_price(self):
         """Extract numeric price from price string for calculations."""
-        import re
         if self.price:
             # Extract numbers from price string (e.g., "$25" -> 25.00)
             price_numbers = re.findall(r'[\d.,]+', self.price)
@@ -327,17 +502,30 @@ class MenuItem(models.Model):
         return tags
 
 
-class UserCart(models.Model):
+class UserCart(BaseModel):
     """User's shopping cart for restaurant items."""
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='carts')
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='user_carts')
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.PROTECT, 
+        related_name='carts',
+        default=lambda: DELETED_USER_ID
+    )
+    restaurant = models.ForeignKey(
+        Restaurant, 
+        on_delete=models.PROTECT, 
+        related_name='user_carts',
+        default=get_deleted_restaurant_placeholder
+    )
     
-    # Cart metadata
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(default=True)
+    # Additional cart status beyond BaseModel's is_active
+    cart_status = models.CharField(
+        max_length=50,
+        choices=CartStatus.choices,
+        default=CartStatus.ACTIVE,
+        db_index=True,
+        help_text="Specific cart state - works alongside is_active from BaseModel"
+    )
     notes = models.TextField(blank=True, help_text="Special requests or notes")
     
     class Meta:
@@ -346,6 +534,7 @@ class UserCart(models.Model):
         indexes = [
             models.Index(fields=['user', 'is_active']),
             models.Index(fields=['restaurant', 'is_active']),
+            models.Index(fields=['cart_status']),
         ]
     
     def __str__(self):
@@ -372,18 +561,72 @@ class UserCart(models.Model):
         """Mark cart as inactive (e.g., after checkout)."""
         self.is_active = False
         self.save()
+    
+    @classmethod
+    @transaction.atomic
+    def get_or_create_active_cart(cls, user, restaurant):
+        """
+        Safely get or create an active cart for a user at a restaurant.
+        Uses database-level locking to prevent race conditions.
+        """
+        # First, try to get existing active cart with select_for_update
+        try:
+            cart = cls.objects.select_for_update().get(
+                user=user,
+                restaurant=restaurant,
+                is_active=True
+            )
+            return cart, False
+        except cls.DoesNotExist:
+            pass
+        
+        # Deactivate any existing active carts for this user+restaurant
+        cls.objects.filter(
+            user=user,
+            restaurant=restaurant,
+            is_active=True
+        ).update(is_active=False)
+        
+        # Create new active cart
+        cart = cls.objects.create(
+            user=user,
+            restaurant=restaurant,
+            is_active=True
+        )
+        return cart, True
 
 
-class CartItem(models.Model):
+class CartItem(BaseModel):
     """Individual item in a user's cart."""
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    cart = models.ForeignKey(UserCart, on_delete=models.CASCADE, related_name='items')
-    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE, related_name='cart_items')
+    cart = models.ForeignKey(
+        UserCart, 
+        on_delete=models.PROTECT, 
+        related_name='items',
+        default=lambda: DELETED_CART_ID
+    )
+    menu_item = models.ForeignKey(
+        MenuItem, 
+        on_delete=models.PROTECT, 
+        related_name='cart_items',
+        default=lambda: DISCONTINUED_ITEM_ID
+    )
     quantity = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1)])
     special_requests = models.TextField(blank=True, help_text="Customizations or special requests")
     
-    # Metadata
+    # Item status when added to cart - preserve data if item changes
+    item_status = models.CharField(
+        max_length=50,
+        choices=CartItemStatus.choices,
+        default=CartItemStatus.VALID,
+        db_index=True
+    )
+    
+    # Snapshot data - preserve item details at time of adding to cart
+    item_name_snapshot = models.CharField(max_length=200)
+    item_price_snapshot = models.CharField(max_length=20, blank=True)
+    
+    # Metadata beyond BaseModel
     added_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -411,14 +654,50 @@ class CartItem(models.Model):
             self.save()
         else:
             self.delete()  # Remove item if quantity would be 0 or negative
+    
+    @classmethod
+    @transaction.atomic
+    def add_or_update_item(cls, cart, menu_item, quantity=1, special_requests=""):
+        """
+        Safely add or update a cart item. Handles race conditions.
+        """
+        try:
+            # Try to get existing item with lock
+            cart_item = cls.objects.select_for_update().get(
+                cart=cart,
+                menu_item=menu_item
+            )
+            # Update existing item
+            cart_item.quantity += quantity
+            cart_item.special_requests = special_requests
+            cart_item.save()
+            return cart_item, False
+        except cls.DoesNotExist:
+            # Create new item
+            cart_item = cls.objects.create(
+                cart=cart,
+                menu_item=menu_item,
+                quantity=quantity,
+                special_requests=special_requests
+            )
+            return cart_item, True
 
 
-class ChatCartInteraction(models.Model):
+class ChatCartInteraction(BaseModel):
     """Track LLM chatbot interactions with cart functionality."""
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='chat_cart_interactions')
-    cart = models.ForeignKey(UserCart, on_delete=models.CASCADE, related_name='chat_interactions', null=True, blank=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.PROTECT, 
+        related_name='chat_cart_interactions',
+        default=lambda: DELETED_USER_ID
+    )
+    cart = models.ForeignKey(
+        UserCart, 
+        on_delete=models.PROTECT, 
+        related_name='chat_interactions',
+        default=lambda: DELETED_CART_ID
+    )
     
     # Interaction data
     user_message = models.TextField(help_text="User's message to the chatbot")
@@ -460,7 +739,7 @@ class RestaurantImage(models.Model):
     """Enhanced restaurant image model with AI-powered categorization and labeling."""
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='images')
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT, related_name='images')
     
     # Image Storage
     image = models.ImageField(upload_to='restaurants/', blank=True)
@@ -474,8 +753,17 @@ class RestaurantImage(models.Model):
     ai_category = models.CharField(
         max_length=50,
         choices=[
-            ('scenery_ambiance', 'Scenery/Ambiance/Dining'),
-            ('menu_item', 'Menu Item'),
+            ('food', 'Food/Dish'),
+            ('interior', 'Interior'),
+            ('exterior', 'Exterior'),
+            ('chef', 'Chef'),
+            ('staff', 'Staff'),
+            ('ambiance', 'Ambiance'),
+            ('presentation', 'Presentation'),
+            ('ingredients', 'Ingredients'),
+            ('bar', 'Bar/Drinks'),
+            ('menu_item', 'Menu Item'),           # Legacy category
+            ('scenery_ambiance', 'Scenery/Ambiance/Dining'),  # Legacy category
             ('uncategorized', 'Uncategorized'),
         ],
         default='uncategorized',
@@ -535,6 +823,33 @@ class RestaurantImage(models.Model):
     )
     processing_error = models.TextField(blank=True)
     
+    # Image Fingerprinting and Deduplication
+    content_hash = models.CharField(
+        max_length=64, 
+        null=True, 
+        blank=True, 
+        db_index=True,
+        help_text="SHA256 hash of image content for exact duplicate detection"
+    )
+    perceptual_hash = models.CharField(
+        max_length=16, 
+        null=True, 
+        blank=True, 
+        db_index=True,
+        help_text="Perceptual hash for similar image detection"
+    )
+    source_url_hash = models.CharField(
+        max_length=64, 
+        null=True, 
+        blank=True, 
+        db_index=True,
+        help_text="Hash of source URL to prevent re-downloading same images"
+    )
+    ai_processed = models.BooleanField(
+        default=False,
+        help_text="Whether AI classification has been completed for this image"
+    )
+    
     # Image Quality and Metadata
     width = models.IntegerField(null=True, blank=True)
     height = models.IntegerField(null=True, blank=True)
@@ -557,6 +872,17 @@ class RestaurantImage(models.Model):
             models.Index(fields=['restaurant', 'ai_category']),
             models.Index(fields=['processing_status']),
             models.Index(fields=['is_featured', 'is_menu_highlight', 'is_ambiance_highlight']),
+            models.Index(fields=['content_hash']),
+            models.Index(fields=['perceptual_hash']),
+            models.Index(fields=['restaurant', 'ai_processed']),
+            models.Index(fields=['source_url_hash']),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=['content_hash'], 
+                name='unique_content_hash',
+                condition=models.Q(content_hash__isnull=False)
+            ),
         ]
     
     def __str__(self):
@@ -592,14 +918,94 @@ class RestaurantImage(models.Model):
             return self.caption
         else:
             return self.get_ai_category_display() or self.get_image_type_display()
+    
+    def calculate_content_hash(self):
+        """Calculate SHA256 hash of image content for exact duplicate detection."""
+        if not self.image:
+            return None
+        
+        self.image.seek(0)
+        content = self.image.read()
+        self.image.seek(0)  # Reset file pointer
+        return hashlib.sha256(content).hexdigest()
+    
+    def calculate_perceptual_hash(self):
+        """Calculate perceptual hash for similar image detection."""
+        if not self.image:
+            return None
+        
+        try:
+            import imagehash
+            from PIL import Image
+            
+            self.image.seek(0)
+            pil_image = Image.open(self.image)
+            p_hash = str(imagehash.phash(pil_image))
+            self.image.seek(0)  # Reset file pointer
+            return p_hash
+        except ImportError:
+            # Fallback if imagehash not available
+            return None
+    
+    def calculate_source_url_hash(self):
+        """Calculate hash of source URL to prevent re-downloading."""
+        if not self.source_url:
+            return None
+        
+        return hashlib.sha256(self.source_url.encode('utf-8')).hexdigest()
+    
+    @classmethod
+    def check_duplicate_by_content(cls, image_file):
+        """Check if an image with the same content already exists."""
+        image_file.seek(0)
+        content_hash = hashlib.sha256(image_file.read()).hexdigest()
+        image_file.seek(0)
+        
+        return cls.objects.filter(content_hash=content_hash).first()
+    
+    @classmethod
+    def check_duplicate_by_url(cls, source_url):
+        """Check if an image from the same URL already exists."""
+        url_hash = hashlib.sha256(source_url.encode('utf-8')).hexdigest()
+        return cls.objects.filter(source_url_hash=url_hash).first()
+    
+    def save(self, *args, **kwargs):
+        """Override save to automatically calculate hashes."""
+        # Calculate hashes if image is present and hashes are not set
+        if self.image and not self.content_hash:
+            self.content_hash = self.calculate_content_hash()
+        
+        if self.image and not self.perceptual_hash:
+            self.perceptual_hash = self.calculate_perceptual_hash()
+        
+        if self.source_url and not self.source_url_hash:
+            self.source_url_hash = self.calculate_source_url_hash()
+        
+        super().save(*args, **kwargs)
 
 
-class RestaurantReview(models.Model):
+class RestaurantReview(BaseModel):
     """Restaurant review model."""
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='reviews')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(
+        Restaurant, 
+        on_delete=models.PROTECT, 
+        related_name='reviews',
+        default=get_deleted_restaurant_placeholder
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.PROTECT,
+        default=lambda: DELETED_USER_ID
+    )
+    
+    # Review status - preserve reviews even if restaurant/user deleted
+    review_status = models.CharField(
+        max_length=50,
+        choices=ReviewStatus.choices,
+        default=ReviewStatus.PUBLISHED,
+        db_index=True
+    )
     
     # Review Content
     title = models.CharField(max_length=200)
@@ -608,16 +1014,12 @@ class RestaurantReview(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
     
-    # Review Details
-    visit_date = models.DateField(null=True, blank=True)
+    # Review Details - NO NULL values
+    visit_date = models.DateField(default=NEVER_DATE, help_text="Date of visit. Uses date.max if not specified.")
     
     # Moderation
     is_approved = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
-    
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
         ordering = ['-created_at']
@@ -681,14 +1083,16 @@ class ScrapingJob(models.Model):
         return (self.successful_urls / self.processed_urls) * 100
 
 
-class ImageScrapingJob(models.Model):
+class ImageScrapingJob(BaseModel):
     """Model to track image scraping jobs."""
-    
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     
     # Job Information
     job_name = models.CharField(max_length=200)
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=True, blank=True)
+    restaurant = models.ForeignKey(
+        Restaurant, 
+        on_delete=models.PROTECT, 
+        default=get_deleted_restaurant_placeholder
+    )
     source_urls = models.JSONField(default=list, help_text="List of URLs to scrape images from")
     
     # Job Status
@@ -759,7 +1163,7 @@ class ImageScrapingJob(models.Model):
         return (self.images_categorized / self.images_downloaded) * 100
 
 
-class ScrapingBacklogTask(models.Model):
+class ScrapingBacklogTask(BaseModel):
     """PostgreSQL-based scraping backlog task model for async processing."""
     
     TASK_TYPE_CHOICES = [
@@ -774,8 +1178,6 @@ class ScrapingBacklogTask(models.Model):
         ('completed', 'Completed'),
         ('failed', 'Failed'),
     ]
-    
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     task_id = models.CharField(max_length=255, unique=True, db_index=True)
     url = models.URLField()
     restaurant_name = models.CharField(max_length=255)
@@ -790,18 +1192,16 @@ class ScrapingBacklogTask(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending', db_index=True)
     error_messages = models.JSONField(default=list, blank=True)
     
-    # Timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
-    last_attempt = models.DateTimeField(null=True, blank=True)
-    completed_at = models.DateTimeField(null=True, blank=True)
+    # Timestamps - NO NULL values (BaseModel provides created_at/updated_at)
+    last_attempt = models.DateTimeField(default=timezone.make_aware(dt.datetime.min))
+    completed_at = models.DateTimeField(default=timezone.make_aware(dt.datetime.min))
     
-    # Optional restaurant association
+    # Restaurant association - NO CASCADE, NO NULL
     restaurant = models.ForeignKey(
         Restaurant, 
-        on_delete=models.CASCADE, 
-        null=True, 
-        blank=True,
-        related_name='backlog_tasks'
+        on_delete=models.PROTECT,
+        related_name='backlog_tasks',
+        default=get_deleted_restaurant_placeholder
     )
     
     class Meta:

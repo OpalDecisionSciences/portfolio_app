@@ -66,7 +66,7 @@ Portfolio Application
 1. **Clone the repository**
 ```bash
 git clone <repository-url>
-cd portfolio_app
+cd portfolio_app_production
 ```
 
 2. **Set up environment variables**
