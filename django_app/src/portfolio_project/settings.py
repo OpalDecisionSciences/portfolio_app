@@ -3,6 +3,11 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from decouple import config
+import warnings
+
+# Suppress common setuptools/distutils compatibility warnings
+warnings.filterwarnings("ignore", message=".*Setuptools is replacing distutils.*")
+warnings.filterwarnings("ignore", message=".*Distutils was imported before Setuptools.*")
 
 # Import security utilities
 from .security import (

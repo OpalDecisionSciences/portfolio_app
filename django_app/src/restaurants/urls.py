@@ -12,6 +12,7 @@ urlpatterns = [
     path('gallery/', views.gallery_view, name='gallery'),
     path('gallery/semantic/', views.semantic_gallery_view, name='semantic_gallery'),
     path('search/', views.unified_search_view, name='unified_search'),
+    path('search/semantic/', views.semantic_search_view, name='semantic_search'),
     path('<slug:slug>/', views.RestaurantDetailView.as_view(), name='restaurant_detail'),
     path('<slug:slug>/review/', views.add_review, name='add_review'),
     
@@ -49,6 +50,12 @@ urlpatterns = [
     path('api/cache/stats/', views.cache_stats_api, name='cache_stats_api'),
     path('api/cache/invalidate/', views.cache_invalidate_api, name='cache_invalidate_api'),
     path('api/cache/health/', views.cache_health_api, name='cache_health_api'),
+    
+    # Semantic Search API endpoints
+    path('api/semantic-search/', views.semantic_search_api, name='semantic_search_api'),
+    path('api/semantic-search/intent/', views.semantic_search_intent_api, name='semantic_search_intent_api'),
+    path('api/hybrid-search/', views.hybrid_search_api, name='hybrid_search_api'),
+    path('api/search/methods/', views.semantic_search_methods_api, name='semantic_search_methods_api'),
     
     # Scraping management
     path('admin/scraping/', views.scraping_jobs, name='scraping_jobs'),

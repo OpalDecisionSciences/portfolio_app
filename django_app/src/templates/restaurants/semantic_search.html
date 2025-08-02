@@ -1,0 +1,565 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Semantic Search - AI-Powered Restaurant Discovery{% endblock %}
+
+{% block extra_css %}
+<style>
+    .semantic-search-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .search-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .search-method-selector {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .method-btn {
+        padding: 10px 20px;
+        border: 2px solid #ddd;
+        background: white;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .method-btn:hover {
+        border-color: #007bff;
+        color: #007bff;
+    }
+    
+    .method-btn.active {
+        background: #007bff;
+        border-color: #007bff;
+        color: white;
+    }
+    
+    .search-input-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .semantic-search-input {
+        width: 100%;
+        padding: 15px 20px;
+        border: 2px solid #ddd;
+        border-radius: 30px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+    
+    .semantic-search-input:focus {
+        border-color: #007bff;
+    }
+    
+    .search-btn {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        bottom: 5px;
+        padding: 0 25px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .intent-analysis {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border-left: 4px solid #007bff;
+    }
+    
+    .intent-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 10px;
+    }
+    
+    .intent-metric {
+        text-align: center;
+        padding: 10px;
+        background: white;
+        border-radius: 8px;
+    }
+    
+    .metric-value {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #007bff;
+    }
+    
+    .metric-label {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+    }
+    
+    .results-container {
+        margin-top: 30px;
+    }
+    
+    .result-item {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+    }
+    
+    .result-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    
+    .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+    
+    .result-title {
+        font-size: 1.3em;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+    }
+    
+    .result-scores {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .score-badge {
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8em;
+        font-weight: 600;
+    }
+    
+    .relevance-score {
+        background: #e3f2fd;
+        color: #1976d2;
+    }
+    
+    .semantic-score {
+        background: #f3e5f5;
+        color: #7b1fa2;
+    }
+    
+    .traditional-score {
+        background: #e8f5e8;
+        color: #388e3c;
+    }
+    
+    .result-details {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .result-description {
+        color: #666;
+        line-height: 1.6;
+    }
+    
+    .result-metadata {
+        font-size: 0.9em;
+        color: #888;
+    }
+    
+    .result-explanation {
+        background: #fff3cd;
+        padding: 10px;
+        border-radius: 8px;
+        border-left: 4px solid #ffc107;
+        margin-top: 15px;
+        font-style: italic;
+    }
+    
+    .matched-features {
+        margin-top: 10px;
+    }
+    
+    .feature-tag {
+        display: inline-block;
+        background: #e9ecef;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.8em;
+        margin: 2px;
+    }
+    
+    .loading-indicator {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+    }
+    
+    .error-message {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #dc3545;
+        margin: 20px 0;
+    }
+    
+    .search-stats {
+        background: #e8f5e8;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .search-stat {
+        color: #388e3c;
+    }
+    
+    .stat-value {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    
+    .example-queries {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .example-query {
+        display: inline-block;
+        background: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        margin: 5px;
+        cursor: pointer;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+    
+    .example-query:hover {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="semantic-search-container">
+    <div class="search-header">
+        <h1>🧠 Semantic Search</h1>
+        <p class="lead">AI-powered restaurant discovery that understands your intent</p>
+    </div>
+    
+    <div class="example-queries">
+        <h5>Try these example queries:</h5>
+        <span class="example-query" onclick="searchExample('romantic dinner for anniversary')">romantic dinner for anniversary</span>
+        <span class="example-query" onclick="searchExample('best family friendly restaurants')">best family friendly restaurants</span>
+        <span class="example-query" onclick="searchExample('authentic Italian experience')">authentic Italian experience</span>
+        <span class="example-query" onclick="searchExample('cozy atmosphere with great wine')">cozy atmosphere with great wine</span>
+        <span class="example-query" onclick="searchExample('business lunch venue')">business lunch venue</span>
+        <span class="example-query" onclick="searchExample('innovative modern cuisine')">innovative modern cuisine</span>
+    </div>
+    
+    <div class="search-method-selector">
+        <button class="method-btn active" data-method="automatic">🤖 Auto-Route</button>
+        <button class="method-btn" data-method="semantic">🧠 Semantic</button>
+        <button class="method-btn" data-method="hybrid">⚡ Hybrid</button>
+        <button class="method-btn" data-method="traditional">🔍 Traditional</button>
+    </div>
+    
+    <div class="search-input-container">
+        <input type="text" 
+               class="semantic-search-input" 
+               id="semanticQuery"
+               placeholder="Describe what you're looking for... (e.g., 'romantic dinner for special occasion')"
+               autocomplete="off">
+        <button class="search-btn" onclick="performSemanticSearch()">Search</button>
+    </div>
+    
+    <div id="intentAnalysis" class="intent-analysis" style="display: none;">
+        <h6>🎯 Query Analysis</h6>
+        <div id="intentDetails" class="intent-details"></div>
+    </div>
+    
+    <div id="searchStats" class="search-stats" style="display: none;"></div>
+    
+    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Searching...</span>
+        </div>
+        <p>Analyzing your query and finding the best matches...</p>
+    </div>
+    
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+    
+    <div id="resultsContainer" class="results-container"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentSearchMethod = 'automatic';
+
+// Method selector handling
+document.querySelectorAll('.method-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.method-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentSearchMethod = this.dataset.method;
+    });
+});
+
+// Enter key handling
+document.getElementById('semanticQuery').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        performSemanticSearch();
+    }
+});
+
+function searchExample(query) {
+    document.getElementById('semanticQuery').value = query;
+    performSemanticSearch();
+}
+
+async function performSemanticSearch() {
+    const query = document.getElementById('semanticQuery').value.trim();
+    if (!query) {
+        alert('Please enter a search query');
+        return;
+    }
+    
+    // Show loading
+    document.getElementById('loadingIndicator').style.display = 'block';
+    document.getElementById('errorMessage').style.display = 'none';
+    document.getElementById('resultsContainer').innerHTML = '';
+    document.getElementById('searchStats').style.display = 'none';
+    
+    try {
+        // First, analyze intent if not using traditional search
+        if (currentSearchMethod !== 'traditional') {
+            await analyzeIntent(query);
+        }
+        
+        // Then perform the search
+        const searchData = {
+            query: query,
+            limit: 15
+        };
+        
+        // Add method-specific parameters
+        if (currentSearchMethod !== 'automatic') {
+            searchData.force_method = currentSearchMethod;
+        }
+        
+        const endpoint = currentSearchMethod === 'hybrid' ? 
+            '/restaurants/api/hybrid-search/' : 
+            '/restaurants/api/semantic-search/';
+        
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCSRFToken()
+            },
+            body: JSON.stringify(searchData)
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.error || 'Search failed');
+        }
+        
+        displayResults(data);
+        displaySearchStats(data);
+        
+    } catch (error) {
+        console.error('Search error:', error);
+        document.getElementById('errorMessage').innerHTML = 
+            `<strong>Search Error:</strong> ${error.message}`;
+        document.getElementById('errorMessage').style.display = 'block';
+    } finally {
+        document.getElementById('loadingIndicator').style.display = 'none';
+    }
+}
+
+async function analyzeIntent(query) {
+    try {
+        const response = await fetch(`/restaurants/api/semantic-search/intent/?query=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        
+        if (response.ok && data.intent_analysis) {
+            displayIntentAnalysis(data.intent_analysis);
+        }
+    } catch (error) {
+        console.log('Intent analysis failed:', error);
+    }
+}
+
+function displayIntentAnalysis(intent) {
+    const analysisDiv = document.getElementById('intentAnalysis');
+    const detailsDiv = document.getElementById('intentDetails');
+    
+    const complexityPercent = Math.round(intent.complexity_score * 100);
+    const confidenceColor = intent.analysis_confidence === 'high' ? '#28a745' : 
+                           intent.analysis_confidence === 'medium' ? '#ffc107' : '#dc3545';
+    
+    detailsDiv.innerHTML = `
+        <div class="intent-metric">
+            <div class="metric-value">${intent.intent_type}</div>
+            <div class="metric-label">Intent Type</div>
+        </div>
+        <div class="intent-metric">
+            <div class="metric-value">${complexityPercent}%</div>
+            <div class="metric-label">Complexity</div>
+        </div>
+        <div class="intent-metric">
+            <div class="metric-value" style="color: ${confidenceColor}">
+                ${intent.analysis_confidence}
+            </div>
+            <div class="metric-label">Confidence</div>
+        </div>
+        <div class="intent-metric">
+            <div class="metric-value">${intent.recommended_method}</div>
+            <div class="metric-label">Recommended Method</div>
+        </div>
+    `;
+    
+    analysisDiv.style.display = 'block';
+}
+
+function displaySearchStats(data) {
+    const statsDiv = document.getElementById('searchStats');
+    const responseTime = data.response_time_ms || 0;
+    const resultCount = data.results?.length || 0;
+    const method = data.search_method || 'unknown';
+    
+    statsDiv.innerHTML = `
+        <div class="search-stat">
+            <div class="stat-value">${resultCount}</div>
+            <div>Results Found</div>
+        </div>
+        <div class="search-stat">
+            <div class="stat-value">${responseTime}ms</div>
+            <div>Response Time</div>
+        </div>
+        <div class="search-stat">
+            <div class="stat-value">${method}</div>
+            <div>Search Method</div>
+        </div>
+        <div class="search-stat">
+            <div class="stat-value">${data.semantic_enhanced ? 'Yes' : 'No'}</div>
+            <div>AI Enhanced</div>
+        </div>
+    `;
+    
+    statsDiv.style.display = 'grid';
+}
+
+function displayResults(data) {
+    const container = document.getElementById('resultsContainer');
+    const results = data.results || [];
+    
+    if (results.length === 0) {
+        container.innerHTML = '<p class="text-center text-muted">No results found. Try a different query.</p>';
+        return;
+    }
+    
+    let html = '';
+    
+    results.forEach((restaurant, index) => {
+        const relevanceScore = restaurant.relevance_score || 0;
+        const semanticScore = restaurant.semantic_score || 0;
+        const traditionalScore = restaurant.traditional_score || 0;
+        const explanation = restaurant.explanation || '';
+        const matchedFeatures = restaurant.matched_features || [];
+        
+        html += `
+            <div class="result-item">
+                <div class="result-header">
+                    <h4 class="result-title">
+                        <a href="${restaurant.url}" class="text-decoration-none">
+                            ${restaurant.name}
+                        </a>
+                    </h4>
+                    <div class="result-scores">
+                        ${relevanceScore > 0 ? `<span class="score-badge relevance-score">Rel: ${(relevanceScore * 100).toFixed(0)}%</span>` : ''}
+                        ${semanticScore > 0 ? `<span class="score-badge semantic-score">Sem: ${(semanticScore * 100).toFixed(0)}%</span>` : ''}
+                        ${traditionalScore > 0 ? `<span class="score-badge traditional-score">Trad: ${(traditionalScore * 100).toFixed(0)}%</span>` : ''}
+                    </div>
+                </div>
+                
+                <div class="result-details">
+                    <div>
+                        <p class="result-description">${restaurant.description || 'No description available.'}</p>
+                        <div class="result-metadata">
+                            📍 ${restaurant.city}, ${restaurant.country} | 
+                            🍽️ ${restaurant.cuisine_type} | 
+                            ${restaurant.michelin_stars ? `⭐ ${restaurant.michelin_stars} Michelin` : ''} 
+                            ${restaurant.rating ? `| 📊 ${restaurant.rating}/5` : ''} 
+                            ${restaurant.price_range ? `| 💰 ${restaurant.price_range}` : ''}
+                        </div>
+                    </div>
+                    ${restaurant.featured_image ? `
+                        <div>
+                            <img src="${restaurant.featured_image}" 
+                                 alt="${restaurant.name}" 
+                                 style="width: 100%; max-width: 200px; border-radius: 8px; object-fit: cover;">
+                        </div>
+                    ` : ''}
+                </div>
+                
+                ${explanation ? `
+                    <div class="result-explanation">
+                        <strong>Why this matches:</strong> ${explanation}
+                    </div>
+                ` : ''}
+                
+                ${matchedFeatures.length > 0 ? `
+                    <div class="matched-features">
+                        <strong>Matched features:</strong>
+                        ${matchedFeatures.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+function getCSRFToken() {
+    return document.querySelector('[name=csrfmiddlewaretoken]')?.value || 
+           document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+}
+</script>
+{% endblock %}

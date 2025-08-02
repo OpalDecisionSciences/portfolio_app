@@ -26,6 +26,7 @@ import requests
 from django.conf import settings
 import math
 from search.unified_filters import UnifiedSearchFilters
+from .semantic_search import SemanticSearchService, SearchMethod, QueryAnalyzer
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -1957,6 +1958,55 @@ def unified_search_view(request):
     return render(request, 'restaurants/unified_search.html', context)
 
 
+def semantic_search_view(request):
+    """
+    Semantic search page with advanced AI-powered search interface.
+    Demonstrates the full capabilities of the semantic search system.
+    """
+    context = {
+        'title': 'Semantic Search - AI-Powered Restaurant Discovery',
+        'page_description': 'Experience intelligent restaurant search that understands context, intent, and natural language queries.',
+        'search_methods': [
+            {
+                'id': 'automatic',
+                'name': 'Auto-Route',
+                'description': 'Intelligent routing based on query analysis',
+                'icon': '🤖'
+            },
+            {
+                'id': 'semantic',
+                'name': 'Semantic',
+                'description': 'AI-powered understanding of meaning and context',
+                'icon': '🧠'
+            },
+            {
+                'id': 'hybrid',
+                'name': 'Hybrid',
+                'description': 'Best of traditional and semantic search',
+                'icon': '⚡'
+            },
+            {
+                'id': 'traditional',
+                'name': 'Traditional',
+                'description': 'Fast keyword-based search',
+                'icon': '🔍'
+            }
+        ],
+        'example_queries': [
+            'romantic dinner for anniversary',
+            'best family friendly restaurants',
+            'authentic Italian experience',
+            'cozy atmosphere with great wine',
+            'business lunch venue',
+            'innovative modern cuisine',
+            'restaurants with outdoor seating',
+            'places for special celebrations'
+        ]
+    }
+    
+    return render(request, 'restaurants/semantic_search.html', context)
+
+
 @csrf_exempt
 @require_http_methods(["POST"])
 def unified_search_proxy_api(request):
@@ -2467,4 +2517,287 @@ def cache_health_api(request):
             'error': str(e),
             'timestamp': datetime.now().isoformat(),
             'recommendations': ['Check cache service configuration']
+        }, status=500)
+
+
+# =============================================================================
+# SEMANTIC SEARCH API ENDPOINTS
+# =============================================================================
+
+@csrf_exempt
+@require_http_methods(["POST", "GET"])
+def semantic_search_api(request):
+    """
+    Advanced semantic search API with intelligent query routing.
+    Integrates with SemanticSearchService for AI-powered search.
+    """
+    try:
+        # Parse request data
+        if request.method == 'POST':
+            data = json.loads(request.body) if request.body else {}
+        else:
+            data = dict(request.GET.items())
+        
+        query = data.get('query', '').strip()
+        if not query:
+            return JsonResponse({'error': 'Query is required'}, status=400)
+        
+        # Initialize semantic search service
+        semantic_service = SemanticSearchService()
+        
+        # Extract parameters
+        context = {
+            'location': data.get('location'),
+            'user_preferences': data.get('user_preferences', {}),
+            'address': data.get('address')
+        }
+        
+        filters = {
+            'city': data.get('city'),
+            'country': data.get('country'),
+            'cuisine_type': data.get('cuisine_type'),
+            'michelin_stars': data.get('michelin_stars'),
+            'price_range': data.get('price_range'),
+            'rating_min': data.get('rating_min'),
+            'rating_max': data.get('rating_max')
+        }
+        
+        limit = int(data.get('limit', 20))
+        force_method = data.get('force_method')
+        if force_method:
+            try:
+                force_method = SearchMethod(force_method)
+            except ValueError:
+                force_method = None
+        
+        # Perform semantic search
+        results = semantic_service.search_restaurants(
+            query=query,
+            context=context,
+            filters=filters,
+            limit=limit,
+            force_method=force_method
+        )
+        
+        # Convert restaurant objects to dictionaries for JSON response
+        serialized_results = []
+        for restaurant in results.get('results', []):
+            restaurant_data = {
+                'id': str(restaurant.id),
+                'name': restaurant.name,
+                'slug': restaurant.slug,
+                'city': restaurant.city,
+                'country': restaurant.country,
+                'cuisine_type': restaurant.cuisine_type,
+                'michelin_stars': restaurant.michelin_stars,
+                'rating': float(restaurant.rating) if restaurant.rating else None,
+                'price_range': restaurant.price_range,
+                'description': restaurant.description,
+                'url': restaurant.get_absolute_url(),
+                'featured_image': get_restaurant_featured_image(restaurant)
+            }
+            serialized_results.append(restaurant_data)
+        
+        # Add semantic scoring if available
+        if 'semantic_results' in results:
+            for i, semantic_result in enumerate(results['semantic_results']):
+                if i < len(serialized_results):
+                    serialized_results[i].update({
+                        'relevance_score': semantic_result.relevance_score,
+                        'semantic_score': semantic_result.semantic_score,
+                        'traditional_score': semantic_result.traditional_score,
+                        'explanation': semantic_result.explanation,
+                        'matched_features': semantic_result.matched_features
+                    })
+        
+        # Create enhanced response
+        response_data = {
+            **results,
+            'results': serialized_results,
+            'api_version': 'semantic_v1',
+            'enhanced_scoring': 'semantic_results' in results
+        }
+        
+        return JsonResponse(response_data)
+        
+    except Exception as e:
+        logger.error(f"Semantic search API error: {e}")
+        return JsonResponse({
+            'error': 'Semantic search failed',
+            'details': str(e),
+            'fallback_available': True
+        }, status=500)
+
+
+@require_http_methods(["GET"])
+def semantic_search_intent_api(request):
+    """
+    Analyze search query intent and recommend optimal search method.
+    Provides insights into query complexity and routing decisions.
+    """
+    try:
+        query = request.GET.get('query', '').strip()
+        if not query:
+            return JsonResponse({'error': 'Query is required'}, status=400)
+        
+        # Extract context
+        context = {
+            'location': request.GET.get('location'),
+            'address': request.GET.get('address'),
+            'user_type': request.GET.get('user_type', 'anonymous')
+        }
+        
+        # Analyze query intent
+        intent = QueryAnalyzer.analyze_query(query, context)
+        
+        # Convert to serializable format
+        intent_data = {
+            'original_query': intent.original_query,
+            'intent_type': intent.intent_type,
+            'entities': intent.entities,
+            'sentiment': intent.sentiment,
+            'complexity_score': intent.complexity_score,
+            'recommended_method': intent.recommended_method.value,
+            'analysis_confidence': 'high' if intent.complexity_score > 0.7 else 'medium' if intent.complexity_score > 0.3 else 'low',
+            'routing_explanation': f"Query classified as {intent.intent_type} with {intent.complexity_score:.1%} complexity"
+        }
+        
+        return JsonResponse({
+            'intent_analysis': intent_data,
+            'api_version': 'intent_v1',
+            'timestamp': datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Semantic intent analysis error: {e}")
+        return JsonResponse({
+            'error': 'Intent analysis failed',
+            'details': str(e)
+        }, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def hybrid_search_api(request):
+    """
+    Hybrid search API combining traditional and semantic approaches.
+    Provides the best of both search methodologies.
+    """
+    try:
+        data = json.loads(request.body) if request.body else {}
+        query = data.get('query', '').strip()
+        
+        if not query:
+            return JsonResponse({'error': 'Query is required'}, status=400)
+        
+        # Initialize semantic search service
+        semantic_service = SemanticSearchService()
+        
+        # Extract parameters
+        context = {
+            'location': data.get('location'),
+            'user_preferences': data.get('user_preferences', {}),
+            'search_history': data.get('search_history', [])
+        }
+        
+        filters = {k: v for k, v in data.items() if v is not None and k not in ['query', 'context', 'limit']}
+        limit = int(data.get('limit', 20))
+        
+        # Force hybrid search method
+        results = semantic_service.search_restaurants(
+            query=query,
+            context=context,
+            filters=filters,
+            limit=limit,
+            force_method=SearchMethod.HYBRID
+        )
+        
+        # Convert restaurant objects to dictionaries
+        serialized_results = []
+        for restaurant in results.get('results', []):
+            restaurant_data = {
+                'id': str(restaurant.id),
+                'name': restaurant.name,
+                'slug': restaurant.slug,
+                'city': restaurant.city,
+                'country': restaurant.country,
+                'cuisine_type': restaurant.cuisine_type,
+                'michelin_stars': restaurant.michelin_stars,
+                'rating': float(restaurant.rating) if restaurant.rating else None,
+                'price_range': restaurant.price_range,
+                'description': restaurant.description,
+                'url': restaurant.get_absolute_url(),
+                'featured_image': get_restaurant_featured_image(restaurant)
+            }
+            serialized_results.append(restaurant_data)
+        
+        # Create response with hybrid scoring information
+        response_data = {
+            **results,
+            'results': serialized_results,
+            'search_method': 'hybrid',
+            'api_version': 'hybrid_v1',
+            'scoring_explanation': 'Results combine traditional search relevance with semantic understanding'
+        }
+        
+        return JsonResponse(response_data)
+        
+    except Exception as e:
+        logger.error(f"Hybrid search API error: {e}")
+        return JsonResponse({
+            'error': 'Hybrid search failed',
+            'details': str(e),
+            'fallback_to_traditional': True
+        }, status=500)
+
+
+@require_http_methods(["GET"])
+def semantic_search_methods_api(request):
+    """
+    Get available semantic search methods and their descriptions.
+    Useful for frontend method selection and documentation.
+    """
+    try:
+        methods = {
+            SearchMethod.TRADITIONAL.value: {
+                'name': 'Traditional Search',
+                'description': 'Fast keyword-based search with PostgreSQL full-text search',
+                'best_for': ['Simple queries', 'Exact matches', 'Fast results'],
+                'performance': 'High speed, low latency'
+            },
+            SearchMethod.SEMANTIC.value: {
+                'name': 'Semantic Search',
+                'description': 'AI-powered semantic understanding using RAG service',
+                'best_for': ['Complex queries', 'Conceptual search', 'Experience-based queries'],
+                'performance': 'Moderate speed, high relevance'
+            },
+            SearchMethod.HYBRID.value: {
+                'name': 'Hybrid Search',
+                'description': 'Combines traditional and semantic search with intelligent weighting',
+                'best_for': ['Most queries', 'Balanced performance', 'High accuracy'],
+                'performance': 'Balanced speed and relevance'
+            },
+            SearchMethod.GEOGRAPHIC.value: {
+                'name': 'Geographic Search',
+                'description': 'Location-aware search with semantic enhancement',
+                'best_for': ['Location queries', 'Near me searches', 'Geographic filtering'],
+                'performance': 'Location-optimized results'
+            }
+        }
+        
+        return JsonResponse({
+            'search_methods': methods,
+            'default_method': 'automatic_routing',
+            'api_version': 'methods_v1',
+            'routing_info': {
+                'automatic': 'System automatically selects best method based on query analysis',
+                'manual': 'Force specific method using force_method parameter'
+            }
+        })
+        
+    except Exception as e:
+        logger.error(f"Search methods API error: {e}")
+        return JsonResponse({
+            'error': 'Failed to get search methods',
+            'details': str(e)
         }, status=500)
