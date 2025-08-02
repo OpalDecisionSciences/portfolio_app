@@ -11,10 +11,10 @@ from pathlib import Path
 import logging
 import json
 
-# Setup portfolio paths for cross-component imports
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent / "shared" / "src"))
 from config import setup_portfolio_paths
 setup_portfolio_paths()
+from scrapers.image_scraper import RestaurantImageScraper
+from services.image_ai_service import get_image_ai_service
 
 from .models import Restaurant, RestaurantImage
 
@@ -162,8 +162,6 @@ def scrape_restaurant_images_task(restaurant_id, max_images=15):
             logger.warning(f"No URL available for restaurant {restaurant.name}")
             return {'success': False, 'error': 'No URL available'}
         
-        # Import image scraper
-        from data_pipeline.src.scrapers.image_scraper import RestaurantImageScraper
         scraper = RestaurantImageScraper()
         
         # Scrape images

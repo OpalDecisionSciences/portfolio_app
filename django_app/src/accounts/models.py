@@ -180,7 +180,8 @@ class UserChatHistory(BaseModel):
     
     # Chat session info
     conversation_id = models.CharField(max_length=100, db_index=True)
-    session_end = models.DateTimeField(default=timezone.make_aware(datetime.min))
+    session_start = models.DateTimeField(auto_now_add=True)
+    session_end = models.DateTimeField(null=True, blank=True)
     
     # Conversation summary
     topics_discussed = models.JSONField(

@@ -25,7 +25,7 @@ from .recommenders import RestaurantRecommender
 import requests
 from django.conf import settings
 import math
-from shared.src.search.unified_filters import UnifiedSearchFilters
+from search.unified_filters import UnifiedSearchFilters
 
 # Set up logging
 logger = logging.getLogger(__name__)

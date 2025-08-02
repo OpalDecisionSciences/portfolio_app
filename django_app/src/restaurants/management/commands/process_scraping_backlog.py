@@ -6,10 +6,7 @@ from pathlib import Path
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
-# Add data pipeline to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent.parent.parent / "data_pipeline" / "src" / "scrapers"))
-
-from async_scraper_manager import get_scraper_manager
+from scrapers.async_scraper_manager import get_scraper_manager
 
 
 class Command(BaseCommand):

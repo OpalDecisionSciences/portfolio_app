@@ -109,7 +109,7 @@ class UserChatHistoryAdmin(admin.ModelAdmin):
         }),
     )
     
-    readonly_fields = ['session_start']
+    readonly_fields = ['session_start', 'created_at', 'updated_at']
 
 
 @admin.register(PasswordResetToken)

@@ -87,11 +87,6 @@ class Command(BaseCommand):
         
         self.stdout.write(f"Testing image scraping on: {test_url}")
         
-        # Import here to avoid import issues
-        import sys
-        from pathlib import Path
-        sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent.parent.parent / "data_pipeline" / "src"))
-        
         from scrapers.image_scraper import RestaurantImageScraper
         
         scraper = RestaurantImageScraper()

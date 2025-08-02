@@ -9,15 +9,10 @@ from typing import Dict, Any, Optional, List
 from datetime import datetime
 import json
 
-# Add shared modules to path
-shared_path = Path(__file__).parent.parent.parent.parent / 'shared' / 'src'
-sys.path.insert(0, str(shared_path))
+from cache.unified_cache_manager import get_cache_manager, UnifiedCacheManager
 
-try:
-    from cache.unified_cache_manager import get_cache_manager, UnifiedCacheManager
-except ImportError:
-    # Fallback for development
-    class MockCacheManager:
+# Fallback class for development
+class MockCacheManager:
         def get_search_results(self, query: str, filters: dict) -> Optional[dict]:
             return None
         
