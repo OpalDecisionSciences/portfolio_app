@@ -5,6 +5,9 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
+    # Set atomic=False to allow CONCURRENTLY index creation
+    atomic = False
+    
     dependencies = [
         ('restaurants', '0007_add_cart_status_field'),
     ]
