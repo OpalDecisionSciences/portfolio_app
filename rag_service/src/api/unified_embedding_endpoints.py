@@ -12,13 +12,7 @@ from pydantic import BaseModel, Field
 from fastapi import APIRouter, HTTPException, BackgroundTasks, Depends
 from fastapi.responses import JSONResponse
 
-# Add shared modules to path
-shared_path = Path(__file__).parent.parent.parent.parent / 'shared' / 'src'
-sys.path.insert(0, str(shared_path))
-
-# Add embeddings path
-embeddings_path = Path(__file__).parent.parent / 'embeddings'
-sys.path.insert(0, str(embeddings_path))
+# Import paths are handled by Docker PYTHONPATH
 
 from unified_embedding_generator import UnifiedEmbeddingGenerator
 from dotenv import load_dotenv

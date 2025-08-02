@@ -10,9 +10,7 @@ from pathlib import Path
 import json
 from datetime import datetime
 
-# Add shared modules to path
-shared_path = Path(__file__).parent.parent.parent.parent / 'shared' / 'src'
-sys.path.insert(0, str(shared_path))
+# Import paths are handled by Docker PYTHONPATH
 
 from langchain_openai import OpenAIEmbeddings
 from langchain_postgres import PGVector
