@@ -117,10 +117,10 @@ class Migration(migrations.Migration):
             "DROP INDEX IF EXISTS restaurants_image_category_idx;"
         ),
         
-        # Cart optimization (idempotent)
+        # Cart optimization (idempotent) - Note: cart_status field will be added in migration 0007
         migrations.RunSQL(
             "CREATE INDEX CONCURRENTLY IF NOT EXISTS restaurants_cart_user_restaurant_idx "
-            "ON restaurants_usercart (user_id, restaurant_id, cart_status, updated_at DESC);",
+            "ON restaurants_usercart (user_id, restaurant_id, is_active, updated_at DESC);",
             
             "DROP INDEX IF EXISTS restaurants_cart_user_restaurant_idx;"
         ),
