@@ -66,7 +66,7 @@ class RestaurantSearchService:
         ).prefetch_related(
             'images', 'chefs', 'menu_sections__items'
         ).filter(
-            status='active'  # Using EntityStatus.ACTIVE
+            is_active=True  # Only active restaurants
         )
         
         # Text search with full-text search and trigram similarity
@@ -226,7 +226,7 @@ class RestaurantSearchService:
     def _generate_facets(city="", country="", cuisine_type="", price_range="", min_rating=0.0) -> Dict:
         """Generate search facets for filtering."""
         
-        base_queryset = Restaurant.objects.filter(status='active')
+        base_queryset = Restaurant.objects.filter(is_active=True)
         
         # Apply current filters to facet generation
         if city:
@@ -315,7 +315,7 @@ class RestaurantSearchService:
         
         # Name suggestions
         name_suggestions = Restaurant.objects.filter(
-            status='active',
+            is_active=True,
             name__icontains=query
         ).annotate(
             similarity=TrigramSimilarity('name', query)

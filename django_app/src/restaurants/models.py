@@ -34,15 +34,6 @@ class Restaurant(BaseModel):
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     description = models.TextField(blank=True)
     
-    # Restaurant status - replaces simple is_active
-    status = models.CharField(
-        max_length=20,
-        choices=EntityStatus.choices,
-        default=EntityStatus.ACTIVE,
-        db_index=True,
-        help_text="Current operational status of the restaurant"
-    )
-    
     # Location
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)

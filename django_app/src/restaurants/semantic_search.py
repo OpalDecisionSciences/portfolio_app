@@ -267,7 +267,7 @@ class SemanticSearchService:
             restaurant_ids = [r.get('id') for r in rag_results.get('results', [])]
             restaurants = Restaurant.objects.filter(
                 id__in=restaurant_ids,
-                status='active'
+                is_active=True
             ).select_related().prefetch_related(
                 'images', 'chefs', 'menu_sections__items'
             )
@@ -483,7 +483,7 @@ class SemanticSearchService:
                 else:
                     # Restaurant only in semantic results
                     try:
-                        restaurant = Restaurant.objects.get(id=restaurant_id, status='active')
+                        restaurant = Restaurant.objects.get(id=restaurant_id, is_active=True)
                         restaurant_scores[restaurant_id] = {
                             'restaurant': restaurant,
                             'traditional_score': 0.0,
@@ -514,7 +514,7 @@ class SemanticSearchService:
             
             # Get restaurant objects
             restaurant_ids = [r['id'] for r in geographic_results if 'id' in r]
-            restaurants = Restaurant.objects.filter(id__in=restaurant_ids, status='active')
+            restaurants = Restaurant.objects.filter(id__in=restaurant_ids, is_active=True)
             
             # Query semantic service for enhanced understanding
             semantic_data = self._query_rag_service(query, 'restaurants', {})

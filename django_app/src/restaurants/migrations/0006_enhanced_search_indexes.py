@@ -8,9 +8,11 @@ from django.contrib.postgres.fields import ArrayField
 
 
 class Migration(migrations.Migration):
+    # Set atomic=False to allow CONCURRENTLY index creation
+    atomic = False
 
     dependencies = [
-        ('restaurants', '0002_restaurant_timezone_info'),
+        ('restaurants', '0005_menuitem_estimated_prep_time_and_more'),
     ]
 
     operations = [
@@ -46,7 +48,7 @@ class Migration(migrations.Migration):
         migrations.AddIndex(
             model_name='restaurant',
             index=models.Index(
-                fields=['status', 'michelin_stars', '-rating'],
+                fields=['is_active', 'michelin_stars', '-rating'],
                 name='restaurants_restaurant_search_rank_idx'
             ),
         ),
@@ -54,7 +56,7 @@ class Migration(migrations.Migration):
         migrations.AddIndex(
             model_name='restaurant',
             index=models.Index(
-                fields=['country', 'city', 'cuisine_type', 'status'],
+                fields=['country', 'city', 'cuisine_type', 'is_active'],
                 name='restaurants_restaurant_location_cuisine_idx'
             ),
         ),
@@ -62,7 +64,7 @@ class Migration(migrations.Migration):
         migrations.AddIndex(
             model_name='restaurant',
             index=models.Index(
-                fields=['price_range', 'rating', 'status'],
+                fields=['price_range', 'rating', 'is_active'],
                 name='restaurants_restaurant_price_rating_idx'
             ),
         ),
@@ -80,7 +82,7 @@ class Migration(migrations.Migration):
         migrations.AddIndex(
             model_name='restaurantreview',
             index=models.Index(
-                fields=['restaurant', 'status', '-rating'],
+                fields=['restaurant', 'is_active', '-rating'],
                 name='restaurants_review_restaurant_rating_idx'
             ),
         ),
@@ -98,7 +100,7 @@ class Migration(migrations.Migration):
         migrations.AddIndex(
             model_name='menuitem',
             index=models.Index(
-                fields=['menu_section', 'status', 'price'],
+                fields=['menu_section', 'is_active', 'price'],
                 name='restaurants_menuitem_section_price_idx'
             ),
         ),
@@ -132,10 +134,10 @@ class Migration(migrations.Migration):
         
         # Scraping task optimization
         migrations.AddIndex(
-            model_name='scrapingtask',
+            model_name='scrapingbacklogtask',
             index=models.Index(
                 fields=['status', 'task_type', 'priority', 'created_at'],
-                name='restaurants_scrapingtask_queue_idx'
+                name='restaurants_scrapingbacklogtask_queue_idx'
             ),
         ),
     ]
