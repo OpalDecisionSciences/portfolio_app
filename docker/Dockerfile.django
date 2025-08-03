@@ -29,7 +29,8 @@ ENV CHROME_BIN=/usr/bin/chromium
 ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 # Create app user for security (production best practice)
-RUN groupadd -r appuser && useradd -r -g appuser appuser
+# Use consistent UID/GID (1000) to match common host user permissions
+RUN groupadd -r -g 1000 appuser && useradd -r -u 1000 -g appuser appuser
 
 # Install Python dependencies
 COPY requirements.txt /app/

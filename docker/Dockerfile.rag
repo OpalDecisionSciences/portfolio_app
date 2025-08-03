@@ -28,12 +28,20 @@ COPY ./shared /shared/
 # Add shared modules to Python path
 ENV PYTHONPATH="/app:/shared/src:$PYTHONPATH"
 
-# Create necessary directories
-RUN mkdir -p /app/logs /app/data
+# Create app user for security (production best practice)
+# Use consistent UID/GID (1000) to match common host user permissions
+RUN groupadd -r -g 1000 appuser && useradd -r -u 1000 -g appuser appuser
+
+# Create necessary directories and set permissions
+RUN mkdir -p /app/logs /app/data \
+    && chown -R appuser:appuser /app /shared
 
 # Download NLTK data required for hybrid retrieval
 RUN python -c "import nltk; nltk.download('punkt', download_dir='/usr/local/share/nltk_data'); nltk.download('stopwords', download_dir='/usr/local/share/nltk_data')"
 ENV NLTK_DATA="/usr/local/share/nltk_data"
+
+# Switch to non-root user for security
+USER appuser
 
 # Expose port
 EXPOSE 8001
