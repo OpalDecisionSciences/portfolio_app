@@ -19,6 +19,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="{% static 'css/bootstrap-slider.css' %}" rel="stylesheet">
 	
+	<!-- GLightbox - Modern Lightbox -->
+	<link href="{% static 'css/glightbox.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/glightbox-custom.css' %}" rel="stylesheet">
+	
 	<!-- JAVASCRIPT -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="{% static 'js/modernizr.js' %}"></script>
@@ -793,11 +797,15 @@
 									<h3><i class="icon-cutlery"></i> Menu & Food</h3>
 									<div class="image-grid">
 										{% for image in menu_images %}
-										<img src="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}" 
-											 alt="{{ image.get_display_name }}" 
-											 class="gallery-image"
-											 onclick="openModal(this.src)"
-											 onerror="this.style.display='none'">
+										<a href="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}"
+										   class="glightbox gallery-image-link"
+										   data-gallery="menu-gallery"
+										   data-glightbox="title: {{ image.get_display_name }}; description: Menu Item">
+											<img src="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}" 
+												 alt="{{ image.get_display_name }}" 
+												 class="gallery-image"
+												 onerror="this.style.display='none'">
+										</a>
 										{% endfor %}
 									</div>
 								</div>
@@ -809,11 +817,15 @@
 									<h3><i class="icon-home"></i> Ambiance & Interior</h3>
 									<div class="image-grid">
 										{% for image in ambiance_images %}
-										<img src="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}" 
-											 alt="{{ image.get_display_name }}" 
-											 class="gallery-image"
-											 onclick="openModal(this.src)"
-											 onerror="this.style.display='none'">
+										<a href="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}"
+										   class="glightbox gallery-image-link"
+										   data-gallery="ambiance-gallery"
+										   data-glightbox="title: {{ image.get_display_name }}; description: Restaurant Ambiance">
+											<img src="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}" 
+												 alt="{{ image.get_display_name }}" 
+												 class="gallery-image"
+												 onerror="this.style.display='none'">
+										</a>
 										{% endfor %}
 									</div>
 								</div>
@@ -826,11 +838,15 @@
 									<div class="image-grid">
 										{% for image in images %}
 											{% if image not in menu_images and image not in ambiance_images %}
-											<img src="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}" 
-												 alt="{{ image.get_display_name }}" 
-												 class="gallery-image"
-												 onclick="openModal(this.src)"
-												 onerror="this.style.display='none'">
+											<a href="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}"
+											   class="glightbox gallery-image-link"
+											   data-gallery="exterior-gallery"
+											   data-glightbox="title: {{ image.get_display_name }}; description: Restaurant Photos">
+												<img src="{% if image.source_url %}{{ image.source_url }}{% elif image.image %}{{ image.image.url }}{% endif %}" 
+													 alt="{{ image.get_display_name }}" 
+													 class="gallery-image"
+													 onerror="this.style.display='none'">
+											</a>
 											{% endif %}
 										{% endfor %}
 									</div>
@@ -996,40 +1012,28 @@
 		</div>
 	</div>
 	
-	<!-- Image Modal -->
-	<div id="imageModal" class="image-modal">
-		<span class="close">&times;</span>
-		<img class="modal-content" id="modalImage">
-	</div>
 	
 	<!-- Scripts -->
 	<script src="{% static 'js/scripts.js' %}"></script>
 	<script src="{% static 'js/functions.js' %}"></script>
 	
+	<!-- GLightbox - Modern Lightbox JavaScript -->
+	<script src="{% static 'js/glightbox.min.js' %}"></script>
+	
 	<script>
-		// Image modal functionality
-		function openModal(src) {
-			document.getElementById('imageModal').style.display = 'block';
-			document.getElementById('modalImage').src = src;
+		// Initialize GLightbox for restaurant image galleries
+		if (typeof GLightbox !== 'undefined') {
+			const restaurantGallery = GLightbox({
+				selector: '.glightbox',
+				openEffect: 'zoom',
+				closeEffect: 'fade', 
+				slideEffect: 'slide',
+				skin: 'clean',
+				touchNavigation: true,
+				loop: true,
+				autoplayVideos: false
+			});
 		}
-		
-		// Close modal when clicking the close button or outside the image
-		document.getElementsByClassName('close')[0].onclick = function() {
-			document.getElementById('imageModal').style.display = 'none';
-		}
-		
-		document.getElementById('imageModal').onclick = function(event) {
-			if (event.target === this) {
-				this.style.display = 'none';
-			}
-		}
-		
-		// Close modal with escape key
-		document.addEventListener('keydown', function(event) {
-			if (event.key === 'Escape') {
-				document.getElementById('imageModal').style.display = 'none';
-			}
-		});
 		
 		// Timezone functionality
 		{% if timezone_info %}

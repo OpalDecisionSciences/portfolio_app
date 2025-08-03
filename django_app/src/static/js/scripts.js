@@ -11268,7 +11268,33 @@ var chosenContainerBackdrop = function () {
 }();
 jQuery(document).ready(function () {
 
-    jQuery('.menu-itam-holder .menu-itam-list .image-holder a').attr('rel', 'prettyPhoto');
+    // Initialize GLightbox for restaurant menu images with custom theme
+    if (typeof GLightbox !== 'undefined') {
+        const galleryLightbox = GLightbox({
+            selector: '.menu-itam-holder .menu-itam-list .image-holder a',
+            openEffect: 'zoom',
+            closeEffect: 'fade', 
+            slideEffect: 'slide',
+            skin: 'clean',
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: false,
+            plyr: {
+                config: {
+                    ratio: '16:9',
+                    youtube: {
+                        noCookie: true,
+                        rel: 0,
+                        showinfo: 0,
+                        iv_load_policy: 3
+                    }
+                }
+            }
+        });
+    } else {
+        // Fallback: add rel attribute for legacy compatibility
+        jQuery('.menu-itam-holder .menu-itam-list .image-holder a').attr('rel', 'prettyPhoto');
+    }
 
     jQuery(document).on("click", "#update_membership", function (e) {
         e.preventDefault();
