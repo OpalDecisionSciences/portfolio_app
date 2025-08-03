@@ -145,3 +145,7 @@ webdriver-manager==4.0.1
 whitenoise==6.6.0
 wsproto==1.2.0
 yarl==1.20.1
+rank_bm25==0.2.2
+scikit-learn==1.7.1
+scipy==1.16.1
+threadpoolctl==3.6.0
