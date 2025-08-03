@@ -1,0 +1,12 @@
+FROM redis:7-alpine
+
+# Install envsubst for environment variable substitution
+RUN apk add --no-cache gettext
+
+# Copy configuration template and entrypoint
+COPY ./docker/config/redis.conf.template /usr/local/etc/redis/redis.conf.template
+COPY ./docker/redis-entrypoint.sh /usr/local/bin/redis-entrypoint.sh
+RUN chmod +x /usr/local/bin/redis-entrypoint.sh
+
+# Use our secure entrypoint
+ENTRYPOINT ["/usr/local/bin/redis-entrypoint.sh"]

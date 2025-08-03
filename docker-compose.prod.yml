@@ -20,19 +20,19 @@ services:
 
   # Redis for caching and session management
   redis:
-    image: redis:7-alpine
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.redis
     container_name: portfolio_redis_prod
     env_file:
       - .env
     volumes:
       - redis_data_prod:/data
-      - ./docker/config/redis.conf:/usr/local/etc/redis/redis.conf
     networks:
       - portfolio_network_prod
     restart: unless-stopped
-    command: redis-server /usr/local/etc/redis/redis.conf
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
       interval: 30s
       timeout: 10s
       retries: 5
