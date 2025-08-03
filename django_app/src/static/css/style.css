@@ -1047,7 +1047,31 @@ ul.products:after { clear: both; display: block; content: ""; }
 /* Shop Widget Style */
 .widget.woocommerce { margin-bottom: 30px; }
 .widget.woocommerce h4 { position: relative; margin: 0 0 25px; padding: 0 0 20px; font-weight: 600 !important; }
-.widget.woocommerce h4:before, .woocommerce .woocommerce-tabs .tab-content h5:before { position: absolute; left: 0; bottom: 0; height: 7px; width: 100%; content: ""; background: url(../images/widget-sepretor.png); }
+.widget.woocommerce h4:before, .woocommerce .woocommerce-tabs .tab-content h5:before { 
+  position: absolute; 
+  left: 0; 
+  bottom: 0; 
+  height: 7px; 
+  width: 100%; 
+  content: ""; 
+  background: linear-gradient(to right, #2c2c2c, #1a1a1a, #2c2c2c), 
+              linear-gradient(to right, transparent 45%, #D4AF37 50%, transparent 55%);
+  background-size: 100% 100%, 100% 1px;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
+
+/* Add gold star ornament in center */
+.widget.woocommerce h4:after, .woocommerce .woocommerce-tabs .tab-content h5:after {
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  transform: translateX(-50%);
+  content: "★";
+  color: #D4AF37;
+  font-size: 8px;
+  text-shadow: 0 0 3px rgba(212, 175, 55, 0.5);
+}
 .single.single-product.woocommerce.woocommerce-page .tab-content p { font: 400 14px/24px 'Lato', sans-serif; color: #999 }
 .single.single-product.woocommerce.woocommerce-page .tags-contents { width: 70%; margin: 0 auto; text-align: center; }
 .single.single-product.woocommerce.woocommerce-page .tags-contents li { display: inline-block; margin: 0 3px 20px 3px }
