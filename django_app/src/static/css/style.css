@@ -1977,7 +1977,65 @@ a.slicknav_btn.slicknav_open .slicknav_icon-bar:first-child { position: absolute
 .select-location .slider.slider-horizontal .slider-track { height: 11px; }
 .select-location .select-popup span { color: #ccc; display: inline-block; font-size: 14px; padding: 0; }
 .select-location .slider.slider-horizontal { width: 70%; margin-bottom: 10px; }
-.select-location .slider-handle { background: url(assets/images/ui-arrow.png) no-repeat; height: 26px; top: -4px; width: 25px; }
+/* Elegant Michelin Star Slider Handle */
+.select-location .slider-handle { 
+  background: linear-gradient(135deg, #D4AF37 0%, #F4E4BC 50%, #D4AF37 100%);
+  border: 2px solid #B8941F;
+  border-radius: 50%;
+  height: 26px; 
+  width: 25px;
+  top: -4px;
+  position: relative;
+  box-shadow: 
+    0 2px 8px rgba(212, 175, 55, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: grab;
+}
+
+.select-location .slider-handle:hover {
+  background: linear-gradient(135deg, #F4E4BC 0%, #D4AF37 50%, #F4E4BC 100%);
+  box-shadow: 
+    0 4px 12px rgba(212, 175, 55, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.select-location .slider-handle:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+  box-shadow: 
+    0 1px 4px rgba(212, 175, 55, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Elegant directional indicator */
+.select-location .slider-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid #8B7355;
+  opacity: 0.7;
+}
+
+/* Premium focus state for accessibility */
+.select-location .slider-handle:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(212, 175, 55, 0.3),
+    0 2px 8px rgba(212, 175, 55, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
 .select-location .select-popup { background-color: #fff; border: 1px solid #e0e0e0; display: none; left: 0; padding: 10px 10px 15px 15px; position: absolute; top: 56px; width: 100%; z-index: 10; }
 .select-location .select-popup:before { border-bottom: 7px solid #e4e4e4; border-left: 7px solid rgba(0, 0, 0, 0); border-right: 7px solid rgba(0, 0, 0, 0); content: ""; display: inline-block; margin: 0 -2px 0 0px; position: absolute; right: 16px; top: -7px; }
 .select-location .select-popup:after { border-bottom: 6px solid #ffffff; border-left: 6px solid rgba(0, 0, 0, 0); border-right: 6px solid rgba(0, 0, 0, 0); content: ""; display: inline-block; margin: 0 -1px 0 0px; position: absolute; right: 16px; top: -5px; }
