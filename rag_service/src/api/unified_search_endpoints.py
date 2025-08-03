@@ -15,7 +15,7 @@ from fastapi.responses import JSONResponse
 # Import paths are handled by Docker PYTHONPATH
 
 from search.unified_filters import UnifiedSearchFilters, UnifiedSearchResult, SearchRequest, SearchResponse
-from unified_embedding_generator import UnifiedEmbeddingGenerator
+from embeddings.unified_embedding_generator import UnifiedEmbeddingGenerator
 from cache.unified_cache_manager import get_cache_manager, UnifiedCacheManager
 from dotenv import load_dotenv
 
@@ -71,8 +71,8 @@ class SearchRequestModel(BaseModel):
     # Search parameters
     limit: int = Field(default=20, ge=1, le=100)
     offset: int = Field(default=0, ge=0)
-    sort_by: str = Field(default="relevance", regex="^(relevance|date|rating|distance|alphabetical)$")
-    sort_order: str = Field(default="desc", regex="^(asc|desc)$")
+    sort_by: str = Field(default="relevance", pattern="^(relevance|date|rating|distance|alphabetical)$")
+    sort_order: str = Field(default="desc", pattern="^(asc|desc)$")
     include_metadata: bool = True
     include_embeddings: bool = False
 

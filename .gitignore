@@ -8,3 +8,7 @@
 # .env.example
 # .env.prod.example
 .env.prod
+
+# Django generated static files (collected at runtime)
+# Source static files (django_app/src/static/) stay in git
+django_app/src/staticfiles/

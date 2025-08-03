@@ -14,7 +14,7 @@ from fastapi.responses import JSONResponse
 
 # Import paths are handled by Docker PYTHONPATH
 
-from unified_embedding_generator import UnifiedEmbeddingGenerator
+from embeddings.unified_embedding_generator import UnifiedEmbeddingGenerator
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -39,7 +39,7 @@ def get_embedding_generator() -> UnifiedEmbeddingGenerator:
 class EmbeddingRequest(BaseModel):
     """Request model for creating embeddings."""
     content: str = Field(..., min_length=1, max_length=10000)
-    content_type: str = Field(..., regex="^(restaurant|image|menu_item|document)$")
+    content_type: str = Field(..., pattern="^(restaurant|image|menu_item|document)$")
     content_id: str = Field(..., min_length=1)
     metadata: Dict[str, Any] = Field(default_factory=dict)
     force_update: bool = Field(default=False)

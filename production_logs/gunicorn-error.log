@@ -4,3 +4,8 @@
 [2025-08-03 08:53:01 +0000] [21] [INFO] Booting worker with pid: 21
 [2025-08-03 08:53:01 +0000] [22] [INFO] Booting worker with pid: 22
 [2025-08-03 08:53:01 +0000] [23] [INFO] Booting worker with pid: 23
+[2025-08-03 18:32:00 +0000] [1] [INFO] Handling signal: term
+[2025-08-03 18:32:00 +0000] [23] [INFO] Worker exiting (pid: 23)
+[2025-08-03 18:32:00 +0000] [21] [INFO] Worker exiting (pid: 21)
+[2025-08-03 18:32:00 +0000] [22] [INFO] Worker exiting (pid: 22)
+[2025-08-03 18:32:00 +0000] [1] [INFO] Shutting down: Master

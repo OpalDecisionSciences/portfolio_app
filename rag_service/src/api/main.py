@@ -52,8 +52,8 @@ from retrieval.hybrid_retriever import HybridRetriever
 from tools.location_weather_tools import get_location_weather_tools
 
 # Import unified endpoints
-from unified_search_endpoints import router as unified_search_router
-from unified_embedding_endpoints import router as unified_embedding_router
+from .unified_search_endpoints import router as unified_search_router
+from .unified_embedding_endpoints import router as unified_embedding_router
 
 load_dotenv()
 

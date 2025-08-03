@@ -42,6 +42,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_web_prod
+    user: "1000:1000"  # Explicit user mapping for static files permissions
     depends_on:
       db:
         condition: service_healthy
@@ -90,6 +91,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_celery_prod
+    user: "1000:1000"  # Consistent user mapping with web service
     depends_on:
       db:
         condition: service_healthy
@@ -111,6 +113,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_celery_beat_prod
+    user: "1000:1000"  # Consistent user mapping with web service
     depends_on:
       db:
         condition: service_healthy
@@ -131,6 +134,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.django
     container_name: portfolio_flower_prod
+    user: "1000:1000"  # Consistent user mapping with web service
     depends_on:
       redis:
         condition: service_healthy

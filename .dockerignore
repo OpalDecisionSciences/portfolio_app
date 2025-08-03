@@ -1,0 +1,37 @@
+# Docker build optimization - exclude generated files
+# Static files are generated at runtime, not build time
+django_app/src/staticfiles/
+django_app/src/media/
+
+# Python cache files
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.Python
+
+# Development and IDE files
+.git/
+.gitignore
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+.vscode/
+.idea/
+
+# Documentation and CI
+README.md
+docs/
+.github/
+
+# Logs
+*.log
+logs/
+production_logs/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
