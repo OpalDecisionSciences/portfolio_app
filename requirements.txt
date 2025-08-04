@@ -43,7 +43,8 @@ fastapi==0.104.1
 flake8==6.1.0
 flower==2.0.1
 frozenlist==1.7.0
-gevent==25.5.1
+# Replaced with uvicorn workers for async support
+# gevent==25.5.1
 greenlet==3.2.3
 gunicorn==21.2.0
 h11==0.16.0

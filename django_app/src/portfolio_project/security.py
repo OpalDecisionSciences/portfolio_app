@@ -181,9 +181,16 @@ def get_database_config() -> dict:
             'PORT': get_env_variable('DATABASE_PORT', '5432'),
             'OPTIONS': {
                 'sslmode': get_env_variable('DATABASE_SSL_MODE', 'prefer'),
+                # psycopg3 compatible options
+                'server_side_binding': True,  # Improve performance
+                'autocommit': True,  # Better async compatibility
             },
             'CONN_MAX_AGE': 60,  # Connection pooling
             'CONN_HEALTH_CHECKS': True,
+            # Enhanced configuration for async workers
+            'TEST': {
+                'NAME': 'test_' + get_env_variable('DATABASE_NAME'),
+            },
         }
     }
 

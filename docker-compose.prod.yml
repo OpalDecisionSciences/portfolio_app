@@ -178,16 +178,30 @@ services:
       timeout: 10s
       retries: 3
 
-  # Certbot for SSL certificates
+  # Certbot for SSL certificates - Production Ready
   certbot:
     image: certbot/certbot
     container_name: portfolio_certbot
     volumes:
       - ./ssl:/etc/letsencrypt
       - ./ssl-challenges:/var/www/certbot
-    command: certonly --webroot --webroot-path=/var/www/certbot --email opaldecisionsciences@gmail.com --agree-tos --no-eff-email --staging -d opaldecisionsciences.com -d www.opaldecisionsciences.com
+    environment:
+      - DOMAIN_NAME=${DOMAIN_NAME:-opaldecisionsciences.com}
+      - ACME_EMAIL=${ACME_EMAIL:-opaldecisionsciences@gmail.com}
+    command: certonly --webroot --webroot-path=/var/www/certbot --email ${ACME_EMAIL:-opaldecisionsciences@gmail.com} --agree-tos --no-eff-email --force-renewal -d ${DOMAIN_NAME:-opaldecisionsciences.com} -d www.${DOMAIN_NAME:-opaldecisionsciences.com}
     profiles:
       - ssl-setup
+      
+  # Certbot renewal service (for testing renewals)
+  certbot-renew:
+    image: certbot/certbot
+    container_name: portfolio_certbot_renew
+    volumes:
+      - ./ssl:/etc/letsencrypt
+      - ./ssl-challenges:/var/www/certbot
+    command: renew --webroot --webroot-path=/var/www/certbot --quiet
+    profiles:
+      - ssl-renew
 
 volumes:
   postgres_data_prod:

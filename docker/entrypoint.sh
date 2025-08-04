@@ -38,9 +38,9 @@ print_status "Starting Django application in $ENVIRONMENT mode..."
 print_status "Waiting for database to be ready..."
 until python -c "
 import os
-import psycopg2
+import psycopg
 try:
-    conn = psycopg2.connect(
+    conn = psycopg.connect(
         host=os.environ.get('DATABASE_HOST', 'db'),
         port=os.environ.get('DATABASE_PORT', '5432'),
         user=os.environ.get('DATABASE_USER', 'postgres'),
@@ -48,9 +48,9 @@ try:
         dbname=os.environ.get('DATABASE_NAME', 'postgres')
     )
     conn.close()
-    print('Database connection successful!')
+    print('Database connection successful with psycopg3!')
     exit(0)
-except psycopg2.OperationalError as e:
+except psycopg.OperationalError as e:
     print(f'Database not ready: {e}')
     exit(1)
 except Exception as e:
@@ -96,7 +96,7 @@ print_status "Starting production server with gunicorn..."
 exec gunicorn portfolio_project.wsgi:application \
     --bind 0.0.0.0:8000 \
     --workers 3 \
-    --worker-class gevent \
+    --worker-class uvicorn.workers.UvicornWorker \
     --worker-connections 1000 \
     --max-requests 1000 \
     --max-requests-jitter 100 \

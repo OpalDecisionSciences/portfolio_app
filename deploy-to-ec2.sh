@@ -122,38 +122,47 @@ ssh -i $KEY_FILE -o StrictHostKeyChecking=no $EC2_USER@$EC2_IP << EOF
     print_status "Checking service health..."
     docker-compose -f docker-compose.prod.yml ps
     
-    # Setup SSL with Let's Encrypt
-    print_status "Setting up SSL certificates..."
+    # Industry Best-Practice SSL Certificate Setup
+    print_status "Setting up SSL certificates using best practices..."
     
-    # First try staging certificate
-    print_status "Requesting staging SSL certificate..."
-    docker-compose -f docker-compose.prod.yml --profile ssl-setup run --rm certbot certonly \
-        --webroot \
-        --webroot-path=/var/www/certbot \
-        --email $EMAIL \
-        --agree-tos \
-        --no-eff-email \
-        --staging \
-        -d $DOMAIN_NAME \
-        -d www.$DOMAIN_NAME || {
-        print_warning "Staging SSL failed, continuing with production cert..."
-    }
+    # Set environment variables for certificate acquisition
+    export DOMAIN_NAME=$DOMAIN_NAME
+    export ACME_EMAIL=$EMAIL
     
-    # Then production certificate
-    print_status "Requesting production SSL certificate..."
-    docker-compose -f docker-compose.prod.yml --profile ssl-setup run --rm certbot certonly \
-        --webroot \
-        --webroot-path=/var/www/certbot \
-        --email $EMAIL \
-        --agree-tos \
-        --no-eff-email \
-        --force-renewal \
-        -d $DOMAIN_NAME \
-        -d www.$DOMAIN_NAME
+    # Phase 1: Verify HTTP deployment is working
+    print_status "Phase 1: Verifying HTTP deployment..."
+    sleep 10  # Allow services to fully start
     
-    # Restart nginx with SSL
-    print_status "Restarting services with SSL..."
-    docker-compose -f docker-compose.prod.yml restart nginx
+    if curl -f -s http://$DOMAIN_NAME/health/ > /dev/null; then
+        print_status "✅ HTTP deployment verified - ready for SSL certificate acquisition"
+    else
+        print_warning "⚠️ HTTP health check failed - continuing with SSL setup"
+    fi
+    
+    # Phase 2: Acquire production SSL certificates
+    print_status "Phase 2: Acquiring production SSL certificates..."
+    print_status "Using industry-standard HTTP-01 challenge method"
+    
+    docker-compose -f docker-compose.prod.yml --profile ssl-setup up certbot
+    
+    # Phase 3: Automatic upgrade to HTTPS
+    print_status "Phase 3: Automatic upgrade to HTTPS mode..."
+    sleep 5
+    
+    # The nginx-ssl-manager automatically detects new certificates and switches to HTTPS
+    print_status "Certificate detection and HTTPS upgrade handled automatically"
+    
+    # Verify HTTPS is working
+    print_status "Verifying HTTPS deployment..."
+    sleep 10
+    
+    if curl -f -s https://$DOMAIN_NAME/health/ > /dev/null; then
+        print_status "✅ HTTPS deployment successful!"
+    elif curl -f -s http://$DOMAIN_NAME/health/ > /dev/null; then
+        print_warning "⚠️ HTTP working but HTTPS may need time to activate"
+    else
+        print_error "❌ Health check failed on both HTTP and HTTPS"
+    fi
     
     # Set up SSL certificate auto-renewal
     print_status "Setting up SSL certificate auto-renewal..."

@@ -1,21 +1,30 @@
 FROM nginx:stable
 
-# Install dependencies for health checks and wait script
-RUN apt-get update && apt-get install -y curl netcat-openbsd && rm -rf /var/lib/apt/lists/*
+# Install dependencies for SSL management and health checks
+RUN apt-get update && apt-get install -y \
+    curl \
+    netcat-openbsd \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy both nginx configurations
-COPY ./nginx.http.conf /etc/nginx/nginx.conf
+# Copy nginx configurations (HTTP and HTTPS modes)
+COPY ./nginx.http.conf /etc/nginx/nginx.http.conf
 COPY ./nginx.prod.conf /etc/nginx/nginx.prod.conf
 
-# Copy and setup wait script
+# Copy SSL management and wait scripts
+COPY ./nginx-ssl-manager.sh /usr/local/bin/nginx-ssl-manager
 COPY ./wait-for-it.sh /wait-for-it.sh
-RUN chmod +x /wait-for-it.sh
+RUN chmod +x /usr/local/bin/nginx-ssl-manager /wait-for-it.sh
 
-# Include certbot webroot path
-RUN mkdir -p /var/www/certbot
+# Create necessary directories
+RUN mkdir -p /var/www/certbot /etc/letsencrypt/live
 
 # Expose ports
 EXPOSE 80 443
 
-# Use wait script to ensure services are ready before starting nginx
-CMD ["/wait-for-it.sh", "web:8000", "--", "/wait-for-it.sh", "rag:8001", "--", "nginx", "-g", "daemon off;"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/health/ || exit 1
+
+# Use industry-standard SSL certificate management
+CMD ["/wait-for-it.sh", "web:8000", "--", "/wait-for-it.sh", "rag:8001", "--", "nginx-ssl-manager", "init"]
