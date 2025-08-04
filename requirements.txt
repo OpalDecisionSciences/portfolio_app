@@ -90,7 +90,8 @@ propcache==0.3.2
 psycopg==3.1.12
 psycopg-binary==3.1.12
 psycopg-pool==3.2.6
-psycopg2-binary==2.9.9
+# Replaced with psycopg3 for async support
+# psycopg2-binary==2.9.9
 pycodestyle==2.11.1
 pydantic==2.5.0
 pydantic_core==2.14.1
@@ -154,3 +155,5 @@ rank_bm25==0.2.2
 scikit-learn==1.7.1
 scipy==1.16.1
 threadpoolctl==3.6.0
+# ASGI server with async support for Django
+uvicorn[standard]==0.24.0
