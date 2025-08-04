@@ -60,6 +60,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'django_extensions',
+    'django_celery_beat',
+    'storages',
     
     # Local apps
     'restaurants',
@@ -121,6 +123,33 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+# AWS S3 Static Files Configuration
+USE_S3_STATIC = get_env_bool('USE_S3_STATIC', False)
+
+if USE_S3_STATIC:
+    # AWS S3 Settings
+    AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = get_env_variable('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = get_env_variable('AWS_S3_REGION_NAME', 'us-east-1')
+    AWS_S3_CUSTOM_DOMAIN = get_env_variable('AWS_S3_CUSTOM_DOMAIN', f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com')
+    
+    # S3 Static files settings
+    AWS_LOCATION = 'static'
+    AWS_DEFAULT_ACL = 'public-read'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',  # 1 day cache
+    }
+    
+    # Static files configuration for S3
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.StaticS3Boto3Storage'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+    
+    print(f"[S3 STATIC] Using S3 bucket: {AWS_STORAGE_BUCKET_NAME}")
+    print(f"[S3 STATIC] Static URL: {STATIC_URL}")
+else:
+    print("[LOCAL STATIC] Using local static files storage")
 
 # Media files
 MEDIA_URL = '/media/'

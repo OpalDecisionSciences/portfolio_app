@@ -126,7 +126,7 @@ services:
     networks:
       - portfolio_network_prod
     restart: unless-stopped
-    command: celery -A portfolio_project beat --loglevel=info
+    command: celery -A portfolio_project beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
   # Flower for monitoring Celery tasks (optional in production)
   flower:
@@ -140,6 +140,8 @@ services:
         condition: service_healthy
     env_file: 
       - .env
+    volumes:
+      - ./production_logs:/app/logs
     ports:
       - "127.0.0.1:5555:5555"  # Only accessible from localhost
     networks:

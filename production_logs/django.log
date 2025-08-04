@@ -28543,3 +28543,319 @@ INFO 2025-08-03 19:27:30,708 credentials 1 281473530961952 Found credentials in 
 INFO 2025-08-03 19:29:24,217 credentials 1 281473293828128 Found credentials in environment variables.
 INFO 2025-08-03 19:31:17,766 credentials 1 281473234055200 Found credentials in environment variables.
 INFO 2025-08-03 19:31:51,849 credentials 1 281473550508064 Found credentials in environment variables.
+INFO 2025-08-03 19:33:11,294 credentials 1 281473039589408 Found credentials in environment variables.
+INFO 2025-08-03 19:35:04,784 credentials 1 281473663901728 Found credentials in environment variables.
+INFO 2025-08-03 19:35:43,584 credentials 1 281473118248992 Found credentials in environment variables.
+INFO 2025-08-03 19:35:43,589 credentials 1 281473534795808 Found credentials in environment variables.
+INFO 2025-08-03 19:35:45,619 credentials 1 281473205084192 Found credentials in environment variables.
+INFO 2025-08-03 19:35:47,557 credentials 1 281472892919840 Found credentials in environment variables.
+INFO 2025-08-03 19:35:49,557 credentials 1 281473193041952 Found credentials in environment variables.
+INFO 2025-08-03 19:35:51,858 credentials 1 281473173241888 Found credentials in environment variables.
+INFO 2025-08-03 19:35:55,030 credentials 1 281473824210976 Found credentials in environment variables.
+INFO 2025-08-03 19:35:59,663 credentials 1 281473166057504 Found credentials in environment variables.
+INFO 2025-08-03 19:36:07,515 credentials 1 281473268371488 Found credentials in environment variables.
+INFO 2025-08-03 19:36:21,763 credentials 1 281473766449184 Found credentials in environment variables.
+INFO 2025-08-03 19:36:48,851 credentials 1 281473857216544 Found credentials in environment variables.
+INFO 2025-08-03 19:37:41,526 credentials 1 281472863563808 Found credentials in environment variables.
+INFO 2025-08-03 19:38:09,105 credentials 1 281473828061216 Found credentials in environment variables.
+INFO 2025-08-03 19:38:09,384 credentials 1 281473600401440 Found credentials in environment variables.
+INFO 2025-08-03 19:38:09,493 command 1 281473600401440 Visit me at http://0.0.0.0:5555
+INFO 2025-08-03 19:38:09,498 command 1 281473600401440 Broker: redis://:**@redis:6379/0
+INFO 2025-08-03 19:38:09,500 command 1 281473600401440 Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'portfolio_project.celery.debug_task',
+ 'restaurants.tasks.batch_process_pending_images',
+ 'restaurants.tasks.batch_update_recent_embeddings',
+ 'restaurants.tasks.cleanup_old_images',
+ 'restaurants.tasks.process_image_ai_categorization',
+ 'restaurants.tasks.scrape_restaurant_images_task',
+ 'restaurants.tasks.system_health_check',
+ 'restaurants.tasks.trigger_document_embedding_on_scrape',
+ 'restaurants.tasks.update_restaurant_embeddings',
+ 'restaurants.tasks.warm_popular_restaurant_cache']
+INFO 2025-08-03 19:38:09,505 mixins 1 281472946729376 Connected to redis://:**@redis:6379/0
+INFO 2025-08-03 19:38:10,708 credentials 1 281473535213600 Found credentials in environment variables.
+INFO 2025-08-03 19:38:12,378 credentials 1 281473779159072 Found credentials in environment variables.
+INFO 2025-08-03 19:38:14,244 credentials 1 281472977424416 Found credentials in environment variables.
+INFO 2025-08-03 19:38:16,528 credentials 1 281473403383840 Found credentials in environment variables.
+INFO 2025-08-03 19:38:19,580 credentials 1 281473429250080 Found credentials in environment variables.
+INFO 2025-08-03 19:38:24,221 credentials 1 281473680883744 Found credentials in environment variables.
+INFO 2025-08-03 19:38:32,183 credentials 1 281473382891552 Found credentials in environment variables.
+INFO 2025-08-03 19:38:46,553 credentials 1 281473283313696 Found credentials in environment variables.
+INFO 2025-08-03 19:39:13,598 credentials 1 281473843093536 Found credentials in environment variables.
+INFO 2025-08-03 19:39:52,615 command 1 281473600401440 15 detected, shutting down
+INFO 2025-08-03 19:40:04,572 credentials 1 281473807912992 Found credentials in environment variables.
+INFO 2025-08-03 19:40:04,642 credentials 1 281473837072416 Found credentials in environment variables.
+INFO 2025-08-03 19:40:04,746 command 1 281473837072416 Visit me at http://0.0.0.0:5555
+INFO 2025-08-03 19:40:04,749 command 1 281473837072416 Broker: redis://:**@redis:6379/0
+INFO 2025-08-03 19:40:04,751 command 1 281473837072416 Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'portfolio_project.celery.debug_task',
+ 'restaurants.tasks.batch_process_pending_images',
+ 'restaurants.tasks.batch_update_recent_embeddings',
+ 'restaurants.tasks.cleanup_old_images',
+ 'restaurants.tasks.process_image_ai_categorization',
+ 'restaurants.tasks.scrape_restaurant_images_task',
+ 'restaurants.tasks.system_health_check',
+ 'restaurants.tasks.trigger_document_embedding_on_scrape',
+ 'restaurants.tasks.update_restaurant_embeddings',
+ 'restaurants.tasks.warm_popular_restaurant_cache']
+INFO 2025-08-03 19:40:04,757 mixins 1 281473183707552 Connected to redis://:**@redis:6379/0
+INFO 2025-08-03 19:40:06,117 credentials 1 281472871628832 Found credentials in environment variables.
+INFO 2025-08-03 19:40:07,761 credentials 1 281473787011104 Found credentials in environment variables.
+INFO 2025-08-03 19:40:09,600 credentials 1 281473173753888 Found credentials in environment variables.
+INFO 2025-08-03 19:40:11,891 credentials 1 281472925118496 Found credentials in environment variables.
+INFO 2025-08-03 19:40:14,934 credentials 1 281473865793568 Found credentials in environment variables.
+INFO 2025-08-03 19:40:19,592 credentials 1 281473826971680 Found credentials in environment variables.
+INFO 2025-08-03 19:40:27,458 credentials 1 281473618489376 Found credentials in environment variables.
+INFO 2025-08-03 19:40:41,708 credentials 1 281473105555488 Found credentials in environment variables.
+INFO 2025-08-03 19:41:08,843 credentials 1 281473589358624 Found credentials in environment variables.
+INFO 2025-08-03 19:42:01,438 credentials 1 281473497567264 Found credentials in environment variables.
+INFO 2025-08-03 19:43:02,842 credentials 1 281473596244000 Found credentials in environment variables.
+INFO 2025-08-03 19:44:04,256 credentials 1 281472844029984 Found credentials in environment variables.
+INFO 2025-08-03 19:44:38,836 credentials 1 281472962818080 Found credentials in environment variables.
+INFO 2025-08-03 19:44:40,368 credentials 1 281473334140960 Found credentials in environment variables.
+INFO 2025-08-03 19:44:42,004 credentials 1 281473879834656 Found credentials in environment variables.
+INFO 2025-08-03 19:44:43,883 credentials 1 281473526030368 Found credentials in environment variables.
+INFO 2025-08-03 19:44:46,113 credentials 1 281473565507616 Found credentials in environment variables.
+INFO 2025-08-03 19:44:49,123 credentials 1 281473493856288 Found credentials in environment variables.
+INFO 2025-08-03 19:44:53,822 credentials 1 281473770504224 Found credentials in environment variables.
+INFO 2025-08-03 19:45:01,694 credentials 1 281472956940320 Found credentials in environment variables.
+INFO 2025-08-03 19:45:15,925 credentials 1 281473489801248 Found credentials in environment variables.
+INFO 2025-08-03 19:45:42,950 credentials 1 281473158484000 Found credentials in environment variables.
+INFO 2025-08-03 19:46:35,578 credentials 1 281473554763808 Found credentials in environment variables.
+INFO 2025-08-03 19:47:36,983 credentials 1 281472992702496 Found credentials in environment variables.
+INFO 2025-08-03 19:48:38,361 credentials 1 281473856299040 Found credentials in environment variables.
+INFO 2025-08-03 19:49:39,790 credentials 1 281473602621472 Found credentials in environment variables.
+INFO 2025-08-03 19:50:41,211 credentials 1 281473503866912 Found credentials in environment variables.
+INFO 2025-08-03 19:51:42,623 credentials 1 281473352933408 Found credentials in environment variables.
+INFO 2025-08-03 19:52:44,039 credentials 1 281473349279776 Found credentials in environment variables.
+INFO 2025-08-03 19:53:45,473 credentials 1 281472847462432 Found credentials in environment variables.
+INFO 2025-08-03 19:54:46,853 credentials 1 281473308405792 Found credentials in environment variables.
+INFO 2025-08-03 19:55:48,241 credentials 1 281473219297312 Found credentials in environment variables.
+INFO 2025-08-03 19:56:49,668 credentials 1 281473712918560 Found credentials in environment variables.
+INFO 2025-08-03 19:57:51,085 credentials 1 281473621221408 Found credentials in environment variables.
+INFO 2025-08-03 19:58:52,533 credentials 1 281473653997600 Found credentials in environment variables.
+INFO 2025-08-03 19:59:53,935 credentials 1 281473617526816 Found credentials in environment variables.
+INFO 2025-08-03 20:00:55,314 credentials 1 281473859641376 Found credentials in environment variables.
+INFO 2025-08-03 20:01:56,781 credentials 1 281473157791776 Found credentials in environment variables.
+INFO 2025-08-03 20:02:58,208 credentials 1 281473268297760 Found credentials in environment variables.
+INFO 2025-08-03 20:03:59,633 credentials 1 281472855207968 Found credentials in environment variables.
+INFO 2025-08-03 20:05:01,082 credentials 1 281472966234144 Found credentials in environment variables.
+INFO 2025-08-03 20:06:02,498 credentials 1 281473411977248 Found credentials in environment variables.
+INFO 2025-08-03 20:07:03,972 credentials 1 281473397231648 Found credentials in environment variables.
+INFO 2025-08-03 20:08:05,378 credentials 1 281473833123872 Found credentials in environment variables.
+INFO 2025-08-03 20:09:06,783 credentials 1 281473221701664 Found credentials in environment variables.
+INFO 2025-08-03 20:10:08,179 credentials 1 281473381646368 Found credentials in environment variables.
+INFO 2025-08-03 20:11:09,571 credentials 1 281472840781856 Found credentials in environment variables.
+INFO 2025-08-03 20:12:10,998 credentials 1 281473008185376 Found credentials in environment variables.
+INFO 2025-08-03 20:13:12,459 credentials 1 281473029738528 Found credentials in environment variables.
+INFO 2025-08-03 20:14:13,871 credentials 1 281473833205792 Found credentials in environment variables.
+INFO 2025-08-03 20:15:15,251 credentials 1 281473090277408 Found credentials in environment variables.
+INFO 2025-08-03 20:16:16,675 credentials 1 281473361760288 Found credentials in environment variables.
+INFO 2025-08-03 20:17:18,068 credentials 1 281472865497120 Found credentials in environment variables.
+INFO 2025-08-03 20:18:19,453 credentials 1 281473109286944 Found credentials in environment variables.
+INFO 2025-08-03 20:19:20,852 credentials 1 281472834318368 Found credentials in environment variables.
+INFO 2025-08-03 20:20:22,232 credentials 1 281473289834528 Found credentials in environment variables.
+INFO 2025-08-03 20:21:23,621 credentials 1 281472977170464 Found credentials in environment variables.
+INFO 2025-08-03 20:22:25,018 credentials 1 281473696940064 Found credentials in environment variables.
+INFO 2025-08-03 20:23:26,414 credentials 1 281473329086496 Found credentials in environment variables.
+INFO 2025-08-03 20:24:27,799 credentials 1 281473036234784 Found credentials in environment variables.
+INFO 2025-08-03 20:25:29,187 credentials 1 281473196711968 Found credentials in environment variables.
+INFO 2025-08-03 20:26:30,613 credentials 1 281472922877984 Found credentials in environment variables.
+INFO 2025-08-03 20:27:31,989 credentials 1 281473516548128 Found credentials in environment variables.
+INFO 2025-08-03 20:28:33,410 credentials 1 281472937480224 Found credentials in environment variables.
+INFO 2025-08-03 20:29:34,760 credentials 1 281472842158112 Found credentials in environment variables.
+INFO 2025-08-03 20:30:36,128 credentials 1 281473222696992 Found credentials in environment variables.
+INFO 2025-08-03 20:31:37,512 credentials 1 281473208139808 Found credentials in environment variables.
+INFO 2025-08-03 20:32:38,899 credentials 1 281473403580448 Found credentials in environment variables.
+INFO 2025-08-03 20:33:40,295 credentials 1 281472844754976 Found credentials in environment variables.
+INFO 2025-08-03 20:34:41,669 credentials 1 281473651298336 Found credentials in environment variables.
+INFO 2025-08-03 20:35:43,061 credentials 1 281473700077600 Found credentials in environment variables.
+INFO 2025-08-03 20:36:44,470 credentials 1 281473430786080 Found credentials in environment variables.
+INFO 2025-08-03 20:37:45,787 credentials 1 281473045499936 Found credentials in environment variables.
+INFO 2025-08-03 20:38:47,174 credentials 1 281473365692448 Found credentials in environment variables.
+INFO 2025-08-03 20:39:48,551 credentials 1 281473276153888 Found credentials in environment variables.
+INFO 2025-08-03 20:40:49,925 credentials 1 281473417588768 Found credentials in environment variables.
+INFO 2025-08-03 20:41:51,374 credentials 1 281473285017632 Found credentials in environment variables.
+INFO 2025-08-03 20:42:52,822 credentials 1 281473228193824 Found credentials in environment variables.
+INFO 2025-08-03 20:43:54,241 credentials 1 281473727078432 Found credentials in environment variables.
+INFO 2025-08-03 20:44:55,658 credentials 1 281472917438496 Found credentials in environment variables.
+INFO 2025-08-03 20:45:57,163 credentials 1 281473765572640 Found credentials in environment variables.
+INFO 2025-08-03 20:46:58,593 credentials 1 281473838239776 Found credentials in environment variables.
+INFO 2025-08-03 20:48:00,031 credentials 1 281472900169760 Found credentials in environment variables.
+INFO 2025-08-03 20:49:01,477 credentials 1 281473672507424 Found credentials in environment variables.
+INFO 2025-08-03 20:50:02,865 credentials 1 281473120108576 Found credentials in environment variables.
+INFO 2025-08-03 20:51:04,321 credentials 1 281473662804000 Found credentials in environment variables.
+INFO 2025-08-03 20:52:05,739 credentials 1 281472831533088 Found credentials in environment variables.
+INFO 2025-08-03 20:53:07,148 credentials 1 281473811591200 Found credentials in environment variables.
+INFO 2025-08-03 20:54:08,546 credentials 1 281473385721888 Found credentials in environment variables.
+INFO 2025-08-03 20:55:10,001 credentials 1 281473343680544 Found credentials in environment variables.
+INFO 2025-08-03 20:56:11,467 credentials 1 281473188032544 Found credentials in environment variables.
+INFO 2025-08-03 20:57:12,875 credentials 1 281473253335072 Found credentials in environment variables.
+INFO 2025-08-03 20:58:14,302 credentials 1 281473141399584 Found credentials in environment variables.
+INFO 2025-08-03 20:59:15,676 credentials 1 281473256251424 Found credentials in environment variables.
+INFO 2025-08-03 21:00:17,046 credentials 1 281473846890528 Found credentials in environment variables.
+INFO 2025-08-03 21:01:18,441 credentials 1 281473453420576 Found credentials in environment variables.
+INFO 2025-08-03 21:02:19,849 credentials 1 281473294712864 Found credentials in environment variables.
+INFO 2025-08-03 21:03:21,264 credentials 1 281473629327392 Found credentials in environment variables.
+INFO 2025-08-03 21:04:22,678 credentials 1 281473178222624 Found credentials in environment variables.
+INFO 2025-08-03 21:05:24,085 credentials 1 281473714892832 Found credentials in environment variables.
+INFO 2025-08-03 21:06:25,472 credentials 1 281473281036320 Found credentials in environment variables.
+INFO 2025-08-03 21:07:26,865 credentials 1 281473403883552 Found credentials in environment variables.
+INFO 2025-08-03 21:08:28,253 credentials 1 281473293389856 Found credentials in environment variables.
+INFO 2025-08-03 21:09:29,636 credentials 1 281473585770528 Found credentials in environment variables.
+INFO 2025-08-03 21:10:31,018 credentials 1 281473400160288 Found credentials in environment variables.
+INFO 2025-08-03 21:11:32,416 credentials 1 281473576603680 Found credentials in environment variables.
+INFO 2025-08-03 21:12:33,797 credentials 1 281473256562720 Found credentials in environment variables.
+INFO 2025-08-03 21:13:35,191 credentials 1 281473436250144 Found credentials in environment variables.
+INFO 2025-08-03 21:14:36,569 credentials 1 281473718038560 Found credentials in environment variables.
+INFO 2025-08-03 21:15:37,952 credentials 1 281473725784096 Found credentials in environment variables.
+INFO 2025-08-03 21:16:39,329 credentials 1 281473052491808 Found credentials in environment variables.
+INFO 2025-08-03 21:17:40,716 credentials 1 281473177759776 Found credentials in environment variables.
+INFO 2025-08-03 21:18:42,111 credentials 1 281473227100192 Found credentials in environment variables.
+INFO 2025-08-03 21:19:43,532 credentials 1 281473390383136 Found credentials in environment variables.
+INFO 2025-08-03 21:20:44,948 credentials 1 281473623060512 Found credentials in environment variables.
+INFO 2025-08-03 21:21:46,335 credentials 1 281473195892768 Found credentials in environment variables.
+INFO 2025-08-03 21:22:47,717 credentials 1 281473528725536 Found credentials in environment variables.
+INFO 2025-08-03 21:23:49,099 credentials 1 281472845537312 Found credentials in environment variables.
+INFO 2025-08-03 21:24:50,527 credentials 1 281473626783776 Found credentials in environment variables.
+INFO 2025-08-03 21:25:51,947 credentials 1 281473318154272 Found credentials in environment variables.
+INFO 2025-08-03 21:26:53,331 credentials 1 281473295470624 Found credentials in environment variables.
+INFO 2025-08-03 21:27:54,716 credentials 1 281473118040096 Found credentials in environment variables.
+INFO 2025-08-03 21:28:56,080 credentials 1 281472931307552 Found credentials in environment variables.
+INFO 2025-08-03 21:29:57,437 credentials 1 281473403068448 Found credentials in environment variables.
+INFO 2025-08-03 21:30:58,815 credentials 1 281472882282528 Found credentials in environment variables.
+INFO 2025-08-03 21:32:00,215 credentials 1 281473780736032 Found credentials in environment variables.
+INFO 2025-08-03 21:33:01,609 credentials 1 281473370820640 Found credentials in environment variables.
+INFO 2025-08-03 21:34:02,995 credentials 1 281473873137696 Found credentials in environment variables.
+INFO 2025-08-03 21:35:04,391 credentials 1 281473249955872 Found credentials in environment variables.
+INFO 2025-08-03 21:36:05,773 credentials 1 281473126576160 Found credentials in environment variables.
+INFO 2025-08-03 21:37:07,167 credentials 1 281473059631136 Found credentials in environment variables.
+INFO 2025-08-03 21:38:08,521 credentials 1 281473532051488 Found credentials in environment variables.
+INFO 2025-08-03 21:39:09,880 credentials 1 281472910913568 Found credentials in environment variables.
+INFO 2025-08-03 21:40:11,235 credentials 1 281473409019936 Found credentials in environment variables.
+INFO 2025-08-03 21:41:12,615 credentials 1 281473411969056 Found credentials in environment variables.
+INFO 2025-08-03 21:42:13,994 credentials 1 281473838919712 Found credentials in environment variables.
+INFO 2025-08-03 21:43:15,400 credentials 1 281472961200160 Found credentials in environment variables.
+INFO 2025-08-03 21:44:16,839 credentials 1 281472962437152 Found credentials in environment variables.
+INFO 2025-08-03 21:45:18,238 credentials 1 281473330401312 Found credentials in environment variables.
+INFO 2025-08-03 21:46:19,745 credentials 1 281473177538592 Found credentials in environment variables.
+INFO 2025-08-03 21:47:21,177 credentials 1 281473112178720 Found credentials in environment variables.
+INFO 2025-08-03 21:48:22,605 credentials 1 281473783463968 Found credentials in environment variables.
+INFO 2025-08-03 21:49:24,005 credentials 1 281473148141600 Found credentials in environment variables.
+INFO 2025-08-03 21:50:25,409 credentials 1 281473629364256 Found credentials in environment variables.
+INFO 2025-08-03 21:51:26,784 credentials 1 281473635483680 Found credentials in environment variables.
+INFO 2025-08-03 21:52:28,181 credentials 1 281473684631584 Found credentials in environment variables.
+INFO 2025-08-03 21:53:29,577 credentials 1 281473585225760 Found credentials in environment variables.
+INFO 2025-08-03 21:54:30,969 credentials 1 281473475194912 Found credentials in environment variables.
+INFO 2025-08-03 21:55:32,378 credentials 1 281472994476064 Found credentials in environment variables.
+INFO 2025-08-03 21:56:33,807 credentials 1 281473658740768 Found credentials in environment variables.
+INFO 2025-08-03 21:57:35,195 credentials 1 281472944803872 Found credentials in environment variables.
+INFO 2025-08-03 21:58:36,603 credentials 1 281473059717152 Found credentials in environment variables.
+INFO 2025-08-03 21:59:38,028 credentials 1 281473825083424 Found credentials in environment variables.
+INFO 2025-08-03 22:00:39,455 credentials 1 281472948731936 Found credentials in environment variables.
+INFO 2025-08-03 22:01:40,879 credentials 1 281473893044256 Found credentials in environment variables.
+INFO 2025-08-03 22:02:42,285 credentials 1 281472913887264 Found credentials in environment variables.
+INFO 2025-08-03 22:03:43,696 credentials 1 281472895459360 Found credentials in environment variables.
+INFO 2025-08-03 22:04:45,095 credentials 1 281473701433376 Found credentials in environment variables.
+INFO 2025-08-03 22:05:46,490 credentials 1 281473009217568 Found credentials in environment variables.
+INFO 2025-08-03 22:06:47,887 credentials 1 281473613512736 Found credentials in environment variables.
+INFO 2025-08-03 22:07:49,245 credentials 1 281473395834912 Found credentials in environment variables.
+INFO 2025-08-03 22:08:50,637 credentials 1 281473601830944 Found credentials in environment variables.
+INFO 2025-08-03 22:09:52,037 credentials 1 281473032835104 Found credentials in environment variables.
+INFO 2025-08-03 22:10:53,427 credentials 1 281473335566368 Found credentials in environment variables.
+INFO 2025-08-03 22:11:54,806 credentials 1 281472881729568 Found credentials in environment variables.
+INFO 2025-08-03 22:12:56,225 credentials 1 281473258217504 Found credentials in environment variables.
+INFO 2025-08-03 22:13:57,612 credentials 1 281472906063904 Found credentials in environment variables.
+INFO 2025-08-03 22:14:58,999 credentials 1 281472936984608 Found credentials in environment variables.
+INFO 2025-08-03 22:16:00,381 credentials 1 281473165701152 Found credentials in environment variables.
+INFO 2025-08-03 22:17:01,765 credentials 1 281473030467616 Found credentials in environment variables.
+INFO 2025-08-03 22:18:03,218 credentials 1 281473318699040 Found credentials in environment variables.
+INFO 2025-08-03 22:19:04,690 credentials 1 281473824673824 Found credentials in environment variables.
+INFO 2025-08-03 22:20:06,115 credentials 1 281473234108448 Found credentials in environment variables.
+INFO 2025-08-03 22:21:07,519 credentials 1 281473701740576 Found credentials in environment variables.
+INFO 2025-08-03 22:22:08,941 credentials 1 281473082138656 Found credentials in environment variables.
+INFO 2025-08-03 22:23:10,360 credentials 1 281473308098592 Found credentials in environment variables.
+INFO 2025-08-03 22:24:11,766 credentials 1 281473636532256 Found credentials in environment variables.
+INFO 2025-08-03 22:25:13,189 credentials 1 281473590251552 Found credentials in environment variables.
+INFO 2025-08-03 22:26:14,618 credentials 1 281473858080800 Found credentials in environment variables.
+INFO 2025-08-03 22:27:16,037 credentials 1 281473757519904 Found credentials in environment variables.
+INFO 2025-08-03 22:28:17,463 credentials 1 281473626779680 Found credentials in environment variables.
+INFO 2025-08-03 22:29:18,910 credentials 1 281473702682656 Found credentials in environment variables.
+INFO 2025-08-03 22:30:20,339 credentials 1 281472864993312 Found credentials in environment variables.
+INFO 2025-08-03 22:31:21,734 credentials 1 281473072951328 Found credentials in environment variables.
+INFO 2025-08-03 22:32:23,134 credentials 1 281473724067872 Found credentials in environment variables.
+INFO 2025-08-03 22:33:24,544 credentials 1 281473507438624 Found credentials in environment variables.
+INFO 2025-08-03 22:34:26,000 credentials 1 281473737941024 Found credentials in environment variables.
+INFO 2025-08-03 22:35:27,383 credentials 1 281473243594784 Found credentials in environment variables.
+INFO 2025-08-03 22:36:28,756 credentials 1 281473033035808 Found credentials in environment variables.
+INFO 2025-08-03 22:37:30,135 credentials 1 281473045364768 Found credentials in environment variables.
+INFO 2025-08-03 22:38:31,532 credentials 1 281473039011872 Found credentials in environment variables.
+INFO 2025-08-03 22:39:32,909 credentials 1 281473134088224 Found credentials in environment variables.
+INFO 2025-08-03 22:40:34,316 credentials 1 281473659060256 Found credentials in environment variables.
+INFO 2025-08-03 22:41:35,696 credentials 1 281473564299296 Found credentials in environment variables.
+INFO 2025-08-03 22:42:37,075 credentials 1 281473174343712 Found credentials in environment variables.
+INFO 2025-08-03 22:43:38,445 credentials 1 281473120895008 Found credentials in environment variables.
+INFO 2025-08-03 22:44:39,822 credentials 1 281472957710368 Found credentials in environment variables.
+INFO 2025-08-03 22:45:41,207 credentials 1 281473155194912 Found credentials in environment variables.
+INFO 2025-08-03 22:46:42,562 credentials 1 281472966889504 Found credentials in environment variables.
+INFO 2025-08-03 22:47:43,979 credentials 1 281473080246304 Found credentials in environment variables.
+INFO 2025-08-03 22:48:45,367 credentials 1 281472920125472 Found credentials in environment variables.
+INFO 2025-08-03 22:49:46,748 credentials 1 281473395535904 Found credentials in environment variables.
+INFO 2025-08-03 22:50:48,093 credentials 1 281473805156384 Found credentials in environment variables.
+INFO 2025-08-03 22:51:49,505 credentials 1 281473624653856 Found credentials in environment variables.
+INFO 2025-08-03 22:52:50,869 credentials 1 281473140150304 Found credentials in environment variables.
+INFO 2025-08-03 22:53:52,259 credentials 1 281473662591008 Found credentials in environment variables.
+INFO 2025-08-03 22:54:53,672 credentials 1 281473004326944 Found credentials in environment variables.
+INFO 2025-08-03 22:55:55,104 credentials 1 281473776422944 Found credentials in environment variables.
+INFO 2025-08-03 22:56:56,480 credentials 1 281473197957152 Found credentials in environment variables.
+INFO 2025-08-03 22:57:57,875 credentials 1 281472884031520 Found credentials in environment variables.
+INFO 2025-08-03 22:58:59,289 credentials 1 281472866115616 Found credentials in environment variables.
+INFO 2025-08-03 23:00:00,726 credentials 1 281473813205024 Found credentials in environment variables.
+INFO 2025-08-03 23:01:02,133 credentials 1 281472903536672 Found credentials in environment variables.
+INFO 2025-08-03 23:02:03,504 credentials 1 281473136181280 Found credentials in environment variables.
+INFO 2025-08-03 23:03:04,945 credentials 1 281472856473632 Found credentials in environment variables.
+INFO 2025-08-03 23:04:06,336 credentials 1 281473446465568 Found credentials in environment variables.
+INFO 2025-08-03 23:05:07,719 credentials 1 281473139638304 Found credentials in environment variables.
+INFO 2025-08-03 23:06:09,080 credentials 1 281472983896096 Found credentials in environment variables.
+INFO 2025-08-03 23:07:10,434 credentials 1 281473604198432 Found credentials in environment variables.
+INFO 2025-08-03 23:08:11,781 credentials 1 281473200328736 Found credentials in environment variables.
+INFO 2025-08-03 23:09:13,156 credentials 1 281472948420640 Found credentials in environment variables.
+INFO 2025-08-03 23:10:14,544 credentials 1 281473188098080 Found credentials in environment variables.
+INFO 2025-08-03 23:11:15,935 credentials 1 281472871612448 Found credentials in environment variables.
+INFO 2025-08-03 23:12:17,344 credentials 1 281473239289888 Found credentials in environment variables.
+INFO 2025-08-03 23:13:18,831 credentials 1 281473395847200 Found credentials in environment variables.
+INFO 2025-08-03 23:14:20,260 credentials 1 281473826213920 Found credentials in environment variables.
+INFO 2025-08-03 23:15:21,621 credentials 1 281472942780448 Found credentials in environment variables.
+INFO 2025-08-03 23:16:23,005 credentials 1 281473749561376 Found credentials in environment variables.
+INFO 2025-08-03 23:17:24,423 credentials 1 281473240973344 Found credentials in environment variables.
+INFO 2025-08-03 23:18:25,826 credentials 1 281473853890592 Found credentials in environment variables.
+INFO 2025-08-03 23:19:27,236 credentials 1 281473343668256 Found credentials in environment variables.
+INFO 2025-08-03 23:20:28,622 credentials 1 281472939413536 Found credentials in environment variables.
+INFO 2025-08-03 23:21:30,010 credentials 1 281473825226784 Found credentials in environment variables.
+INFO 2025-08-03 23:22:31,379 credentials 1 281473083605024 Found credentials in environment variables.
+INFO 2025-08-03 23:23:32,739 credentials 1 281473653399584 Found credentials in environment variables.
+INFO 2025-08-03 23:24:34,134 credentials 1 281473373474848 Found credentials in environment variables.
+INFO 2025-08-03 23:25:35,527 credentials 1 281473469767712 Found credentials in environment variables.
+INFO 2025-08-03 23:26:36,970 credentials 1 281473017856032 Found credentials in environment variables.
+INFO 2025-08-03 23:27:38,432 credentials 1 281473371975712 Found credentials in environment variables.
+INFO 2025-08-03 23:28:39,853 credentials 1 281473626120224 Found credentials in environment variables.
+INFO 2025-08-03 23:29:41,279 credentials 1 281473014988832 Found credentials in environment variables.
+INFO 2025-08-03 23:30:42,727 credentials 1 281473879343136 Found credentials in environment variables.
