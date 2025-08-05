@@ -91,9 +91,9 @@ else:
 "
 fi
 
-# Start production server with gunicorn
-print_status "Starting production server with gunicorn..."
-exec gunicorn portfolio_project.wsgi:application \
+# Start production server with gunicorn using async ASGI
+print_status "Starting production server with async Django ASGI..."
+exec gunicorn portfolio_project.asgi:application \
     --bind 0.0.0.0:8000 \
     --workers 3 \
     --worker-class uvicorn.workers.UvicornWorker \

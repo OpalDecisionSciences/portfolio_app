@@ -166,14 +166,14 @@ def get_cors_allowed_origins() -> list:
 
 def get_database_config() -> dict:
     """
-    Get database configuration with security best practices.
+    Get database configuration with psycopg3 async support and security best practices.
     
     Returns:
-        Database configuration dictionary
+        Database configuration dictionary optimized for async Django
     """
     return {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django_psycopg3',  # psycopg3 async-compatible backend
             'NAME': get_env_variable('DATABASE_NAME'),
             'USER': get_env_variable('DATABASE_USER'),
             'PASSWORD': get_env_variable('DATABASE_PASSWORD'),
@@ -181,15 +181,22 @@ def get_database_config() -> dict:
             'PORT': get_env_variable('DATABASE_PORT', '5432'),
             'OPTIONS': {
                 'sslmode': get_env_variable('DATABASE_SSL_MODE', 'prefer'),
-                # psycopg3 compatible options
-                'server_side_binding': True,  # Improve performance
-                'autocommit': True,  # Better async compatibility
+                # Pure async psycopg3 configuration - NO greenlet dependency
+                'server_side_binding': True,  # Native async performance
+                'prepare_threshold': None,  # Disable prepared statements for pure async
+                'options': '-c default_transaction_isolation=read_committed',
+                # Native async connection tuning
+                'keepalives_idle': 600,
+                'keepalives_interval': 30,
+                'keepalives_count': 3,
             },
-            'CONN_MAX_AGE': 60,  # Connection pooling
-            'CONN_HEALTH_CHECKS': True,
+            'CONN_MAX_AGE': 60,  # Connection pooling for performance
+            'CONN_HEALTH_CHECKS': True,  # Health checks for connection reliability
+            'ATOMIC_REQUESTS': True,  # Recommended for async Django
             # Enhanced configuration for async workers
             'TEST': {
                 'NAME': 'test_' + get_env_variable('DATABASE_NAME'),
+                'SERIALIZE': True,  # Better for async test isolation
             },
         }
     }

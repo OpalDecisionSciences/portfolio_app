@@ -63,6 +63,9 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'storages',
     
+    # Native async Django components
+    'channels',
+    
     # Local apps
     'restaurants',
     'accounts',
@@ -91,6 +94,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'portfolio_project.wsgi.application'
+
+# ASGI Application for native async Django support
+ASGI_APPLICATION = 'portfolio_project.asgi.application'
+
+# Channel Layer Configuration for native async Redis
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [(get_env_variable('REDIS_HOST', 'redis'), get_env_variable('REDIS_PORT', 6379))],
+            'symmetric_encryption_keys': [SECRET_KEY],
+        },
+    },
+}
 
 # Database
 DATABASES = get_database_config()
