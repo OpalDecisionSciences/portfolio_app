@@ -66,16 +66,23 @@ print_status "Database is ready!"
 # Production setup - simplified for docker-compose.prod.yml
 print_status "Setting up production environment..."
 
-# Create necessary directories
+# Create necessary directories with proper permissions
 mkdir -p /app/logs /app/media /app/staticfiles /app/celery-data
+chown -R appuser:appuser /app/logs /app/media /app/staticfiles /app/celery-data 2>/dev/null || true
 
 # Run migrations
 print_status "Running database migrations..."
 python manage.py migrate --noinput
 
-# Collect static files
-print_status "Collecting static files..."
-python manage.py collectstatic --noinput --clear
+# Collect static files - handle S3 vs local differently
+if [[ "${USE_S3_STATIC:-False}" == "True" ]]; then
+    print_status "Collecting static files to S3..."
+    # For S3, don't clear local files, just upload
+    python manage.py collectstatic --noinput
+else
+    print_status "Collecting static files locally..."
+    python manage.py collectstatic --noinput --clear
+fi
 
 # Create superuser if specified
 if [[ -n "$DJANGO_SUPERUSER_USERNAME" && -n "$DJANGO_SUPERUSER_EMAIL" && -n "$DJANGO_SUPERUSER_PASSWORD" ]]; then

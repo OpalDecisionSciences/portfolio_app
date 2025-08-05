@@ -168,9 +168,25 @@ if USE_S3_STATIC:
 else:
     print("[LOCAL STATIC] Using local static files storage")
 
-# Media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# AWS S3 Media Files Configuration
+USE_S3_MEDIA = get_env_bool('USE_S3_MEDIA', False)
+
+if USE_S3_MEDIA:
+    # S3 Media files settings
+    AWS_MEDIA_BUCKET_NAME = get_env_variable('AWS_MEDIA_BUCKET_NAME')
+    AWS_MEDIA_LOCATION = 'media'
+    
+    # Media files configuration for S3
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    MEDIA_URL = f'https://{AWS_MEDIA_BUCKET_NAME}.s3.amazonaws.com/{AWS_MEDIA_LOCATION}/'
+    
+    print(f"[S3 MEDIA] Using S3 bucket: {AWS_MEDIA_BUCKET_NAME}")
+    print(f"[S3 MEDIA] Media URL: {MEDIA_URL}")
+else:
+    # Local media files
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
+    print("[LOCAL MEDIA] Using local media files storage")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
