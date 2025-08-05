@@ -1154,3 +1154,43 @@
 127.0.0.1 - - [03/Aug/2025:18:30:50 +0000] "GET /health/ HTTP/1.1" 400 143 "-" "curl/7.88.1"
 127.0.0.1 - - [03/Aug/2025:18:31:20 +0000] "GET /health/ HTTP/1.1" 400 143 "-" "curl/7.88.1"
 127.0.0.1 - - [03/Aug/2025:18:31:50 +0000] "GET /health/ HTTP/1.1" 400 143 "-" "curl/7.88.1"
+127.0.0.1:58170 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:39280 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:39290 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:34220 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:34230 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:59296 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:59310 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:49720 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:49724 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:43276 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:43280 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:47350 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:58718 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:43968 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:47188 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:38300 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:44106 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:49948 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:42424 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:50320 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:54874 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:49806 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:49140 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:49152 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:41742 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:34198 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:34208 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:59722 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:59736 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:47680 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:47692 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:51726 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:51740 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:48244 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:60890 - "GET /health/ HTTP/1.1" 400
+127.0.0.1:57842 - "GET /health/ HTTP/1.1" 200
+127.0.0.1:58176 - "GET /health/ HTTP/1.1" 200
+127.0.0.1:32962 - "GET /health/ HTTP/1.1" 200
+127.0.0.1:40722 - "GET /health/ HTTP/1.1" 200
+127.0.0.1:37274 - "GET /health/ HTTP/1.1" 200

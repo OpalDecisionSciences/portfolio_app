@@ -134,13 +134,15 @@ def get_allowed_hosts() -> list:
     if get_env_bool('DEBUG', False):
         return list(set(production_hosts + development_hosts))
     
-    # Production mode - only use specified hosts
+    # Production mode - use specified hosts plus localhost for health checks
     if not production_hosts:
         raise ImproperlyConfigured(
             "ALLOWED_HOSTS environment variable must be set in production"
         )
     
-    return production_hosts
+    # Always include localhost and 127.0.0.1 for internal health checks in production
+    internal_hosts = ['localhost', '127.0.0.1']
+    return list(set(production_hosts + internal_hosts))
 
 
 def get_cors_allowed_origins() -> list:
