@@ -28859,3 +28859,216 @@ INFO 2025-08-03 23:27:38,432 credentials 1 281473371975712 Found credentials in 
 INFO 2025-08-03 23:28:39,853 credentials 1 281473626120224 Found credentials in environment variables.
 INFO 2025-08-03 23:29:41,279 credentials 1 281473014988832 Found credentials in environment variables.
 INFO 2025-08-03 23:30:42,727 credentials 1 281473879343136 Found credentials in environment variables.
+INFO 2025-08-05 16:26:01,697 command 1 281473837072416 15 detected, shutting down
+INFO 2025-08-05 16:38:33,418 credentials 1 281473441484832 Found credentials in environment variables.
+INFO 2025-08-05 16:38:33,419 credentials 1 281473573031968 Found credentials in environment variables.
+INFO 2025-08-05 16:38:33,420 credentials 1 281473286852640 Found credentials in environment variables.
+INFO 2025-08-05 16:38:33,491 command 1 281473441484832 Visit me at http://0.0.0.0:5555
+INFO 2025-08-05 16:38:33,498 command 1 281473441484832 Broker: redis://:**@redis:6379/0
+INFO 2025-08-05 16:38:33,501 command 1 281473441484832 Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'portfolio_project.celery.debug_task',
+ 'restaurants.tasks.batch_process_pending_images',
+ 'restaurants.tasks.batch_update_recent_embeddings',
+ 'restaurants.tasks.cleanup_old_images',
+ 'restaurants.tasks.process_image_ai_categorization',
+ 'restaurants.tasks.scrape_restaurant_images_task',
+ 'restaurants.tasks.system_health_check',
+ 'restaurants.tasks.trigger_document_embedding_on_scrape',
+ 'restaurants.tasks.update_restaurant_embeddings',
+ 'restaurants.tasks.warm_popular_restaurant_cache']
+INFO 2025-08-05 16:38:33,511 mixins 1 281472781054368 Connected to redis://:**@redis:6379/0
+WARNING 2025-08-05 16:38:34,537 inspector 1 281472651030944 Inspect method active failed
+WARNING 2025-08-05 16:38:34,537 inspector 1 281472672002464 Inspect method registered failed
+WARNING 2025-08-05 16:38:34,542 inspector 1 281472692973984 Inspect method stats failed
+WARNING 2025-08-05 16:38:34,542 inspector 1 281472558756256 Inspect method revoked failed
+WARNING 2025-08-05 16:38:34,542 inspector 1 281472548270496 Inspect method conf failed
+WARNING 2025-08-05 16:38:34,542 inspector 1 281472640545184 Inspect method reserved failed
+WARNING 2025-08-05 16:38:34,543 inspector 1 281472661516704 Inspect method scheduled failed
+WARNING 2025-08-05 16:38:34,543 inspector 1 281472682488224 Inspect method active_queues failed
+INFO 2025-08-05 16:38:35,233 credentials 1 281473602297888 Found credentials in environment variables.
+WARNING 2025-08-05 16:38:36,792 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:38:37,151 credentials 1 281473759780896 Found credentials in environment variables.
+INFO 2025-08-05 16:38:39,257 credentials 1 281473065431072 Found credentials in environment variables.
+INFO 2025-08-05 16:38:41,593 credentials 1 281473064116256 Found credentials in environment variables.
+WARNING 2025-08-05 16:38:41,828 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:38:44,808 credentials 1 281472824111136 Found credentials in environment variables.
+WARNING 2025-08-05 16:38:46,879 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:38:49,597 credentials 1 281473086812192 Found credentials in environment variables.
+WARNING 2025-08-05 16:38:51,937 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:38:56,987 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:38:57,511 credentials 1 281473125290016 Found credentials in environment variables.
+WARNING 2025-08-05 16:39:02,052 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:39:11,853 credentials 1 281473539104800 Found credentials in environment variables.
+WARNING 2025-08-05 16:39:32,109 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:39:38,982 credentials 1 281473091813408 Found credentials in environment variables.
+WARNING 2025-08-05 16:40:02,164 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:40:31,784 credentials 1 281473164972064 Found credentials in environment variables.
+WARNING 2025-08-05 16:40:32,204 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:41:02,252 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:41:32,295 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:41:33,277 credentials 1 281473451843616 Found credentials in environment variables.
+WARNING 2025-08-05 16:42:02,328 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:42:32,375 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:42:34,978 credentials 1 281473061429280 Found credentials in environment variables.
+WARNING 2025-08-05 16:43:02,444 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:43:32,499 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:43:36,533 credentials 1 281472841912352 Found credentials in environment variables.
+WARNING 2025-08-05 16:44:02,555 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:44:32,610 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:44:38,032 credentials 1 281473599926304 Found credentials in environment variables.
+WARNING 2025-08-05 16:45:02,662 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:45:32,715 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:45:39,451 credentials 1 281472901713952 Found credentials in environment variables.
+WARNING 2025-08-05 16:46:02,766 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:46:32,815 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:46:41,036 credentials 1 281473445838880 Found credentials in environment variables.
+WARNING 2025-08-05 16:47:02,868 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:47:20,319 credentials 1 281473144971296 Found credentials in environment variables.
+INFO 2025-08-05 16:47:22,114 credentials 1 281472921477152 Found credentials in environment variables.
+INFO 2025-08-05 16:47:22,657 credentials 1 281473691889696 Found credentials in environment variables.
+INFO 2025-08-05 16:47:23,923 credentials 1 281473891221536 Found credentials in environment variables.
+INFO 2025-08-05 16:47:26,145 credentials 1 281473638985760 Found credentials in environment variables.
+INFO 2025-08-05 16:47:28,536 credentials 1 281472827387936 Found credentials in environment variables.
+INFO 2025-08-05 16:47:31,736 credentials 1 281472994058272 Found credentials in environment variables.
+WARNING 2025-08-05 16:47:32,904 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:47:36,438 credentials 1 281473543532576 Found credentials in environment variables.
+INFO 2025-08-05 16:47:44,326 credentials 1 281473380376608 Found credentials in environment variables.
+INFO 2025-08-05 16:47:58,587 credentials 1 281473443610656 Found credentials in environment variables.
+WARNING 2025-08-05 16:48:02,961 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:48:25,668 credentials 1 281473342066720 Found credentials in environment variables.
+WARNING 2025-08-05 16:48:33,021 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:49:03,061 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:49:18,336 credentials 1 281473501777952 Found credentials in environment variables.
+WARNING 2025-08-05 16:49:33,109 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:50:03,161 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:50:19,857 credentials 1 281472908541984 Found credentials in environment variables.
+WARNING 2025-08-05 16:50:33,213 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:51:03,252 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:51:21,701 credentials 1 281472891494432 Found credentials in environment variables.
+WARNING 2025-08-05 16:51:33,296 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:52:03,339 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:52:23,469 credentials 1 281473295900704 Found credentials in environment variables.
+WARNING 2025-08-05 16:52:33,374 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:53:03,427 web 1 281473441484832 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:53:26,829 credentials 1 281473086394400 Found credentials in environment variables.
+INFO 2025-08-05 16:53:27,588 command 1 281473441484832 15 detected, shutting down
+INFO 2025-08-05 16:53:34,613 credentials 1 281473273675808 Found credentials in environment variables.
+INFO 2025-08-05 16:53:34,615 credentials 1 281472965984288 Found credentials in environment variables.
+INFO 2025-08-05 16:53:34,618 credentials 1 281473414082592 Found credentials in environment variables.
+INFO 2025-08-05 16:53:34,690 command 1 281473414082592 Visit me at http://0.0.0.0:5555
+INFO 2025-08-05 16:53:34,696 command 1 281473414082592 Broker: redis://:**@redis:6379/0
+INFO 2025-08-05 16:53:34,699 command 1 281473414082592 Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'portfolio_project.celery.debug_task',
+ 'restaurants.tasks.batch_process_pending_images',
+ 'restaurants.tasks.batch_update_recent_embeddings',
+ 'restaurants.tasks.cleanup_old_images',
+ 'restaurants.tasks.process_image_ai_categorization',
+ 'restaurants.tasks.scrape_restaurant_images_task',
+ 'restaurants.tasks.system_health_check',
+ 'restaurants.tasks.trigger_document_embedding_on_scrape',
+ 'restaurants.tasks.update_restaurant_embeddings',
+ 'restaurants.tasks.warm_popular_restaurant_cache']
+INFO 2025-08-05 16:53:34,704 mixins 1 281472751694240 Connected to redis://:**@redis:6379/0
+WARNING 2025-08-05 16:53:35,728 inspector 1 281472594407840 Inspect method conf failed
+WARNING 2025-08-05 16:53:35,732 inspector 1 281472709751200 Inspect method scheduled failed
+WARNING 2025-08-05 16:53:35,732 inspector 1 281472720236960 Inspect method registered failed
+WARNING 2025-08-05 16:53:35,733 inspector 1 281472741208480 Inspect method stats failed
+WARNING 2025-08-05 16:53:35,733 inspector 1 281472615379360 Inspect method reserved failed
+WARNING 2025-08-05 16:53:35,733 inspector 1 281472730722720 Inspect method active_queues failed
+WARNING 2025-08-05 16:53:35,733 inspector 1 281472625865120 Inspect method active failed
+WARNING 2025-08-05 16:53:35,734 inspector 1 281472604893600 Inspect method revoked failed
+INFO 2025-08-05 16:53:36,468 credentials 1 281473147678752 Found credentials in environment variables.
+WARNING 2025-08-05 16:53:37,651 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:53:38,316 credentials 1 281473280090144 Found credentials in environment variables.
+INFO 2025-08-05 16:53:40,337 credentials 1 281472879210528 Found credentials in environment variables.
+WARNING 2025-08-05 16:53:42,690 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:53:42,808 credentials 1 281473513312288 Found credentials in environment variables.
+INFO 2025-08-05 16:53:46,049 credentials 1 281473416818720 Found credentials in environment variables.
+WARNING 2025-08-05 16:53:47,738 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:53:50,792 credentials 1 281473744588832 Found credentials in environment variables.
+WARNING 2025-08-05 16:53:52,797 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:53:57,844 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:53:58,692 credentials 1 281473288298528 Found credentials in environment variables.
+WARNING 2025-08-05 16:54:02,902 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:54:12,978 credentials 1 281473057198112 Found credentials in environment variables.
+WARNING 2025-08-05 16:54:32,951 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:54:40,078 credentials 1 281473775013920 Found credentials in environment variables.
+WARNING 2025-08-05 16:55:03,003 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:55:32,754 credentials 1 281473302646816 Found credentials in environment variables.
+WARNING 2025-08-05 16:55:33,061 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:56:03,122 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:56:33,167 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:56:34,575 credentials 1 281473458864160 Found credentials in environment variables.
+WARNING 2025-08-05 16:57:03,212 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:57:33,248 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:57:36,163 credentials 1 281473459470368 Found credentials in environment variables.
+WARNING 2025-08-05 16:58:03,289 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:58:33,332 web 1 281473414082592 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+INFO 2025-08-05 16:58:36,320 command 1 281473414082592 15 detected, shutting down
+INFO 2025-08-05 16:58:41,708 credentials 1 281473844490272 Found credentials in environment variables.
+INFO 2025-08-05 16:58:41,708 credentials 1 281473600483360 Found credentials in environment variables.
+INFO 2025-08-05 16:58:41,724 credentials 1 281473619853344 Found credentials in environment variables.
+INFO 2025-08-05 16:58:41,794 command 1 281473600483360 Visit me at http://0.0.0.0:5555
+INFO 2025-08-05 16:58:41,803 command 1 281473600483360 Broker: redis://:**@redis:6379/0
+INFO 2025-08-05 16:58:41,807 command 1 281473600483360 Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'portfolio_project.celery.debug_task',
+ 'restaurants.tasks.batch_process_pending_images',
+ 'restaurants.tasks.batch_update_recent_embeddings',
+ 'restaurants.tasks.cleanup_old_images',
+ 'restaurants.tasks.process_image_ai_categorization',
+ 'restaurants.tasks.scrape_restaurant_images_task',
+ 'restaurants.tasks.system_health_check',
+ 'restaurants.tasks.trigger_document_embedding_on_scrape',
+ 'restaurants.tasks.update_restaurant_embeddings',
+ 'restaurants.tasks.warm_popular_restaurant_cache']
+INFO 2025-08-05 16:58:41,819 mixins 1 281472940437920 Connected to redis://:**@redis:6379/0
+WARNING 2025-08-05 16:58:42,839 inspector 1 281472785248672 Inspect method conf failed
+WARNING 2025-08-05 16:58:42,845 inspector 1 281472827191712 Inspect method scheduled failed
+WARNING 2025-08-05 16:58:42,846 inspector 1 281472816705952 Inspect method active failed
+WARNING 2025-08-05 16:58:42,846 inspector 1 281472908980640 Inspect method registered failed
+WARNING 2025-08-05 16:58:42,847 inspector 1 281472795734432 Inspect method revoked failed
+WARNING 2025-08-05 16:58:42,847 inspector 1 281472806220192 Inspect method reserved failed
+WARNING 2025-08-05 16:58:42,848 inspector 1 281472929952160 Inspect method stats failed
+WARNING 2025-08-05 16:58:42,848 inspector 1 281472919466400 Inspect method active_queues failed
+WARNING 2025-08-05 16:58:45,205 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:58:50,241 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:58:55,295 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:59:00,346 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:59:05,392 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:59:10,445 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 16:59:40,504 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:00:10,559 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:00:40,605 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:01:10,660 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:01:40,720 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:02:10,770 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:02:40,823 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:03:10,870 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication
+WARNING 2025-08-05 17:03:40,915 web 1 281473600483360 401 GET /api/workers (127.0.0.1): FLOWER_UNAUTHENTICATED_API environment variable is required to enable API without authentication

@@ -57,6 +57,12 @@ services:
     networks:
       - portfolio_network_prod
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   # FastAPI RAG service
   rag:
@@ -105,6 +111,12 @@ services:
     networks:
       - portfolio_network_prod
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A portfolio_project inspect ping -d celery@$$HOSTNAME"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
     command: celery -A portfolio_project worker --loglevel=info --concurrency=2
 
   # Celery beat for periodic tasks
@@ -126,6 +138,12 @@ services:
     networks:
       - portfolio_network_prod
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f 'celery.*beat' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
     command: celery -A portfolio_project beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
   # Flower for monitoring Celery tasks (optional in production)
@@ -147,6 +165,12 @@ services:
     networks:
       - portfolio_network_prod
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5555/api/workers"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
     command: celery -A portfolio_project flower --port=5555
 
   # Nginx reverse proxy

@@ -93,7 +93,7 @@ propcache==0.3.2
 # Native async database drivers - NO greenlet dependency
 psycopg[binary]==3.1.12
 psycopg-pool==3.2.6
-django-psycopg3==0.1.3
+# Note: Django 4.2+ has native async support for psycopg3, no additional wrapper needed
 asyncpg==0.29.0  # Pure async PostgreSQL driver alternative
 # Removed psycopg2 for async Django compatibility
 pycodestyle==2.11.1

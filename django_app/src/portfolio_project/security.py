@@ -6,6 +6,7 @@ Security utilities and validation functions for production deployment.
 import os
 import secrets
 from django.core.exceptions import ImproperlyConfigured
+from django.db.backends.postgresql.psycopg_any import IsolationLevel
 from typing import Any, Optional
 
 
@@ -173,7 +174,7 @@ def get_database_config() -> dict:
     """
     return {
         'default': {
-            'ENGINE': 'django_psycopg3',  # psycopg3 async-compatible backend
+            'ENGINE': 'django.db.backends.postgresql',  # Django's native PostgreSQL backend with psycopg3
             'NAME': get_env_variable('DATABASE_NAME'),
             'USER': get_env_variable('DATABASE_USER'),
             'PASSWORD': get_env_variable('DATABASE_PASSWORD'),
@@ -184,7 +185,7 @@ def get_database_config() -> dict:
                 # Pure async psycopg3 configuration - NO greenlet dependency
                 'server_side_binding': True,  # Native async performance
                 'prepare_threshold': None,  # Disable prepared statements for pure async
-                'options': '-c default_transaction_isolation=read_committed',
+                'isolation_level': IsolationLevel.READ_COMMITTED,  # Django/psycopg3 standard isolation level
                 # Native async connection tuning
                 'keepalives_idle': 600,
                 'keepalives_interval': 30,
