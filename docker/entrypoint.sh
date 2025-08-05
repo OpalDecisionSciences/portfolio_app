@@ -66,23 +66,55 @@ print_status "Database is ready!"
 # Production setup - simplified for docker-compose.prod.yml
 print_status "Setting up production environment..."
 
-# Create necessary directories with proper permissions
-mkdir -p /app/logs /app/media /app/staticfiles /app/celery-data
-chown -R appuser:appuser /app/logs /app/media /app/staticfiles /app/celery-data 2>/dev/null || true
+# Create necessary directories for logs and celery
+mkdir -p /app/logs /app/celery-data
+chown -R appuser:appuser /app/logs /app/celery-data 2>/dev/null || true
 
 # Run migrations
 print_status "Running database migrations..."
 python manage.py migrate --noinput
 
-# Collect static files - handle S3 vs local differently
-if [[ "${USE_S3_STATIC:-False}" == "True" ]]; then
-    print_status "Collecting static files to S3..."
-    # For S3, don't clear local files, just upload
-    python manage.py collectstatic --noinput
-else
-    print_status "Collecting static files locally..."
-    python manage.py collectstatic --noinput --clear
-fi
+# Validate S3 connection and configuration
+print_status "Validating S3 configuration..."
+python -c "
+import os
+from django.conf import settings
+import boto3
+from botocore.exceptions import ClientError, NoCredentialsError
+
+try:
+    # Test S3 connection
+    s3_client = boto3.client(
+        's3',
+        aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'),
+        region_name=os.environ.get('AWS_S3_REGION_NAME', 'us-east-1')
+    )
+    
+    # Check if static bucket exists and is accessible
+    static_bucket = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    media_bucket = os.environ.get('AWS_MEDIA_BUCKET_NAME')
+    
+    if static_bucket:
+        s3_client.head_bucket(Bucket=static_bucket)
+        print(f'✓ S3 static bucket accessible: {static_bucket}')
+    
+    if media_bucket:
+        s3_client.head_bucket(Bucket=media_bucket) 
+        print(f'✓ S3 media bucket accessible: {media_bucket}')
+        
+    print('✓ S3 configuration validated successfully')
+    
+except NoCredentialsError:
+    print('✗ AWS credentials not found')
+    exit(1)
+except ClientError as e:
+    print(f'✗ S3 bucket access error: {e}')
+    exit(1)
+except Exception as e:
+    print(f'✗ S3 configuration error: {e}')
+    exit(1)
+"
 
 # Create superuser if specified
 if [[ -n "$DJANGO_SUPERUSER_USERNAME" && -n "$DJANGO_SUPERUSER_EMAIL" && -n "$DJANGO_SUPERUSER_PASSWORD" ]]; then

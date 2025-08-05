@@ -212,7 +212,6 @@ def get_security_middleware() -> list:
     """
     return [
         'django.middleware.security.SecurityMiddleware',
-        'whitenoise.middleware.WhiteNoiseMiddleware',  # Static files
         'django.contrib.sessions.middleware.SessionMiddleware',
         'corsheaders.middleware.CorsMiddleware',
         'django.middleware.common.CommonMiddleware', 

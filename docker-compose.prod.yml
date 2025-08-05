@@ -51,8 +51,6 @@ services:
     env_file:
       - .env
     volumes:
-      - media_volume_prod:/app/media
-      - static_volume_prod:/app/staticfiles
       - ./production_logs:/app/logs
     networks:
       - portfolio_network_prod
@@ -106,7 +104,6 @@ services:
     env_file: 
       - .env
     volumes:
-      - media_volume_prod:/app/media
       - ./production_logs:/app/logs
     networks:
       - portfolio_network_prod
@@ -188,8 +185,6 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - static_volume_prod:/staticfiles:ro
-      - media_volume_prod:/media:ro
       - ./ssl:/etc/letsencrypt:ro
       - ./ssl-challenges:/var/www/certbot:ro
       - ./production_logs/nginx:/var/log/nginx
@@ -230,8 +225,6 @@ services:
 volumes:
   postgres_data_prod:
   redis_data_prod:
-  media_volume_prod:
-  static_volume_prod:
 
 networks:
   portfolio_network_prod:

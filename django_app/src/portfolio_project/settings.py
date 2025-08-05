@@ -134,59 +134,38 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# AWS S3 Configuration - Production Only
+# Static and Media files stored on S3 for production deployment
+AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = get_env_variable('AWS_STORAGE_BUCKET_NAME')
+AWS_MEDIA_BUCKET_NAME = get_env_variable('AWS_MEDIA_BUCKET_NAME')
+AWS_S3_REGION_NAME = get_env_variable('AWS_S3_REGION_NAME', 'us-east-1')
+AWS_S3_CUSTOM_DOMAIN = get_env_variable('AWS_S3_CUSTOM_DOMAIN', f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com')
+
+# S3 Static files settings
+AWS_LOCATION = 'static'
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',  # 1 day cache
+}
+
+# Static files configuration for S3
+STATICFILES_STORAGE = 'storages.backends.s3boto3.StaticS3Boto3Storage'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# AWS S3 Static Files Configuration
-USE_S3_STATIC = get_env_bool('USE_S3_STATIC', False)
+# S3 Media files settings
+AWS_MEDIA_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_MEDIA_BUCKET_NAME}.s3.amazonaws.com/{AWS_MEDIA_LOCATION}/'
 
-if USE_S3_STATIC:
-    # AWS S3 Settings
-    AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = get_env_variable('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_REGION_NAME = get_env_variable('AWS_S3_REGION_NAME', 'us-east-1')
-    AWS_S3_CUSTOM_DOMAIN = get_env_variable('AWS_S3_CUSTOM_DOMAIN', f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com')
-    
-    # S3 Static files settings
-    AWS_LOCATION = 'static'
-    AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',  # 1 day cache
-    }
-    
-    # Static files configuration for S3
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.StaticS3Boto3Storage'
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
-    
-    print(f"[S3 STATIC] Using S3 bucket: {AWS_STORAGE_BUCKET_NAME}")
-    print(f"[S3 STATIC] Static URL: {STATIC_URL}")
-else:
-    print("[LOCAL STATIC] Using local static files storage")
-
-# AWS S3 Media Files Configuration
-USE_S3_MEDIA = get_env_bool('USE_S3_MEDIA', False)
-
-if USE_S3_MEDIA:
-    # S3 Media files settings
-    AWS_MEDIA_BUCKET_NAME = get_env_variable('AWS_MEDIA_BUCKET_NAME')
-    AWS_MEDIA_LOCATION = 'media'
-    
-    # Media files configuration for S3
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    MEDIA_URL = f'https://{AWS_MEDIA_BUCKET_NAME}.s3.amazonaws.com/{AWS_MEDIA_LOCATION}/'
-    
-    print(f"[S3 MEDIA] Using S3 bucket: {AWS_MEDIA_BUCKET_NAME}")
-    print(f"[S3 MEDIA] Media URL: {MEDIA_URL}")
-else:
-    # Local media files
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'
-    print("[LOCAL MEDIA] Using local media files storage")
+print(f"[S3 STATIC] Using S3 bucket: {AWS_STORAGE_BUCKET_NAME}")
+print(f"[S3 STATIC] Static URL: {STATIC_URL}")
+print(f"[S3 MEDIA] Using S3 bucket: {AWS_MEDIA_BUCKET_NAME}") 
+print(f"[S3 MEDIA] Media URL: {MEDIA_URL}")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -392,17 +371,8 @@ if not DEBUG:
         globals()[key] = value
 
 # Additional Security Settings for Production
-if not DEBUG:
-    # Static files serving security
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    
-    # Admin security
-    ADMIN_URL = get_env_variable('ADMIN_URL', 'admin')  # Custom admin URL
-    
-    # Cache security
-    if 'default' in CACHES:
-        CACHES['default']['KEY_PREFIX'] = get_env_variable('CACHE_PREFIX', 'portfolio')
+# Admin security
+ADMIN_URL = get_env_variable('ADMIN_URL', 'admin')  # Custom admin URL
 
 # Rate limiting configuration
 RATELIMIT_ENABLE = True
